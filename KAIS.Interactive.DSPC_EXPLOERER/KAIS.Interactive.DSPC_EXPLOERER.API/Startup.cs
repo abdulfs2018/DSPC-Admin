@@ -2,10 +2,15 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using KAIS.Interactive.DSPC_EXPLORER.Infrastructure;
+using KAIS.Interactive.DSPC_EXPLORER.Infrastructure.Interface;
+using KAIS.Interactive.DSPC_EXPLORER.Infrastructure.Model;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -26,6 +31,15 @@ namespace KAIS.Interactive.DSPC_EXPLOERER.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+
+
+            services.AddDbContext<DSPC_ExplorerDbContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddDefaultIdentity<IdentityUser>()
+                .AddEntityFrameworkStores<DSPC_ExplorerDbContext>();
+            services.AddScoped<IDSPC_Repository, DSPC_Repository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
