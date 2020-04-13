@@ -4,14 +4,16 @@ using KAIS.Interactive.DSPC_EXPLORER.Infrastructure.Model;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure.Migrations
 {
     [DbContext(typeof(DSPC_ExplorerDbContext))]
-    partial class DSPC_ExplorerDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200412041349_InitialCreation")]
+    partial class InitialCreation
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
