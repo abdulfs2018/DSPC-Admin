@@ -1,20 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿
+using KAIS.Interactive.DSPC_EXPLORER.API.Utilities;
 using KAIS.Interactive.DSPC_EXPLORER.Infrastructure;
 using KAIS.Interactive.DSPC_EXPLORER.Infrastructure.Interface;
 using KAIS.Interactive.DSPC_EXPLORER.Infrastructure.Model;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
+using Microsoft.OpenApi.Models;
 
 namespace KAIS.Interactive.DSPC_EXPLOERER.API
 {
@@ -40,6 +36,13 @@ namespace KAIS.Interactive.DSPC_EXPLOERER.API
             services.AddDefaultIdentity<IdentityUser>()
                 .AddEntityFrameworkStores<DSPC_ExplorerDbContext>();
             services.AddScoped<IDSPC_Repository, DSPC_Repository>();
+
+            services.AddSwaggerGen(sgen =>
+            {
+                sgen.SwaggerDoc("v1", new OpenApiInfo { Title = "KAIS Solutions - DSPC Explorer API", Version = "v1" });
+            });
+
+            services.AddCors();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -55,7 +58,29 @@ namespace KAIS.Interactive.DSPC_EXPLOERER.API
                 app.UseHsts();
             }
 
+            var swaggerConfiguration = new SwaggerConfiguration();
+            Configuration.GetSection(nameof(SwaggerConfiguration)).Bind(swaggerConfiguration);
+            app.UseSwagger(option =>
+            {
+                option.RouteTemplate = swaggerConfiguration.JsonRoute;
+            });
+
+            app.UseSwaggerUI(option => {
+                option.SwaggerEndpoint(swaggerConfiguration.UiEndpoint, swaggerConfiguration.Description);
+                option.RoutePrefix = string.Empty;
+            });
+
             app.UseHttpsRedirection();
+            app.UseStaticFiles();
+            app.UseCors(options =>
+            {
+                options
+                        .WithOrigins("http://localhost")
+                        .AllowAnyOrigin()
+                        .AllowAnyMethod()
+                        .AllowAnyHeader();
+
+            });
             app.UseMvc();
         }
     }

@@ -20,7 +20,6 @@ namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure.Model
         public string MarriageStatus { get; set; }
         public DateTime DeathDate { get; set; }
         public DateTime BurialDate { get; set; }
-        public string GraveReferenceCode { get; set; }
         public string Public { get; set; }
         public string Proprietary { get; set; }
         public string SectionInfo { get; set; }

@@ -80,8 +80,6 @@ namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure.Migrations
 
                     b.Property<int?>("GraveOwnerId");
 
-                    b.Property<string>("GraveReferenceCode");
-
                     b.Property<string>("InternmentSignature");
 
                     b.Property<string>("LastName");
