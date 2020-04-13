@@ -88,7 +88,6 @@ namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure.Migrations
                     MarriageStatus = table.Column<string>(nullable: true),
                     DeathDate = table.Column<DateTime>(nullable: false),
                     BurialDate = table.Column<DateTime>(nullable: false),
-                    GraveReferenceCode = table.Column<string>(nullable: true),
                     Public = table.Column<string>(nullable: true),
                     Proprietary = table.Column<string>(nullable: true),
                     SectionInfo = table.Column<string>(nullable: true),

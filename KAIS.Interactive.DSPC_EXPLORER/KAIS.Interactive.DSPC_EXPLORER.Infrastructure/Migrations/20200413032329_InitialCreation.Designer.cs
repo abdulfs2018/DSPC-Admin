@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure.Migrations
 {
     [DbContext(typeof(DSPC_ExplorerDbContext))]
-    [Migration("20200412041349_InitialCreation")]
+    [Migration("20200413032329_InitialCreation")]
     partial class InitialCreation
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -81,8 +81,6 @@ namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure.Migrations
                     b.Property<string>("FirstName");
 
                     b.Property<int?>("GraveOwnerId");
-
-                    b.Property<string>("GraveReferenceCode");
 
                     b.Property<string>("InternmentSignature");
 
