@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29123.88
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KAIS.Interactive.DSPC_EXPLORER.API", "KAIS.Interactive.DSPC_EXPLOERER.API\KAIS.Interactive.DSPC_EXPLORER.API.csproj", "{65AB1885-4EF9-43BD-8F0B-57B5E7BA1D28}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KAIS.Interactive.DSPC_EXPLORER.API", "KAIS.Interactive.DSPC_EXPLORER.API\KAIS.Interactive.DSPC_EXPLORER.API.csproj", "{65AB1885-4EF9-43BD-8F0B-57B5E7BA1D28}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KAIS.Interactive.DSPC_EXPLORER.Infrastructure", "KAIS.Interactive.DSPC_EXPLORER.Infrastructure\KAIS.Interactive.DSPC_EXPLORER.Infrastructure.csproj", "{E5E33CAD-AB2F-433B-8EAF-7B670EDEFEEC}"
 EndProject
