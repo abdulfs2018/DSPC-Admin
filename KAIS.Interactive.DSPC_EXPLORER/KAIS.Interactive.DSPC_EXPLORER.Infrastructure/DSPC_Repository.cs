@@ -16,15 +16,26 @@ namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure
         {
             _dbContext = context;
         }
-        public async Task<bool> AddNewCompanyRecord(Registrar registrar)
+        public async Task<bool> AddNewRegistrar(Registrar registrar)
         {
             //var existingRegistrars = _dbContext.Registrars.AllAsync(); ;
             throw new System.NotImplementedException();
         }
 
-        public async Task<List<Registrar>> GetCompanyRecords()
+        public async Task<List<Registrar>> GetListRegistrar()
         {
-            throw new System.NotImplementedException();
+            return await _dbContext.Registrars.ToListAsync();
+        }
+
+        public async Task<Registrar> GetRegistrarByName(string name)
+        {
+            return await (from r in _dbContext.Registrars
+                          where r.Equals(name)
+                          select new Registrar
+                          {
+                              FirstName = r.FirstName,
+
+                          }).FirstOrDefaultAsync();
         }
     }
 }
