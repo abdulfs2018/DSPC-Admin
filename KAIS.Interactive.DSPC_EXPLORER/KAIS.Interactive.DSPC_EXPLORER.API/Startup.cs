@@ -26,16 +26,15 @@ namespace KAIS.Interactive.DSPC_EXPLOERER.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-
-
-
+            
             services.AddDbContext<DSPC_ExplorerDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddDefaultIdentity<IdentityUser>()
                 .AddEntityFrameworkStores<DSPC_ExplorerDbContext>();
             services.AddScoped<IDSPC_Repository, DSPC_Repository>();
+
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             services.AddSwaggerGen(sgen =>
             {
