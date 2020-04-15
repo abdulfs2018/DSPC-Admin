@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
+    <AssemblyName>KAIS.Interactive.DSPC_EXPLORER.API</AssemblyName>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <OutputPath></OutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.2.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="5.2.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="5.2.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="5.2.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\KAIS.Interactive.DSPC_EXPLORER.Infrastructure\KAIS.Interactive.DSPC_EXPLORER.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>
