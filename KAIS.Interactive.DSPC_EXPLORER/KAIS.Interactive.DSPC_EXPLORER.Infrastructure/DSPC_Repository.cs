@@ -41,8 +41,7 @@ namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure
         public async Task<bool> AddNewGraveOwner(GraveOwner graveOwner)
         {
 
-
-            var data = (from grave in _dbContext.GraveOwners
+            var data = await (from grave in _dbContext.GraveOwners
                         from section in _dbContext.Sections
                         where grave.GraveReferenceCode == graveOwner.GraveReferenceCode && section.Id == graveOwner.Section.Id
                         select new GraveOwner
@@ -52,18 +51,20 @@ namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure
                             {
                                 Id = section.Id
                             }
-                        }).FirstOrDefault();
+                        }).FirstOrDefaultAsync();
 
             if(data == null)
             {
 
-                graveOwner.Section = new Section()
-                {
-                    Id = data.Section.Id,
-                    Code = data.Section.Code,
-                    DateOpened = data.Section.DateOpened,
-                    GraveCount =data.Section.GraveCount
-                };
+                // Use a get on GraveOwner based on the Section Code used, then use this section if exists
+
+                //graveOwner.Section = new Section()
+                //{
+                //    Id = data.Section.Id,
+                //    Code = data.Section.Code,
+                //    DateOpened = data.Section.DateOpened,
+                //    GraveCount =data.Section.GraveCount
+                //};
 
                 _dbContext.GraveOwners.Add(graveOwner);
                 int status = _dbContext.SaveChanges();
@@ -72,6 +73,53 @@ namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure
             }
 
             return false;
+
+        }
+
+        public async Task<bool> AddNewSection(Section section)
+        {
+            var data = await (from s in _dbContext.Sections
+                              where s.Id == section.Id
+                              select new Section
+                              {
+                                  Id = s.Id,
+                                  Code = s.Code,
+                                  DateOpened = s.DateOpened,
+                                  GraveCount = s.GraveCount
+                              }).FirstOrDefaultAsync();
+
+            if (data == null)
+            {
+                _dbContext.Sections.Add(section);
+                int status = _dbContext.SaveChanges();
+
+                return status > 0;
+            }
+
+            return false;
+        }
+
+        public async Task<List<Section>> getListSection()
+        {
+            return await _dbContext.Sections.ToListAsync();
+        }
+
+        public async Task<List<GraveOwner>> GetListGraveOwner()
+        {
+            return await _dbContext.GraveOwners.ToListAsync();
+        }
+
+        public async Task<Section> GetSectionByCode(string code)
+        {
+            return await (from section in _dbContext.Sections
+                          where section.Code == code
+                          select new Section
+                          {
+                              Id = section.Id,
+                              Code = section.Code,
+                              DateOpened = section.DateOpened,
+                              GraveCount = section.GraveCount,
+                          }).FirstOrDefaultAsync();
 
         }
 

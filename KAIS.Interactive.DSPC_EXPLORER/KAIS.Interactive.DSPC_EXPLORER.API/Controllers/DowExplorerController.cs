@@ -65,38 +65,42 @@ namespace KAIS.Interactive.DSPC_EXPLORER.API.Controllers
 
         [HttpPost("kais/api/dspc_explorer/addnewgraveowner")]
         public async Task<IActionResult> AddNewGraveOwner(string subId, string jKIndex, string graveReferenceCode, 
-            string section, int graveRow, string graveSize, string graveLocation, bool graveHeadStone, string graveOwnerName, string graveOwnerAddress, string remarks)
+            string section, int graveRow, int graveDepth, string graveSize, string graveLocation, bool graveHeadStone, string graveOwnerName, string graveOwnerAddress, string remarks)
         {
             try
             {
 
                 SectionType sectionEnum = (SectionType)Enum.Parse(typeof(SectionType), section);
 
+                GeneralEnums enumControls = new GeneralEnums();
+
+                int sectionId = enumControls.GetSectionNumberFromLetter(sectionEnum);
+
                 GraveOwner graveOwner = new GraveOwner
                 {
                     SubId = subId,
                     JkIndex = jKIndex,
                     GraveReferenceCode = graveReferenceCode,
-
+                    GraveRow = graveRow,
+                    GraveDepth = graveDepth,
+                    GraveSize = graveSize,
+                    GraveLocation = graveLocation,
+                    GraveHeadStone = graveHeadStone,
+                    GraveOwnerName = graveOwnerName,
+                    GraveOwnerAddress = graveOwnerAddress,
+                    Remarks = remarks,
                     Section = new Section
                     {
-                        Id = int.Parse(sectionEnum.ToString()),
-                        
-                        
-                    }
-
+                        Id = sectionId,
+                    },
 
                 };
-                
 
+                var inserted = await _repository.AddNewGraveOwner(graveOwner);
 
-
-
-                var data = await _repository.AddNewGraveOwner(graveOwner);
-
-                if (data != null)
+                if (inserted)
                 {
-                    return Ok(data);
+                    return Ok(true);
                 }
                 else
                 {
@@ -108,6 +112,61 @@ namespace KAIS.Interactive.DSPC_EXPLORER.API.Controllers
                 return BadRequest();
             }
         }
+
+        [HttpPost("kais/api/dspc_explorer/addnewsection")]
+        public async Task<IActionResult> AddNewSection(string code, DateTime dateOpened, int graveCount)
+        {
+            try
+            {
+
+
+                Section newSection = new Section
+                {
+                    Code = code,
+                    DateOpened = dateOpened,
+                    GraveCount = graveCount,
+                };
+
+                var inserted = await _repository.AddNewSection(newSection);
+
+                if (inserted)
+                {
+                    return Ok(true);
+                }
+                else
+                {
+                    return NotFound();
+                }
+            }
+            catch (Exception)
+            {
+                return BadRequest();
+            }
+        }
+
+        [HttpGet("kais/api/dspc_explorer/getsectionbycode")]
+        public async Task<IActionResult> GetSectionByCode(string code)
+        {
+            try
+            {
+
+                var section = await _repository.GetSectionByCode(code);
+
+                if (section != null)
+                {
+                    return Ok(section);
+                }
+                else
+                {
+                    return NotFound();
+                }
+            }
+            catch (Exception)
+            {
+                return BadRequest();
+            }
+        }
+
 
 
         #region repository
