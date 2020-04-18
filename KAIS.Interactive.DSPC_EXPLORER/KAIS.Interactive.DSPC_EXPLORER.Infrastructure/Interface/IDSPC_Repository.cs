@@ -10,6 +10,6 @@ namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure.Interface
         Task<bool> AddNewRegistrar(Registrar registrar);
         Task<List<Registrar>> GetListRegistrar();
         Task<Registrar> GetRegistrarByName(string name);
-        
+        Task<bool> AddNewGraveOwner(GraveOwner graveOwner);
     }
 }

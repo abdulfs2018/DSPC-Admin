@@ -37,5 +37,43 @@ namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure
 
                           }).FirstOrDefaultAsync();
         }
+
+        public async Task<bool> AddNewGraveOwner(GraveOwner graveOwner)
+        {
+
+
+            var data = (from grave in _dbContext.GraveOwners
+                        from section in _dbContext.Sections
+                        where grave.GraveReferenceCode == graveOwner.GraveReferenceCode && section.Id == graveOwner.Section.Id
+                        select new GraveOwner
+                        {
+                            Id = grave.Id,
+                            Section = new Section
+                            {
+                                Id = section.Id
+                            }
+                        }).FirstOrDefault();
+
+            if(data == null)
+            {
+
+                graveOwner.Section = new Section()
+                {
+                    Id = data.Section.Id,
+                    Code = data.Section.Code,
+                    DateOpened = data.Section.DateOpened,
+                    GraveCount =data.Section.GraveCount
+                };
+
+                _dbContext.GraveOwners.Add(graveOwner);
+                int status = _dbContext.SaveChanges();
+
+                return status > 0;
+            }
+
+            return false;
+
+        }
+
     }
 }

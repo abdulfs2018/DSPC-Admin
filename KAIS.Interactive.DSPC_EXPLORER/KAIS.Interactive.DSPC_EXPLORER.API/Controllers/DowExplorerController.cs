@@ -1,8 +1,9 @@
-﻿using KAIS.Interactive.DSPC_EXPLORER.Infrastructure;
+﻿using KAIS.Interactive.DSPC_EXPLORER.Infrastructure.Model;
 using KAIS.Interactive.DSPC_EXPLORER.Infrastructure.Interface;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Threading.Tasks;
+using KAIS.Interactive.DSPC_EXPLORER.API.Services.Enums;
 
 namespace KAIS.Interactive.DSPC_EXPLORER.API.Controllers
 {
@@ -61,6 +62,53 @@ namespace KAIS.Interactive.DSPC_EXPLORER.API.Controllers
                 return BadRequest();
             }
         }
+
+        [HttpPost("kais/api/dspc_explorer/addnewgraveowner")]
+        public async Task<IActionResult> AddNewGraveOwner(string subId, string jKIndex, string graveReferenceCode, 
+            string section, int graveRow, string graveSize, string graveLocation, bool graveHeadStone, string graveOwnerName, string graveOwnerAddress, string remarks)
+        {
+            try
+            {
+
+                SectionType sectionEnum = (SectionType)Enum.Parse(typeof(SectionType), section);
+
+                GraveOwner graveOwner = new GraveOwner
+                {
+                    SubId = subId,
+                    JkIndex = jKIndex,
+                    GraveReferenceCode = graveReferenceCode,
+
+                    Section = new Section
+                    {
+                        Id = int.Parse(sectionEnum.ToString()),
+                        
+                        
+                    }
+
+
+                };
+                
+
+
+
+
+                var data = await _repository.AddNewGraveOwner(graveOwner);
+
+                if (data != null)
+                {
+                    return Ok(data);
+                }
+                else
+                {
+                    return NotFound();
+                }
+            }
+            catch (Exception)
+            {
+                return BadRequest();
+            }
+        }
+
 
         #region repository
         private readonly IDSPC_Repository _repository;
