@@ -91,7 +91,7 @@ namespace KAIS.Interactive.DSPC_EXPLORER.API.Controllers
                     Remarks = remarks,
                     Section = new Section
                     {
-                        Id = sectionId,
+                        Code = section,
                     },
 
                 };
@@ -107,7 +107,7 @@ namespace KAIS.Interactive.DSPC_EXPLORER.API.Controllers
                     return NotFound();
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 return BadRequest();
             }
@@ -167,6 +167,80 @@ namespace KAIS.Interactive.DSPC_EXPLORER.API.Controllers
             }
         }
 
+        [HttpPost("kais/api/dspc_explorer/addnewregistrar")]
+        public async Task<IActionResult> AddNewRegistrar(string bookPage, int numberInBook, string firstName, string lastName, string sex, int age, string ageDetail, string religion, string occupation, string deathLocation, string marriageStatus, DateTime deathDate, DateTime burialDate, string graveReferenceCode, string publicInfo, string proprietary, string sectionInfo, string numberInfo, string internmentSignature, string additionalComments, string registrarName)
+        {
+
+            try
+            {
+                
+                Registrar newRegistrar = new Registrar
+                {
+                   BookPage = bookPage,
+                   NumberInBook = numberInBook,
+                   FirstName =  firstName,
+                   LastName = lastName,
+                   Sex = sex,
+                   Age = age,
+                   AgeDetail = ageDetail,
+                   Religion = religion,
+                   Occupation = occupation,
+                   DeathLocation = deathLocation,
+                   MarriageStatus = marriageStatus,
+                   DeathDate = deathDate,
+                   BurialDate = burialDate,
+                   GraveOwner = new GraveOwner
+                   {
+                       GraveReferenceCode = graveReferenceCode
+                   },
+                   Public = publicInfo,
+                   Proprietary = proprietary,
+                   SectionInfo = sectionInfo,
+                   NumberInfo = numberInfo,
+                   InternmentSignature = internmentSignature,
+                   AdditionalComments = additionalComments,
+                   RegistrarName = registrarName,
+                };
+
+                var inserted = await _repository.AddNewRegistrar(newRegistrar);
+
+                if (inserted)
+                {
+                    return Ok(true);
+                }
+                else
+                {
+                    return NotFound();
+                }
+            }
+            catch (Exception)
+            {
+                return BadRequest();
+            }
+        }
+
+        [HttpGet("kais/api/dspc_explorer/getregistrarbyreferencecode")]
+        public async Task<IActionResult> GetRegistrarByReferenceCode(string code)
+        {
+            try
+            {
+
+                var registrar = await _repository.GetRegistrarByReferenceCode(code);
+
+                if (registrar != null)
+                {
+                    return Ok(registrar);
+                }
+                else
+                {
+                    return NotFound();
+                }
+            }
+            catch (Exception)
+            {
+                return BadRequest();
+            }
+        }
 
 
         #region repository
