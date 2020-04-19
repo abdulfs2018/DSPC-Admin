@@ -1,8 +1,9 @@
-﻿using KAIS.Interactive.DSPC_EXPLORER.Infrastructure;
+﻿using KAIS.Interactive.DSPC_EXPLORER.Infrastructure.Model;
 using KAIS.Interactive.DSPC_EXPLORER.Infrastructure.Interface;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Threading.Tasks;
+using KAIS.Interactive.DSPC_EXPLORER.API.Services.Enums;
 
 namespace KAIS.Interactive.DSPC_EXPLORER.API.Controllers
 {
@@ -24,14 +25,9 @@ namespace KAIS.Interactive.DSPC_EXPLORER.API.Controllers
             {
                 var data = await _repository.GetListRegistrar();
 
-                if (data != null)
-                {
-                    return Ok(data);
-                }
-                else
-                {
-                    return NotFound();
-                }
+                if (data != null) return Ok(data);
+                return Ok(false);
+                
             }
             catch (Exception)
             {
@@ -47,14 +43,151 @@ namespace KAIS.Interactive.DSPC_EXPLORER.API.Controllers
             {
                 var data = await _repository.GetRegistrarByName(firstName);
 
-                if (data != null)
+                if (data != null) return Ok(data);
+                return Ok(false);
+            }
+            catch (Exception)
+            {
+                return BadRequest();
+            }
+        }
+
+        [HttpGet("kais/api/dspc_explorer/getsectionbycode")]
+        public async Task<IActionResult> GetSectionByCode(string code)
+        {
+            try
+            {
+
+                var section = await _repository.GetSectionByCode(code);
+
+                if (section != null) return Ok(section);
+                return Ok(false);
+                
+            }
+            catch (Exception)
+            {
+                return BadRequest();
+            }
+        }
+
+        [HttpGet("kais/api/dspc_explorer/getregistrarbyreferencecode")]
+        public async Task<IActionResult> GetRegistrarByReferenceCode(string code)
+        {
+            try
+            {
+                var registrar = await _repository.GetRegistrarByReferenceCode(code);
+
+                if (registrar != null) return Ok(registrar);
+                return Ok(false);
+                
+            }
+            catch (Exception)
+            {
+                return BadRequest();
+            }
+        }
+
+        [HttpPost("kais/api/dspc_explorer/addnewgraveowner")]
+        public async Task<IActionResult> AddNewGraveOwner(string subId, string jKIndex, string graveReferenceCode, 
+            string section, int graveRow, int graveDepth, string graveSize, string graveLocation, bool graveHeadStone, string graveOwnerName, string graveOwnerAddress, string remarks)
+        {
+            try
+            {
+
+                SectionType sectionEnum = (SectionType)Enum.Parse(typeof(SectionType), section);
+
+                GeneralEnums enumControls = new GeneralEnums();
+
+                int sectionId = enumControls.GetSectionNumberFromLetter(sectionEnum);
+
+                GraveOwner graveOwner = new GraveOwner
                 {
-                    return Ok(data);
-                }
-                else
+                    SubId = subId,
+                    JkIndex = jKIndex,
+                    GraveReferenceCode = graveReferenceCode,
+                    GraveRow = graveRow,
+                    GraveDepth = graveDepth,
+                    GraveSize = graveSize,
+                    GraveLocation = graveLocation,
+                    GraveHeadStone = graveHeadStone,
+                    GraveOwnerName = graveOwnerName,
+                    GraveOwnerAddress = graveOwnerAddress,
+                    Remarks = remarks,
+                    Section = new Section
+                    {
+                        Code = section,
+                    },
+
+                };
+
+                var inserted = await _repository.AddNewGraveOwner(graveOwner);
+                return Ok(inserted);
+            }
+            catch (Exception)
+            {
+                return BadRequest();
+            }
+        }
+
+        [HttpPost("kais/api/dspc_explorer/addnewsection")]
+        public async Task<IActionResult> AddNewSection(string code, DateTime dateOpened, int graveCount)
+        {
+            try
+            {
+
+                Section newSection = new Section
                 {
-                    return NotFound();
-                }
+                    Code = code,
+                    DateOpened = dateOpened,
+                    GraveCount = graveCount,
+                };
+
+                var inserted = await _repository.AddNewSection(newSection);
+                return Ok(inserted);
+            }
+            catch (Exception)
+            {
+                return BadRequest();
+            }
+        }
+
+        [HttpPost("kais/api/dspc_explorer/addnewregistrar")]
+        public async Task<IActionResult> AddNewRegistrar(string bookPage, int numberInBook, string firstName, string lastName, string sex, int age, string ageDetail, string religion, string occupation, string deathLocation, string marriageStatus, DateTime deathDate, DateTime burialDate, string graveReferenceCode, string publicInfo, string proprietary, string sectionInfo, string numberInfo, string internmentSignature, string additionalComments, string registrarName)
+        {
+
+            try
+            {
+                
+                Registrar newRegistrar = new Registrar
+                {
+                   BookPage = bookPage,
+                   NumberInBook = numberInBook,
+                   FirstName =  firstName,
+                   LastName = lastName,
+                   Sex = sex,
+                   Age = age,
+                   AgeDetail = ageDetail,
+                   Religion = religion,
+                   Occupation = occupation,
+                   DeathLocation = deathLocation,
+                   MarriageStatus = marriageStatus,
+                   DeathDate = deathDate,
+                   BurialDate = burialDate,
+                   GraveOwner = new GraveOwner
+                   {
+                       GraveReferenceCode = graveReferenceCode
+                   },
+                   Public = publicInfo,
+                   Proprietary = proprietary,
+                   SectionInfo = sectionInfo,
+                   NumberInfo = numberInfo,
+                   InternmentSignature = internmentSignature,
+                   AdditionalComments = additionalComments,
+                   RegistrarName = registrarName,
+                };
+
+                var inserted = await _repository.AddNewRegistrar(newRegistrar);
+                return Ok(inserted); 
             }
             catch (Exception)
             {

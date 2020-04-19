@@ -1,5 +1,4 @@
-﻿
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure.Model
@@ -12,7 +11,6 @@ namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure.Model
         public string JkIndex { get; set; }
         [ForeignKey("GraveReferenceCode")]
         public string GraveReferenceCode { get; set; }
-        public int SectionId { get; set; }
         public int GraveRow { get; set; }
         public int GraveDepth { get; set; }
         public string GraveSize { get; set; }
