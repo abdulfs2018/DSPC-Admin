@@ -1,5 +1,4 @@
-﻿
-using KAIS.Interactive.DSPC_EXPLORER.Infrastructure.Model;
+﻿using KAIS.Interactive.DSPC_EXPLORER.Infrastructure.Model;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 

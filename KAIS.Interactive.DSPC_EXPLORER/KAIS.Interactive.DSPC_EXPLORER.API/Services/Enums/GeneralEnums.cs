@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace KAIS.Interactive.DSPC_EXPLORER.API.Services.Enums
 {
@@ -20,8 +16,6 @@ namespace KAIS.Interactive.DSPC_EXPLORER.API.Services.Enums
 
     public class GeneralEnums
     {
-
-       
 
         readonly Dictionary<SectionType, int> sectionMapping = 
             new Dictionary<SectionType, int> {
