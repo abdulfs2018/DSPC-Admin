@@ -25,14 +25,9 @@ namespace KAIS.Interactive.DSPC_EXPLORER.API.Controllers
             {
                 var data = await _repository.GetListRegistrar();
 
-                if (data != null)
-                {
-                    return Ok(data);
-                }
-                else
-                {
-                    return NotFound();
-                }
+                if (data != null) return Ok(data);
+                return Ok(false);
+                
             }
             catch (Exception)
             {
@@ -48,14 +43,8 @@ namespace KAIS.Interactive.DSPC_EXPLORER.API.Controllers
             {
                 var data = await _repository.GetRegistrarByName(firstName);
 
-                if (data != null)
-                {
-                    return Ok(data);
-                }
-                else
-                {
-                    return NotFound();
-                }
+                if (data != null) return Ok(data);
+                return Ok(false);
             }
             catch (Exception)
             {
@@ -71,14 +60,9 @@ namespace KAIS.Interactive.DSPC_EXPLORER.API.Controllers
 
                 var section = await _repository.GetSectionByCode(code);
 
-                if (section != null)
-                {
-                    return Ok(section);
-                }
-                else
-                {
-                    return NotFound();
-                }
+                if (section != null) return Ok(section);
+                return Ok(false);
+                
             }
             catch (Exception)
             {
@@ -91,17 +75,11 @@ namespace KAIS.Interactive.DSPC_EXPLORER.API.Controllers
         {
             try
             {
-
                 var registrar = await _repository.GetRegistrarByReferenceCode(code);
 
-                if (registrar != null)
-                {
-                    return Ok(registrar);
-                }
-                else
-                {
-                    return NotFound();
-                }
+                if (registrar != null) return Ok(registrar);
+                return Ok(false);
+                
             }
             catch (Exception)
             {
@@ -143,17 +121,9 @@ namespace KAIS.Interactive.DSPC_EXPLORER.API.Controllers
                 };
 
                 var inserted = await _repository.AddNewGraveOwner(graveOwner);
-
-                if (inserted)
-                {
-                    return Ok(true);
-                }
-                else
-                {
-                    return NotFound();
-                }
+                return Ok(inserted);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return BadRequest();
             }
@@ -173,15 +143,7 @@ namespace KAIS.Interactive.DSPC_EXPLORER.API.Controllers
                 };
 
                 var inserted = await _repository.AddNewSection(newSection);
-
-                if (inserted)
-                {
-                    return Ok(true);
-                }
-                else
-                {
-                    return NotFound();
-                }
+                return Ok(inserted);
             }
             catch (Exception)
             {
@@ -225,15 +187,7 @@ namespace KAIS.Interactive.DSPC_EXPLORER.API.Controllers
                 };
 
                 var inserted = await _repository.AddNewRegistrar(newRegistrar);
-
-                if (inserted)
-                {
-                    return Ok(true);
-                }
-                else
-                {
-                    return NotFound();
-                }
+                return Ok(inserted); 
             }
             catch (Exception)
             {

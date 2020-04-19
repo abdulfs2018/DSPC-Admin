@@ -21,7 +21,7 @@ namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure
             var data = await (from person in _dbContext.Registrars
                               from grave in _dbContext.GraveOwners
                               from section in _dbContext.Sections
-                              where grave.GraveReferenceCode == person.GraveOwner.GraveReferenceCode && section.Code == person.GraveOwner.Section.Code
+                              where grave.GraveReferenceCode == registrar.GraveOwner.GraveReferenceCode
                               select new Registrar
                               {
                                   Id = person.Id,
@@ -35,10 +35,9 @@ namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure
                                   },
                               }).FirstOrDefaultAsync();
 
-            if (data == null)
+            if (data != null)
             {
 
-                
                 var dataGrave = GetGraveByReferenceCode(registrar.GraveOwner.GraveReferenceCode);
                 var dataSection = dataGrave.Result.Section;
 
@@ -118,7 +117,7 @@ namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure
         public async Task<bool> AddNewSection(Section section)
         {
             var data = await (from s in _dbContext.Sections
-                              where s.Id == section.Id
+                              where s.Code == section.Code
                               select new Section
                               {
                                   Id = s.Id,
