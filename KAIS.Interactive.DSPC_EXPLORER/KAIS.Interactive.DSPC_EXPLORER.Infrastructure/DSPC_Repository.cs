@@ -45,7 +45,8 @@ namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure
                 try
                 {
                     graveSize = int.Parse(data.GraveOwner.GraveSize);
-                } catch (FormatException)
+                }
+                catch (FormatException)
                 {
                     switch (data.GraveOwner.GraveSize.ToUpper())
                     {
@@ -67,12 +68,13 @@ namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure
                     }
                 }
 
-                if (graveSize > 0)
+                if (graveSize > 0 || registrar.Age < 11 || registrar.AdditionalComments.ToUpper() == "JK")
                 {
                     int currentPeopleSize = GetRegistrarsByGraveReferenceCode(data.GraveOwner.GraveReferenceCode).Result.Count;
 
                     if (currentPeopleSize < graveSize)
                     {
+
                         var dataGrave = GetGraveByReferenceCode(registrar.GraveOwner.GraveReferenceCode);
                         var dataSection = dataGrave.Result.Section;
 
@@ -86,7 +88,7 @@ namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure
                             int status = _dbContext.SaveChanges();
                             return status > 0;
                         }
-                    } 
+                    }
                 }
             }
             return false;
@@ -112,25 +114,25 @@ namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure
         {
 
             var data = await (from grave in _dbContext.GraveOwners
-                        from section in _dbContext.Sections
-                        where grave.GraveReferenceCode == graveOwner.GraveReferenceCode && section.Code == graveOwner.Section.Code
-                        select new GraveOwner
-                        {
-                            Id = grave.Id,
-                            Section = new Section
-                            {
-                                Id = section.Id
-                            }
-                        }).FirstOrDefaultAsync();
+                              from section in _dbContext.Sections
+                              where grave.GraveReferenceCode == graveOwner.GraveReferenceCode && section.Code == graveOwner.Section.Code
+                              select new GraveOwner
+                              {
+                                  Id = grave.Id,
+                                  Section = new Section
+                                  {
+                                      Id = section.Id
+                                  }
+                              }).FirstOrDefaultAsync();
 
-            if(data == null)
+            if (data == null)
             {
 
                 var dataSection = GetSectionByCode(graveOwner.Section.Code);
-                
+
                 if (dataSection != null)
                 {
-                    
+
                     graveOwner.Section = dataSection.Result;
 
                     _dbContext.Entry(graveOwner.Section).State = EntityState.Unchanged;
@@ -140,7 +142,7 @@ namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure
                     return status > 0;
                 }
 
-               
+
             }
 
             return false;
@@ -232,112 +234,113 @@ namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure
                                   Code = grave.Section.Code,
                                   DateOpened = grave.Section.DateOpened,
                                   GraveCount = grave.Section.GraveCount,
-                              }}).FirstOrDefaultAsync();
+                              }
+                          }).FirstOrDefaultAsync();
         }
 
         public async Task<Registrar> GetRegistrarByReferenceCode(string code)
         {
-            return await(from person in _dbContext.Registrars
-                         where person.GraveOwner.GraveReferenceCode == code
-                         select new Registrar
-                         {
-                             BookPage = person.BookPage,
-                             NumberInBook = person.NumberInBook,
-                             FirstName = person.FirstName,
-                             LastName = person.LastName,
-                             Sex = person.Sex,
-                             Age = person.Age,
-                             AgeDetail = person.AgeDetail,
-                             Religion = person.Religion,
-                             Occupation = person.Occupation,
-                             DeathLocation = person.DeathLocation,
-                             MarriageStatus = person.MarriageStatus,
-                             DeathDate = person.DeathDate,
-                             BurialDate = person.BurialDate,
-                             GraveOwner = new GraveOwner
-                             {
-                                 Id = person.GraveOwner.Id,
-                                 SubId = person.GraveOwner.SubId,
-                                 JkIndex = person.GraveOwner.JkIndex,
-                                 GraveReferenceCode = person.GraveOwner.GraveReferenceCode,
-                                 GraveRow = person.GraveOwner.GraveRow,
-                                 GraveDepth = person.GraveOwner.GraveDepth,
-                                 GraveSize = person.GraveOwner.GraveSize,
-                                 GraveLocation = person.GraveOwner.GraveLocation,
-                                 GraveHeadStone = person.GraveOwner.GraveHeadStone,
-                                 GraveOwnerName = person.GraveOwner.GraveOwnerName,
-                                 GraveOwnerAddress = person.GraveOwner.GraveOwnerAddress,
-                                 Remarks = person.GraveOwner.Remarks,
-                                 Section = new Section
-                                 {
-                                     Id = person.GraveOwner.Section.Id,
-                                     Code = person.GraveOwner.Section.Code,
-                                     DateOpened = person.GraveOwner.Section.DateOpened,
-                                     GraveCount = person.GraveOwner.Section.GraveCount,
-                                 }
-                             },
-                             Public = person.Public,
-                             Proprietary = person.Proprietary,
-                             SectionInfo = person.SectionInfo,
-                             NumberInfo = person.NumberInfo,
-                             InternmentSignature = person.InternmentSignature,
-                             AdditionalComments = person.AdditionalComments,
-                             RegistrarName = person.RegistrarName,
-                         }).FirstOrDefaultAsync();
+            return await (from person in _dbContext.Registrars
+                          where person.GraveOwner.GraveReferenceCode == code
+                          select new Registrar
+                          {
+                              BookPage = person.BookPage,
+                              NumberInBook = person.NumberInBook,
+                              FirstName = person.FirstName,
+                              LastName = person.LastName,
+                              Sex = person.Sex,
+                              Age = person.Age,
+                              AgeDetail = person.AgeDetail,
+                              Religion = person.Religion,
+                              Occupation = person.Occupation,
+                              DeathLocation = person.DeathLocation,
+                              MarriageStatus = person.MarriageStatus,
+                              DeathDate = person.DeathDate,
+                              BurialDate = person.BurialDate,
+                              GraveOwner = new GraveOwner
+                              {
+                                  Id = person.GraveOwner.Id,
+                                  SubId = person.GraveOwner.SubId,
+                                  JkIndex = person.GraveOwner.JkIndex,
+                                  GraveReferenceCode = person.GraveOwner.GraveReferenceCode,
+                                  GraveRow = person.GraveOwner.GraveRow,
+                                  GraveDepth = person.GraveOwner.GraveDepth,
+                                  GraveSize = person.GraveOwner.GraveSize,
+                                  GraveLocation = person.GraveOwner.GraveLocation,
+                                  GraveHeadStone = person.GraveOwner.GraveHeadStone,
+                                  GraveOwnerName = person.GraveOwner.GraveOwnerName,
+                                  GraveOwnerAddress = person.GraveOwner.GraveOwnerAddress,
+                                  Remarks = person.GraveOwner.Remarks,
+                                  Section = new Section
+                                  {
+                                      Id = person.GraveOwner.Section.Id,
+                                      Code = person.GraveOwner.Section.Code,
+                                      DateOpened = person.GraveOwner.Section.DateOpened,
+                                      GraveCount = person.GraveOwner.Section.GraveCount,
+                                  }
+                              },
+                              Public = person.Public,
+                              Proprietary = person.Proprietary,
+                              SectionInfo = person.SectionInfo,
+                              NumberInfo = person.NumberInfo,
+                              InternmentSignature = person.InternmentSignature,
+                              AdditionalComments = person.AdditionalComments,
+                              RegistrarName = person.RegistrarName,
+                          }).FirstOrDefaultAsync();
         }
 
         public async Task<List<Registrar>> GetRegistrarsByGraveReferenceCode(string refCode)
         {
             return await (from person in _dbContext.Registrars
-                                       where person.GraveOwner.GraveReferenceCode == refCode
-                                       select new Registrar
-                                       {
-                                           BookPage = person.BookPage,
-                                           NumberInBook = person.NumberInBook,
-                                           FirstName = person.FirstName,
-                                           LastName = person.LastName,
-                                           Sex = person.Sex,
-                                           Age = person.Age,
-                                           AgeDetail = person.AgeDetail,
-                                           Religion = person.Religion,
-                                           Occupation = person.Occupation,
-                                           DeathLocation = person.DeathLocation,
-                                           MarriageStatus = person.MarriageStatus,
-                                           DeathDate = person.DeathDate,
-                                           BurialDate = person.BurialDate,
-                                           GraveOwner = new GraveOwner
-                                           {
-                                               Id = person.GraveOwner.Id,
-                                               SubId = person.GraveOwner.SubId,
-                                               JkIndex = person.GraveOwner.JkIndex,
-                                               GraveReferenceCode = person.GraveOwner.GraveReferenceCode,
-                                               GraveRow = person.GraveOwner.GraveRow,
-                                               GraveDepth = person.GraveOwner.GraveDepth,
-                                               GraveSize = person.GraveOwner.GraveSize,
-                                               GraveLocation = person.GraveOwner.GraveLocation,
-                                               GraveHeadStone = person.GraveOwner.GraveHeadStone,
-                                               GraveOwnerName = person.GraveOwner.GraveOwnerName,
-                                               GraveOwnerAddress = person.GraveOwner.GraveOwnerAddress,
-                                               Remarks = person.GraveOwner.Remarks,
-                                               Section = new Section
-                                               {
-                                                   Id = person.GraveOwner.Section.Id,
-                                                   Code = person.GraveOwner.Section.Code,
-                                                   DateOpened = person.GraveOwner.Section.DateOpened,
-                                                   GraveCount = person.GraveOwner.Section.GraveCount,
-                                               }
-                                           },
-                                           Public = person.Public,
-                                           Proprietary = person.Proprietary,
-                                           SectionInfo = person.SectionInfo,
-                                           NumberInfo = person.NumberInfo,
-                                           InternmentSignature = person.InternmentSignature,
-                                           AdditionalComments = person.AdditionalComments,
-                                           RegistrarName = person.RegistrarName,
-                                       }).ToListAsync();
+                          where person.GraveOwner.GraveReferenceCode == refCode
+                          select new Registrar
+                          {
+                              BookPage = person.BookPage,
+                              NumberInBook = person.NumberInBook,
+                              FirstName = person.FirstName,
+                              LastName = person.LastName,
+                              Sex = person.Sex,
+                              Age = person.Age,
+                              AgeDetail = person.AgeDetail,
+                              Religion = person.Religion,
+                              Occupation = person.Occupation,
+                              DeathLocation = person.DeathLocation,
+                              MarriageStatus = person.MarriageStatus,
+                              DeathDate = person.DeathDate,
+                              BurialDate = person.BurialDate,
+                              GraveOwner = new GraveOwner
+                              {
+                                  Id = person.GraveOwner.Id,
+                                  SubId = person.GraveOwner.SubId,
+                                  JkIndex = person.GraveOwner.JkIndex,
+                                  GraveReferenceCode = person.GraveOwner.GraveReferenceCode,
+                                  GraveRow = person.GraveOwner.GraveRow,
+                                  GraveDepth = person.GraveOwner.GraveDepth,
+                                  GraveSize = person.GraveOwner.GraveSize,
+                                  GraveLocation = person.GraveOwner.GraveLocation,
+                                  GraveHeadStone = person.GraveOwner.GraveHeadStone,
+                                  GraveOwnerName = person.GraveOwner.GraveOwnerName,
+                                  GraveOwnerAddress = person.GraveOwner.GraveOwnerAddress,
+                                  Remarks = person.GraveOwner.Remarks,
+                                  Section = new Section
+                                  {
+                                      Id = person.GraveOwner.Section.Id,
+                                      Code = person.GraveOwner.Section.Code,
+                                      DateOpened = person.GraveOwner.Section.DateOpened,
+                                      GraveCount = person.GraveOwner.Section.GraveCount,
+                                  }
+                              },
+                              Public = person.Public,
+                              Proprietary = person.Proprietary,
+                              SectionInfo = person.SectionInfo,
+                              NumberInfo = person.NumberInfo,
+                              InternmentSignature = person.InternmentSignature,
+                              AdditionalComments = person.AdditionalComments,
+                              RegistrarName = person.RegistrarName,
+                          }).ToListAsync();
 
         }
-        
+
 
 
 
