@@ -68,11 +68,11 @@ namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure
                     }
                 }
 
-                if (graveSize > 0 || registrar.Age < 11 || registrar.AdditionalComments.ToUpper() == "JK")
+                if (graveSize > 0)
                 {
                     int currentPeopleSize = GetRegistrarsByGraveReferenceCode(data.GraveOwner.GraveReferenceCode).Result.Count;
 
-                    if (currentPeopleSize < graveSize)
+                    if (currentPeopleSize < graveSize || registrar.Age < 11 || (registrar.AdditionalComments != null && registrar.AdditionalComments.ToUpper() == "JK"))
                     {
 
                         var dataGrave = GetGraveByReferenceCode(registrar.GraveOwner.GraveReferenceCode);
