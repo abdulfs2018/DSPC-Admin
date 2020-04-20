@@ -95,9 +95,7 @@ namespace KAIS.Interactive.DSPC_EXPLORER.API.Controllers
             {
 
                 SectionType sectionEnum = (SectionType)Enum.Parse(typeof(SectionType), section);
-
                 GeneralEnums enumControls = new GeneralEnums();
-
                 int sectionId = enumControls.GetSectionNumberFromLetter(sectionEnum);
 
                 GraveOwner graveOwner = new GraveOwner
@@ -157,7 +155,7 @@ namespace KAIS.Interactive.DSPC_EXPLORER.API.Controllers
 
             try
             {
-                
+
                 Registrar newRegistrar = new Registrar
                 {
                    BookPage = bookPage,

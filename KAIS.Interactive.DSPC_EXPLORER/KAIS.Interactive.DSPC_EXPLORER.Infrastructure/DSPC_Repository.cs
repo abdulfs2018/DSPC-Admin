@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using KAIS.Interactive.DSPC_EXPLORER.Infrastructure.Interface;
@@ -28,6 +29,8 @@ namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure
                                   GraveOwner = new GraveOwner
                                   {
                                       Id = grave.Id,
+                                      GraveSize = grave.GraveSize,
+                                      GraveReferenceCode = grave.GraveReferenceCode,
                                       Section = new Section
                                       {
                                           Id = section.Id,
@@ -37,25 +40,55 @@ namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure
 
             if (data != null)
             {
+                int graveSize = 0;
 
-                var dataGrave = GetGraveByReferenceCode(registrar.GraveOwner.GraveReferenceCode);
-                var dataSection = dataGrave.Result.Section;
-
-                if (dataSection != null && dataGrave != null)
+                try
                 {
-
-                    registrar.GraveOwner = dataGrave.Result;
-                    registrar.GraveOwner.Section = dataSection;
-                    _dbContext.Entry(registrar.GraveOwner).State = EntityState.Unchanged;
-                    _dbContext.Entry(registrar.GraveOwner.Section).State = EntityState.Unchanged;
-                    _dbContext.Registrars.Add(registrar);
-                    int status = _dbContext.SaveChanges();
-                    return status > 0;
+                    graveSize = int.Parse(data.GraveOwner.GraveSize);
+                } catch (FormatException)
+                {
+                    switch (data.GraveOwner.GraveSize.ToUpper())
+                    {
+                        case "S":
+                            graveSize = 3;
+                            break;
+                        case "D":
+                            graveSize = 6;
+                            break;
+                        case "T":
+                            graveSize = 9;
+                            break;
+                        case "Q":
+                            graveSize = 12;
+                            break;
+                        case "L":
+                            graveSize = 1000;
+                            break;
+                    }
                 }
 
+                if (graveSize > 0)
+                {
+                    int currentPeopleSize = GetRegistrarsByGraveReferenceCode(data.GraveOwner.GraveReferenceCode).Result.Count;
 
+                    if (currentPeopleSize < graveSize)
+                    {
+                        var dataGrave = GetGraveByReferenceCode(registrar.GraveOwner.GraveReferenceCode);
+                        var dataSection = dataGrave.Result.Section;
+
+                        if (dataSection != null && dataGrave != null)
+                        {
+                            registrar.GraveOwner = dataGrave.Result;
+                            registrar.GraveOwner.Section = dataSection;
+                            _dbContext.Entry(registrar.GraveOwner).State = EntityState.Unchanged;
+                            _dbContext.Entry(registrar.GraveOwner.Section).State = EntityState.Unchanged;
+                            _dbContext.Registrars.Add(registrar);
+                            int status = _dbContext.SaveChanges();
+                            return status > 0;
+                        }
+                    } 
+                }
             }
-
             return false;
         }
 
@@ -208,7 +241,6 @@ namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure
                          where person.GraveOwner.GraveReferenceCode == code
                          select new Registrar
                          {
-
                              BookPage = person.BookPage,
                              NumberInBook = person.NumberInBook,
                              FirstName = person.FirstName,
@@ -251,8 +283,63 @@ namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure
                              InternmentSignature = person.InternmentSignature,
                              AdditionalComments = person.AdditionalComments,
                              RegistrarName = person.RegistrarName,
-
                          }).FirstOrDefaultAsync();
         }
+
+        public async Task<List<Registrar>> GetRegistrarsByGraveReferenceCode(string refCode)
+        {
+            return await (from person in _dbContext.Registrars
+                                       where person.GraveOwner.GraveReferenceCode == refCode
+                                       select new Registrar
+                                       {
+                                           BookPage = person.BookPage,
+                                           NumberInBook = person.NumberInBook,
+                                           FirstName = person.FirstName,
+                                           LastName = person.LastName,
+                                           Sex = person.Sex,
+                                           Age = person.Age,
+                                           AgeDetail = person.AgeDetail,
+                                           Religion = person.Religion,
+                                           Occupation = person.Occupation,
+                                           DeathLocation = person.DeathLocation,
+                                           MarriageStatus = person.MarriageStatus,
+                                           DeathDate = person.DeathDate,
+                                           BurialDate = person.BurialDate,
+                                           GraveOwner = new GraveOwner
+                                           {
+                                               Id = person.GraveOwner.Id,
+                                               SubId = person.GraveOwner.SubId,
+                                               JkIndex = person.GraveOwner.JkIndex,
+                                               GraveReferenceCode = person.GraveOwner.GraveReferenceCode,
+                                               GraveRow = person.GraveOwner.GraveRow,
+                                               GraveDepth = person.GraveOwner.GraveDepth,
+                                               GraveSize = person.GraveOwner.GraveSize,
+                                               GraveLocation = person.GraveOwner.GraveLocation,
+                                               GraveHeadStone = person.GraveOwner.GraveHeadStone,
+                                               GraveOwnerName = person.GraveOwner.GraveOwnerName,
+                                               GraveOwnerAddress = person.GraveOwner.GraveOwnerAddress,
+                                               Remarks = person.GraveOwner.Remarks,
+                                               Section = new Section
+                                               {
+                                                   Id = person.GraveOwner.Section.Id,
+                                                   Code = person.GraveOwner.Section.Code,
+                                                   DateOpened = person.GraveOwner.Section.DateOpened,
+                                                   GraveCount = person.GraveOwner.Section.GraveCount,
+                                               }
+                                           },
+                                           Public = person.Public,
+                                           Proprietary = person.Proprietary,
+                                           SectionInfo = person.SectionInfo,
+                                           NumberInfo = person.NumberInfo,
+                                           InternmentSignature = person.InternmentSignature,
+                                           AdditionalComments = person.AdditionalComments,
+                                           RegistrarName = person.RegistrarName,
+                                       }).ToListAsync();
+
+        }
+        
+
+
+
     }
 }
