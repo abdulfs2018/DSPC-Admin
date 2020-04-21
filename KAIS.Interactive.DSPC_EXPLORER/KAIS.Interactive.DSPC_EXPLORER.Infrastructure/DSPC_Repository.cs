@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using KAIS.Interactive.DSPC_EXPLORER.Common.Services.Enums;
 using KAIS.Interactive.DSPC_EXPLORER.Infrastructure.Interface;
 using KAIS.Interactive.DSPC_EXPLORER.Infrastructure.Model;
 using Microsoft.EntityFrameworkCore;
@@ -40,56 +41,31 @@ namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure
 
             if (data != null)
             {
-                int graveSize = 0;
-
-                try
-                {
-                    graveSize = int.Parse(data.GraveOwner.GraveSize);
-                }
-                catch (FormatException)
-                {
-                    switch (data.GraveOwner.GraveSize.ToUpper())
-                    {
-                        case "S":
-                            graveSize = 3;
-                            break;
-                        case "D":
-                            graveSize = 6;
-                            break;
-                        case "T":
-                            graveSize = 9;
-                            break;
-                        case "Q":
-                            graveSize = 12;
-                            break;
-                        case "L":
-                            graveSize = 1000;
-                            break;
-                    }
-                }
+                SizeOfGrave graveSizeEnum = (SizeOfGrave)Enum.Parse(typeof(SizeOfGrave), data.GraveOwner.GraveSize);
+                int graveSize = GeneralEnums.GetGraveSizeFromLetter(graveSizeEnum);
 
                 if (graveSize > 0)
-                {
-                    int currentPeopleSize = GetRegistrarsByGraveReferenceCode(data.GraveOwner.GraveReferenceCode).Result.Count;
-
-                    if (currentPeopleSize < graveSize || registrar.Age < 11 || (registrar.AdditionalComments != null && registrar.AdditionalComments.ToUpper() == "JK"))
                     {
+                        int currentPeopleSize = GetRegistrarsByGraveReferenceCode(data.GraveOwner.GraveReferenceCode).Result.Count;
 
-                        var dataGrave = GetGraveByReferenceCode(registrar.GraveOwner.GraveReferenceCode);
-                        var dataSection = dataGrave.Result.Section;
-
-                        if (dataSection != null && dataGrave != null)
+                        if (currentPeopleSize < graveSize || registrar.Age < 11 || (registrar.AdditionalComments != null && registrar.AdditionalComments.ToUpper() == "JK"))
                         {
-                            registrar.GraveOwner = dataGrave.Result;
-                            registrar.GraveOwner.Section = dataSection;
-                            _dbContext.Entry(registrar.GraveOwner).State = EntityState.Unchanged;
-                            _dbContext.Entry(registrar.GraveOwner.Section).State = EntityState.Unchanged;
-                            _dbContext.Registrars.Add(registrar);
-                            int status = _dbContext.SaveChanges();
-                            return status > 0;
+
+                            var dataGrave = GetGraveByReferenceCode(registrar.GraveOwner.GraveReferenceCode);
+                            var dataSection = dataGrave.Result.Section;
+
+                            if (dataSection != null && dataGrave != null)
+                            {
+                                registrar.GraveOwner = dataGrave.Result;
+                                registrar.GraveOwner.Section = dataSection;
+                                _dbContext.Entry(registrar.GraveOwner).State = EntityState.Unchanged;
+                                _dbContext.Entry(registrar.GraveOwner.Section).State = EntityState.Unchanged;
+                                _dbContext.Registrars.Add(registrar);
+                                int status = _dbContext.SaveChanges();
+                                return status > 0;
+                            }
                         }
-                    }
-                }
+                    }     
             }
             return false;
         }
@@ -119,15 +95,18 @@ namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure
                               select new GraveOwner
                               {
                                   Id = grave.Id,
+                                  GraveReferenceCode = grave.GraveReferenceCode,
                                   Section = new Section
                                   {
                                       Id = section.Id
                                   }
                               }).FirstOrDefaultAsync();
 
-            if (data == null)
-            {
+            SizeOfGrave graveSizeEnum = (SizeOfGrave)Enum.Parse(typeof(SizeOfGrave), graveOwner.GraveSize);
+            int graveSize = GeneralEnums.GetGraveSizeFromLetter(graveSizeEnum);
 
+            if (data == null && graveSize != 0)
+            {
                 var dataSection = GetSectionByCode(graveOwner.Section.Code);
 
                 if (dataSection != null)

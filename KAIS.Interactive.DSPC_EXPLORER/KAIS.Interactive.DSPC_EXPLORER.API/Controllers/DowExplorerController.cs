@@ -3,7 +3,7 @@ using KAIS.Interactive.DSPC_EXPLORER.Infrastructure.Interface;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Threading.Tasks;
-using KAIS.Interactive.DSPC_EXPLORER.API.Services.Enums;
+using KAIS.Interactive.DSPC_EXPLORER.Common.Services.Enums;
 
 namespace KAIS.Interactive.DSPC_EXPLORER.API.Controllers
 {
@@ -95,8 +95,7 @@ namespace KAIS.Interactive.DSPC_EXPLORER.API.Controllers
             {
 
                 SectionType sectionEnum = (SectionType)Enum.Parse(typeof(SectionType), section);
-                GeneralEnums enumControls = new GeneralEnums();
-                int sectionId = enumControls.GetSectionNumberFromLetter(sectionEnum);
+                int sectionId = GeneralEnums.GetSectionNumberFromLetter(sectionEnum);
 
                 GraveOwner graveOwner = new GraveOwner
                 {
