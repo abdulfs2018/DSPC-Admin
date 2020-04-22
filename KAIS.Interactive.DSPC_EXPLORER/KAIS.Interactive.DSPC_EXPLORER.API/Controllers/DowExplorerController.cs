@@ -88,7 +88,7 @@ namespace KAIS.Interactive.DSPC_EXPLORER.API.Controllers
         }
 
         [HttpPost("kais/api/dspc_explorer/addnewgraveowner")]
-        public async Task<IActionResult> AddNewGraveOwner(string subId, string jKIndex, string graveReferenceCode, 
+        public async Task<IActionResult> AddNewGraveOwner(string subId, string graveReferenceCode, 
             string section, int graveRow, int graveDepth, string graveSize, string graveLocation, bool graveHeadStone, string graveOwnerName, string graveOwnerAddress, string remarks)
         {
             try
@@ -100,7 +100,6 @@ namespace KAIS.Interactive.DSPC_EXPLORER.API.Controllers
                 GraveOwner graveOwner = new GraveOwner
                 {
                     SubId = subId,
-                    JkIndex = jKIndex,
                     GraveReferenceCode = graveReferenceCode,
                     GraveRow = graveRow,
                     GraveDepth = graveDepth,

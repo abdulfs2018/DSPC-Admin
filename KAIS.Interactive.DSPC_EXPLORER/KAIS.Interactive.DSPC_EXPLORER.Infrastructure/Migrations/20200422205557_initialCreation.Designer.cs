@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure.Migrations
 {
     [DbContext(typeof(DSPC_ExplorerDbContext))]
-    [Migration("20200413032329_InitialCreation")]
-    partial class InitialCreation
+    [Migration("20200422205557_initialCreation")]
+    partial class initialCreation
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -43,11 +43,9 @@ namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure.Migrations
 
                     b.Property<string>("GraveSize");
 
-                    b.Property<string>("JkIndex");
-
                     b.Property<string>("Remarks");
 
-                    b.Property<int>("SectionId");
+                    b.Property<int?>("SectionId");
 
                     b.Property<string>("SubId");
 
@@ -153,8 +151,7 @@ namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure.Migrations
                 {
                     b.HasOne("KAIS.Interactive.DSPC_EXPLORER.Infrastructure.Model.Section", "Section")
                         .WithMany()
-                        .HasForeignKey("SectionId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("SectionId");
                 });
 
             modelBuilder.Entity("KAIS.Interactive.DSPC_EXPLORER.Infrastructure.Model.Registrar", b =>
