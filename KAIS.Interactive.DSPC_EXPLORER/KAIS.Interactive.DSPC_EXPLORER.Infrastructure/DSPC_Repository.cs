@@ -20,33 +20,27 @@ namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure
         public async Task<bool> AddNewRegistrar(Registrar registrar)
         {
 
-            var data = await (from person in _dbContext.Registrars
-                              from grave in _dbContext.GraveOwners
-                              from section in _dbContext.Sections
+            var data = await (from grave in _dbContext.GraveOwners
                               where grave.GraveReferenceCode == registrar.GraveOwner.GraveReferenceCode
-                              select new Registrar
-                              {
-                                  Id = person.Id,
-                                  GraveOwner = new GraveOwner
+                              select new GraveOwner
                                   {
                                       Id = grave.Id,
                                       GraveSize = grave.GraveSize,
                                       GraveReferenceCode = grave.GraveReferenceCode,
                                       Section = new Section
                                       {
-                                          Id = section.Id,
+                                          Id = grave.Section.Id,
                                       },
-                                  },
-                              }).FirstOrDefaultAsync();
+                                  }).FirstOrDefaultAsync();
 
             if (data != null)
             {
-                SizeOfGrave graveSizeEnum = (SizeOfGrave)Enum.Parse(typeof(SizeOfGrave), data.GraveOwner.GraveSize);
+                SizeOfGrave graveSizeEnum = (SizeOfGrave)Enum.Parse(typeof(SizeOfGrave), data.GraveSize);
                 int graveSize = GeneralEnums.GetGraveSizeFromLetter(graveSizeEnum);
 
                 if (graveSize > 0)
                     {
-                        int currentPeopleSize = GetRegistrarsByGraveReferenceCode(data.GraveOwner.GraveReferenceCode).Result.Count;
+                        int currentPeopleSize = GetRegistrarsByGraveReferenceCode(data.GraveReferenceCode).Result.Count;
 
                         if (currentPeopleSize < graveSize || registrar.Age < 11 || (registrar.AdditionalComments != null && registrar.AdditionalComments.ToUpper() == "JK"))
                         {
@@ -197,7 +191,6 @@ namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure
                           {
                               Id = grave.Id,
                               SubId = grave.SubId,
-                              JkIndex = grave.JkIndex,
                               GraveReferenceCode = grave.GraveReferenceCode,
                               GraveRow = grave.GraveRow,
                               GraveDepth = grave.GraveDepth,
@@ -240,7 +233,6 @@ namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure
                               {
                                   Id = person.GraveOwner.Id,
                                   SubId = person.GraveOwner.SubId,
-                                  JkIndex = person.GraveOwner.JkIndex,
                                   GraveReferenceCode = person.GraveOwner.GraveReferenceCode,
                                   GraveRow = person.GraveOwner.GraveRow,
                                   GraveDepth = person.GraveOwner.GraveDepth,
@@ -291,7 +283,6 @@ namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure
                               {
                                   Id = person.GraveOwner.Id,
                                   SubId = person.GraveOwner.SubId,
-                                  JkIndex = person.GraveOwner.JkIndex,
                                   GraveReferenceCode = person.GraveOwner.GraveReferenceCode,
                                   GraveRow = person.GraveOwner.GraveRow,
                                   GraveDepth = person.GraveOwner.GraveDepth,

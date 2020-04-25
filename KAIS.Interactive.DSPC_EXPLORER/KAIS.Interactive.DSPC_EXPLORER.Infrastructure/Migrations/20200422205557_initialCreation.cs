@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure.Migrations
 {
-    public partial class InitialCreation : Migration
+    public partial class initialCreation : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -46,9 +46,7 @@ namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     SubId = table.Column<string>(nullable: true),
-                    JkIndex = table.Column<string>(nullable: true),
                     GraveReferenceCode = table.Column<string>(nullable: true),
-                    SectionId = table.Column<int>(nullable: false),
                     GraveRow = table.Column<int>(nullable: false),
                     GraveDepth = table.Column<int>(nullable: false),
                     GraveSize = table.Column<string>(nullable: true),
@@ -56,7 +54,8 @@ namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure.Migrations
                     GraveHeadStone = table.Column<bool>(nullable: false),
                     GraveOwnerName = table.Column<string>(nullable: true),
                     GraveOwnerAddress = table.Column<string>(nullable: true),
-                    Remarks = table.Column<string>(nullable: true)
+                    Remarks = table.Column<string>(nullable: true),
+                    SectionId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -66,7 +65,7 @@ namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure.Migrations
                         column: x => x.SectionId,
                         principalTable: "Sections",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(

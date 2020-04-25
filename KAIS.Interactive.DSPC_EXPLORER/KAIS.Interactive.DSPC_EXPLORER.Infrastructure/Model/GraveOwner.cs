@@ -8,7 +8,6 @@ namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure.Model
         [Key]
         public int Id { get; set; }
         public string SubId { get; set; }
-        public string JkIndex { get; set; }
         [ForeignKey("GraveReferenceCode")]
         public string GraveReferenceCode { get; set; }
         public int GraveRow { get; set; }
