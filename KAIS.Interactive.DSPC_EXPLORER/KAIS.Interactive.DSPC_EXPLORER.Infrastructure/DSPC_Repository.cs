@@ -45,12 +45,12 @@ namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure
                         if (currentPeopleSize < graveSize || registrar.Age < 11 || (registrar.AdditionalComments != null && registrar.AdditionalComments.ToUpper() == "JK"))
                         {
 
-                            var dataGrave = GetGraveByReferenceCode(registrar.GraveOwner.GraveReferenceCode);
-                            var dataSection = dataGrave.Result.Section;
+                            var dataGrave = GetGraveByReferenceCode(registrar.GraveOwner.GraveReferenceCode).Result;
+                        var dataSection = dataGrave.Section;
 
-                            if (dataSection != null && dataGrave != null)
+                            if (dataSection.Code != null && dataGrave != null)
                             {
-                                registrar.GraveOwner = dataGrave.Result;
+                                registrar.GraveOwner = dataGrave;
                                 registrar.GraveOwner.Section = dataSection;
                                 _dbContext.Entry(registrar.GraveOwner).State = EntityState.Unchanged;
                                 _dbContext.Entry(registrar.GraveOwner.Section).State = EntityState.Unchanged;
@@ -115,7 +115,6 @@ namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure
                     return status > 0;
                 }
 
-
             }
 
             return false;
@@ -157,157 +156,59 @@ namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure
 
         public async Task<Section> GetSectionByCode(string code)
         {
-            return await (from section in _dbContext.Sections
-                          where section.Code == code
-                          select new Section
-                          {
-                              Id = section.Id,
-                              Code = section.Code,
-                              DateOpened = section.DateOpened,
-                              GraveCount = section.GraveCount,
-                          }).FirstOrDefaultAsync();
-
+            return await _dbContext.Sections
+                          .Where(e => e.Code == code)
+                          .FirstOrDefaultAsync();                        
         }
 
         public async Task<Section> GetSectionById(int id)
         {
-            return await (from section in _dbContext.Sections
-                          where section.Id == id
-                          select new Section
-                          {
-                              Id = section.Id,
-                              Code = section.Code,
-                              DateOpened = section.DateOpened,
-                              GraveCount = section.GraveCount,
-                          }).FirstOrDefaultAsync();
+            return await  _dbContext.Sections
+                          .Where(e => e.Id == id)
+                          .FirstOrDefaultAsync();
 
         }
 
         public async Task<GraveOwner> GetGraveByReferenceCode(string code)
         {
-            return await (from grave in _dbContext.GraveOwners
-                          where grave.GraveReferenceCode == code
-                          select new GraveOwner
-                          {
-                              Id = grave.Id,
-                              SubId = grave.SubId,
-                              GraveReferenceCode = grave.GraveReferenceCode,
-                              GraveRow = grave.GraveRow,
-                              GraveDepth = grave.GraveDepth,
-                              GraveSize = grave.GraveSize,
-                              GraveLocation = grave.GraveLocation,
-                              GraveHeadStone = grave.GraveHeadStone,
-                              GraveOwnerName = grave.GraveOwnerName,
-                              GraveOwnerAddress = grave.GraveOwnerAddress,
-                              Remarks = grave.Remarks,
-                              Section = new Section
-                              {
-                                  Id = grave.Section.Id,
-                                  Code = grave.Section.Code,
-                                  DateOpened = grave.Section.DateOpened,
-                                  GraveCount = grave.Section.GraveCount,
-                              }
-                          }).FirstOrDefaultAsync();
+            return await _dbContext.GraveOwners
+                .Include(e => e.Section)
+                .Where(e => e.GraveReferenceCode == code)
+                .FirstOrDefaultAsync();
         }
 
         public async Task<Registrar> GetRegistrarByReferenceCode(string code)
         {
-            return await (from person in _dbContext.Registrars
-                          where person.GraveOwner.GraveReferenceCode == code
-                          select new Registrar
-                          {
-                              BookPage = person.BookPage,
-                              NumberInBook = person.NumberInBook,
-                              FirstName = person.FirstName,
-                              LastName = person.LastName,
-                              Sex = person.Sex,
-                              Age = person.Age,
-                              AgeDetail = person.AgeDetail,
-                              Religion = person.Religion,
-                              Occupation = person.Occupation,
-                              DeathLocation = person.DeathLocation,
-                              MarriageStatus = person.MarriageStatus,
-                              DeathDate = person.DeathDate,
-                              BurialDate = person.BurialDate,
-                              GraveOwner = new GraveOwner
-                              {
-                                  Id = person.GraveOwner.Id,
-                                  SubId = person.GraveOwner.SubId,
-                                  GraveReferenceCode = person.GraveOwner.GraveReferenceCode,
-                                  GraveRow = person.GraveOwner.GraveRow,
-                                  GraveDepth = person.GraveOwner.GraveDepth,
-                                  GraveSize = person.GraveOwner.GraveSize,
-                                  GraveLocation = person.GraveOwner.GraveLocation,
-                                  GraveHeadStone = person.GraveOwner.GraveHeadStone,
-                                  GraveOwnerName = person.GraveOwner.GraveOwnerName,
-                                  GraveOwnerAddress = person.GraveOwner.GraveOwnerAddress,
-                                  Remarks = person.GraveOwner.Remarks,
-                                  Section = new Section
-                                  {
-                                      Id = person.GraveOwner.Section.Id,
-                                      Code = person.GraveOwner.Section.Code,
-                                      DateOpened = person.GraveOwner.Section.DateOpened,
-                                      GraveCount = person.GraveOwner.Section.GraveCount,
-                                  }
-                              },
-                              Public = person.Public,
-                              Proprietary = person.Proprietary,
-                              SectionInfo = person.SectionInfo,
-                              NumberInfo = person.NumberInfo,
-                              InternmentSignature = person.InternmentSignature,
-                              AdditionalComments = person.AdditionalComments,
-                              RegistrarName = person.RegistrarName,
-                          }).FirstOrDefaultAsync();
+            return await _dbContext.Registrars
+                            .Include(e => e.GraveOwner)
+                            .Where(e => e.GraveOwner.GraveReferenceCode == code).FirstOrDefaultAsync(); 
         }
 
         public async Task<List<Registrar>> GetRegistrarsByGraveReferenceCode(string refCode)
         {
-            return await (from person in _dbContext.Registrars
-                          where person.GraveOwner.GraveReferenceCode == refCode
-                          select new Registrar
-                          {
-                              BookPage = person.BookPage,
-                              NumberInBook = person.NumberInBook,
-                              FirstName = person.FirstName,
-                              LastName = person.LastName,
-                              Sex = person.Sex,
-                              Age = person.Age,
-                              AgeDetail = person.AgeDetail,
-                              Religion = person.Religion,
-                              Occupation = person.Occupation,
-                              DeathLocation = person.DeathLocation,
-                              MarriageStatus = person.MarriageStatus,
-                              DeathDate = person.DeathDate,
-                              BurialDate = person.BurialDate,
-                              GraveOwner = new GraveOwner
+            return await _dbContext.Registrars
+                        .Include(e => e.GraveOwner)
+                        .Include(e => e.GraveOwner).ThenInclude(e => e.Section)
+                        .Where(e => e.GraveOwner.GraveReferenceCode == refCode)
+                        .ToListAsync();
+                    
+
+        }
+
+        public async Task<GraveOwnerViewModel> GetGraveOwnerDetailsByRefCode(string code)
+        {
+            var reg = GetRegistrarsByGraveReferenceCode(code);
+
+            return await (from e in _dbContext.GraveOwners
+                              join r in _dbContext.Registrars on e.GraveReferenceCode equals r.GraveOwner.GraveReferenceCode
+                              where e.GraveReferenceCode.Equals(code)
+                              select new GraveOwnerViewModel
                               {
-                                  Id = person.GraveOwner.Id,
-                                  SubId = person.GraveOwner.SubId,
-                                  GraveReferenceCode = person.GraveOwner.GraveReferenceCode,
-                                  GraveRow = person.GraveOwner.GraveRow,
-                                  GraveDepth = person.GraveOwner.GraveDepth,
-                                  GraveSize = person.GraveOwner.GraveSize,
-                                  GraveLocation = person.GraveOwner.GraveLocation,
-                                  GraveHeadStone = person.GraveOwner.GraveHeadStone,
-                                  GraveOwnerName = person.GraveOwner.GraveOwnerName,
-                                  GraveOwnerAddress = person.GraveOwner.GraveOwnerAddress,
-                                  Remarks = person.GraveOwner.Remarks,
-                                  Section = new Section
-                                  {
-                                      Id = person.GraveOwner.Section.Id,
-                                      Code = person.GraveOwner.Section.Code,
-                                      DateOpened = person.GraveOwner.Section.DateOpened,
-                                      GraveCount = person.GraveOwner.Section.GraveCount,
-                                  }
-                              },
-                              Public = person.Public,
-                              Proprietary = person.Proprietary,
-                              SectionInfo = person.SectionInfo,
-                              NumberInfo = person.NumberInfo,
-                              InternmentSignature = person.InternmentSignature,
-                              AdditionalComments = person.AdditionalComments,
-                              RegistrarName = person.RegistrarName,
-                          }).ToListAsync();
+                                  FullName =  e.GraveOwnerName,
+                                  GraveReferenceCode = e.GraveReferenceCode,
+                                  GraveSize = e.GraveSize,
+                                  Registrars = reg.Result.ToList()
+                              }).FirstOrDefaultAsync();
 
         }
 
