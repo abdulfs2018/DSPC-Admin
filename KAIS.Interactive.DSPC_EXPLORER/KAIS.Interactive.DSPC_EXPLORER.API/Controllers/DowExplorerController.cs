@@ -92,29 +92,6 @@ namespace KAIS.Interactive.DSPC_EXPLORER.API.Controllers
         {
             try
             {
-
-                //SectionType sectionEnum = (SectionType)Enum.Parse(typeof(SectionType), section);
-                //int sectionId = GeneralEnums.GetSectionNumberFromLetter(sectionEnum);
-
-                //GraveOwner graveOwner = new GraveOwner
-                //{
-                //    SubId = subId,
-                //    GraveReferenceCode = graveReferenceCode,
-                //    GraveRow = graveRow,
-                //    GraveDepth = graveDepth,
-                //    GraveSize = graveSize,
-                //    GraveLocation = graveLocation,
-                //    GraveHeadStone = graveHeadStone,
-                //    GraveOwnerName = graveOwnerName,
-                //    GraveOwnerAddress = graveOwnerAddress,
-                //    Remarks = remarks,
-                //    Section = new Section
-                //    {
-                //        Code = section,
-                //    },
-
-                //};
-
                 var inserted = await _repository.AddNewGraveOwner(owner);
                 return Ok(inserted);
             }
@@ -125,17 +102,10 @@ namespace KAIS.Interactive.DSPC_EXPLORER.API.Controllers
         }
 
         [HttpPost("kais/api/dspc_explorer/addnewsection")]
-        public async Task<IActionResult> AddNewSection([FromBody] Section section/*string code, DateTime dateOpened, int graveCount*/)
+        public async Task<IActionResult> AddNewSection([FromBody] Section section)
         {
             try
             {
-
-                //Section newSection = new Section
-                //{
-                //    Code = code,
-                //    DateOpened = dateOpened,
-                //    GraveCount = graveCount,
-                //};
 
                 var inserted = await _repository.AddNewSection(section);
                 return Ok(inserted);
@@ -147,44 +117,28 @@ namespace KAIS.Interactive.DSPC_EXPLORER.API.Controllers
         }
 
         [HttpPost("kais/api/dspc_explorer/addnewregistrar")]
-        public async Task<IActionResult> AddNewRegistrar([FromBody] Registrar registrar/*string bookPage, int numberInBook, string firstName, string lastName, string sex, int age, string ageDetail, string religion, string occupation, string deathLocation, string marriageStatus, DateTime deathDate, DateTime burialDate, string graveReferenceCode, string publicInfo, string proprietary, string sectionInfo, string numberInfo, string internmentSignature, string additionalComments, string registrarName*/)
+        public async Task<IActionResult> AddNewRegistrar([FromBody] Registrar registrar)
         {
-
             try
             {
-
-                //Registrar newRegistrar = new Registrar
-                //{
-                //   BookPage = bookPage,
-                //   NumberInBook = numberInBook,
-                //   FirstName =  firstName,
-                //   LastName = lastName,
-                //   Sex = sex,
-                //   Age = age,
-                //   AgeDetail = ageDetail,
-                //   Religion = religion,
-                //   Occupation = occupation,
-                //   DeathLocation = deathLocation,
-                //   MarriageStatus = marriageStatus,
-                //   DeathDate = deathDate,
-                //   BurialDate = burialDate,
-                //   GraveOwner = new GraveOwner
-                //   {
-                //       GraveReferenceCode = graveReferenceCode
-                //   },
-                //   Public = publicInfo,
-                //   Proprietary = proprietary,
-                //   SectionInfo = sectionInfo,
-                //   NumberInfo = numberInfo,
-                //   InternmentSignature = internmentSignature,
-                //   AdditionalComments = additionalComments,
-                //   RegistrarName = registrarName,
-                //};
-
                 var inserted = await _repository.AddNewRegistrar(registrar);
                 return Ok(inserted); 
             }
             catch (Exception)
+            {
+                return BadRequest();
+            }
+        }
+
+
+        [HttpGet("kais/api/dspc_explorer/GetGraveOwnerDetailsByCode")]
+        public async Task<IActionResult> GetGraveOwnerDetailsByCode(string code)
+        {
+            try
+            {
+                return Ok(await _repository.GetGraveOwnerDetailsByRefCode(code));
+            }
+            catch
             {
                 return BadRequest();
             }

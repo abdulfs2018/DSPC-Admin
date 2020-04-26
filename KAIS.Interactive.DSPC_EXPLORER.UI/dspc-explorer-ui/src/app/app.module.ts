@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeScreenComponent } from './home-screen/home-screen.component';
 import { HomeComponent } from './core/screens/home/home.component';
 import { AboutUsComponent } from './core/screens/about-us/about-us.component';
 import { UserLoginComponent } from './core/screens/user-login/user-login.component';
@@ -11,7 +10,6 @@ import { UserLoginComponent } from './core/screens/user-login/user-login.compone
 @NgModule({
   declarations: [
     AppComponent,
-    HomeScreenComponent,
     HomeComponent,
     AboutUsComponent,
     UserLoginComponent
