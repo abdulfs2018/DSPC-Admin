@@ -188,6 +188,7 @@ namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure
         {
             return await _dbContext.Registrars
                         .Include(e => e.GraveOwner)
+                        .Include(e => e.GraveOwner).ThenInclude(e => e.Section)
                         .Where(e => e.GraveOwner.GraveReferenceCode == refCode)
                         .ToListAsync();
                     
