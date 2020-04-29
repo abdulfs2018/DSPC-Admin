@@ -27,15 +27,21 @@ h1, h2 {
 
 img {
     display: block;
-    max-width:230px;
-    max-height:400px;
     width: auto;
     height: auto;
+    max-height: 400px;
   }
 
   .top-images {
-      display: inline;
       padding-left:30px;
+  }
+
+  .app-link {
+    max-height: 100px;
+  }
+
+  #top-images-container {
+    margin: 0 auto;
   }
 
   .feature-icons {
@@ -54,7 +60,13 @@ img {
     max-width: 45%;
   }
 
-  .col-lg-4, .col-lg-6 {
+  .col-lg-12 {
+    -ms-flex: 0 0 30%;
+    flex: 0 0 30%;
+    max-width: 90%;
+  }
+
+  .col-lg-4, .col-lg-6, .col-lg-12 {
     position: relative;
     width: 100%;
     padding-right: 10px;
