@@ -19,18 +19,24 @@ export class HomeComponent implements OnInit {
     return new Array(i);
   }
 
-  toggleDivs(selectorA, selectorB) {
+  toggleDivs(selectorA, selectorB, selectorC, selectorD) {
     let containerA: HTMLElement = document.getElementById(selectorA);
     let containerB: HTMLElement = document.getElementById(selectorB);
+    let buttonA: HTMLElement = document.getElementById(selectorC);
+    let buttonB: HTMLElement = document.getElementById(selectorD);
 
     console.log(containerA.getAttribute(this.style));
 
     if (containerA.getAttribute(this.style) === "display:block;") {
       containerA.setAttribute(this.style, "display:none;");
       containerB.setAttribute(this.style, "display:block;");
+      buttonA.setAttribute(this.style, "display:none;");
+      buttonB.setAttribute(this.style, "display:block;");
     } else {
       containerA.setAttribute(this.style, "display:block;");
       containerB.setAttribute(this.style, "display:none;");
+      buttonA.setAttribute(this.style, "display:block;");
+      buttonB.setAttribute(this.style, "display:none;");
     }
   }
 
