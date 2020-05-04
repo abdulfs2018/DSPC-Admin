@@ -30,8 +30,9 @@ namespace KAIS.Interactive.DSPC_EXPLOERER.API
             services.AddDbContext<DSPC_ExplorerDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddDefaultIdentity<IdentityUser>()
-                .AddEntityFrameworkStores<DSPC_ExplorerDbContext>();
+            services.AddIdentityCore<IdentityUser>();
+            services.AddDbContext<DSPC_ExplorerDbContext>();
+            services.AddControllersWithViews();
             services.AddScoped<IDSPC_Repository, DSPC_Repository>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
@@ -42,6 +43,7 @@ namespace KAIS.Interactive.DSPC_EXPLOERER.API
             });
 
             services.AddCors();
+            services.AddMvc(option => option.EnableEndpointRouting = false);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -80,6 +82,7 @@ namespace KAIS.Interactive.DSPC_EXPLOERER.API
                         .AllowAnyHeader();
 
             });
+            
             app.UseMvc();
         }
     }
