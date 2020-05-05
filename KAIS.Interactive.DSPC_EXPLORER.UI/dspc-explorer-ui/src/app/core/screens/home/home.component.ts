@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SearchResultComponent } from '../search-result/search-result.component';
 
 @Component({
   selector: 'app-home',
