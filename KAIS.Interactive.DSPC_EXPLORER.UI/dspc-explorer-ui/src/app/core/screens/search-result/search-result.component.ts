@@ -11,11 +11,6 @@ export class SearchResultComponent implements OnInit {
   @Input('subtitle') subtitle: string;
   @Input('results') results: Array<Array<string>>;
 
-  display: boolean = false;
-  public toggleDisplay() {
-    this.display = !this.display;
-  }
-
   constructor() { 
     this.title = "Search Results";
     this.subtitle = "Click a Grave for More Details";

@@ -9,12 +9,19 @@ import { SearchResultComponent } from '../search-result/search-result.component'
 
 export class HomeComponent implements OnInit {
 
+
+  display: boolean = false;
+
   constructor() { }
 
   ngOnInit() {
   }
 
   readonly style = "style";
+
+  public toggleDisplay() {
+    this.display = !this.display;
+  }
 
   counter(i: number) {
     return new Array(i);
