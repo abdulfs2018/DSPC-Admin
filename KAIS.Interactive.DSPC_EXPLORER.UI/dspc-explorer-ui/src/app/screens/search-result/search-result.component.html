@@ -1,0 +1,10 @@
+<div>
+    <h1>{{title}}</h1>
+    <h2>{{subtitle}}</h2>
+    
+    <ul class="list-group">
+        <li *ngFor="let result of results" class="list-group-item" style="margin:30px;background-color: lightblue;">
+            <app-search-card result="{{result}}" ></app-search-card>
+        </li>
+    </ul>
+</div>

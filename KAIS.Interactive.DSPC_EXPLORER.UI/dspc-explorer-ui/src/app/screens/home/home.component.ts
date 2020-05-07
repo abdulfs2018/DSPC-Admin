@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { SearchResultComponent } from '../search-result/search-result.component';
 
 @Component({
   selector: 'app-home',
@@ -20,6 +19,7 @@ export class HomeComponent implements OnInit {
   readonly style = "style";
 
   public toggleDisplay() {
+    console.log("here");
     this.display = !this.display;
   }
 

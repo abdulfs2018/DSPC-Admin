@@ -1,5 +1,5 @@
-<a (click)="toggleDivs('person-search','grave-search', 'person-button', 'grave-button')" href="#" id="person-button" style="display:block;" routerLink="home" class="nav-link" routerLinkActive="active">Search By People</a>
-<a (click)="toggleDivs('person-search','grave-search', 'person-button', 'grave-button')" href="#" id="grave-button" style="display:none;" routerLink="login" class="nav-link" routerLinkActive="active">Search By Graves</a>
+<a (click)="toggleDivs('person-search','grave-search', 'grave-button', 'person-button')" href="#" id="person-button" style="display:none;" routerLink="home" class="nav-link" routerLinkActive="active">Search By People</a>
+<a (click)="toggleDivs('person-search','grave-search', 'grave-button', 'person-button')" href="#" id="grave-button" style="display:block;" routerLink="login" class="nav-link" routerLinkActive="active">Search By Graves</a>
 
 <div id="person-search" style="display:block;">
     <h1>Searching Graves By Person Details</h1>
@@ -41,7 +41,7 @@
     <label for="registrar name">Registrar Name</label>
     <input type="text">
     <br /><br />
-    <button type="submit" id="person-submit" class="submit-button">Search Graves</button>
+    <button (click) = "toggleDisplay()" type="submit" id="person-submit" class="submit-button">Search Graves</button>
 </form>
 </div>
 
@@ -71,8 +71,5 @@
 </form>
 </div>
 
-<a (click) = "toggleDisplay()" *ngIf = "!display" class="nav-link" routerLinkActive="false" style="width:100%;height:100%;margin:auto;cursor:pointer;">show Search Results Sample</a>
-<a (click) = "toggleDisplay()" *ngIf = "display" class="nav-link" routerLinkActive="fa" style="width:100%;height:100%;margin:auto;cursor:pointer;">hide Search Results Sample</a>
-
-<app-search-result *ngIf = "display" title="test title override" subtitle="test subtitle override"></app-search-result>
+<app-search-result *ngIf = "display"></app-search-result>
 

@@ -1,0 +1,23 @@
+import { Component, OnInit, Input } from '@angular/core';
+
+@Component({
+  selector: 'app-search-card',
+  templateUrl: './search-card.component.html',
+  styleUrls: ['./search-card.component.scss']
+})
+export class SearchCardComponent implements OnInit {
+
+  @Input('result') result: string;
+  @Input('image') image: string;
+  arrResult: Array<string>;
+
+  constructor() {
+    this.image = "200x200.png";
+    this.result = "";
+   }
+
+  ngOnInit() {
+    this.arrResult = this.result.split(",");
+  }
+
+}
