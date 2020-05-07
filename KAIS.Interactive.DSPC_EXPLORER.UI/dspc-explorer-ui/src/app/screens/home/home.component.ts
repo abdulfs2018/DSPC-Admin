@@ -19,7 +19,6 @@ export class HomeComponent implements OnInit {
   readonly style = "style";
 
   public toggleDisplay() {
-    console.log("here");
     this.display = !this.display;
   }
 
@@ -32,8 +31,6 @@ export class HomeComponent implements OnInit {
     let containerB: HTMLElement = document.getElementById(selectorB);
     let buttonA: HTMLElement = document.getElementById(selectorC);
     let buttonB: HTMLElement = document.getElementById(selectorD);
-
-    console.log(containerA.getAttribute(this.style));
 
     if (containerA.getAttribute(this.style) === "display:block;") {
       containerA.setAttribute(this.style, "display:none;");
