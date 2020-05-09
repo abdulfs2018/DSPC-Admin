@@ -1,5 +1,5 @@
-<a (click)="toggleDivs('person-search','grave-search', 'person-button', 'grave-button')" href="#" id="person-button" style="display:block;" routerLink="home" class="nav-link" routerLinkActive="active">Search By People</a>
-<a (click)="toggleDivs('person-search','grave-search', 'person-button', 'grave-button')" href="#" id="grave-button" style="display:none;" routerLink="login" class="nav-link" routerLinkActive="active">Search By Graves</a>
+<a (click)="toggleDivs('person-search','grave-search', 'grave-button', 'person-button')" href="#" id="person-button" style="display:none;" routerLink="home" class="nav-link" routerLinkActive="active">Search By People</a>
+<a (click)="toggleDivs('person-search','grave-search', 'grave-button', 'person-button')" href="#" id="grave-button" style="display:block;" routerLink="home" class="nav-link" routerLinkActive="active">Search By Graves</a>
 
 <div id="person-search" style="display:block;">
     <h1>Searching Graves By Person Details</h1>
@@ -41,7 +41,7 @@
     <label for="registrar name">Registrar Name</label>
     <input type="text">
     <br /><br />
-    <button type="submit" id="person-submit" class="submit-button">Search Graves</button>
+    <button (click) = "toggleDisplay()" type="submit" id="person-submit" class="submit-button">Search Graves</button>
 </form>
 </div>
 
@@ -67,8 +67,9 @@
     <label for="grave owner address">Grave Owner Address</label>
     <input type="text">
     <br /><br />
-    <button type="submit" id="grave-submit" class="submit-button">Search Graves</button>
+    <button (click) = "toggleDisplay()" type="submit" id="grave-submit" class="submit-button">Search Graves</button>
 </form>
 </div>
 
+<app-search-result *ngIf = "display"></app-search-result>
 

@@ -8,12 +8,19 @@ import { Component, OnInit } from '@angular/core';
 
 export class HomeComponent implements OnInit {
 
+
+  display: boolean = false;
+
   constructor() { }
 
   ngOnInit() {
   }
 
   readonly style = "style";
+
+  public toggleDisplay() {
+    this.display = !this.display;
+  }
 
   counter(i: number) {
     return new Array(i);
@@ -24,8 +31,6 @@ export class HomeComponent implements OnInit {
     let containerB: HTMLElement = document.getElementById(selectorB);
     let buttonA: HTMLElement = document.getElementById(selectorC);
     let buttonB: HTMLElement = document.getElementById(selectorD);
-
-    console.log(containerA.getAttribute(this.style));
 
     if (containerA.getAttribute(this.style) === "display:block;") {
       containerA.setAttribute(this.style, "display:none;");
