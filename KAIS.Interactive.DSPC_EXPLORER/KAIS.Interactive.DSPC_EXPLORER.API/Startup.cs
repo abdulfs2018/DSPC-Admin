@@ -1,5 +1,4 @@
-﻿
-using KAIS.Interactive.DSPC_EXPLORER.API.Utilities;
+﻿using KAIS.Interactive.DSPC_EXPLORER.API.Utilities;
 using KAIS.Interactive.DSPC_EXPLORER.Infrastructure;
 using KAIS.Interactive.DSPC_EXPLORER.Infrastructure.Interface;
 using KAIS.Interactive.DSPC_EXPLORER.Infrastructure.Model;
@@ -32,10 +31,13 @@ namespace KAIS.Interactive.DSPC_EXPLOERER.API
 
             services.AddIdentityCore<IdentityUser>();
             services.AddDbContext<DSPC_ExplorerDbContext>();
-            services.AddControllersWithViews();
+
+            services.AddControllersWithViews().AddNewtonsoftJson(options =>
+                options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
+
             services.AddScoped<IDSPC_Repository, DSPC_Repository>();
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
 
             services.AddSwaggerGen(sgen =>
             {
