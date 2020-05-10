@@ -3,7 +3,6 @@ using KAIS.Interactive.DSPC_EXPLORER.Infrastructure.Interface;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Threading.Tasks;
-using KAIS.Interactive.DSPC_EXPLORER.Common.Services.Enums;
 
 namespace KAIS.Interactive.DSPC_EXPLORER.API.Controllers
 {
