@@ -28,9 +28,9 @@ namespace KAIS.Interactive.DSPC_EXPLORER.API.Controllers
                 return Ok(false);
                 
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                return BadRequest(e);
+                return BadRequest();
             }
         }
 
