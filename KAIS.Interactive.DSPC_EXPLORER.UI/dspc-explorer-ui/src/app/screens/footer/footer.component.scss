@@ -1,14 +1,12 @@
-footer img {
-    margin: 0 16px;
-}
-  
-.toolbar #twitter-logo {
-    height: 40px;
-    margin: 0 16px;
-}
-  
-.toolbar #twitter-logo:hover {
-    opacity: 0.8;
+.toolbar {
+    #twitter-logo {
+        height: 40px;
+        margin: 0 16px;
+
+        &:hover {
+            opacity: 0.8;
+        }
+    }
 }
 
 .spacer {
@@ -26,4 +24,9 @@ footer {
     position: absolute;
     bottom: 0px;
     width: 100%;
+
+    img {
+        margin: 0 16px;
+    }
+
   }
