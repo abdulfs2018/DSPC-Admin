@@ -12,11 +12,24 @@ export class SearchResultComponent implements OnInit {
   @Input('subtitle') subtitle: string;
   @Input('results') results: Array<Array<string>>;
 
+
+  pageSize: Number=5;
+  page: Number=1;
+
+
   constructor() { 
     this.image = "200x200.png";
     this.title = "Search Results";
     this.subtitle = "Click a Grave for More Details";
-    this.results = [["Grave 1", "Killian Logan", "6", "D"],["Grave 2", "Jerry Coleman", "3", "S"],["Grave 3","Dermot", "9", "T"],["Grave 4","Frank Drebin","12","Q"]];
+    this.results = 
+    [
+      ["Grave 1", "Killian Logan", "6", "D"],["Grave 2", "Jerry Coleman", "3", "S"],["Grave 3","Dermot", "9", "T"],["Grave 4","Frank Drebin","12","Q"],
+      ["Grave 1", "Killian Logan", "6", "D"],["Grave 2", "Jerry Coleman", "3", "S"],["Grave 3","Dermot", "9", "T"],["Grave 4","Frank Drebin","12","Q"],
+      ["Grave 1", "Killian Logan", "6", "D"],["Grave 2", "Jerry Coleman", "3", "S"],["Grave 3","Dermot", "9", "T"],["Grave 4","Frank Drebin","12","Q"],
+      ["Grave 1", "Killian Logan", "6", "D"],["Grave 2", "Jerry Coleman", "3", "S"],["Grave 3","Dermot", "9", "T"],["Grave 4","Frank Drebin","12","Q"],
+      ["Grave 1", "Killian Logan", "6", "D"],["Grave 2", "Jerry Coleman", "3", "S"],["Grave 3","Dermot", "9", "T"],["Grave 4","Frank Drebin","12","Q"]
+  ];
+
   }
 
   ngOnInit() {

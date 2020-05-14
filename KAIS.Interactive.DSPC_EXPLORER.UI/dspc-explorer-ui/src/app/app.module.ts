@@ -8,6 +8,8 @@ import { UserLoginComponent } from "./screens/user-login/user-login.component";
 import { FormsModule } from "@angular/forms";
 import { SearchResultComponent } from "./screens/search-result/search-result.component";
 import { SearchCardComponent } from './screens/search-card/search-card.component';
+import {NgbPaginationModule, NgbAlertModule} from '@ng-bootstrap/ng-bootstrap';
+
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { SearchCardComponent } from './screens/search-card/search-card.component
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    NgbPaginationModule,
+    NgbAlertModule
   ],
   providers: [],
   bootstrap: [AppComponent],

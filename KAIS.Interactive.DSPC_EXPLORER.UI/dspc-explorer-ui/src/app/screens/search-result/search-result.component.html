@@ -3,8 +3,13 @@
     <h2>{{subtitle}}</h2>
     
     <ul class="list-group">
-        <li *ngFor="let result of results" class="list-group-item">
+        <li *ngFor="let result of results | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize" class="list-group-item">
             <app-search-card result="{{result}}" ></app-search-card>
         </li>
     </ul>
+    <div style="height:150px;">
+        <ngb-pagination [collectionSize]="results.length" [pageSize]="pageSize" [(page)]="page" aria-label="Default pagination"></ngb-pagination>
+    </div>
+    
+
 </div>
