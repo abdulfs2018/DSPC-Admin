@@ -2,17 +2,8 @@
   background-image: url("../../../assets/images/LoginbackgroundImage.jpg");
   padding-bottom: 8%;
   padding-top: 2%;
-  // text-align: center;
   color: white;
 }
-
-// .login-form-border {
-//   /* border: 2px solid white; */
-//   border-radius: 30px;
-//   margin: 0% 25% 0% 25%;
-//   padding: 5% 0% 10% 0%;
-//   box-shadow: 0px 0px 5px 2px white;
-// }
 
 .form-group i {
   position: absolute;
@@ -48,24 +39,23 @@
 ::placeholder {
   color: white;
 }
+
 input[type="email"] {
   border: 1px solid white;
   border-radius: 15px;
   background-color: transparent;
   color: white;
 }
-input[type="email"]:focus {
+
+input[type="email"]:focus, input[type="password"]:focus {
   background-color: transparent;
   color: white;
 }
+
 input[type="password"] {
   border: 1px solid white;
   border-radius: 15px;
   background-color: transparent;
-}
-input[type="password"]:focus {
-  background-color: transparent;
-  color: white;
 }
 
 .social-sign-up {
@@ -82,12 +72,15 @@ input[type="password"]:focus {
   margin: 5px;
 }
 
-.fa-facebook {
+.fa-facebook, .fa-twitter, .fa-google {
   font-size: 24px;
-  background: blue;
   color: white;
-  border: 1px blue solid;
   border-radius: 40px;
+}
+
+.fa-facebook {
+  background: blue;
+  border: 1px blue solid;
   padding-right: 30px;
   padding-top: 11px;
   padding-left: 16px;
@@ -95,22 +88,16 @@ input[type="password"]:focus {
 }
 
 .fa-twitter {
-  font-size: 24px;
   background: lightskyblue;
-  color: white;
   border: 1px lightskyblue solid;
-  border-radius: 40px;
   padding-right: 33px;
   padding-top: 11px;
   padding-left: 14px;
   padding-bottom: 11px;
 }
 .fa-google {
-  font-size: 24px;
   background: red;
-  color: white;
   border: 1px red solid;
-  border-radius: 40px;
   padding-right: 34px;
   padding-top: 10px;
   padding-left: 13px;

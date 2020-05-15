@@ -8,6 +8,8 @@ import { UserLoginComponent } from "./screens/user-login/user-login.component";
 import { FormsModule } from "@angular/forms";
 import { SearchResultComponent } from "./screens/search-result/search-result.component";
 import { SearchCardComponent } from './screens/search-card/search-card.component';
+import { HeaderComponent } from './screens/header/header.component';
+import { FooterComponent } from './screens/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { SearchCardComponent } from './screens/search-card/search-card.component
     AboutUsComponent,
     UserLoginComponent,
     SearchResultComponent,
-    SearchCardComponent
+    SearchCardComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
