@@ -8,6 +8,7 @@ import { UserLoginComponent } from "./screens/user-login/user-login.component";
 import { FormsModule } from "@angular/forms";
 import { SearchResultComponent } from "./screens/search-result/search-result.component";
 import { SearchCardComponent } from './screens/search-card/search-card.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -21,9 +22,10 @@ import { SearchCardComponent } from './screens/search-card/search-card.component
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
