@@ -1,6 +1,11 @@
-.list-group .list-group-item {
-    margin:30px;
-    background-color: lightblue;
+.list-group {
+    overflow-x: auto;
+    height:50vh;
+    
+    .list-group-item {
+        margin:30px;
+        background-color: lightblue;
+    }
 }
 
 .pagination-container {
