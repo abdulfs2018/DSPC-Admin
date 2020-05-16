@@ -20,7 +20,6 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.dspcDataProvider.getRegistrar().subscribe(data => {
       this.registrars = data;
-      console.log(data);
     });
 
 
