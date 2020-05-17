@@ -8,6 +8,7 @@ import { UserLoginComponent } from "./screens/user-login/user-login.component";
 import { FormsModule } from "@angular/forms";
 import { SearchResultComponent } from "./screens/search-result/search-result.component";
 import { SearchCardComponent } from './screens/search-card/search-card.component';
+import {NgbPaginationModule, NgbAlertModule} from '@ng-bootstrap/ng-bootstrap';
 import { HeaderComponent } from './screens/header/header.component';
 import { FooterComponent } from './screens/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -26,6 +27,9 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
+    NgbPaginationModule,
+    NgbAlertModule,
     HttpClientModule,
     FormsModule
   ],
