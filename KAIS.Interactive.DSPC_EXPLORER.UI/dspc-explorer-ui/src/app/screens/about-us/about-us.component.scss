@@ -1,50 +1,53 @@
+.aboutTopContent {
+  background: url(../../../assets/images/wall_background.jpg) center top
+    no-repeat;
+  background-size: cover;
+  /* background-attachment: fixed; */
+  height: 30em;
+}
 h1 {
-    color:#2FA4E7;
-    line-height: 1.2;
-    font-weight: bolder;
-    font-size: 2.5rem;
+  color: #2fa4e7;
+  line-height: 1.2;
+  font-weight: bolder;
+  font-size: 2.5rem;
 }
 
 h2 {
-    color:#2FA4E7;
-    line-height: 1.2;
-    font-weight: bolder;
-    font-size: 2rem;
+  color: #2fa4e7;
+  line-height: 1.2;
+  font-weight: bolder;
+  font-size: 2rem;
 }
 
 h3 {
-    color:#2FA4E7;
-    line-height: 1.2;
-    font-weight: bolder;
-    font-size: 1.75rem;
+  color: #2fa4e7;
+  line-height: 1.2;
+  font-weight: bolder;
+  font-size: 1.75rem;
 }
 
-h1, h2 {
-    text-align: center;
+h1,
+h2 {
+  text-align: center;
 }
 
 img {
-    display: block;
-    width: auto;
-    height: auto;
-    max-height: 400px;
+  display: block;
+  width: auto;
+  height: auto;
+  max-height: 400px;
 }
-
-.top-images {
-    padding-left:30px;
+.app-link {
+  max-height: 100px;
 }
-
-  .app-link {
-    max-height: 100px;
-  }
 
 #top-images-container {
   margin: 0 auto;
 }
 
 .feature-icons {
-    width:100px;
-    height:100px;
+  width: 100px;
+  height: 100px;
 }
 
 .col-lg-4 {
@@ -65,7 +68,9 @@ img {
   max-width: 90%;
 }
 
-.col-lg-4, .col-lg-6, .col-lg-12 {
+.col-lg-4,
+.col-lg-6,
+.col-lg-12 {
   position: relative;
   width: 100%;
   padding-right: 10px;
@@ -82,6 +87,9 @@ img {
 }
 
 video {
-  display:block;
-  margin:0 auto;
+  display: block;
+  margin: 0 auto;
+}
+.card {
+  background-color: lightskyblue;
 }
