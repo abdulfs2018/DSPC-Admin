@@ -11,6 +11,7 @@ import { SearchCardComponent } from './screens/search-card/search-card.component
 import {NgbPaginationModule, NgbAlertModule} from '@ng-bootstrap/ng-bootstrap';
 import { HeaderComponent } from './screens/header/header.component';
 import { FooterComponent } from './screens/footer/footer.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -28,9 +29,11 @@ import { FooterComponent } from './screens/footer/footer.component';
     AppRoutingModule,
     FormsModule,
     NgbPaginationModule,
-    NgbAlertModule
+    NgbAlertModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
