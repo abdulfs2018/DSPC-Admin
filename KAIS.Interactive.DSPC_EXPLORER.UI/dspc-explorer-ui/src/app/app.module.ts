@@ -8,6 +8,10 @@ import { UserLoginComponent } from "./screens/user-login/user-login.component";
 import { FormsModule } from "@angular/forms";
 import { SearchResultComponent } from "./screens/search-result/search-result.component";
 import { SearchCardComponent } from './screens/search-card/search-card.component';
+import {NgbPaginationModule, NgbAlertModule} from '@ng-bootstrap/ng-bootstrap';
+import { HeaderComponent } from './screens/header/header.component';
+import { FooterComponent } from './screens/footer/footer.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -16,14 +20,20 @@ import { SearchCardComponent } from './screens/search-card/search-card.component
     AboutUsComponent,
     UserLoginComponent,
     SearchResultComponent,
-    SearchCardComponent
+    SearchCardComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
+    NgbPaginationModule,
+    NgbAlertModule,
+    HttpClientModule,
     FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

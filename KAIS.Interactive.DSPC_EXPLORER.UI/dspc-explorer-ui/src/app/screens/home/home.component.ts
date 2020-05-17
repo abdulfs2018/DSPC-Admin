@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { RegistrarDTO } from 'src/app/core/dtos/registrar.model';
+import { Observable } from 'rxjs';
+import { DSPCExplorerDataProvider } from 'src/app/core/services/dspc-explorer-provider/dspc-explorer-data-provider.service';
 
 @Component({
   selector: 'app-home',
@@ -10,10 +13,16 @@ export class HomeComponent implements OnInit {
 
 
   display: boolean = false;
+  registrars: Array<RegistrarDTO>;
 
-  constructor() { }
+  constructor(private dspcDataProvider: DSPCExplorerDataProvider) { }
 
   ngOnInit() {
+    this.dspcDataProvider.getRegistrar().subscribe(data => {
+      this.registrars = data;
+    });
+
+
   }
 
   readonly style = "style";
