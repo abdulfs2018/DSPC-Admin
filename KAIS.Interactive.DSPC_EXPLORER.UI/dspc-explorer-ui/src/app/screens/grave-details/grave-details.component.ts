@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-grave-details',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GraveDetailsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private route : ActivatedRoute) { }
+
+  graveInfo: any;
 
   ngOnInit() {
+    this.graveInfo = this.route.snapshot.params;
   }
 
 }

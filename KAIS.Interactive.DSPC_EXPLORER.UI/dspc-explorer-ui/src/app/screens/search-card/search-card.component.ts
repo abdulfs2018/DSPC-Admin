@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-search-card',
@@ -11,13 +12,17 @@ export class SearchCardComponent implements OnInit {
   @Input('image') image: string;
   arrResult: Array<string>;
 
-  constructor() {
+  constructor(private route : Router) {
     this.image = "200x200.png";
     this.result = "";
    }
 
   ngOnInit() {
     this.arrResult = this.result.split(",");
+  }
+
+  openGraveDetails() {
+    this.route.navigate(['../graveDetails', this.arrResult]);
   }
 
 }
