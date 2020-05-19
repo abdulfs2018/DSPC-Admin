@@ -1,5 +1,34 @@
-<p>Grave Id: {{graveInfo[0]}}</p>
-<p>Grave Name: {{graveInfo[1]}}</p>
-<p>Grave Owner: {{graveInfo[2]}}</p>
-<p>People in Grave: {{graveInfo[3]}}</p>
-<p>Grave Size: {{graveInfo[4]}}</p>
+<div class="spacer"></div>
+
+
+
+<div class="tab-details">
+    <ul class="tabrow">
+        <li id="registrar-tab" class="selected" (click)="showTab('registrar')"><a>Registrar Details</a></li>
+        <li id="grave-tab" (click)="showTab('grave')">Grave Owner Details</li>
+     </ul>
+</div>
+
+<div class="folder">
+    
+    <img id="profile-img" src="../../../assets/images/anon-user.png">
+
+    <div id="grave-overview">
+        <p>Grave Id: {{graveInfo[0]}}</p>
+        <p>Grave Name: {{graveInfo[1]}}</p>
+        <p>Grave Owner: {{graveInfo[2]}}</p>
+        <p>People in Grave: {{graveInfo[3]}}</p>
+        <p>Grave Size: {{graveInfo[4]}}</p>
+
+    </div>
+    
+
+
+    
+    
+    
+
+</div>
+
+
+
