@@ -1,6 +1,3 @@
-.spacer {
-    height:100px;
-}
 
 .folder {
     border: 3px solid black;
@@ -9,15 +6,24 @@
     margin: 0 auto;
 }
 
+#grave-name {
+    text-align: center;
+    margin: 25px 0;
+}
+
 #profile-img {
     width: 20%;
 }
 
-#grave-overview {
+#grave-overview, #registrar-overview {
     display: inline-block;
     margin-left: 25px;
+    width:50%;
 }
 
+#edit-registrar, #edit-grave {
+    display:inline-block;
+}
 
 .tabrow {
     position: relative;
@@ -40,7 +46,6 @@
         border-top-left-radius: 6px;
         border-top-right-radius: 6px;
 
-
         &:before,
         &:after {
             position: absolute;
@@ -50,7 +55,6 @@
             content: " ";
             border: 1px solid #AAA;
         }
-  
 
         &:before {
             left: -6px;
