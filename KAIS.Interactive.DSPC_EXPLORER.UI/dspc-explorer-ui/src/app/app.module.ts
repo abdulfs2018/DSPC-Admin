@@ -12,6 +12,7 @@ import {NgbPaginationModule, NgbAlertModule} from '@ng-bootstrap/ng-bootstrap';
 import { HeaderComponent } from './screens/header/header.component';
 import { FooterComponent } from './screens/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
+import { GraveDetailsComponent } from './screens/grave-details/grave-details.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { HttpClientModule } from '@angular/common/http';
     SearchResultComponent,
     SearchCardComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    GraveDetailsComponent
   ],
   imports: [
     BrowserModule,

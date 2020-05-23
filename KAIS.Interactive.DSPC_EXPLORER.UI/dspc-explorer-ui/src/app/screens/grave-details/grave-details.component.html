@@ -1,0 +1,44 @@
+<h1 id="grave-name">{{graveInfo[1]}} (#{{graveInfo[0]}})</h1>
+
+<div class="tab-details">
+    <ul class="tabrow">
+        <li id="registrar-tab" class="selected" (click)="showTab('registrar')"><a>Registrar Details</a></li>
+        <li id="grave-tab" (click)="showTab('grave')">Grave Owner Details</li>
+     </ul>
+</div>
+
+<div class="folder grave-folder">
+    
+    <img id="profile-img" src="../../../assets/images/anon-user.png">
+
+    <div id="grave-overview">
+        <h3>Grave Owner: {{graveInfo[2]}}</h3>
+        <h3>People in Grave: {{graveInfo[3]}}</h3>
+        <h3>Grave Size: {{graveInfo[4]}}</h3>
+    </div>
+
+    <div id="edit-grave">
+        <a href="#" routerLink="../graveDetails" class="nav-link" routerLinkActive="active">Edit Record(admin visible only)</a><br />
+        <a href="#" routerLink="../graveDetails" routerLinkActive="active">Please report and inaccurate information by clicking here</a>
+    </div>
+
+</div>
+
+<div class="folder registrar-folder">
+    
+    <img id="profile-img" src="../../../assets/images/anon-user.png">
+
+    <div id="registrar-overview">
+        <h2>John Doe</h2>
+        <h3><span>June 10 1944</span> - <span>April 5 2020</span></h3>
+    </div>
+
+    <div id="edit-registrar">
+        <a href="#" routerLink="../graveDetails" class="nav-link" routerLinkActive="active">Edit Record(admin visible only)</a><br />
+        <a href="#" routerLink="../graveDetails" routerLinkActive="active">Please report and inaccurate information by clicking here</a>
+    </div>
+    
+</div>
+
+
+
