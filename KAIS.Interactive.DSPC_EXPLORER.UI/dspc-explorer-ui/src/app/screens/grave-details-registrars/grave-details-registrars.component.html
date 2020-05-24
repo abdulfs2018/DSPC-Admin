@@ -1,0 +1,8 @@
+<ul class="list-group">
+    <li *ngFor="let result of results" class="list-group-item">
+       <h4>{{result[1]}}</h4>
+       <h6>{{result[2]}} - {{result[3]}}</h6>
+       <a href="#" routerLink="../graveDetails" class="nav-link edit-registrar-button" routerLinkActive="active">Edit This Record(admin visible only)</a><br />
+
+    </li>
+</ul>
