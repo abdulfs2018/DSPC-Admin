@@ -8,37 +8,25 @@
 </div>
 
 <div class="folder grave-folder">
-    
-    <img id="profile-img" src="../../../assets/images/anon-user.png">
 
     <div id="grave-overview">
-        <h3>Grave Owner: {{graveInfo[2]}}</h3>
-        <h3>People in Grave: {{graveInfo[3]}}</h3>
-        <h3>Grave Size: {{graveInfo[4]}}</h3>
+        <p><span class="grave-overview-key">Grave Owner Name: </span>{{graveInfo[2]}}</p>
+        <p><span class="grave-overview-key">Grave Size: </span>{{graveInfo[4]}}</p>
+        <p><span class="grave-overview-key">Grave Section: </span>A</p>
+        <p><span class="grave-overview-key">Grave Coordinates: </span>-6.342454, 31.345353</p>
     </div>
 
     <div id="edit-grave">
-        <a href="#" routerLink="../graveDetails" class="nav-link" routerLinkActive="active">Edit Record(admin visible only)</a><br />
-        <a href="#" routerLink="../graveDetails" routerLinkActive="active">Please report and inaccurate information by clicking here</a>
+        <a href="#" id="edit-grave-button" routerLink="../graveDetails" class="nav-link" routerLinkActive="active">Edit Grave Owner Details(admin visible only)</a><br />
+        <a href="#" id="update-grave-info-link" routerLink="../graveDetails" routerLinkActive="active">Please report and inaccurate information by clicking here</a>
     </div>
+
+    <h1>Grave Owner Registrar Records</h1>
+
+    <div id="registrar-section">
+        
+    </div>
+
+
 
 </div>
-
-<div class="folder registrar-folder">
-    
-    <img id="profile-img" src="../../../assets/images/anon-user.png">
-
-    <div id="registrar-overview">
-        <h2>John Doe</h2>
-        <h3><span>June 10 1944</span> - <span>April 5 2020</span></h3>
-    </div>
-
-    <div id="edit-registrar">
-        <a href="#" routerLink="../graveDetails" class="nav-link" routerLinkActive="active">Edit Record(admin visible only)</a><br />
-        <a href="#" routerLink="../graveDetails" routerLinkActive="active">Please report and inaccurate information by clicking here</a>
-    </div>
-    
-</div>
-
-
-
