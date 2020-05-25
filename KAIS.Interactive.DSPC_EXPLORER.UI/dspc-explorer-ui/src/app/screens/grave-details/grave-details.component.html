@@ -17,7 +17,7 @@
     </div>
 
     <div id="edit-grave">
-        <a href="#" id="edit-grave-button" routerLink="../graveDetails" class="nav-link" routerLinkActive="active">Edit Grave Owner Details(admin visible only)</a><br />
+        <a href="#" *ngIf="isAdmin" id="edit-grave-button" routerLink="../graveDetails" class="nav-link" routerLinkActive="active">Edit Grave Owner Details</a><br />
         <a href="#" id="update-grave-info-link" routerLink="../graveDetails" routerLinkActive="active">Please report and inaccurate information by clicking here</a>
     </div>
 

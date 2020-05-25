@@ -10,10 +10,12 @@ export class GraveDetailsRegistrarsComponent implements OnInit {
   constructor() { }
 
   @Input('result') result: string;
-  arrResult : Array<string>
+  arrResult : Array<string>;
+  private isAdmin : boolean;
 
   ngOnInit() {
     this.arrResult = this.result.split(",");
+    this.isAdmin = false;
   }
 
 }

@@ -12,10 +12,12 @@ export class GraveDetailsComponent implements OnInit {
 
   private graveInfo: any;
   private results: any;
+  private isAdmin : boolean;
 
   ngOnInit() {
     this.graveInfo = this.dspcExplorerDataProvider.graveDetails;
 
+    this.isAdmin = false;
     this.results = [
       [
         "1", "John Prescott", "5 APR 1941", "20 MAR 2020"
