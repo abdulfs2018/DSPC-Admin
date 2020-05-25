@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-grave-details-registrars',
@@ -9,10 +9,11 @@ export class GraveDetailsRegistrarsComponent implements OnInit {
 
   constructor() { }
 
-  results: any;
+  @Input('result') result: string;
+  arrResult : Array<string>
 
   ngOnInit() {
-
+    this.arrResult = this.result.split(",");
   }
 
 }
