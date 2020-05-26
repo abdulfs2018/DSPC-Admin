@@ -11,9 +11,22 @@ export class GraveDetailsComponent implements OnInit {
   constructor(private dspcExplorerDataProvider : DSPCExplorerDataProvider) { }
 
   private graveInfo: any;
+  private results: any;
+  private isAdmin : boolean;
 
   ngOnInit() {
     this.graveInfo = this.dspcExplorerDataProvider.graveDetails;
+    this.isAdmin = false;
+    
+    this.results = [
+      [
+        "1", "John Prescott", "5 APR 1941", "20 MAR 2020"
+      ],
+      [
+        "2", "Emily Prescott", "10 DEC 1941", "15 MAR 1990"
+      ]
+    ]
+
   }
 
   showTab(tab: string) {
