@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router} from '@angular/router';
+import { DSPCExplorerDataProvider } from 'src/app/core/services/dspc-explorer-provider/dspc-explorer-data-provider.service';
 
 @Component({
   selector: 'app-grave-details-registrars',
@@ -7,7 +9,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class GraveDetailsRegistrarsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private dspcExplorerDataProvider: DSPCExplorerDataProvider, private router: Router) { }
 
   @Input('result') result: string;
   arrResult : Array<string>;
@@ -16,6 +18,7 @@ export class GraveDetailsRegistrarsComponent implements OnInit {
   ngOnInit() {
     this.arrResult = this.result.split(",");
     this.isAdmin = false;
+    this.dspcExplorerDataProvider.registrarDetails = this.arrResult;
   }
 
 }

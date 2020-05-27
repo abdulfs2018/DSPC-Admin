@@ -1,0 +1,154 @@
+
+.folder {
+    padding: 25px;
+    width: 90%;
+    margin: 0 auto;
+    border: 3px solid black;
+    display: flex;
+}
+
+h1 {
+    margin-top: 5vh;
+}
+
+h1, h5, h6 {
+    text-align: center;
+}
+
+#profile-image {
+    width:20vh;
+    height:20vh;
+    float:left;
+}
+
+#map-image {
+    width:40vh;
+    height:40vh;
+}
+
+#edit-registrar-button {
+    margin: 2vh 0px;
+}
+
+#update-registrar-info-link {
+    position: absolute;
+    bottom: 8vh;
+}
+
+table {
+    width: 50%;
+    margin-left: 25%;
+}
+
+h2 {
+    text-align: center;
+}
+
+#registrar-left-top, #registrar-right-top {
+    position: relative;
+    height:25vh;
+}
+
+#registrar-left-bottom, #registrar-right-bottom {
+    height:45vh;
+}
+
+
+#registrar-left, #registrar-right {
+    overflow: hidden;
+    width: 49%;
+}
+
+#registrar-left-bottom, #registrar-right-bottom {
+    clear: both;
+}
+
+#registrar-left {
+    flex: 1.5;
+}
+
+#registrar-right {
+    flex: 1;
+}
+
+
+.tabrow {
+    position: relative;
+    left: 6%;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    line-height: 24px;
+
+    li {
+        background: linear-gradient(to bottom, #ECECEC 50%, #D1D1D1 100%);
+        box-shadow: 0 3px 3px rgba(0, 0, 0, 0.4), inset 0 1px 0 #FFF;
+        text-shadow: 0 1px #FFF;
+        margin: 0 -5px;
+        padding: 0 20px;
+        border: 1px solid #AAA;
+        display: inline-block;
+        position: relative;
+        z-index: 0;
+        border-top-left-radius: 6px;
+        border-top-right-radius: 6px;
+
+        &:before,
+        &:after {
+            position: absolute;
+            bottom: -1px;
+            width: 6px;
+            height: 6px;
+            content: " ";
+            border: 1px solid #AAA;
+        }
+
+        &:before {
+            left: -6px;
+            border-bottom-right-radius: 6px;
+            border-width: 0 1px 1px 0;
+            box-shadow: 2px 2px 0 #ECECEC;
+        }
+
+        &:after {
+            right: -6px;
+            border-bottom-left-radius: 6px;
+            border-width: 0 0 1px 1px;
+            box-shadow: -2px 2px 0 #ECECEC;
+        }
+
+        &.selected {
+            background: #FFF;
+            color: #000;
+            z-index: 2;
+            border-bottom-color: #FFF;
+
+            &:before {
+                box-shadow: 2px 2px 0 #FFF;
+            }
+
+            &:after {
+                box-shadow: -2px 2px 0 #FFF;
+            }
+        }
+    }
+
+    &:after {
+        content: "";
+        width: 100%;
+        bottom: 0;
+        left: 0;
+        border-bottom: 1px solid #AAA;
+        z-index: 1;
+    }
+
+    &:before {
+        z-index: 1;
+    }
+
+}
+  
+.list-group-item {
+    border: 3px solid black;
+    margin-bottom:20px;
+}
