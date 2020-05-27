@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Router} from '@angular/router';
 import { DSPCExplorerDataProvider } from 'src/app/core/services/dspc-explorer-provider/dspc-explorer-data-provider.service';
 
 @Component({
@@ -9,7 +8,7 @@ import { DSPCExplorerDataProvider } from 'src/app/core/services/dspc-explorer-pr
 })
 export class GraveDetailsRegistrarsComponent implements OnInit {
 
-  constructor(private dspcExplorerDataProvider: DSPCExplorerDataProvider, private router: Router) { }
+  constructor(private dspcExplorerDataProvider: DSPCExplorerDataProvider) { }
 
   @Input('result') result: string;
   arrResult : Array<string>;
