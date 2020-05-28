@@ -20,7 +20,11 @@ export class SearchCardComponent implements OnInit {
 
   ngOnInit() {
     this.arrResult = this.result.split(",");
+  }
+
+  showGraveDetails() {
     this.dspcExplorerDataProvider.graveDetails = this.arrResult;
+    this.route.navigate(['../graveDetails']);
   }
 
 }
