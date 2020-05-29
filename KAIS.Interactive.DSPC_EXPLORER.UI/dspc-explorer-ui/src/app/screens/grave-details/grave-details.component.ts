@@ -26,7 +26,7 @@ export class GraveDetailsComponent implements OnInit {
         "2", "Emily Prescott", "10 DEC 1941", "15 MAR 1990"
       ]
     ]
-
+    this.dspcExplorerDataProvider.registrarDetails = this.results;
   }
 
   showTab(tab: string) {

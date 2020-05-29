@@ -14,6 +14,7 @@ import { FooterComponent } from './screens/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
 import { GraveDetailsComponent } from './screens/grave-details/grave-details.component';
 import { GraveDetailsRegistrarsComponent } from './screens/grave-details-registrars/grave-details-registrars.component';
+import { GraveRegistrarsComponent } from './screens/grave-registrars/grave-registrars.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { GraveDetailsRegistrarsComponent } from './screens/grave-details-registr
     HeaderComponent,
     FooterComponent,
     GraveDetailsComponent,
-    GraveDetailsRegistrarsComponent
+    GraveDetailsRegistrarsComponent,
+    GraveRegistrarsComponent
   ],
   imports: [
     BrowserModule,
