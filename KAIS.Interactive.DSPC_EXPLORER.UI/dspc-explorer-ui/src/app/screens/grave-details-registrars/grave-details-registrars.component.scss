@@ -9,3 +9,16 @@
     top: 25%;
     right: 20%;
 }
+
+a {
+    margin:auto;
+    padding: 10px 20px;
+    background-color: #f44336;
+    border: 1px solid #ddd;
+    color: white !important;
+    cursor: pointer;
+
+    &:hover {
+        background-color:#941f16;
+    }
+}
