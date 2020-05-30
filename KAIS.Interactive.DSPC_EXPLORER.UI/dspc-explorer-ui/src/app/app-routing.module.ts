@@ -12,9 +12,9 @@ const routes: Routes = [
   { path: "home", component: HomeComponent },
   { path: "about", component: AboutUsComponent },
   { path: "login", component: UserLoginComponent },
-  { path: 'searchResults', component: SearchResultComponent },
-  { path: 'graveDetails', component: GraveDetailsComponent },
-  { path: 'graveRegistrars', component: GraveRegistrarsComponent }
+  { path: "searchResults", component: SearchResultComponent },
+  { path: "graveDetails", component: GraveDetailsComponent },
+  { path: "graveRegistrars", component: GraveRegistrarsComponent }
 ];
 
 @NgModule({

@@ -1,7 +1,7 @@
 <li class="list-group-item">
    <h4>{{arrResult[1]}}</h4>
    <h6>{{arrResult[2]}} - {{arrResult[3]}}</h6>
-   <a href="#" routerLink="../graveRegistrars" class="nav-link view-registrar-button" routerLinkActive="active">View Record</a><br />
+   <a (click)="showRegistrarDetails();" class="nav-link view-registrar-button">View Record</a>
    <a href="#" *ngIf="isAdmin" routerLink="../graveDetails" class="nav-link edit-registrar-button" routerLinkActive="active">Edit This Record</a><br />
 </li>
 
