@@ -23,8 +23,15 @@ export class HomeComponent implements OnInit {
       this.registrars = data;
     });
 
-    const newTodo = 'new todo'; 
-    this.localStorageService.storeOnLocalStorage(newTodo);
+    const search: {[key: string]: Object} = {
+      "result 1": {name: "kieron"},
+      "result 2": {name: "abdul"},
+      "result 3": {name: "david"}
+    }
+
+
+    //this.localStorageService.storeOnLocalStorage(search);
+    this.localStorageService.getFromLocalStorage();
   }
 
   readonly style = "style";
