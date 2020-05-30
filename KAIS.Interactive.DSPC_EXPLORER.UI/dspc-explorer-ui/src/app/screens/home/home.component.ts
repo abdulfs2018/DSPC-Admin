@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RegistrarDTO } from 'src/app/core/dtos/registrar.model';
 import { Observable } from 'rxjs';
 import { DSPCExplorerDataProvider } from 'src/app/core/services/dspc-explorer-provider/dspc-explorer-data-provider.service';
+import { DSPCExplorerLocalStorageProvider } from 'src/app/core/services/dspc-explorer-provider/dspc-explorer-storage-provider';
 
 @Component({
   selector: 'app-home',
@@ -15,14 +16,15 @@ export class HomeComponent implements OnInit {
   display: boolean = false;
   registrars: Array<RegistrarDTO>;
 
-  constructor(private dspcDataProvider: DSPCExplorerDataProvider) { }
+  constructor(private dspcDataProvider: DSPCExplorerDataProvider, private localStorageService: DSPCExplorerLocalStorageProvider) { }
 
   ngOnInit() {
     this.dspcDataProvider.getRegistrar().subscribe(data => {
       this.registrars = data;
     });
 
-
+    const newTodo = 'new todo'; 
+    this.localStorageService.storeOnLocalStorage(newTodo);
   }
 
   readonly style = "style";
