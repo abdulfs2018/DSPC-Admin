@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { DSPCExplorerDataProvider } from 'src/app/core/services/dspc-explorer-provider/dspc-explorer-data-provider.service';
 
 @Component({
@@ -12,7 +13,7 @@ export class SearchCardComponent implements OnInit {
   @Input('image') image: string;
   arrResult: Array<string>;
 
-  constructor(private dspcExplorerDataProvider: DSPCExplorerDataProvider) {
+  constructor(private dspcExplorerDataProvider: DSPCExplorerDataProvider, private router: Router) {
     this.image = "200x200.png";
     this.result = "";
    }
@@ -23,7 +24,7 @@ export class SearchCardComponent implements OnInit {
 
   showGraveDetails() {
     this.dspcExplorerDataProvider.graveDetails = this.arrResult;
-    this.route.navigate(['../graveDetails']);
+    this.router.navigate(['../graveDetails']);
   }
 
 }
