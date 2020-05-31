@@ -12,10 +12,12 @@ import { DSPCExplorerLocalStorageProvider } from 'src/app/core/services/dspc-exp
 export class HomeComponent implements OnInit {
 
     searchResults: Array<Array<string>>;
+    formData: any;
     display: boolean = false;
     registrars: Array<RegistrarDTO>;
     readonly style = "style";
     readonly SEARCH_KEY = "local_search";
+    readonly FORM_KEY = "local_form";
 
     constructor(private dspcDataProvider: DSPCExplorerDataProvider, private localStorageService: DSPCExplorerLocalStorageProvider) {
       this.display = this.localStorageService.getFromLocalStorage(this.SEARCH_KEY) !== undefined;
@@ -34,6 +36,14 @@ export class HomeComponent implements OnInit {
         ["13", "Grave 1", "Killian Logan", "6", "D"],["14","Grave 2", "Jerry Coleman", "3", "S"],["15", "Grave 3", "Dermot", "9", "T"],["16", "Grave 4", "Frank Drebin", "12" ,"Q"],
         ["17", "Grave 1", "Killian Logan", "6", "D"],["18","Grave 2", "Jerry Coleman", "3", "S"],["19", "Grave 3", "Dermot", "9", "T"],["20", "Grave 4", "Frank Drebin", "12" ,"Q"]
       ];
+
+      if (this.localStorageService.getFromLocalStorage(this.SEARCH_KEY) !== undefined) {
+        // populate data to form
+        
+
+      }
+
+
     
   }
 
@@ -44,6 +54,11 @@ export class HomeComponent implements OnInit {
 
     if (this.display) {
       this.localStorageService.storeOnLocalStorage(this.SEARCH_KEY, this.searchResults);
+      // store form data here as we did a search on data and could navigate away
+      // get data from form with the ids for each form
+      // people : person-first-name, person-last-name, person-gender, person-age, person-religion, person-occupation, person-death-date, person-burial-date, person-registrar-name
+      // graves : grave-reference-code, grave-size, grave-owner-name, grave-owner-address
+
     } else {
       this.localStorageService.deleteFromLocalStorage(this.SEARCH_KEY);
     }
