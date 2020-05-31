@@ -1,2 +1,6 @@
 export * from './header/header.component'
 export * from './footer/footer.component'
+export * from './grave-details/grave-details.component'
+export * from './grave-details-registrars/grave-details-registrars.component'
+export * from './grave-registrars/grave-registrars.component'
+export * from './about-us/about-us.component'

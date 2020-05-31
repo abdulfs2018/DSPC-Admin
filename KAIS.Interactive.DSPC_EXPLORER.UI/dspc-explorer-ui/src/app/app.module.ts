@@ -24,11 +24,8 @@ import { UserLoginModule } from './screens/user-login/user.login.module';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    NgbPaginationModule,
-    NgbAlertModule,
-    HttpClientModule,
     FormsModule,
-    StorageServiceModule
+    StorageServiceModule,
     HomeModule,
     UserLoginModule
   ],
