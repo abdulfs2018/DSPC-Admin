@@ -3,12 +3,12 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {
     HomeComponent,
+    AboutUsComponent,
     SearchCardComponent,
     SearchResultComponent
 } from './';
 import {
-    HeaderComponent, FooterComponent,
-    AboutUsComponent, GraveDetailsComponent, GraveRegistrarsComponent
+    HeaderComponent, FooterComponent, GraveDetailsComponent, GraveRegistrarsComponent
 } from '../';
 
 import { NgbAlertModule, NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
@@ -29,10 +29,12 @@ const routes: Routes = [
 @NgModule({
     declarations: [
         HomeComponent,
+        AboutUsComponent,
         SearchCardComponent,
         SearchResultComponent,
         HeaderComponent,
-        FooterComponent
+        FooterComponent,
+
     ],
     imports: [
         CommonModule,
