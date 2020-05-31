@@ -15,6 +15,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { GraveDetailsComponent } from './screens/grave-details/grave-details.component';
 import { GraveDetailsRegistrarsComponent } from './screens/grave-details-registrars/grave-details-registrars.component';
 import { GraveRegistrarsComponent } from './screens/grave-registrars/grave-registrars.component';
+import { StorageServiceModule } from 'ngx-webstorage-service';
+import { DSPCExplorerLocalStorageProvider } from './core/services/dspc-explorer-provider/dspc-explorer-storage-provider';
 
 @NgModule({
   declarations: [
@@ -37,9 +39,10 @@ import { GraveRegistrarsComponent } from './screens/grave-registrars/grave-regis
     NgbPaginationModule,
     NgbAlertModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    StorageServiceModule
   ],
-  providers: [],
+  providers: [DSPCExplorerLocalStorageProvider],
   bootstrap: [AppComponent],
 })
 export class AppModule { }
