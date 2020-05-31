@@ -3,28 +3,20 @@
   (click)="
     toggleDivs('person-search', 'grave-search', 'grave-button', 'person-button')
   "
-  href="#"
   id="person-button"
   style="display: none;"
-  routerLink="home"
   class="nav-link"
-  routerLinkActive="active"
-  >Search By People</a
->
+  >Search By People</a>
 <a
   (click)="
     toggleDivs('person-search', 'grave-search', 'grave-button', 'person-button')
   "
-  href="#"
   id="grave-button"
   style="display: block;"
-  routerLink="home"
   class="nav-link"
-  routerLinkActive="active"
-  >Search By Graves</a
->
+  >Search By Graves</a>
 
-<div id="person-search" style="display: block;">
+<div id="person-search" style="display:block;">
   <h1>Searching Graves By Person Details</h1>
   <form class="form-inline" method="POST" target="./home">
     <label for="firstName">First Name</label>
@@ -77,7 +69,7 @@
   </form>
 </div>
 
-<div id="grave-search" style="display: none;">
+<div id="grave-search" style="display:none;">
   <h1>Searching Graves By Grave Details</h1>
   <form class="form-inline" method="POST" target="./home">
     <label for="grave reference code">Grave Reference Code</label>

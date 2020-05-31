@@ -79,3 +79,17 @@
       align-items: stretch;
     }
   }
+
+  a {
+    margin:auto;
+    color:white !important;
+    padding: 10px 20px;
+    background-color: #f44336;
+    border: 1px solid #ddd;
+    color: white;
+    cursor: pointer;
+
+    &:hover {
+        background-color:#941f16;
+    }
+}

@@ -24,7 +24,7 @@ export class GraveRegistrarsComponent implements OnInit {
     } else {
       this.arrResult = this.localStorageService.getFromLocalStorage(this.REGISTRAR_KEY);
     }
-
+    
     this.isAdmin = false;
 
   }
