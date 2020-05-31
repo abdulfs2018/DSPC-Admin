@@ -13,7 +13,6 @@ export class DSPCExplorerLocalStorageProvider {
      }
 
      public getFromLocalStorage(key : string):  any {
-          console.log(this.storage.get(key) || 'Local storage is empty');
           return this.storage.get(key);
      }
 
