@@ -1,10 +1,10 @@
 <div class="search-result-card">
     <img src="../../../assets/images/{{image}}"/>
     <ul class="list-group">
-        <li class="list-group-item">Grave Name: {{arrResult[0]}}</li>
-        <li class="list-group-item">Grave Owner Name: {{arrResult[1]}}</li>
-        <li class="list-group-item">People in Grave: {{arrResult[2]}}</li>
-        <li class="list-group-item">Grave Size: {{arrResult[3]}}</li>
-        <li class="list-group-item"><a href="#" routerLink="home" class="nav-link" routerLinkActive="active">View Selected Grave Details</a></li>
+        <li class="list-group-item">Grave Name: {{arrResult[1]}}</li>
+        <li class="list-group-item">Grave Owner Name: {{arrResult[2]}}</li>
+        <li class="list-group-item">People in Grave: {{arrResult[3]}}</li>
+        <li class="list-group-item">Grave Size: {{arrResult[4]}}</li>
+        <li class="list-group-item"><a (click)="showGraveDetails()" class="nav-link view-grave-button">View Selected Grave Details</a></li>
     </ul>
 </div>

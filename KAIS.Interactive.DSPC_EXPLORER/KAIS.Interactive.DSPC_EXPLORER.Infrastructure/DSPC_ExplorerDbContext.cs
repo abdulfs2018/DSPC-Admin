@@ -19,5 +19,12 @@ namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure.Model
         public DbSet<GraveOwner> GraveOwners { get; set; }
         public DbSet<Registrar> Registrars { get; set; }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.SeedInitialSections();
+            modelBuilder.SeedInitialGraveOwners();
+            modelBuilder.SeedIntialRegistrars();
+        }
+
     }
 }
