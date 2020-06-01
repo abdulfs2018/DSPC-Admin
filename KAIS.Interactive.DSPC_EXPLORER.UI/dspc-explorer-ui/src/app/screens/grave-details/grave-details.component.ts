@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DSPCExplorerDataProvider } from 'src/app/core/services/dspc-explorer-provider/dspc-explorer-data-provider.service';
+import { DSPCExplorerLocalStorageProvider } from 'src/app/core/services/dspc-explorer-provider/dspc-explorer-storage-provider';
 
 @Component({
   selector: 'app-grave-details',
@@ -8,14 +9,22 @@ import { DSPCExplorerDataProvider } from 'src/app/core/services/dspc-explorer-pr
 })
 export class GraveDetailsComponent implements OnInit {
 
-  constructor(private dspcExplorerDataProvider : DSPCExplorerDataProvider) { }
+  constructor(private dspcExplorerDataProvider : DSPCExplorerDataProvider,  private localStorageService: DSPCExplorerLocalStorageProvider) { }
 
   private graveInfo: any;
   private results: any;
   private isAdmin : boolean;
+  readonly GRAVE_KEY = "local_grave";
 
   ngOnInit() {
-    this.graveInfo = this.dspcExplorerDataProvider.graveDetails;
+
+    if (this.dspcExplorerDataProvider.graveDetails !== undefined) {
+      this.graveInfo = this.dspcExplorerDataProvider.graveDetails;
+      this.localStorageService.storeOnLocalStorage(this.GRAVE_KEY, this.graveInfo);
+    } else {
+      this.graveInfo = this.localStorageService.getFromLocalStorage(this.GRAVE_KEY);
+    }
+  
     this.isAdmin = false;
     
     this.results = [

@@ -12,6 +12,7 @@ import { DSPCExplorerLocalStorageProvider } from 'src/app/core/services/dspc-exp
 export class HomeComponent implements OnInit {
 
     searchResults: Array<Array<string>>;
+    formData: any;
     display: boolean = false;
     registrars: Array<RegistrarDTO>;
     readonly style = "style";
