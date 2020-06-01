@@ -15,7 +15,7 @@ namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.2.6-servicing-10079")
+                .HasAnnotation("ProductVersion", "3.1.3")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -23,122 +23,430 @@ namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("GraveDepth");
+                    b.Property<int>("GraveDepth")
+                        .HasColumnType("int");
 
-                    b.Property<bool>("GraveHeadStone");
+                    b.Property<bool>("GraveHeadStone")
+                        .HasColumnType("bit");
 
-                    b.Property<string>("GraveLocation");
+                    b.Property<string>("GraveLocation")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("GraveOwnerAddress");
+                    b.Property<string>("GraveOwnerAddress")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("GraveOwnerName");
+                    b.Property<string>("GraveOwnerName")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("GraveReferenceCode");
+                    b.Property<string>("GraveReferenceCode")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("GraveRow");
+                    b.Property<int>("GraveRow")
+                        .HasColumnType("int");
 
-                    b.Property<string>("GraveSize");
+                    b.Property<string>("GraveSize")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Remarks");
+                    b.Property<string>("Remarks")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("SectionId");
+                    b.Property<int?>("SectionId")
+                        .HasColumnType("int");
 
-                    b.Property<string>("SubId");
+                    b.Property<string>("SubId")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
                     b.HasIndex("SectionId");
 
                     b.ToTable("GraveOwners");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            GraveDepth = 1,
+                            GraveHeadStone = true,
+                            GraveLocation = "0.35345, -6.3423",
+                            GraveOwnerAddress = "4 Longwalk, Dundalk, Co. Louth",
+                            GraveOwnerName = "John Logan",
+                            GraveReferenceCode = "A001",
+                            GraveRow = 1,
+                            GraveSize = "S",
+                            Remarks = "Died before Sister buried in Ref C023",
+                            SectionId = 1,
+                            SubId = "A1"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            GraveDepth = 2,
+                            GraveHeadStone = true,
+                            GraveLocation = "0.35365, -6.3423",
+                            GraveOwnerAddress = "7 Mourne View, Dundalk, Co. Louth",
+                            GraveOwnerName = "James Coleman",
+                            GraveReferenceCode = "A002",
+                            GraveRow = 1,
+                            GraveSize = "S",
+                            Remarks = "Survived by Son Jeremy Colman",
+                            SectionId = 1,
+                            SubId = "A2"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            GraveDepth = 3,
+                            GraveHeadStone = true,
+                            GraveLocation = "0.35385, -6.3423",
+                            GraveOwnerAddress = "12 Seacrest, Dundalk, Co. Louth",
+                            GraveOwnerName = "Matthew Loane",
+                            GraveReferenceCode = "A003",
+                            GraveRow = 1,
+                            GraveSize = "S",
+                            Remarks = "Owner lives in Washington D.C. , USA",
+                            SectionId = 1,
+                            SubId = "A3"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            GraveDepth = 4,
+                            GraveHeadStone = true,
+                            GraveLocation = "0.35405, -6.3423",
+                            GraveOwnerAddress = "18 the tides, Dundalk, Co. Louth",
+                            GraveOwnerName = "Colm Lynch",
+                            GraveReferenceCode = "A004",
+                            GraveRow = 1,
+                            GraveSize = "S",
+                            Remarks = "Purchased along with Grave Ref A034",
+                            SectionId = 1,
+                            SubId = "A4"
+                        });
                 });
 
             modelBuilder.Entity("KAIS.Interactive.DSPC_EXPLORER.Infrastructure.Model.Registrar", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("AdditionalComments");
+                    b.Property<string>("AdditionalComments")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Age");
+                    b.Property<int>("Age")
+                        .HasColumnType("int");
 
-                    b.Property<string>("AgeDetail");
+                    b.Property<string>("AgeDetail")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("BookPage");
+                    b.Property<string>("BookPage")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("BurialDate");
+                    b.Property<DateTime>("BurialDate")
+                        .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("DeathDate");
+                    b.Property<DateTime>("DeathDate")
+                        .HasColumnType("datetime2");
 
-                    b.Property<string>("DeathLocation");
+                    b.Property<string>("DeathLocation")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("FirstName");
+                    b.Property<string>("FirstName")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("GraveOwnerId");
+                    b.Property<int?>("GraveOwnerId")
+                        .HasColumnType("int");
 
-                    b.Property<string>("InternmentSignature");
+                    b.Property<string>("InternmentSignature")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("LastName");
+                    b.Property<string>("LastName")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("MarriageStatus");
+                    b.Property<string>("MarriageStatus")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("NumberInBook");
+                    b.Property<int>("NumberInBook")
+                        .HasColumnType("int");
 
-                    b.Property<string>("NumberInfo");
+                    b.Property<string>("NumberInfo")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Occupation");
+                    b.Property<string>("Occupation")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Proprietary");
+                    b.Property<string>("Proprietary")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Public");
+                    b.Property<string>("Public")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("RegistrarName");
+                    b.Property<string>("RegistrarName")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Religion");
+                    b.Property<string>("Religion")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("SectionInfo");
+                    b.Property<string>("SectionInfo")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Sex");
+                    b.Property<string>("Sex")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
                     b.HasIndex("GraveOwnerId");
 
                     b.ToTable("Registrars");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            AdditionalComments = "",
+                            Age = 32,
+                            AgeDetail = "Years",
+                            BookPage = "bk1 pg1",
+                            BurialDate = new DateTime(1932, 2, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeathDate = new DateTime(1932, 2, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeathLocation = "Longwalk, Dundalk, Co. Louth",
+                            FirstName = "John",
+                            GraveOwnerId = 1,
+                            InternmentSignature = "Jeremy Logan",
+                            LastName = "Logan",
+                            MarriageStatus = "Single",
+                            NumberInBook = 1,
+                            Occupation = "Carpenter",
+                            Proprietary = "",
+                            Public = "",
+                            RegistrarName = "P. R. Finnegan",
+                            Religion = "Roman Catholic",
+                            SectionInfo = "",
+                            Sex = "M"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            AdditionalComments = "",
+                            Age = 47,
+                            AgeDetail = "Years",
+                            BookPage = "bk1 pg1",
+                            BurialDate = new DateTime(1932, 4, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeathDate = new DateTime(1932, 4, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeathLocation = "Dundalk Hospital, Dundalk, Co. Louth",
+                            FirstName = "Mark",
+                            GraveOwnerId = 1,
+                            InternmentSignature = "Jeremy Logan",
+                            LastName = "Logan",
+                            MarriageStatus = "Married",
+                            NumberInBook = 2,
+                            Occupation = "Blacksmith",
+                            Proprietary = "",
+                            Public = "",
+                            RegistrarName = "P. R. Finnegan",
+                            Religion = "Roman Catholic",
+                            SectionInfo = "",
+                            Sex = "M"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            AdditionalComments = "",
+                            Age = 56,
+                            AgeDetail = "Years",
+                            BookPage = "bk1 pg1",
+                            BurialDate = new DateTime(1936, 6, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeathDate = new DateTime(1936, 6, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeathLocation = "20 the Willows, Blackrock, Co. Louth",
+                            FirstName = "Gerry",
+                            GraveOwnerId = 2,
+                            InternmentSignature = "Peter Coleman",
+                            LastName = "Coleman",
+                            MarriageStatus = "Divorced",
+                            NumberInBook = 3,
+                            Occupation = "Carpenter",
+                            Proprietary = "",
+                            Public = "",
+                            RegistrarName = "P. R. Finnegan",
+                            Religion = "Roman Catholic",
+                            SectionInfo = "",
+                            Sex = "M"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            AdditionalComments = "",
+                            Age = 38,
+                            AgeDetail = "Years",
+                            BookPage = "bk1 pg1",
+                            BurialDate = new DateTime(1937, 8, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeathDate = new DateTime(1937, 8, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeathLocation = "Dundalk Hospital, Dundalk, Co. Louth",
+                            FirstName = "Martin",
+                            GraveOwnerId = 2,
+                            InternmentSignature = "Peter Coleman",
+                            LastName = "Coleman",
+                            MarriageStatus = "Single",
+                            NumberInBook = 4,
+                            Occupation = "Carpenter",
+                            Proprietary = "",
+                            Public = "",
+                            RegistrarName = "P. R. Finnegan",
+                            Religion = "Roman Catholic",
+                            SectionInfo = "",
+                            Sex = "M"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            AdditionalComments = "",
+                            Age = 32,
+                            AgeDetail = "Years",
+                            BookPage = "bk1 pg1",
+                            BurialDate = new DateTime(1939, 11, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeathDate = new DateTime(1939, 11, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeathLocation = "Longwalk, Dundalk, Co. Louth",
+                            FirstName = "Killian",
+                            GraveOwnerId = 3,
+                            InternmentSignature = "Matthew Loane",
+                            LastName = "Logan",
+                            MarriageStatus = "Single",
+                            NumberInBook = 5,
+                            Occupation = "Carpenter",
+                            Proprietary = "",
+                            Public = "",
+                            RegistrarName = "P. R. Finnegan",
+                            Religion = "Roman Catholic",
+                            SectionInfo = "",
+                            Sex = "M"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            AdditionalComments = "",
+                            Age = 27,
+                            AgeDetail = "Years",
+                            BookPage = "bk1 pg1",
+                            BurialDate = new DateTime(1940, 1, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeathDate = new DateTime(1940, 1, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeathLocation = "27 the Brook, Blackrock, Co. Louth",
+                            FirstName = "Jeremy",
+                            GraveOwnerId = 3,
+                            InternmentSignature = "Matthew Loane",
+                            LastName = "Logan",
+                            MarriageStatus = "Single",
+                            NumberInBook = 6,
+                            Occupation = "Carpenter",
+                            Proprietary = "",
+                            Public = "",
+                            RegistrarName = "P. R. Finnegan",
+                            Religion = "Roman Catholic",
+                            SectionInfo = "",
+                            Sex = "M"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            AdditionalComments = "",
+                            Age = 28,
+                            AgeDetail = "Years",
+                            BookPage = "bk1 pg1",
+                            BurialDate = new DateTime(1941, 2, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeathDate = new DateTime(1941, 2, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeathLocation = "Dundalk Hospital, Dundalk, Co. Louth",
+                            FirstName = "Ronan",
+                            GraveOwnerId = 4,
+                            InternmentSignature = "Lucas Lynch",
+                            LastName = "Lynch",
+                            MarriageStatus = "Married",
+                            NumberInBook = 7,
+                            Occupation = "Carpenter",
+                            Proprietary = "",
+                            Public = "",
+                            RegistrarName = "P. R. Finnegan",
+                            Religion = "Roman Catholic",
+                            SectionInfo = "",
+                            Sex = "M"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            AdditionalComments = "",
+                            Age = 32,
+                            AgeDetail = "Years",
+                            BookPage = "bk1 pg1",
+                            BurialDate = new DateTime(1942, 9, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeathDate = new DateTime(1942, 9, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeathLocation = "20 Downside Green, Dundalk, Co. Louth",
+                            FirstName = "Mal",
+                            GraveOwnerId = 4,
+                            InternmentSignature = "Lucas Lynch",
+                            LastName = "Lynch",
+                            MarriageStatus = "Divorced",
+                            NumberInBook = 8,
+                            Occupation = "Carpenter",
+                            Proprietary = "",
+                            Public = "",
+                            RegistrarName = "P. R. Finnegan",
+                            Religion = "Roman Catholic",
+                            SectionInfo = "",
+                            Sex = "M"
+                        });
                 });
 
             modelBuilder.Entity("KAIS.Interactive.DSPC_EXPLORER.Infrastructure.Model.Section", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Code");
+                    b.Property<string>("Code")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("DateOpened");
+                    b.Property<DateTime>("DateOpened")
+                        .HasColumnType("datetime2");
 
-                    b.Property<int>("GraveCount");
+                    b.Property<int>("GraveCount")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.ToTable("Sections");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Code = "A",
+                            DateOpened = new DateTime(1930, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            GraveCount = 2000
+                        });
                 });
 
             modelBuilder.Entity("KAIS.Interactive.DSPC_EXPLORER.Infrastructure.Model.User", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("ApprovalPassword");
+                    b.Property<string>("ApprovalPassword")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Password");
+                    b.Property<string>("Password")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Type");
+                    b.Property<int>("Type")
+                        .HasColumnType("int");
 
-                    b.Property<string>("Username");
+                    b.Property<string>("Username")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 

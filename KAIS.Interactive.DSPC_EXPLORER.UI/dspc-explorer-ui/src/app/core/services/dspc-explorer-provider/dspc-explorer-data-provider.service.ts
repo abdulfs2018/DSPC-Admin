@@ -10,6 +10,9 @@ import { RegistrarDTO } from '../../dtos/registrar.model';
 export class DSPCExplorerDataProvider {
   constructor(private apiWrapperService: ApiWrapperService) { }
 
+  graveDetails;
+  registrarDetails;
+
   public getRegistrar(): Observable<Array<RegistrarDTO>> {
     return this.apiWrapperService.getRegistrars().pipe();
   }

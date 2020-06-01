@@ -1,0 +1,129 @@
+h3 {
+    display:inline-block;
+}
+
+.grave-overview-key {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+#registrar-section {
+    padding: 20px;
+}
+
+.folder {
+    padding: 25px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+#grave-overview, .folder, #registrar-section {
+    border: 3px solid black;
+}
+
+#grave-name {
+    text-align: center;
+    margin: 25px 0;
+}
+
+#edit-grave-button, #update-grave-info-link {
+    position: relative;
+    left: 35%;
+}
+
+#update-grave-info-link {
+    top: 70%;
+}
+
+#grave-overview, #edit-grave {
+    display: inline-block;
+    margin-left: 25px;
+    width: 45%;
+    height: 250px;
+}
+
+#grave-overview {
+    padding-left: 25px;
+    float: left;
+}
+
+.tabrow {
+    position: relative;
+    left: 6%;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    line-height: 24px;
+
+    li {
+        background: linear-gradient(to bottom, #ECECEC 50%, #D1D1D1 100%);
+        box-shadow: 0 3px 3px rgba(0, 0, 0, 0.4), inset 0 1px 0 #FFF;
+        text-shadow: 0 1px #FFF;
+        margin: 0 -5px;
+        padding: 0 20px;
+        border: 1px solid #AAA;
+        display: inline-block;
+        position: relative;
+        z-index: 0;
+        border-top-left-radius: 6px;
+        border-top-right-radius: 6px;
+
+        &:before,
+        &:after {
+            position: absolute;
+            bottom: -1px;
+            width: 6px;
+            height: 6px;
+            content: " ";
+            border: 1px solid #AAA;
+        }
+
+        &:before {
+            left: -6px;
+            border-bottom-right-radius: 6px;
+            border-width: 0 1px 1px 0;
+            box-shadow: 2px 2px 0 #ECECEC;
+        }
+
+        &:after {
+            right: -6px;
+            border-bottom-left-radius: 6px;
+            border-width: 0 0 1px 1px;
+            box-shadow: -2px 2px 0 #ECECEC;
+        }
+
+        &.selected {
+            background: #FFF;
+            color: #000;
+            z-index: 2;
+            border-bottom-color: #FFF;
+
+            &:before {
+                box-shadow: 2px 2px 0 #FFF;
+            }
+
+            &:after {
+                box-shadow: -2px 2px 0 #FFF;
+            }
+        }
+    }
+
+    &:after {
+        content: "";
+        width: 100%;
+        bottom: 0;
+        left: 0;
+        border-bottom: 1px solid #AAA;
+        z-index: 1;
+    }
+
+    &:before {
+        z-index: 1;
+    }
+
+  }
+  
+ .list-group-item {
+    border: 3px solid black;
+    margin-bottom:20px;
+}

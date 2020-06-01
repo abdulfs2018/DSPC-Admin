@@ -1,0 +1,62 @@
+<h1>Record #{{arrResult[0]}}</h1>
+
+<div class="tab-details">
+    <ul class="tabrow">
+        <li id="registrar-tab" class="selected" (click)="showTab('registrar')"><a>Registrar Details</a></li>
+        <li id="grave-tab" (click)="showTab('grave')">Grave Owner Details</li>
+     </ul>
+</div>
+
+<div class="folder grave-folder">
+    
+    <div id="registrar-left">
+        <div id="registrar-left-top">
+            <img id="profile-image" src="../../../assets/images/anon-user.png" alt="Anonymous User"/>
+        <h5>{{arrResult[1]}}</h5>
+        <h5>{{arrResult[2]}} - {{arrResult[3]}}</h5>
+        </div>
+
+        <div id="registrar-left-bottom">
+            <h2>Registrar Details:</h2>
+
+            <table>
+                <tr>
+                    <th>Religion:</th>
+                    <th>Roman Catholic</th>
+                </tr>
+                <tr>
+                    <th>Age:</th>
+                    <th>42</th>
+                </tr>
+                <tr>
+                    <th>Occupation:</th>
+                    <th>Carpenter</th>
+                </tr>
+                <tr>
+                    <th>Marital Status:</th>
+                    <th>Widowed</th>
+                </tr>
+            </table>
+
+        </div>    
+    </div>
+
+
+    <div id="registrar-right">
+
+        <div id="registrar-right-top">
+            <a href="#" *ngIf="isAdmin" id="edit-registrar-button" routerLink="../graveDetails" class="nav-link" routerLinkActive="active">Edit Registrar Record</a><br />
+            <a href="#" id="update-registrar-info-link" routerLink="../graveDetails" routerLinkActive="active">Please report and inaccurate information by clicking here</a>
+        </div>
+
+        <div id="registrar-right-bottom">
+            <img id="map-image" src="../../../assets/images/grave-location.png" alt="Grave Location"/>
+        </div>
+       
+    </div>
+
+    
+    
+    
+</div>
+

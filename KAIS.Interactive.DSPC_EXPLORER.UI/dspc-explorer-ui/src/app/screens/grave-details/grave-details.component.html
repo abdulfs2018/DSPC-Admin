@@ -1,0 +1,32 @@
+<h1 id="grave-name">{{graveInfo[1]}} (#{{graveInfo[0]}})</h1>
+
+<div class="tab-details">
+    <ul class="tabrow">
+        <li id="registrar-tab" class="selected" (click)="showTab('registrar')"><a>Registrar Details</a></li>
+        <li id="grave-tab" (click)="showTab('grave')">Grave Owner Details</li>
+     </ul>
+</div>
+
+<div class="folder grave-folder">
+
+    <div id="grave-overview">
+        <p><span class="grave-overview-key">Grave Owner Name: </span>{{graveInfo[2]}}</p>
+        <p><span class="grave-overview-key">Grave Size: </span>{{graveInfo[4]}}</p>
+        <p><span class="grave-overview-key">Grave Section: </span>A</p>
+        <p><span class="grave-overview-key">Grave Coordinates: </span>-6.342454, 31.345353</p>
+    </div>
+
+    <div id="edit-grave">
+        <a href="#" *ngIf="isAdmin" id="edit-grave-button" routerLink="../graveDetails" class="nav-link" routerLinkActive="active">Edit Grave Owner Details</a><br />
+        <a href="#" id="update-grave-info-link" routerLink="../graveDetails" routerLinkActive="active">Please report and inaccurate information by clicking here</a>
+    </div>
+
+    <h1>Grave Owner Registrar Records</h1>
+
+    <div id="registrar-section">
+        <ul class="list-group">
+            <app-grave-details-registrars *ngFor="let result of results" result={{result}} ></app-grave-details-registrars>
+        </ul>
+    </div>
+
+</div>

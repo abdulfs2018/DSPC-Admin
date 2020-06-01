@@ -1,75 +1,106 @@
-<a (click)="toggleDivs('person-search','grave-search', 'grave-button', 'person-button')" href="#" id="person-button" style="display:none;" routerLink="home" class="nav-link" routerLinkActive="active">Search By People</a>
-<a (click)="toggleDivs('person-search','grave-search', 'grave-button', 'person-button')" href="#" id="grave-button" style="display:block;" routerLink="home" class="nav-link" routerLinkActive="active">Search By Graves</a>
+<app-header></app-header>
+<a
+  (click)="
+    toggleDivs('person-search', 'grave-search', 'grave-button', 'person-button')
+  "
+  id="person-button"
+  style="display: none;"
+  class="nav-link"
+  >Search By People</a>
+<a
+  (click)="
+    toggleDivs('person-search', 'grave-search', 'grave-button', 'person-button')
+  "
+  id="grave-button"
+  style="display: block;"
+  class="nav-link"
+  >Search By Graves</a>
 
 <div id="person-search" style="display:block;">
-    <h1>Searching Graves By Person Details</h1>
-<form class="form-inline" method="POST" target="./home">
+  <h1>Searching Graves By Person Details</h1>
+  <form class="form-inline" method="POST" target="./home">
     <label for="firstName">First Name</label>
-    <input type="text">
-    <label for="firstName">Last Name</label>
-    <input type="text">
+    <input id="person-first-name" type="text" />
+    <label for="lastName">Last Name</label>
+    <input id="person-last-name" type="text" />
     <br /><br />
     <label for="gender">gender</label>
-    <select>
-        <option value=""></option>
-        <option value="M">Male</option>
-        <option value="F">Female</option>
+    <select id="person-gender">
+      <option value=""></option>
+      <option value="M">Male</option>
+      <option value="F">Female</option>
     </select>
     <br /><br />
     <label for="Age">Age</label>
-    <select>
-        <option value=""></option>
-        <option *ngFor='let in of counter(151);let i = index' value="i">{{i}}</option>
+    <select id="person-age">
+      <option value=""></option>
+      <option *ngFor="let in of counter(151); let i = index" value="i">{{
+        i
+      }}</option>
     </select>
     <br /><br />
     <label for="Religion">Religion</label>
-    <select>
-        <option value=""></option>
-        <option value="RC">Roman Catholic</option>
-        <option value="P">Protestant</option>
+    <select id="person-religion">
+      <option value=""></option>
+      <option value="RC">Roman Catholic</option>
+      <option value="P">Protestant</option>
     </select>
     <br /><br />
     <label for="occupation">Occupation</label>
-    <input type="text">
+    <input id="person-occupation" type="text" />
     <br /><br />
     <label for="death date">Death Date</label>
-    <input type="date">
+    <input id="person-death-date" type="date" />
     <br /><br />
     <label for="burial date">Burial Date</label>
-    <input type="date">
+    <input id="person-burial-date" type="date" />
     <br /><br />
     <label for="registrar name">Registrar Name</label>
-    <input type="text">
+    <input id="person-registrar-name" type="text" />
     <br /><br />
-    <button (click) = "toggleDisplay()" type="submit" id="person-submit" class="submit-button">Search Graves</button>
-</form>
+    <button
+      (click)="toggleDisplay()"
+      type="submit"
+      id="person-submit"
+      class="submit-button"
+    >
+      Search Graves
+    </button>
+  </form>
 </div>
 
-<div id="grave-search" style="display:none">
-    <h1>Searching Graves By Grave Details</h1>
-<form class="form-inline" method="POST" target="./home">
+<div id="grave-search" style="display:none;">
+  <h1>Searching Graves By Grave Details</h1>
+  <form class="form-inline" method="POST" target="./home">
     <label for="grave reference code">Grave Reference Code</label>
-    <input type="text">
+    <input id="grave-reference-code" type="text" />
     <br /><br />
     <label for="grave size">Grave Size</label>
-    <select>
-        <option value=""></option>
-        <option value="S">Single</option>
-        <option value="D">Double</option>
-        <option value="T">Triple</option>
-        <option value="Q">Quadruple</option>
-        <option value="L">Large</option>
+    <select id="grave-size">
+      <option value=""></option>
+      <option value="S">Single</option>
+      <option value="D">Double</option>
+      <option value="T">Triple</option>
+      <option value="Q">Quadruple</option>
+      <option value="L">Large</option>
     </select>
     <br /><br /><br />
     <label for="grave owner name">Grave Owner Name</label>
-    <input type="text">
+    <input id="grave-owner-name" type="text" />
     <br /><br />
     <label for="grave owner address">Grave Owner Address</label>
-    <input type="text">
+    <input id="grave-owner-address" type="text" />
     <br /><br />
-    <button (click) = "toggleDisplay()" type="submit" id="grave-submit" class="submit-button">Search Graves</button>
-</form>
+    <button
+      (click)="toggleDisplay()"
+      type="submit"
+      id="grave-submit"
+      class="submit-button"
+    >
+      Search Graves
+    </button>
+  </form>
 </div>
 
-<app-search-result *ngIf = "display"></app-search-result>
-
+<app-search-result *ngIf="display"></app-search-result>
+<app-footer></app-footer>
