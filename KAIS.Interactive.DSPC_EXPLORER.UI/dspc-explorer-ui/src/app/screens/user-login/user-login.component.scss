@@ -34,7 +34,7 @@
   margin: 0 25%;
   padding: 5% 0 10%;
   background-color: #1976d2;
-  box-shadow: 0 0 15px 12px red;
+  // box-shadow: 0 0 15px 12px red;
 }
 ::placeholder {
   color: white;
@@ -47,7 +47,8 @@ input[type="email"] {
   color: white;
 }
 
-input[type="email"]:focus, input[type="password"]:focus {
+input[type="email"]:focus,
+input[type="password"]:focus {
   background-color: transparent;
   color: white;
 }
@@ -72,7 +73,9 @@ input[type="password"] {
   margin: 5px;
 }
 
-.fa-facebook, .fa-twitter, .fa-google {
+.fa-facebook,
+.fa-twitter,
+.fa-google {
   font-size: 24px;
   color: white;
   border-radius: 40px;
