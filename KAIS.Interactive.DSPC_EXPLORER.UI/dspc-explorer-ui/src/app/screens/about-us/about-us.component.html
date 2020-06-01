@@ -58,7 +58,7 @@
             src="./assets/images/graveImageMainLeft.jpg"
             alt="image of graveyard"
             id="myImg"
-            (click)="openModal(this)"
+            (click)="openModal($event)"
           />
         </div>
 
@@ -68,7 +68,7 @@
             src="./assets/images/graveGate.jpg"
             alt="image of graveyard"
             id="myImg"
-            (click)="openModal(this)"
+            (click)="openModal($event)"
           />
         </div>
 
@@ -78,7 +78,7 @@
             src="./assets/images/graveImageMainRight.jpg"
             alt="image of graveyard"
             id="myImg"
-            (click)="openModal(this)"
+            (click)="openModal($event)"
           />
         </div>
       </div>
@@ -86,7 +86,7 @@
     <br /><br />
     <div id="myModal" class="modal">
       <span class="close" (click)="closeModal()">&times;</span>
-      <img class="modal-content" id="img01" src= />
+      <img class="modal-content" id="img01" src="./assets/images/graveImageMainLeft.jpg" />
       <div id="caption"></div>
     </div>
   </div>

@@ -11,14 +11,18 @@ export class AboutUsComponent implements OnInit {
   ngOnInit() {}
 
   // showModalImg(e){}
-  openModal(e) {
-    console.log(e.value);
-    // document.getElementById("myImg").src;
+  openModal(event) {
+
+    var target = event.target || event.srcElement || event.currentTarget;    
+    document.getElementById("img01").src = target.src;
     document.getElementById("myModal").style.display = "block";
   }
+
   closeModal() {
     document.getElementById("myModal").style.display = "none";
   }
+
+
 }
 
 // var AppModal = function ($scope, $modal, $log,$sce) {
