@@ -3,6 +3,7 @@ import { NgModule } from "@angular/core";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { FormsModule } from "@angular/forms";
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { GraveDetailsComponent } from './screens/grave-details/grave-details.component';
 import { GraveDetailsRegistrarsComponent } from './screens/grave-details-registrars/grave-details-registrars.component';
 import { GraveRegistrarsComponent } from './screens/grave-registrars/grave-registrars.component';
@@ -22,6 +23,7 @@ import { UserLoginModule } from './screens/user-login/user.login.module';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    NgbModule,
     FormsModule,
     StorageServiceModule,
     HomeModule,
