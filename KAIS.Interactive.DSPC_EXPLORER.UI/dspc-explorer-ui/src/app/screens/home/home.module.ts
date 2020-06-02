@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule, Routes } from '@angular/router';
 import {
     HomeComponent,
@@ -39,6 +40,7 @@ const routes: Routes = [
     imports: [
         CommonModule,
         RouterModule.forRoot(routes),
+        NgbModule,
         NgbPaginationModule,
         NgbAlertModule,
         HttpClientModule,
