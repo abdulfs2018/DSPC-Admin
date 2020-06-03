@@ -2,7 +2,8 @@
   background-image: url("../../../assets/images/LoginbackgroundImage.jpg");
   padding-bottom: 8%;
   padding-top: 2%;
-  color: white;
+  color: black;
+  // color: white;
 }
 
 .form-group i {
@@ -16,7 +17,7 @@
 .fa-user,
 .fa-lock {
   padding: 10px;
-  color: white;
+  color: black;
   min-width: 50px;
   text-align: center;
 }
@@ -30,31 +31,33 @@
   width: 75%;
 }
 .form-border {
-  border-radius: 30px;
-  margin: 0 25%;
-  padding: 5% 0 10%;
-  background-color: #1976d2;
+  border: 3px solid black;
+  border-radius: 10px;
+  margin: 0 17%;
+  padding: 6% 10%;
+  background-color: white;
+  // background-color: #1976d2;
   // box-shadow: 0 0 15px 12px red;
 }
 ::placeholder {
-  color: white;
+  color: black;
 }
 
 input[type="email"] {
-  border: 1px solid white;
+  border: 1px solid black;
   border-radius: 15px;
   background-color: transparent;
-  color: white;
+  color: black;
 }
 
 input[type="email"]:focus,
 input[type="password"]:focus {
   background-color: transparent;
-  color: white;
+  color: black;
 }
 
 input[type="password"] {
-  border: 1px solid white;
+  border: 1px solid black;
   border-radius: 15px;
   background-color: transparent;
 }
@@ -105,4 +108,11 @@ input[type="password"] {
   padding-top: 10px;
   padding-left: 13px;
   padding-bottom: 10px;
+}
+
+.fa-arrow-left {
+  color: white;
+}
+.homeButton {
+  margin-bottom: 3%;
 }

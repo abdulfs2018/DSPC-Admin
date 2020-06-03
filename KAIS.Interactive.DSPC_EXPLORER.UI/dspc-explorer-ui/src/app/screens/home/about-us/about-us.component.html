@@ -1,13 +1,16 @@
 <div class="aboutTopContent">
   <div class="container">
     <div class="homeButton">
-      <a style="font-size: large;"
-        ><i class="fa fa-angle-double-left" style="font-size: 22px;"></i> Return
-        Home</a
+      <a
+        href="#"
+        routerLink="/home"
+        routerLinkActive="active"
+        style="font-size: 30px; color: white;"
+        ><i class="fa fa-arrow-left" style="font-size: 30px;"></i>Return Home</a
       >
     </div>
 
-    <h1 style="margin-top: 15%; font-size: 40px; font-weight: bold;">
+    <h1 style="margin-top: 5%; font-size: 40px; font-weight: bold;">
       <b>What you should know about us</b>
     </h1>
   </div>
@@ -16,7 +19,7 @@
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
     <div class="row">
-      <div class="col-md-12" id="top-images-container">
+      <div class="col-md-10" id="top-images-container">
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel
           ex eget purus malesuada fringilla. Proin lectus lectus, pretium vel
@@ -51,42 +54,48 @@
       </div>
     </div>
     <div class="row justify-content-md-center">
-      <div class="card-deck my-5 mx-5">
-        <div class="card border-0 p-2 col-md-6">
-          <img
-            class="top-images"
-            src="./assets/images/graveImageMainLeft.jpg"
-            alt="image of graveyard"
-            id="myImg"
-            (click)="openModal($event)"
-          />
-        </div>
+      <div class="col-md-10">
+        <div class="card-deck my-5 mx-5">
+          <div class="card border-0 p-2">
+            <img
+              class="top-images"
+              src="./assets/images/graveImageMainLeft.jpg"
+              alt="image of graveyard"
+              id="myImg"
+              (click)="openModal($event)"
+            />
+          </div>
 
-        <div class="card border-0 p-2 col-md-12">
-          <img
-            class="top-images"
-            src="./assets/images/graveGate.jpg"
-            alt="image of graveyard"
-            id="myImg"
-            (click)="openModal($event)"
-          />
-        </div>
+          <div class="card border-0 p-2">
+            <img
+              class="top-images"
+              src="./assets/images/graveGate.jpg"
+              alt="image of graveyard"
+              id="myImg"
+              (click)="openModal($event)"
+            />
+          </div>
 
-        <div class="card border-0 p-2 col-md-6">
-          <img
-            class="top-images"
-            src="./assets/images/graveImageMainRight.jpg"
-            alt="image of graveyard"
-            id="myImg"
-            (click)="openModal($event)"
-          />
+          <div class="card border-0 p-2">
+            <img
+              class="top-images"
+              src="./assets/images/graveImageMainRight.jpg"
+              alt="image of graveyard"
+              id="myImg"
+              (click)="openModal($event)"
+            />
+          </div>
         </div>
       </div>
     </div>
     <br /><br />
     <div id="myModal" class="modal">
       <span class="close" (click)="closeModal()">&times;</span>
-      <img class="modal-content" id="img01" src="./assets/images/graveImageMainLeft.jpg" />
+      <img
+        class="modal-content"
+        id="img01"
+        src="./assets/images/graveImageMainLeft.jpg"
+      />
       <div id="caption"></div>
     </div>
   </div>
