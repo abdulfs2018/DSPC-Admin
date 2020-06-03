@@ -30,4 +30,19 @@
 //
 //}
 
+.card {
+    max-width: 75%;
+    margin: 0px auto;
+}
+
+.card-link {
+    text-decoration:underline;
+    color:lightblue;
+    cursor:pointer;
+
+    &:hover {
+        color:blue;
+    }
+}
+
 
