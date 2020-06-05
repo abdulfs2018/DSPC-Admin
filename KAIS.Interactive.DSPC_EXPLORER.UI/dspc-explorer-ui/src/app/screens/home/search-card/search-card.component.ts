@@ -14,7 +14,7 @@ export class SearchCardComponent implements OnInit {
   arrResult: Array<string>;
 
   constructor(private dspcExplorerDataProvider: DSPCExplorerDataProvider, private router: Router) {
-    this.image = "200x200.png";
+    this.image = "grave-headstone-sample.jpg";
     this.result = "";
    }
 
