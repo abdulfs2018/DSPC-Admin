@@ -43,6 +43,19 @@ namespace KAIS.Interactive.DSPC_EXPLORER.API.Controllers
             }
         }
 
+        [HttpPost("SearchGraveDetailsByFilterData")]
+        public async Task<IActionResult> SearchGraveDetails([FromBody] GraveSearchFilterModel searchFilter)
+        {
+            try
+            {
+                return Ok(await _repository.SearchGravesByFilterData(searchFilter));
+            }
+            catch(Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
+
         #region repository
         private readonly IDSPC_Repository _repository;
         #endregion

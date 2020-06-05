@@ -4,6 +4,7 @@ import { Observable } from "rxjs";
 
 import { ConfigurationService } from "../configuration/configuration.service";
 import { RegistrarDTO } from '../../dtos/registrar.model';
+import { SearchFilterDTO } from '../../dtos/searchfilter.model';
 
 @Injectable({
   providedIn: "root",
@@ -17,5 +18,9 @@ export class ApiWrapperService {
 
   public getRegistrars(): Observable<Array<RegistrarDTO>> {
     return this.httpClient.get<Array<RegistrarDTO>>(`${this.configuration.baseApiURL}/Registrar/getallregistrar`);
+  }
+
+  public SearchRecords(searchFilter: SearchFilterDTO): Observable<Array<RegistrarDTO>> {
+    return this.httpClient.post<Array<RegistrarDTO>>(`${this.configuration.baseApiURL}/GraveOwner/SearchGraveDetailsByFilterData`, searchFilter);
   }
 }

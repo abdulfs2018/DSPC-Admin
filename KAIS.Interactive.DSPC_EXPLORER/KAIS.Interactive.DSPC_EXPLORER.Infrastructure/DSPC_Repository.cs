@@ -6,6 +6,7 @@ using KAIS.Interactive.DSPC_EXPLORER.Common.Services.Enums;
 using KAIS.Interactive.DSPC_EXPLORER.Infrastructure.Interface;
 using KAIS.Interactive.DSPC_EXPLORER.Infrastructure.Model;
 using Microsoft.EntityFrameworkCore;
+using NinjaNye.SearchExtensions;
 
 namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure
 {
@@ -210,6 +211,73 @@ namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure
                                   Registrars = reg.Result.ToList()
                               }).FirstOrDefaultAsync();
 
+        }
+
+        public async Task<List<Registrar>> SearchGravesByFilterData(GraveSearchFilterModel filter)
+        {
+            var query = _dbContext.Registrars
+                        .Include(e => e.GraveOwner)
+                        .Include(e => e.GraveOwner).ThenInclude(e => e.Section).AsQueryable();
+                        
+
+            if (!string.IsNullOrEmpty(filter.FirstName))
+            {
+                query = query.Where(e => e.FirstName.Equals(filter.FirstName));
+            }
+
+            if (!string.IsNullOrEmpty(filter.LastName))
+            {
+                query = query.Where(e => e.LastName.Equals(filter.LastName));
+            }
+
+
+            if (!string.IsNullOrEmpty(filter.GraveOwnerName))
+            {
+                query = query.Where(e => e.GraveOwner.GraveOwnerName.Equals(filter.GraveOwnerName));
+            }
+
+            if (!string.IsNullOrEmpty(filter.GraveOwnerAddress))
+            {
+                query = query.Where(e => e.GraveOwner.GraveOwnerAddress.Equals(filter.GraveOwnerAddress));
+            }
+
+            if (!string.IsNullOrEmpty(filter.GraveSize))
+            {
+                query = query.Where(e => e.GraveOwner.GraveSize.Equals(filter.GraveSize));
+            }
+
+            if (!string.IsNullOrEmpty(filter.DeathLocation))
+            {
+                query = query.Where(e => e.DeathLocation.Equals(filter.DeathLocation));
+            }
+
+            if (!string.IsNullOrEmpty(filter.MarriageStatus))
+            {
+                query = query.Where(e => e.MarriageStatus.Equals(filter.MarriageStatus));
+            }
+
+
+            if (!string.IsNullOrEmpty(filter.Occupation))
+            {
+                query = query.Where(e => e.Occupation.Equals(filter.Occupation));
+            }
+
+            if (!string.IsNullOrEmpty(filter.Religion))
+            {
+                query = query.Where(e => e.Religion.Equals(filter.Religion));
+            }
+
+            if (!string.IsNullOrEmpty(filter.Sex))
+            {
+                query = query.Where(e => e.Sex.Equals(filter.Sex));
+            }
+
+            if (filter.Age > 0)
+            {
+                query = query.Where(e => e.Age == filter.Age);
+            }
+
+            return await query.ToListAsync();
         }
 
 
