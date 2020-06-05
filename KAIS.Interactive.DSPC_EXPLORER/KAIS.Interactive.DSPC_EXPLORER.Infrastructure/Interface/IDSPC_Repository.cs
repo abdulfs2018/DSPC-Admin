@@ -20,5 +20,6 @@ namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure.Interface
         Task<Section> GetSectionByCode(string code);
         Task<Section> GetSectionById(int id);
         Task<GraveOwnerViewModel> GetGraveOwnerDetailsByRefCode(string code);
+        Task<List<Registrar>> SearchGravesByFilterData(GraveSearchFilterModel filter);
     }
 }

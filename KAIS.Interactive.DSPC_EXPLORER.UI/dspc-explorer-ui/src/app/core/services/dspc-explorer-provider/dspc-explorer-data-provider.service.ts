@@ -1,8 +1,8 @@
 import { Injectable } from "@angular/core";
 import { Observable, of } from "rxjs";
-import { map } from "rxjs/operators";
 import { ApiWrapperService } from "../api-wrapper/api-wrapper.service";
 import { RegistrarDTO } from '../../dtos/registrar.model';
+import { SearchFilterDTO } from '../../dtos/searchfilter.model';
 
 @Injectable({
   providedIn: "root",
@@ -15,5 +15,9 @@ export class DSPCExplorerDataProvider {
 
   public getRegistrar(): Observable<Array<RegistrarDTO>> {
     return this.apiWrapperService.getRegistrars().pipe();
+  }
+
+  public SearchRecords(searchFilter: SearchFilterDTO): Observable<Array<RegistrarDTO>> {
+    return this.apiWrapperService.SearchRecords(searchFilter);
   }
 }
