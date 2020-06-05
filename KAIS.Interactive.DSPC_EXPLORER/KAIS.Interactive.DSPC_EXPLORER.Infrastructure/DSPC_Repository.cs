@@ -274,7 +274,7 @@ namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure
                 query = query.Where(e => e.Sex.Equals(filter.Sex));
             }
 
-            if (filter.Age > 0)
+            if (filter.Age >= 0)
             {
                 query = query.Where(e => e.Age == filter.Age);
             }
