@@ -12,6 +12,7 @@ namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure.Model
         public string GraveSize { get; set; }
 
         public List<Registrar> Registrars { get; set; }
-        public object GraveOwnerAddress { get; internal set; }
+        public string GraveOwnerAddress { get; set; }
+        public string GraveLocation { get; set; }
     }
 }

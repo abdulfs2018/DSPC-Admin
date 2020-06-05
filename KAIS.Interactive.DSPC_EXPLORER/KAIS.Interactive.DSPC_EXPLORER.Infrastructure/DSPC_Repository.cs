@@ -207,7 +207,9 @@ namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure
                               {
                                   FullName =  e.GraveOwnerName,
                                   GraveReferenceCode = e.GraveReferenceCode,
+                                  GraveOwnerAddress = e.GraveOwnerAddress,
                                   GraveSize = e.GraveSize,
+                                  GraveLocation = e.GraveLocation,
                                   Registrars = reg.Result.ToList()
                               }).FirstOrDefaultAsync();
 
