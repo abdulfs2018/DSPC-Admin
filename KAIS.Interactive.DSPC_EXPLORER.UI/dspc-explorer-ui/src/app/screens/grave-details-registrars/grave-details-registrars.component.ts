@@ -17,7 +17,7 @@ export class GraveDetailsRegistrarsComponent implements OnInit {
 
   ngOnInit() {
     this.arrResult = this.result.split(",");
-    this.isAdmin = true;
+    this.isAdmin = false;
   }
 
   showRegistrarDetails() {
