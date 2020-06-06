@@ -1,7 +1,30 @@
-<li class="list-group-item">
+<!--<li class="list-group-item">
    <h4>{{arrResult[1]}}</h4>
    <h6>{{arrResult[2]}} - {{arrResult[3]}}</h6>
    <a (click)="showRegistrarDetails();" class="nav-link view-registrar-button">View Record</a>
    <a href="#" *ngIf="isAdmin" routerLink="../graveDetails" class="nav-link edit-registrar-button" routerLinkActive="active">Edit This Record</a><br />
-</li>
+</li>-->
 
+<div class="card border-primary mb-3">
+   <div class="card-header text-center">
+      <h3>{{arrResult[1]}}</h3>
+
+   </div>
+   <div class="card-body">
+     
+      <div class="container">
+         <div class="row">
+           <div class="col-lg-6">
+               <h4 class="card-title">{{arrResult[2]}} - {{arrResult[3]}}</h4>
+           </div>
+           <div class="col-lg-3">
+               <a href="javascript:void(0)" (click)="showRegistrarDetails();" class="nav-link btn btn-primary">View Record</a>
+           </div>
+           <div class="col-lg-3">
+               <a href="javascript:void(0)" *ngIf="isAdmin" routerLink="../graveDetails" class="nav-link btn btn-primary">Edit This Record</a>
+            </div>
+        </div>
+     </div>
+     
+   </div>
+ </div>
