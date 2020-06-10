@@ -4,56 +4,48 @@
     </div>
     <div class="card-body">
 
-
-
         <div class="container-xl">
             <div class="row">
               <div class="col-sm">
                 
                 <div class="top">
-                    <img class="img-fluid" src="../../../assets/images/anon-user.png" alt="Anonymous User"/>
+                    <img class="img-fluid user-img" src="../../../assets/images/anon-user.png" alt="Anonymous User"/>
                 </div>
-                
-
-                
-                
-                <h1>Registrar Details:</h1>
-
-                <table>
-                    <tr>
-                        <th>Religion:</th>
-                        <th>Roman Catholic</th>
-                    </tr>
-                    <tr>
-                        <th>Age:</th>
-                        <th>42</th>
-                    </tr>
-                    <tr>
-                        <th>Occupation:</th>
-                        <th>Carpenter</th>
-                    </tr>
-                    <tr>
-                        <th>Marital Status:</th>
-                        <th>Widowed</th>
-                    </tr>
-                </table>
-                
-
-              </div>
-              <div class="col-sm">
+                   
                 <h1>{{arrResult[1]}}</h1>
                 <h2>{{arrResult[2]}} - {{arrResult[3]}}</h2>
+
+                <div class="reg-details">
+                    <h1>Registrar Details:</h1>
+
+                    <table>
+                        <tr>
+                            <th>Religion:</th>
+                            <th>Roman Catholic</th>
+                        </tr>
+                        <tr>
+                            <th>Age:</th>
+                            <th>42</th>
+                        </tr>
+                        <tr>
+                            <th>Occupation:</th>
+                            <th>Carpenter</th>
+                        </tr>
+                        <tr>
+                            <th>Marital Status:</th>
+                            <th>Widowed</th>
+                        </tr>
+                    </table>
+                </div>
               </div>
 
               <div class="col-sm">
                 <div class="top">
-                    <a href="#" *ngIf="!isAdmin" id="edit-registrar-button" routerLink="../graveDetails" class="nav-link btn btn-primary" routerLinkActive="active">Edit Registrar Record</a><br />
+                    <a href="#" *ngIf="!isAdmin" id="edit-registrar-button" routerLink="../graveDetails" class="nav-link btn btn-primary btn-lg" routerLinkActive="active">Edit Registrar Record</a><br />
                     <a href="#" id="update-registrar-info-link" routerLink="../graveDetails" routerLinkActive="active">Please report any inaccurate information by clicking here</a>
                 </div>
 
-                
-
-                <img class="img-fluid" src="../../../assets/images/grave-location.png" alt="Grave Location"/>
+                <img class="img-fluid map-img" src="../../../assets/images/grave-location.png" alt="Grave Location"/>
 
               </div>
             </div>

@@ -8,11 +8,33 @@
 .folder {
     width: 90%;
     margin: 0 auto;
-    margin-top: 50px;
+    margin-top: 100px;
     border: 3px solid;
 }
 
-.img-fluid {
-    max-width: 75%;
+.user-img {
+    max-width: 250px;
 }
 
+img {
+    width:100%;
+}
+
+.top {
+    min-height:20vh;
+}
+
+.reg-details {
+    margin-top:5vh;
+}
+
+@media (max-width: 576px) {
+    .top {
+        min-height:10vh;
+    }
+
+    .col-sm {
+        margin-bottom: 100px;
+    }
+
+}
