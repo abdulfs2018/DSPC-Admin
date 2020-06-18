@@ -1,95 +1,42 @@
-  div {
-    background-color: #f2f2f2;
-    padding: 10px;
-  }
-
-  .form-inline
-  {
-    display: flex;
-    flex-flow: row wrap;
-    align-items: center;
-
-    label 
-    {
-      margin: 5px 10px 5px 0;
-    }
-
-    input, select 
-    {
-      vertical-align: middle;
-      margin: 5px 10px 5px 0;
-      padding: 10px;
-      background-color: #fff;
-      border: 1px solid #ddd;
-      -ms-box-sizing:content-box;
-      -moz-box-sizing:content-box;
-      -webkit-box-sizing:content-box; 
-      box-sizing:content-box;
-    }
-
-    button 
-    {
-
-      &:hover 
-      {
-        background-color: royalblue;
-      }
-      padding: 10px 20px;
-      background-color: dodgerblue;
-      border: 1px solid #ddd;
-      color: white;
-      cursor: pointer;
-    }
-    
-  }
-
-  #grave-submit {
-    position: absolute;
-    right: 10px;
-    bottom: 10px;
-  }
-
-  #person-search, #grave-search {
-    position:relative;
-  }
-
-  #grave-button, #person-button {
-    margin-left: 0px;
-  }
-  
- @media (min-width: 800px) 
- {
-  input, label, select
-  {
-      max-width: 14%;
-      min-width: 14%;
-  }
- }
-  
-  @media (max-width: 800px) 
-  {
-    .form-inline input 
-    {
-      margin: 10px 0;
-    }
-    
-    .form-inline 
-    {
-      flex-direction: column;
-      align-items: stretch;
-    }
-  }
-
-  a {
-    margin:auto;
-    color:white !important;
-    padding: 10px 20px;
-    background-color: #f44336;
-    border: 1px solid #ddd;
-    color: white;
-    cursor: pointer;
-
-    &:hover {
-        background-color:#941f16;
-    }
+div {
+  background-color: #f2f2f2;
+  padding: 10px;
 }
+.form-group i {
+  position: absolute;
+}
+
+.input-icons {
+  width: 100%;
+  margin-bottom: 10px;
+}
+.form-control-lg {
+  width: 100%;
+  padding-left: 45px;
+  padding-bottom: 10px;
+  text-align: left;
+}
+.fa-search {
+  padding: 10px;
+  color: gray;
+  min-width: 50px;
+  text-align: center;
+}
+
+#grave-submit {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
+
+#person-search,
+#grave-search {
+  position: relative;
+  padding: 4%;
+  padding-bottom: 8%;
+}
+
+// #grave-button,
+// #person-button {
+//   margin-left: 0px;
+// }
