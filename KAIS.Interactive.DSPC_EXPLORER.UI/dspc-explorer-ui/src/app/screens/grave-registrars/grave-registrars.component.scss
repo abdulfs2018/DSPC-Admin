@@ -8,7 +8,7 @@
 .folder {
     width: 90%;
     margin: 0 auto;
-    margin-top: 100px;
+    margin-top: 50px;
     border: 3px solid;
 }
 
@@ -27,6 +27,14 @@ img {
 .reg-details {
     margin-top:5vh;
 }
+
+#home-button-div {
+    margin: 5vh 0 0 5vh;
+    a {
+        font-size: 30px;
+    }
+}
+
 
 @media (max-width: 576px) {
     .top {
