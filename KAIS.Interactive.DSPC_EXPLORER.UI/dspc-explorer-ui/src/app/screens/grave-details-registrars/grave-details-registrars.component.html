@@ -14,7 +14,7 @@
                <a href="javascript:void(0)" (click)="showRegistrarDetails();" class="nav-link btn btn-primary">View Record</a>
            </div>
            <div class="col-lg-3">
-               <a href="javascript:void(0)" *ngIf="isAdmin" routerLink="../graveDetails" class="nav-link btn btn-primary">Edit This Record</a>
+               <a href="javascript:void(0)" *ngIf="getIsAdmin()" routerLink="../graveDetails" class="nav-link btn btn-primary">Edit This Record</a>
             </div>
         </div>
      </div>

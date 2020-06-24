@@ -52,6 +52,29 @@ export class GraveDetailsComponent implements OnInit {
 
   }
 
+  getAdmin(): boolean {
+    return this.isAdmin;
+  }
+
+  setAdmin(isAdmin: boolean): void {
+    this.isAdmin = isAdmin;
+  }
+
+  getGraveInfo(): any {
+    return this.graveInfo;
+  }
+
+  setGraveInfo(graveInfo: any): void {
+    this.graveInfo = graveInfo;
+  }
+
+  getResults(): any {
+    return this.results;
+  }
+
+  setResults(results: any): void {
+    this.results = results;
+  }
   
 
 }

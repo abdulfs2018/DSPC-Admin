@@ -7,9 +7,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserLoginComponent implements OnInit {
 
-  constructor() { }
+  contact: { name: string; pass: string;}
+
+  constructor() { 
+    
+    this.contact = {
+      name: 'userName',
+      pass: 'passWord'
+    };
+
+  }
 
   ngOnInit() {
+  }
+
+  createContact() {
+    return true;
   }
 
 }

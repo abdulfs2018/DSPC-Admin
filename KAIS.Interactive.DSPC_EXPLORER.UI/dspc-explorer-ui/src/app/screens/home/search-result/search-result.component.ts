@@ -14,8 +14,8 @@ export class SearchResultComponent implements OnInit {
   @Input('results') results: Array<Array<string>>;
 
 
-  pageSize: Number=5;
-  page: Number=1;
+  pageSize: number=5;
+  page: number=1;
 
 
   constructor(private localStorageService: DSPCExplorerLocalStorageProvider) { 

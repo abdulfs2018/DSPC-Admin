@@ -1,39 +1,10 @@
 <app-header></app-header>
-<!-- <a
-  (click)="
-    toggleDivs('person-search', 'grave-search', 'grave-button', 'person-button')
-  "
-  id="person-button"
-  style="display: none;"
-  class="nav-link"
-  >Search By People</a
->
-<a
-  (click)="
-    toggleDivs('person-search', 'grave-search', 'grave-button', 'person-button')
-  "
-  id="grave-button"
-  style="display: block;"
-  class="nav-link"
-  >Search By Graves</a
-> -->
 
-<div id="person-search" style="display: block;">
+<div id="person-search" style="display:block;">
   <div class="container">
     <h1>Searching Graves By Person Details</h1>
     <form method="POST" target="./home">
       <div class="form-row">
-        <!-- <div class="form-group col-md-12">
-          <div class="input-icons" style="font-size: 24px;">
-            <i class="fa fa-search"></i>
-            <input
-              class="form-control form-control-lg"
-              type="text"
-              placeholder="Searching Graves By Person Details"
-            />
-          </div>
-        </div> -->
-
         <div class="form-group form-row col-md-12 justify-content-center">
           <label class="col-md-1 col-form-label pt-3" for="firstName"
             >First Name:
@@ -159,7 +130,7 @@
   </div>
 </div>
 
-<div id="grave-search" style="display: none;">
+<div id="grave-search" style="display:none;">
   <div class="container">
     <h1>Searching Graves By Grave Details</h1>
     <form method="POST" target="./home">
@@ -184,8 +155,6 @@
             <option value="L">Large</option>
           </select>
         </div>
-        <!-- </div>
-      <div class="form-group form-row col-md-12"> -->
         <label class="col-md-2 col-form-label" for="grave owner name"
           >Grave Owner Name:</label
         >
@@ -220,37 +189,6 @@
       </div>
     </form>
   </div>
-
-  <!--   
-  <form class="form-inline" method="POST" target="./home">
-    <label for="grave reference code">Grave Reference Code</label>
-    <input id="grave-reference-code" type="text" />
-    <br /><br />
-    <label for="grave size">Grave Size</label>
-    <select id="grave-size">
-      <option value=""></option>
-      <option value="S">Single</option>
-      <option value="D">Double</option>
-      <option value="T">Triple</option>
-      <option value="Q">Quadruple</option>
-      <option value="L">Large</option>
-    </select>
-    <br /><br /><br />
-    <label for="grave owner name">Grave Owner Name</label>
-    <input id="grave-owner-name" type="text" />
-    <br /><br />
-    <label for="grave owner address">Grave Owner Address</label>
-    <input id="grave-owner-address" type="text" />
-    <br /><br />
-    <button
-      (click)="toggleDisplay()"
-      type="submit"
-      id="grave-submit"
-      class="submit-button"
-    >
-      Search Graves
-    </button>
-  </form> -->
 </div>
 
 <app-search-result *ngIf="display"></app-search-result>
