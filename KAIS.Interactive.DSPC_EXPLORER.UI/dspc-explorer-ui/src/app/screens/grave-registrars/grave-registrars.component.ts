@@ -23,10 +23,16 @@ export class GraveRegistrarsComponent implements OnInit {
       this.localStorageService.storeOnLocalStorage(this.REGISTRAR_KEY, this.arrResult);
     } else {
       this.arrResult = this.localStorageService.getFromLocalStorage(this.REGISTRAR_KEY);
-    }
-    
+    } 
     this.isAdmin = false;
+  }
 
+  getIsAdmin(): boolean {
+    return this.isAdmin;
+  }
+
+  setIsAdmin(isAdmin: boolean): void {
+    this.isAdmin = isAdmin;
   }
 
 }

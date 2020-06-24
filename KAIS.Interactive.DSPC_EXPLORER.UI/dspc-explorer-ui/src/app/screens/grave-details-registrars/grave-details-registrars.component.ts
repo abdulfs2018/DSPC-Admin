@@ -25,4 +25,12 @@ export class GraveDetailsRegistrarsComponent implements OnInit {
     this.router.navigate(['../graveRegistrars']);
   }
 
+  getIsAdmin(): boolean {
+    return this.isAdmin;
+  }
+
+  setIsAdmin(isAdmin: boolean): void {
+    this.isAdmin = isAdmin;
+  }
+
 }

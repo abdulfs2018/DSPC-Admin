@@ -1,14 +1,15 @@
-<!--<h1 id="grave-name">{{graveInfo[1]}} (#{{graveInfo[0]}})</h1>
-<div class="tab-details">
-    <ul class="tabrow">
-        <li id="registrar-tab" class="selected" (click)="showTab('registrar')"><a>Registrar Details</a></li>
-        <li id="grave-tab" (click)="showTab('grave')">Grave Owner Details</li>
-     </ul>
-</div>-->
+<div id="home-button-div">
+  <a href="#"
+    routerLink="/home"
+    routerLinkActive="active">
+    <i class="fa fa-arrow-left"></i>Return Home
+  </a>
+</div>
+
 
 <div class="folder card border-primary mb-3">
     <div class="card-header text-center">
-        <h1>{{graveInfo[1]}} (#{{graveInfo[0]}})</h1>
+        <h1>{{getGraveInfo()[1]}} (#{{getGraveInfo()[0]}})</h1>
     </div>
     <div class="card-body">
       
@@ -17,15 +18,15 @@
               <div class="col-lg-6">
                 <div class="card border-primary" id="grave-overview">
                     <div class="card-body">
-                        <p><span class="grave-overview-key font-weight-bold">Grave Owner Name: </span>{{graveInfo[2]}}</p>
-                        <p><span class="grave-overview-key font-weight-bold">Grave Size: </span>{{graveInfo[4]}}</p>
+                        <p><span class="grave-overview-key font-weight-bold">Grave Owner Name: </span>{{getGraveInfo()[2]}}</p>
+                        <p><span class="grave-overview-key font-weight-bold">Grave Size: </span>{{getGraveInfo()[4]}}</p>
                         <p><span class="grave-overview-key font-weight-bold">Grave Section: </span>A</p>
                         <p><span class="grave-overview-key font-weight-bold">Grave Coordinates: </span>-6.342454, 31.345353</p>
                     </div>
                 </div>
               </div>
               <div class="col-lg-6">
-                <a href="#" *ngIf="isAdmin" id="edit-grave-button" routerLink="../graveDetails" class="nav-link btn btn-primary" routerLinkActive="active">Edit Grave Owner Details</a>
+                <a href="#" *ngIf="getAdmin()" id="edit-grave-button" routerLink="../graveDetails" class="nav-link btn btn-primary" routerLinkActive="active">Edit Grave Owner Details</a>
                 <a href="#" id="update-grave-info-link" routerLink="../graveDetails" routerLinkActive="active">Please report any inaccurate information by clicking here</a>
               </div>
             </div>
@@ -37,32 +38,10 @@
             </div>
             <div class="card-body">
                 <ul class="list-group">
-                    <app-grave-details-registrars *ngFor="let result of results" result={{result}} ></app-grave-details-registrars>
+                    <app-grave-details-registrars *ngFor="let result of getResults()" result={{result}} ></app-grave-details-registrars>
                 </ul>
             </div>
 
         </div>
     </div>
 </div>
-
-
-
-<!--<div class="card border-primary mb-3">
-    <h3 class="card-header">{{arrResult[1]}}</h3>
-  <div class="row">
-    <div class="card-body col-lg-4">
-      <img src="../../../assets/images/{{image}}" alt="Grave image">
-    </div>
-    <div class="card-body col-lg-4">
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">Grave Owner Name: {{arrResult[2]}}</li>
-        <li class="list-group-item">People in Grave: {{arrResult[3]}}</li>
-        <li class="list-group-item">Grave Size: {{arrResult[4]}}</li>
-      </ul>
-    </div>
-    
-    <div class="card-body col-lg-4 text-center right-column">
-      <button (click)="showGraveDetails()" type="button" class="btn btn-primary">View Selected Grave Details</button>
-    </div>
-  </div>
-</div>-->
