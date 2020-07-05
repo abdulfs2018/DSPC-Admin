@@ -77,15 +77,12 @@ export class HomeComponent implements OnInit {
           graveRefCode: e.graveOwner.graveReferenceCode,
           buttonText: "View Selected Grave Details",
           graveSize: e.graveOwner.graveSize,
-          imageSource: "grave-headstone-sample.jpg",
-
+          imageSource: "grave-headstone-sample.jpg"
         }
 
         this.graveFilteredResults.push(searchData);
       }
     });
-
-    console.log("the custom stuff", this.graveFilteredResults);
   }
 
   public advanceSearchToggle(): void {
