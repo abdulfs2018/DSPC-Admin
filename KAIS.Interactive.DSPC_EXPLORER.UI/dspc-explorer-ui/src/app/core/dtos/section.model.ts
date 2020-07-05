@@ -1,6 +1,6 @@
 export class SectionDTO {
-  Id: number;
-  Code: string;
-  DateOpened: Date;
-  GraveCount: number;
+  id: number;
+  code: string;
+  dateOpened: Date;
+  graveCount: number;
 }

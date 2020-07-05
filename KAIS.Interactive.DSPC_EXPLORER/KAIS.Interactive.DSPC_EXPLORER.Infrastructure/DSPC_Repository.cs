@@ -67,7 +67,11 @@ namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure
 
         public async Task<List<Registrar>> GetListRegistrar()
         {
-            return await _dbContext.Registrars.ToListAsync();
+            var query = _dbContext.Registrars
+                       .Include(e => e.GraveOwner)
+                       .Include(e => e.GraveOwner).ThenInclude(e => e.Section).ToListAsync();
+
+            return await query;
         }
 
         public async Task<Registrar> GetRegistrarByName(string name)
