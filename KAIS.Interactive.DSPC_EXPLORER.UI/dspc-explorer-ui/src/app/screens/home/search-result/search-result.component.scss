@@ -6,3 +6,43 @@ ngb-pagination {
     position:absolute;
     right:50px;
 }
+
+.card {
+    max-width: 75%;
+    margin: 0px auto;
+
+    img {
+        display: block;
+        margin: 0px auto;
+        width:75%;
+    }
+
+}
+
+.card-body {
+    @media screen and (max-width: 991px) {
+        text-align: center;
+    }
+}
+
+.right-column {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    
+}
+
+.btn {
+    font-weight: 700;
+    line-height: 3;
+}
+
+.card-link {
+    text-decoration:underline;
+    color:lightblue;
+    cursor:pointer;
+
+    &:hover {
+        color:blue;
+    }
+}

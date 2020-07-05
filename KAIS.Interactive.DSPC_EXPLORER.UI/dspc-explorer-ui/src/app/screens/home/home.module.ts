@@ -5,7 +5,6 @@ import { RouterModule, Routes } from '@angular/router';
 import {
     HomeComponent,
     AboutUsComponent,
-    SearchCardComponent,
     SearchResultComponent
 } from './';
 import {
@@ -31,7 +30,6 @@ const routes: Routes = [
     declarations: [
         HomeComponent,
         AboutUsComponent,
-        SearchCardComponent,
         SearchResultComponent,
         HeaderComponent,
         FooterComponent,

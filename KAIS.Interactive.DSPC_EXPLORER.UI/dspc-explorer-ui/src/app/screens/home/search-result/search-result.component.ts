@@ -1,5 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { DSPCExplorerLocalStorageProvider } from 'src/app/core/services/dspc-explorer-provider/dspc-explorer-storage-provider';
+import { DSPCExplorerDataProvider } from 'src/app/core/services/dspc-explorer-provider/dspc-explorer-data-provider.service';
+import { SearchResultViewModel } from 'src/app/core/models/search-results.model';
 
 @Component({
   selector: 'app-search-result',
@@ -8,24 +11,22 @@ import { DSPCExplorerLocalStorageProvider } from 'src/app/core/services/dspc-exp
 })
 export class SearchResultComponent implements OnInit {
 
-  @Input('image') image: string;
   @Input('title') title: string;
   @Input('subtitle') subtitle: string;
-  @Input('results') results: Array<Array<string>>;
-
-
-  pageSize: number=5;
-  page: number=1;
-
-
-  constructor(private localStorageService: DSPCExplorerLocalStorageProvider) { 
-    this.image = "200x200.png";
-    this.title = "Search Results";
-    this.subtitle = "Click a Grave for More Details";
+  apiResults: Array<SearchResultViewModel>;
+  pageSize: number = 5;
+  page: number = 1;
+  readonly SEARCH_KEY = "local_search";
+  
+  constructor(private dspcExplorerDataProvider: DSPCExplorerDataProvider, private localStorageService: DSPCExplorerLocalStorageProvider,  private router: Router) { 
   }
 
   ngOnInit() {
-    this.results = this.localStorageService.getFromLocalStorage('local_search');
+    this.apiResults = this.localStorageService.getFromLocalStorage(this.SEARCH_KEY);
   }
 
+  showGraveDetailResult(result: Array<string>) : void {
+    this.dspcExplorerDataProvider.graveDetails = result;
+    this.router.navigate(['../graveDetails']);
+  }
 }
