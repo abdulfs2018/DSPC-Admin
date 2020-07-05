@@ -2,6 +2,8 @@ import { Component, OnInit } from "@angular/core";
 import { RegistrarDTO } from "src/app/core/dtos/registrar.model";
 import { DSPCExplorerDataProvider } from "src/app/core/services/dspc-explorer-provider/dspc-explorer-data-provider.service";
 import { DSPCExplorerLocalStorageProvider } from "src/app/core/services/dspc-explorer-provider/dspc-explorer-storage-provider";
+import { SearchResultViewModel } from 'src/app/core/models/search-results.model';
+import * as _ from 'underscore';
 
 @Component({
   selector: "app-home",
@@ -10,6 +12,8 @@ import { DSPCExplorerLocalStorageProvider } from "src/app/core/services/dspc-exp
 })
 export class HomeComponent implements OnInit {
   searchResults: Array<Array<string>>;
+  graveRefences: Array<string>;
+  graveFilteredResults: Array<SearchResultViewModel>;
   formData: any;
   display: boolean = false;
   registrars: Array<RegistrarDTO>;
@@ -23,12 +27,18 @@ export class HomeComponent implements OnInit {
     this.display =
       this.localStorageService.getFromLocalStorage(this.SEARCH_KEY) !==
       undefined;
+
+    this.registrars = new Array<RegistrarDTO>();
+    this.graveFilteredResults = new Array<SearchResultViewModel>();
   }
 
   ngOnInit() {
     this.dspcDataProvider.getRegistrar().subscribe((data) => {
       this.registrars = data;
+      this.filterAndPopulateSearchResult(this.registrars);
     });
+
+
 
     this.searchResults = [
       ["1", "Grave 1", "Killian Logan", "6", "D"],
@@ -54,7 +64,31 @@ export class HomeComponent implements OnInit {
     ];
   }
 
-  public advanceSearchToggle() {
+
+  filterAndPopulateSearchResult(registrarArray: Array<RegistrarDTO>): void {
+    this.graveRefences = [];
+    registrarArray.forEach(e => {
+
+      if (this.graveRefences.indexOf(e.graveOwner.graveReferenceCode) == -1) {
+        this.graveRefences.push(e.graveOwner.graveReferenceCode);
+
+        let searchData: SearchResultViewModel = {
+          graveownerName: e.graveOwner.graveOwnerName,
+          graveRefCode: e.graveOwner.graveReferenceCode,
+          buttonText: "View Selected Grave Details",
+          graveSize: e.graveOwner.graveSize,
+          imageSource: "grave-headstone-sample.jpg",
+
+        }
+
+        this.graveFilteredResults.push(searchData);
+      }
+    });
+
+    console.log("the custom stuff", this.graveFilteredResults);
+  }
+
+  public advanceSearchToggle(): void {
     var x = document.getElementById("advanceSearch");
     if (x.style.display === "none") {
       x.style.display = "block";
@@ -75,6 +109,8 @@ export class HomeComponent implements OnInit {
       this.localStorageService.deleteFromLocalStorage(this.SEARCH_KEY);
     }
   }
+
+
 
   counter(i: number) {
     return new Array(i);
