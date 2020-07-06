@@ -1,9 +1,9 @@
+import * as _ from 'underscore';
 import { Component, OnInit } from "@angular/core";
 import { RegistrarDTO } from "src/app/core/dtos/registrar.model";
 import { DSPCExplorerDataProvider } from "src/app/core/services/dspc-explorer-provider/dspc-explorer-data-provider.service";
 import { DSPCExplorerLocalStorageProvider } from "src/app/core/services/dspc-explorer-provider/dspc-explorer-storage-provider";
 import { SearchResultViewModel } from 'src/app/core/models/search-results.model';
-import * as _ from 'underscore';
 
 @Component({
   selector: "app-home",
@@ -11,66 +11,29 @@ import * as _ from 'underscore';
   styleUrls: ["./home.component.scss"],
 })
 export class HomeComponent implements OnInit {
-  searchResults: Array<Array<string>>;
-  graveRefences: Array<string>;
   graveFilteredResults: Array<SearchResultViewModel>;
-  formData: any;
   display: boolean = false;
-  registrars: Array<RegistrarDTO>;
   readonly style = "style";
   readonly SEARCH_KEY = "local_search";
 
-  constructor(
-    private dspcDataProvider: DSPCExplorerDataProvider,
-    private localStorageService: DSPCExplorerLocalStorageProvider
-  ) {
-    this.display =
-      this.localStorageService.getFromLocalStorage(this.SEARCH_KEY) !==
-      undefined;
-
-    this.registrars = new Array<RegistrarDTO>();
+  constructor( private dspcDataProvider: DSPCExplorerDataProvider, private localStorageService: DSPCExplorerLocalStorageProvider) {
+    this.display = this.localStorageService.getFromLocalStorage(this.SEARCH_KEY) !== undefined;
     this.graveFilteredResults = new Array<SearchResultViewModel>();
   }
 
   ngOnInit() {
     this.dspcDataProvider.getRegistrar().subscribe((data) => {
-      this.registrars = data;
-      this.filterAndPopulateSearchResult(this.registrars);
+      this.filterAndPopulateSearchResult(data);
     });
-
-
-
-    this.searchResults = [
-      ["1", "Grave 1", "Killian Logan", "6", "D"],
-      ["2", "Grave 2", "Jerry Coleman", "3", "S"],
-      ["3", "Grave 3", "Dermot", "9", "T"],
-      ["4", "Grave 4", "Frank Drebin", "12", "Q"],
-      ["5", "Grave 1", "Killian Logan", "6", "D"],
-      ["6", "Grave 2", "Jerry Coleman", "3", "S"],
-      ["7", "Grave 3", "Dermot", "9", "T"],
-      ["8", "Grave 4", "Frank Drebin", "12", "Q"],
-      ["9", "Grave 1", "Killian Logan", "6", "D"],
-      ["10", "Grave 2", "Jerry Coleman", "3", "S"],
-      ["11", "Grave 3", "Dermot", "9", "T"],
-      ["12", "Grave 4", "Frank Drebin", "12", "Q"],
-      ["13", "Grave 1", "Killian Logan", "6", "D"],
-      ["14", "Grave 2", "Jerry Coleman", "3", "S"],
-      ["15", "Grave 3", "Dermot", "9", "T"],
-      ["16", "Grave 4", "Frank Drebin", "12", "Q"],
-      ["17", "Grave 1", "Killian Logan", "6", "D"],
-      ["18", "Grave 2", "Jerry Coleman", "3", "S"],
-      ["19", "Grave 3", "Dermot", "9", "T"],
-      ["20", "Grave 4", "Frank Drebin", "12", "Q"],
-    ];
   }
 
-
   filterAndPopulateSearchResult(registrarArray: Array<RegistrarDTO>): void {
-    this.graveRefences = [];
+    var graveRefences: Array<string> = [];
     registrarArray.forEach(e => {
 
-      if (this.graveRefences.indexOf(e.graveOwner.graveReferenceCode) == -1) {
-        this.graveRefences.push(e.graveOwner.graveReferenceCode);
+      if (graveRefences.indexOf(e.graveOwner.graveReferenceCode) == -1) {
+
+        graveRefences.push(e.graveOwner.graveReferenceCode);
 
         let searchData: SearchResultViewModel = {
           graveownerName: e.graveOwner.graveOwnerName,
@@ -94,26 +57,24 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  public toggleDisplay() {
+  public toggleDisplay() : void {
     this.display = !this.display;
 
     if (this.display) {
       this.localStorageService.storeOnLocalStorage(
         this.SEARCH_KEY,
-        this.searchResults
+        this.graveFilteredResults
       );
     } else {
       this.localStorageService.deleteFromLocalStorage(this.SEARCH_KEY);
     }
   }
 
-
-
   counter(i: number) {
     return new Array(i);
   }
 
-  toggleDivs(selectorA, selectorB) {
+  toggleDivs(selectorA, selectorB) : void {
     let containerA: HTMLElement = document.getElementById(selectorA);
     let containerB: HTMLElement = document.getElementById(selectorB);
 
