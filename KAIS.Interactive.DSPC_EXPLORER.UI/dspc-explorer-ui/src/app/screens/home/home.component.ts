@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit {
   religion: string[] = ["Roman Catholic", "Protestant"];
   graveSize: string[] = ["Single", "Double", "Triple", "Quadruple", "Large"];
 
-  searchPersonForm = this.fb.group({
+  searchForm = this.fb.group({
     firstName: [""],
     lastName: [""],
     occupation: [""],
@@ -31,9 +31,6 @@ export class HomeComponent implements OnInit {
     religion: [this.religion],
     deathDate: [""],
     burialDate: [""],
-  });
-
-  searchGraveForm = this.fb.group({
     referenceCode: [""],
     graveSize: [this.graveSize],
     ownerName: [""],
