@@ -1,23 +1,42 @@
 <app-header></app-header>
 
-<div id="person-search" style="display:block;">
+<div id="person-search" style="display: block;">
   <div class="container">
     <h1>Searching Graves By Person Details</h1>
-    <form method="POST" target="./home">
+    <form method="POST" target="./home" [formGroup]="searchPersonForm">
       <div class="form-row">
+        <!-- <div class="form-group col-md-12">
+          <div class="input-icons" style="font-size: 24px;">
+            <i class="fa fa-search"></i>
+            <input
+              class="form-control form-control-lg"
+              type="text"
+              placeholder="Searching Graves By Person Details"
+            />
+          </div>
+        </div> -->
+
         <div class="form-group form-row col-md-12 justify-content-center">
           <label class="col-md-1 col-form-label pt-3" for="firstName"
             >First Name:
           </label>
           <div class="col-md-5">
-            <input type="text" class="form-control" />
+            <input
+              type="text"
+              class="form-control"
+              formControlName="firstName"
+            />
           </div>
 
           <label class="col-md-1 col-form-label pt-3" for="firstName"
             >Last Name:
           </label>
           <div class="col-md-5">
-            <input type="text" class="form-control" />
+            <input
+              type="text"
+              class="form-control"
+              formControlName="lastName"
+            />
           </div>
         </div>
       </div>
@@ -28,14 +47,22 @@
             >Occupation:
           </label>
           <div class="col-md-5">
-            <input type="text" class="form-control" />
+            <input
+              type="text"
+              class="form-control"
+              formControlName="occupation"
+            />
           </div>
 
           <label class="col-md-1 col-form-label pt-3" for="firstName"
             >Registrar Name:
           </label>
           <div class="col-md-5">
-            <input type="text" class="form-control" />
+            <input
+              type="text"
+              class="form-control"
+              formControlName="registrarName"
+            />
           </div>
         </div>
 
@@ -45,10 +72,11 @@
           >
 
           <div class="col-md-3">
-            <select class="custom-select">
+            <select class="custom-select" formControlName="gender">
               <option selected>Select Gender</option>
-              <option value="M">Male</option>
-              <option value="F">Female</option>
+              <option *ngFor="let g of gender" [ngValue]="g">
+                {{ g }}
+              </option>
             </select>
           </div>
 
@@ -56,7 +84,6 @@
           <div class="col-md-3">
             <select class="custom-select">
               <option selected>Select Age</option>
-              <option value=""></option>
               <option
                 *ngFor="let in of counter(151); let i = index"
                 value="i"
@@ -69,10 +96,14 @@
             >Religion:</label
           >
           <div class="col-md-3">
-            <select class="custom-select">
+            <select class="custom-select" formControlName="religion">
               <option selected>Select Religion</option>
-              <option value="RC">Roman Catholic</option>
-              <option value="P">Protestant</option>
+              <option
+                *ngFor="let r of religion"
+                [ngValue]="r"
+              >
+                {{ r}}
+              </option>
             </select>
           </div>
         </div>
@@ -82,14 +113,24 @@
             >Death Date</label
           >
           <div class="col-md-5">
-            <input class="form-control" id="person-death-date" type="date" />
+            <input
+              class="form-control"
+              id="person-death-date"
+              type="date"
+              formControlName="deathDate"
+            />
           </div>
 
           <label class="col-md-1 col-form-label pt-3" for="burial date"
             >Burial Date</label
           >
           <div class="col-md-5">
-            <input class="form-control" id="person-burial-date" type="date" />
+            <input
+              class="form-control"
+              id="person-burial-date"
+              type="date"
+              formControlName="burialDate"
+            />
           </div>
         </div>
       </div>
@@ -127,46 +168,48 @@
         </div>
       </div>
     </form>
+    <!-- <p>Form Value: {{ searchPersonForm.value | json }}</p> -->
   </div>
 </div>
 
-<div id="grave-search" style="display:none;">
+<div id="grave-search" style="display: none;">
   <div class="container">
     <h1>Searching Graves By Grave Details</h1>
-    <form method="POST" target="./home">
+    <form method="POST" target="./home"  [formGroup]="searchGraveForm">
       <div class="form-group form-row col-md-12">
         <label class="col-md-2 col-form-label" for="grave reference code"
           >Grave Reference Code:</label
         >
         <div class="col-md-4">
-          <input class="form-control" id="grave-reference-code" type="text" />
+          <input class="form-control" id="grave-reference-code" type="text" formControlName="referenceCode" />
         </div>
 
         <label class="col-md-1 col-form-label" for="grave size"
           >Grave Size:</label
         >
         <div class="col-md-4">
-          <select class="custom-select" id="grave-size">
+          <select class="custom-select" id="grave-size" formControlName="graveSize">
             <option selected>Select Grave Size</option>
-            <option value="S">Single</option>
-            <option value="D">Double</option>
-            <option value="T">Triple</option>
-            <option value="Q">Quadruple</option>
-            <option value="L">Large</option>
+            <option
+                *ngFor="let gs of graveSize"
+                [ngValue]="gs"
+              >
+                {{ gs }}
+          </option>
           </select>
         </div>
         <label class="col-md-2 col-form-label" for="grave owner name"
           >Grave Owner Name:</label
         >
         <div class="col-md-4">
-          <input class="form-control" id="grave-owner-name" type="text" />
+          <input class="form-control" id="grave-owner-name" type="text" formControlName="ownerName" />
         </div>
 
         <label class="col-md-1 col-form-label" for="grave owner address"
           >Grave Owner Address:</label
         >
         <div class="col-md-4">
-          <input class="form-control" id="grave-owner-address" type="text" />
+          <input class="form-control" id="grave-owner-address" type="text" formControlName="ownerAddress" />
         </div>
       </div>
       <div class="form-row">
@@ -188,8 +231,13 @@
         </button>
       </div>
     </form>
+    <!-- <p>Form Value: {{ searchGraveForm.value | json }}</p> -->
   </div>
 </div>
 
-<app-search-result *ngIf="display" title="Search Results" subtitle="Click a Grave for More Details"></app-search-result>
+<app-search-result
+  *ngIf="display"
+  title="Search Results"
+  subtitle="Click a Grave for More Details"
+></app-search-result>
 <app-footer></app-footer>

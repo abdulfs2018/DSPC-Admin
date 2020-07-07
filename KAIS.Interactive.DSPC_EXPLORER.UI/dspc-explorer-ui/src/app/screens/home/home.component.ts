@@ -1,9 +1,10 @@
-import * as _ from 'underscore';
+import * as _ from "underscore";
 import { Component, OnInit } from "@angular/core";
 import { RegistrarDTO } from "src/app/core/dtos/registrar.model";
 import { DSPCExplorerDataProvider } from "src/app/core/services/dspc-explorer-provider/dspc-explorer-data-provider.service";
 import { DSPCExplorerLocalStorageProvider } from "src/app/core/services/dspc-explorer-provider/dspc-explorer-storage-provider";
-import { SearchResultViewModel } from 'src/app/core/models/search-results.model';
+import { SearchResultViewModel } from "src/app/core/models/search-results.model";
+import { FormBuilder } from "@angular/forms";
 
 @Component({
   selector: "app-home",
@@ -16,8 +17,37 @@ export class HomeComponent implements OnInit {
   readonly style = "style";
   readonly SEARCH_KEY = "local_search";
 
-  constructor( private dspcDataProvider: DSPCExplorerDataProvider, private localStorageService: DSPCExplorerLocalStorageProvider) {
-    this.display = this.localStorageService.getFromLocalStorage(this.SEARCH_KEY) !== undefined;
+  gender: string[] = ["Male", "Female"];
+  religion: string[] = ["Roman Catholic", "Protestant"];
+  graveSize: string[] = ["Single", "Double", "Triple", "Quadruple", "Large"];
+
+  searchPersonForm = this.fb.group({
+    firstName: [""],
+    lastName: [""],
+    occupation: [""],
+    registrarName: [""],
+    gender: [this.gender],
+    age: [""],
+    religion: [this.religion],
+    deathDate: [""],
+    burialDate: [""],
+  });
+
+  searchGraveForm = this.fb.group({
+    referenceCode: [""],
+    graveSize: [this.graveSize],
+    ownerName: [""],
+    ownerAddress: [""],
+  });
+
+  constructor(
+    private dspcDataProvider: DSPCExplorerDataProvider,
+    private localStorageService: DSPCExplorerLocalStorageProvider,
+    private fb: FormBuilder
+  ) {
+    this.display =
+      this.localStorageService.getFromLocalStorage(this.SEARCH_KEY) !==
+      undefined;
     this.graveFilteredResults = new Array<SearchResultViewModel>();
   }
 
@@ -29,10 +59,8 @@ export class HomeComponent implements OnInit {
 
   filterAndPopulateSearchResult(registrarArray: Array<RegistrarDTO>): void {
     var graveRefences: Array<string> = [];
-    registrarArray.forEach(e => {
-
+    registrarArray.forEach((e) => {
       if (graveRefences.indexOf(e.graveOwner.graveReferenceCode) == -1) {
-
         graveRefences.push(e.graveOwner.graveReferenceCode);
 
         let searchData: SearchResultViewModel = {
@@ -40,8 +68,8 @@ export class HomeComponent implements OnInit {
           graveRefCode: e.graveOwner.graveReferenceCode,
           buttonText: "View Selected Grave Details",
           graveSize: e.graveOwner.graveSize,
-          imageSource: "grave-headstone-sample.jpg"
-        }
+          imageSource: "grave-headstone-sample.jpg",
+        };
 
         this.graveFilteredResults.push(searchData);
       }
@@ -57,7 +85,7 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  public toggleDisplay() : void {
+  public toggleDisplay(): void {
     this.display = !this.display;
 
     if (this.display) {
@@ -74,7 +102,7 @@ export class HomeComponent implements OnInit {
     return new Array(i);
   }
 
-  toggleDivs(selectorA, selectorB) : void {
+  toggleDivs(selectorA, selectorB): void {
     let containerA: HTMLElement = document.getElementById(selectorA);
     let containerB: HTMLElement = document.getElementById(selectorB);
 
