@@ -8,7 +8,7 @@
 
 <div class="folder card mb-3 border-primary">
     <div class="card-header text-center">
-        <h1>Record #{{arrResult[0]}}</h1>
+        <h1>Record #{{registrar.id}}</h1>
     </div>
     <div class="card-body">
 
@@ -20,8 +20,8 @@
                     <img class="img-fluid user-img" src="../../../assets/images/anon-user.png" alt="Anonymous User"/>
                 </div>
                    
-                <h1>{{arrResult[1]}}</h1>
-                <h2>{{arrResult[2]}} - {{arrResult[3]}}</h2>
+                <h1>{{registrar.firstName}} {{registrar.lastName}}</h1>
+                <h2>Date of Death: {{getDate()}}</h2>
 
                 <div class="reg-details">
                     <h1>Registrar Details:</h1>
@@ -29,19 +29,19 @@
                     <table>
                         <tr>
                             <th>Religion:</th>
-                            <th>Roman Catholic</th>
+                            <th>{{registrar.religion}}</th>
                         </tr>
                         <tr>
                             <th>Age:</th>
-                            <th>42</th>
+                            <th>{{registrar.age}} {{registrar.ageDetail}}</th>
                         </tr>
                         <tr>
                             <th>Occupation:</th>
-                            <th>Carpenter</th>
+                            <th>{{registrar.occupation}}</th>
                         </tr>
                         <tr>
                             <th>Marital Status:</th>
-                            <th>Widowed</th>
+                            <th>{{registrar.marriageStatus}}</th>
                         </tr>
                     </table>
                 </div>
@@ -61,65 +61,3 @@
       
     </div>
   </div>
-
-
-
-
-
-
-
-<!--<div class="folder grave-folder">
-    
-    <div id="registrar-left">
-        <div id="registrar-left-top">
-            <img id="profile-image" src="../../../assets/images/anon-user.png" alt="Anonymous User"/>
-        <h5>{{arrResult[1]}}</h5>
-        <h5>{{arrResult[2]}} - {{arrResult[3]}}</h5>
-        </div>
-
-        <div id="registrar-left-bottom">
-            <h2>Registrar Details:</h2>
-
-            <table>
-                <tr>
-                    <th>Religion:</th>
-                    <th>Roman Catholic</th>
-                </tr>
-                <tr>
-                    <th>Age:</th>
-                    <th>42</th>
-                </tr>
-                <tr>
-                    <th>Occupation:</th>
-                    <th>Carpenter</th>
-                </tr>
-                <tr>
-                    <th>Marital Status:</th>
-                    <th>Widowed</th>
-                </tr>
-            </table>
-
-        </div>    
-    </div>
-
-
-    <div id="registrar-right">
-
-        <div id="registrar-right-top">
-            <a href="#" *ngIf="isAdmin" id="edit-registrar-button" routerLink="../graveDetails" class="nav-link" routerLinkActive="active">Edit Registrar Record</a><br />
-            <a href="#" id="update-registrar-info-link" routerLink="../graveDetails" routerLinkActive="active">Please report any inaccurate information by clicking here</a>
-        </div>
-
-        <div id="registrar-right-bottom">
-            <img id="map-image" src="../../../assets/images/grave-location.png" alt="Grave Location"/>
-        </div>
-       
-    </div>
-
-    
-    
-    
-</div>-->
-
-
-

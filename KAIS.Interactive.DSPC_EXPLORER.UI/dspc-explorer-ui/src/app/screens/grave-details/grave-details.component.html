@@ -9,7 +9,7 @@
 
 <div class="folder card border-primary mb-3">
     <div class="card-header text-center">
-        <h1>{{getGraveInfo()[1]}} (#{{getGraveInfo()[0]}})</h1>
+        <h1>Grave (#{{getGraveInfo().graveRefCode}})</h1>
     </div>
     <div class="card-body">
       
@@ -18,8 +18,8 @@
               <div class="col-lg-6">
                 <div class="card border-primary" id="grave-overview">
                     <div class="card-body">
-                        <p><span class="grave-overview-key font-weight-bold">Grave Owner Name: </span>{{getGraveInfo()[2]}}</p>
-                        <p><span class="grave-overview-key font-weight-bold">Grave Size: </span>{{getGraveInfo()[4]}}</p>
+                        <p><span class="grave-overview-key font-weight-bold">Grave Owner Name: </span>{{getGraveInfo().graveownerName}}</p>
+                        <p><span class="grave-overview-key font-weight-bold">Grave Size: </span>{{getGraveInfo().graveSize}}</p>
                         <p><span class="grave-overview-key font-weight-bold">Grave Section: </span>A</p>
                         <p><span class="grave-overview-key font-weight-bold">Grave Coordinates: </span>-6.342454, 31.345353</p>
                     </div>

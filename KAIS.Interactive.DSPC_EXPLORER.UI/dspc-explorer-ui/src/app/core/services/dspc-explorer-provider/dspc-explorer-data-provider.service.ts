@@ -3,6 +3,8 @@ import { Observable, of } from "rxjs";
 import { ApiWrapperService } from "../api-wrapper/api-wrapper.service";
 import { RegistrarDTO } from '../../dtos/registrar.model';
 import { SearchFilterDTO } from '../../dtos/searchfilter.model';
+import { GraveOwnerDTO } from '../../dtos/graveowner.model';
+import { GraveOwnerRegistrarsDTO } from '../../dtos/graveownerRegistrars.model';
 
 @Injectable({
   providedIn: "root",
@@ -23,5 +25,9 @@ export class DSPCExplorerDataProvider {
 
   public SearchRecords(searchFilter: SearchFilterDTO): Observable<Array<RegistrarDTO>> {
     return this.apiWrapperService.SearchRecords(searchFilter);
+  }
+
+  public getGraveRegistrars(graveRefCode: string): Observable<GraveOwnerRegistrarsDTO> {
+    return this.apiWrapperService.GetGraveRegistrars(graveRefCode);
   }
 }
