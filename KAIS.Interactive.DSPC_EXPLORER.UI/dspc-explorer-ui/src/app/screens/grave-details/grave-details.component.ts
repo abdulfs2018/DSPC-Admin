@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { DSPCExplorerDataProvider } from 'src/app/core/services/dspc-explorer-provider/dspc-explorer-data-provider.service';
 import { DSPCExplorerLocalStorageProvider } from 'src/app/core/services/dspc-explorer-provider/dspc-explorer-storage-provider';
+import { SearchResultViewModel } from "src/app/core/models/search-results.model";
+import { GraveOwnerRegistrarsDTO } from 'src/app/core/dtos/graveownerRegistrars.model';
 
 @Component({
   selector: 'app-grave-details',
@@ -11,8 +13,8 @@ export class GraveDetailsComponent implements OnInit {
 
   constructor(private dspcExplorerDataProvider : DSPCExplorerDataProvider,  private localStorageService: DSPCExplorerLocalStorageProvider) { }
 
-  private graveInfo: any;
-  private results: any;
+  private graveInfo: SearchResultViewModel;
+  private results: GraveOwnerRegistrarsDTO;
   private isAdmin : boolean;
   readonly GRAVE_KEY = "local_grave";
 
@@ -26,15 +28,11 @@ export class GraveDetailsComponent implements OnInit {
     }
   
     this.isAdmin = false;
+  
+    this.dspcExplorerDataProvider.getGraveRegistrars(this.graveInfo.graveRefCode).subscribe((data) => {
+      this.results = data;
+    });
     
-    this.results = [
-      [
-        "1", "John Prescott", "5 APR 1941", "20 MAR 2020"
-      ],
-      [
-        "2", "Emily Prescott", "10 DEC 1941", "15 MAR 1990"
-      ]
-    ]
     this.dspcExplorerDataProvider.registrarDetails = this.results;
   }
 
@@ -68,8 +66,17 @@ export class GraveDetailsComponent implements OnInit {
     this.graveInfo = graveInfo;
   }
 
-  getResults(): any {
-    return this.results;
+  getResults(): Array<string> {
+
+    var resultArr = [];
+
+    if (this.results !== undefined) {
+      this.results.registrars.forEach(data => {
+        resultArr.push(JSON.stringify(data));
+      });
+    }
+      
+    return resultArr;
   }
 
   setResults(results: any): void {
