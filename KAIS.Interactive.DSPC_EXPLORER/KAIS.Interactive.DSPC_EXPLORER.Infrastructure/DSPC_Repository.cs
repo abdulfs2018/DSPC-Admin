@@ -85,6 +85,16 @@ namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure
                           }).FirstOrDefaultAsync();
         }
 
+        public async Task<Registrar> GetRegistrarById(int Id)
+        {
+            var query = _dbContext.Registrars
+                        .Include(e => e.GraveOwner)
+                        .Include(e => e.GraveOwner).ThenInclude(e => e.Section)
+                        .Where(e => e.Id == Id);
+
+            return await query.FirstOrDefaultAsync();
+        }
+
         public async Task<bool> AddNewGraveOwner(GraveOwner graveOwner)
         {
 

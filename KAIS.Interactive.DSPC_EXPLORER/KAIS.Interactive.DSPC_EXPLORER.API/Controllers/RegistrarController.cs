@@ -34,6 +34,22 @@ namespace KAIS.Interactive.DSPC_EXPLORER.API.Controllers
             }
         }
 
+        [HttpGet("getregistrardetailsbyId")]
+        public async Task<IActionResult> GetRegistrarDetailsById(int Id)
+        {
+            try
+            {
+                var data = await _repository.GetRegistrarById(Id);
+
+                if (data != null) return Ok(data);
+                return Ok(false);
+
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
 
         [HttpGet("getregistrarbyname")]
         public async Task<IActionResult> GetRegistrarByName(string firstName)

@@ -9,6 +9,7 @@ namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure.Interface
         Task<bool> AddNewRegistrar(Registrar registrar);
         Task<List<Registrar>> GetListRegistrar();
         Task<Registrar> GetRegistrarByName(string name);
+        Task<Registrar> GetRegistrarById(int Id); 
         Task<Registrar> GetRegistrarByReferenceCode(string name);
 
         Task<bool> AddNewGraveOwner(GraveOwner graveOwner);
@@ -21,5 +22,6 @@ namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure.Interface
         Task<Section> GetSectionById(int id);
         Task<GraveOwnerViewModel> GetGraveOwnerDetailsByRefCode(string code);
         Task<List<Registrar>> SearchGravesByFilterData(GraveSearchFilterModel filter);
+
     }
 }
