@@ -17,6 +17,7 @@ export class GraveDetailsComponent implements OnInit {
   private results: GraveOwnerRegistrarsDTO;
   private isAdmin : boolean;
   readonly GRAVE_KEY = "local_grave";
+  readonly REGISTRAR_KEY = "local_registrar";
 
   ngOnInit() {
 

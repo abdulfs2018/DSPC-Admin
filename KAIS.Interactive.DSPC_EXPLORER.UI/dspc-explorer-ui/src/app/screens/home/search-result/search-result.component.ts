@@ -23,6 +23,7 @@ export class SearchResultComponent implements OnInit {
 
   ngOnInit() {
     this.apiResults = this.localStorageService.getFromLocalStorage(this.SEARCH_KEY);
+    this.localStorageService.deleteFromLocalStorage(this.SEARCH_KEY);
   }
 
   showGraveDetailResult(result: Array<string>) : void {

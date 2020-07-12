@@ -14,7 +14,7 @@ export class GraveRegistrarsComponent implements OnInit {
 
   registrar : RegistrarDTO;
   private isAdmin: boolean;
-  readonly REGISTRAR_KEY = "local_registar";
+  readonly REGISTRAR_KEY = "local_registrar";
 
   ngOnInit() {
 
@@ -22,7 +22,8 @@ export class GraveRegistrarsComponent implements OnInit {
       this.registrar = JSON.parse(this.dspcExplorerDataProvider.registrarDetails);
       this.localStorageService.storeOnLocalStorage(this.REGISTRAR_KEY, this.registrar);
     } else {
-      this.registrar = JSON.parse(this.localStorageService.getFromLocalStorage(this.REGISTRAR_KEY));
+      this.registrar = this.localStorageService.getFromLocalStorage(this.REGISTRAR_KEY);
+      
     }
     this.isAdmin = false;
   }
