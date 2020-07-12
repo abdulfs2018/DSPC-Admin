@@ -82,17 +82,13 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  public toggleDisplay(): void {
-    this.display = !this.display;
+  public displaySearchResults(): void {
+    this.display = true;
 
-    if (this.display) {
-      this.localStorageService.storeOnLocalStorage(
-        this.SEARCH_KEY,
-        this.graveFilteredResults
-      );
-    } else {
-      this.localStorageService.deleteFromLocalStorage(this.SEARCH_KEY);
-    }
+    this.localStorageService.storeOnLocalStorage(
+      this.SEARCH_KEY,
+      this.graveFilteredResults
+    );
   }
 
   counter(i: number) {
