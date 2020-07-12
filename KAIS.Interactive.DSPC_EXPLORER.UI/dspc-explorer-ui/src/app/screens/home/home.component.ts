@@ -103,12 +103,12 @@ export class HomeComponent implements OnInit {
     let containerA: HTMLElement = document.getElementById(selectorA);
     let containerB: HTMLElement = document.getElementById(selectorB);
 
-    if (containerA.getAttribute(this.style) === "display:block;") {
-      containerA.setAttribute(this.style, "display:none;");
-      containerB.setAttribute(this.style, "display:block;");
+    if (containerA.getAttribute(this.style) === "display: block;") {
+      containerA.setAttribute(this.style, "display: none;");
+      containerB.setAttribute(this.style, "display: block;");
     } else {
-      containerA.setAttribute(this.style, "display:block;");
-      containerB.setAttribute(this.style, "display:none;");
+      containerA.setAttribute(this.style, "display: block;");
+      containerB.setAttribute(this.style, "display: none;");
     }
   }
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { DSPCExplorerDataProvider } from 'src/app/core/services/dspc-explorer-provider/dspc-explorer-data-provider.service';
+import { DSPCExplorerLocalStorageProvider } from 'src/app/core/services/dspc-explorer-provider/dspc-explorer-storage-provider';
 import { RegistrarDTO } from 'src/app/core/dtos/registrar.model';
 
 @Component({
@@ -10,11 +11,12 @@ import { RegistrarDTO } from 'src/app/core/dtos/registrar.model';
 })
 export class GraveDetailsRegistrarsComponent implements OnInit {
 
-  constructor(private dspcExplorerDataProvider: DSPCExplorerDataProvider, private router: Router) { }
+  constructor(private dspcExplorerDataProvider: DSPCExplorerDataProvider,  private localStorageService: DSPCExplorerLocalStorageProvider, private router: Router) { }
 
   @Input('result') result: string;
   registrar : RegistrarDTO;
   private isAdmin : boolean;
+  readonly REGISTRAR_KEY = "local_registrar";
 
   ngOnInit() {
     this.registrar = JSON.parse(this.result);
@@ -22,7 +24,7 @@ export class GraveDetailsRegistrarsComponent implements OnInit {
   }
 
   showRegistrarDetails() {
-    this.dspcExplorerDataProvider.registrarDetails = this.result;
+    this.localStorageService.storeOnLocalStorage(this.REGISTRAR_KEY, JSON.parse(this.result));
     this.router.navigate(['../graveRegistrars']);
   }
 

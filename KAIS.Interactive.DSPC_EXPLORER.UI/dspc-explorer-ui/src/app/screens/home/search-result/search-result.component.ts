@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { DSPCExplorerLocalStorageProvider } from 'src/app/core/services/dspc-explorer-provider/dspc-explorer-storage-provider';
-import { DSPCExplorerDataProvider } from 'src/app/core/services/dspc-explorer-provider/dspc-explorer-data-provider.service';
 import { SearchResultViewModel } from 'src/app/core/models/search-results.model';
 
 @Component({
@@ -17,8 +16,9 @@ export class SearchResultComponent implements OnInit {
   pageSize: number = 5;
   page: number = 1;
   readonly SEARCH_KEY = "local_search";
+  readonly GRAVE_KEY = "local_grave";
   
-  constructor(private dspcExplorerDataProvider: DSPCExplorerDataProvider, private localStorageService: DSPCExplorerLocalStorageProvider,  private router: Router) { 
+  constructor(private localStorageService: DSPCExplorerLocalStorageProvider,  private router: Router) { 
   }
 
   ngOnInit() {
@@ -27,7 +27,7 @@ export class SearchResultComponent implements OnInit {
   }
 
   showGraveDetailResult(result: Array<string>) : void {
-    this.dspcExplorerDataProvider.graveDetails = result;
+    this.localStorageService.storeOnLocalStorage(this.GRAVE_KEY, result);
     this.router.navigate(['../graveDetails']);
   }
 }
