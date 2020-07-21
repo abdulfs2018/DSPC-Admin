@@ -17,23 +17,15 @@ export class GraveDetailsComponent implements OnInit {
   private results: GraveOwnerRegistrarsDTO;
   private isAdmin : boolean;
   readonly GRAVE_KEY = "local_grave";
+  readonly REGISTRAR_KEY = "local_registrar";
 
   ngOnInit() {
-
-    if (this.dspcExplorerDataProvider.graveDetails !== undefined) {
-      this.graveInfo = this.dspcExplorerDataProvider.graveDetails;
-      this.localStorageService.storeOnLocalStorage(this.GRAVE_KEY, this.graveInfo);
-    } else {
-      this.graveInfo = this.localStorageService.getFromLocalStorage(this.GRAVE_KEY);
-    }
-  
+    this.graveInfo = this.localStorageService.getFromLocalStorage(this.GRAVE_KEY);
     this.isAdmin = false;
   
     this.dspcExplorerDataProvider.getGraveRegistrars(this.graveInfo.graveRefCode).subscribe((data) => {
       this.results = data;
     });
-    
-    this.dspcExplorerDataProvider.registrarDetails = this.results;
   }
 
   showTab(tab: string) {
