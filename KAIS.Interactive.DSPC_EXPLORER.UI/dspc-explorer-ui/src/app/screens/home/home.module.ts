@@ -18,6 +18,9 @@ import { HttpClientModule } from "@angular/common/http";
 import { FormsModule } from "@angular/forms";
 import { UserLoginComponent } from "../user-login/user-login.component";
 import { ReactiveFormsModule } from "@angular/forms";
+import { CustomLoaderComponent } from './custom-loader/custom-loader.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 const routes: Routes = [
   { path: "", redirectTo: "home", pathMatch: "full" },
@@ -35,6 +38,7 @@ const routes: Routes = [
     SearchResultComponent,
     HeaderComponent,
     FooterComponent,
+    CustomLoaderComponent,
   ],
   imports: [
     CommonModule,
@@ -45,6 +49,8 @@ const routes: Routes = [
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    MatProgressSpinnerModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [],
