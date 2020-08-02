@@ -12,6 +12,8 @@ import { DSPCExplorerLocalStorageProvider } from "./core/services/dspc-explorer-
 import { HomeModule } from "./screens/home/home.module";
 import { UserLoginModule } from "./screens/user-login/user.login.module";
 import { ReactiveFormsModule } from "@angular/forms";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [
@@ -30,6 +32,7 @@ import { ReactiveFormsModule } from "@angular/forms";
     HomeModule,
     UserLoginModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule
   ],
   providers: [DSPCExplorerLocalStorageProvider],
   bootstrap: [AppComponent],

@@ -1,18 +1,22 @@
+/* You can add global styles to this file, and also import other style files */
+
 @import "./variables";
 @import "../node_modules/bootstrap/scss/bootstrap";
 @import "../node_modules/bootswatch/dist/cosmo/bootswatch";
-// /* You can add global styles to this file, and also import other style files */
-// .submit-button,
-// .nav-link {
-//   background-color: #f44336;
-//   color: white;
-//   padding: 14px 25px;
-//   text-align: center;
-//   display: inline-block;
-//   margin-left: 20px;
-//   text-decoration: none;
-// }
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
 
-// .submit-button {
-//   cursor: pointer;
-// }
+body { 
+  font-family: Roboto, Arial, sans-serif;
+  margin: 0;
+}
+
+.basic-container {
+  padding: 5px;
+}
+
+.version-info {
+  font-size: 8pt;
+  float: right;
+}
+
+
