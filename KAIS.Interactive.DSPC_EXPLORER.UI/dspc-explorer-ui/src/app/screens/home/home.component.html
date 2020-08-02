@@ -17,59 +17,37 @@
         </div> -->
 
         <div class="form-group form-row col-md-12 justify-content-center">
-          <label class="col-md-1 col-form-label pt-3" for="firstName"
-            >First Name:
+          <label class="col-md-1 col-form-label pt-3" for="firstName">First Name:
           </label>
           <div class="col-md-5">
-            <input
-              type="text"
-              class="form-control"
-              formControlName="firstName"
-            />
+            <input type="text" class="form-control" formControlName="firstName" />
           </div>
 
-          <label class="col-md-1 col-form-label pt-3" for="firstName"
-            >Last Name:
+          <label class="col-md-1 col-form-label pt-3" for="firstName">Last Name:
           </label>
           <div class="col-md-5">
-            <input
-              type="text"
-              class="form-control"
-              formControlName="lastName"
-            />
+            <input type="text" class="form-control" formControlName="lastName" />
           </div>
         </div>
       </div>
 
       <div id="advanceSearch" style="display: none;">
         <div class="form-group form-row col-md-12 justify-content-center">
-          <label class="col-md-1 col-form-label pt-3" for="firstName"
-            >Occupation:
+          <label class="col-md-1 col-form-label pt-3" for="firstName">Occupation:
           </label>
           <div class="col-md-5">
-            <input
-              type="text"
-              class="form-control"
-              formControlName="occupation"
-            />
+            <input type="text" class="form-control" formControlName="occupation" />
           </div>
 
-          <label class="col-md-1 col-form-label pt-3" for="firstName"
-            >Registrar Name:
+          <label class="col-md-1 col-form-label pt-3" for="firstName">Registrar Name:
           </label>
           <div class="col-md-5">
-            <input
-              type="text"
-              class="form-control"
-              formControlName="registrarName"
-            />
+            <input type="text" class="form-control" formControlName="registrarName" />
           </div>
         </div>
 
         <div class="form-group form-row col-md-12 justify-content-center">
-          <label class="col-md-1 col-form-label p-3" for="gender"
-            >Gender:</label
-          >
+          <label class="col-md-1 col-form-label p-3" for="gender">Gender:</label>
 
           <div class="col-md-3">
             <select class="custom-select" formControlName="gender">
@@ -84,24 +62,15 @@
           <div class="col-md-3">
             <select class="custom-select">
               <option selected>Select Age</option>
-              <option
-                *ngFor="let in of counter(151); let i = index"
-                value="i"
-                >{{ i }}</option
-              >
+              <option *ngFor="let in of counter(151); let i = index" value="{{i}}">{{ i }}</option>
             </select>
           </div>
 
-          <label class="col-md-1 col-form-label p-3" for="Religion"
-            >Religion:</label
-          >
+          <label class="col-md-1 col-form-label p-3" for="Religion">Religion:</label>
           <div class="col-md-3">
             <select class="custom-select" formControlName="religion">
               <option selected>Select Religion</option>
-              <option
-                *ngFor="let r of religion"
-                [ngValue]="r"
-              >
+              <option *ngFor="let r of religion" [ngValue]="r">
                 {{ r}}
               </option>
             </select>
@@ -109,62 +78,33 @@
         </div>
 
         <div class="form-group form-row col-md-12 justify-content-center">
-          <label class="col-md-1 col-form-label pt-3" for="death date"
-            >Death Date</label
-          >
+          <label class="col-md-1 col-form-label pt-3" for="death date">Death Date</label>
           <div class="col-md-5">
-            <input
-              class="form-control"
-              id="person-death-date"
-              type="date"
-              formControlName="deathDate"
-            />
+            <input class="form-control" id="person-death-date" type="date" formControlName="deathDate" />
           </div>
 
-          <label class="col-md-1 col-form-label pt-3" for="burial date"
-            >Burial Date</label
-          >
+          <label class="col-md-1 col-form-label pt-3" for="burial date">Burial Date</label>
           <div class="col-md-5">
-            <input
-              class="form-control"
-              id="person-burial-date"
-              type="date"
-              formControlName="burialDate"
-            />
+            <input class="form-control" id="person-burial-date" type="date" formControlName="burialDate" />
           </div>
         </div>
       </div>
 
       <div class="form-row">
-        <button
-          (click)="toggleDisplay()"
-          type="submit"
-          id="person-submit"
-          class="btn btn-primary mr-3"
-        >
+        <button (click)="searchGraveRecords(); toggleDisplay()" type="submit" id="person-submit"
+          class="btn btn-primary mr-3">
           Search Graves
         </button>
-        <button
-          (click)="toggleDivs('person-search', 'grave-search')"
-          id="grave-button"
-          style="display: block;"
-          class="btn btn-danger"
-        >
+        <button (click)="toggleDivs('person-search', 'grave-search')" id="grave-button" style="display: block;"
+          class="btn btn-danger">
           Search By Graves
         </button>
       </div>
       <!-- toggle switch-->
       <div class="form-group">
         <div class="custom-control custom-switch">
-          <input
-            (click)="advanceSearchToggle()"
-            type="checkbox"
-            class="custom-control-input"
-            id="customSwitch1"
-          />
-          <label class="custom-control-label" for="customSwitch1"
-            >Advance Search</label
-          >
+          <input (click)="advanceSearchToggle()" type="checkbox" class="custom-control-input" id="customSwitch1" />
+          <label class="custom-control-label" for="customSwitch1">Advance Search</label>
         </div>
       </div>
     </form>
@@ -175,58 +115,38 @@
 <div id="grave-search" style="display: none;">
   <div class="container">
     <h1>Searching Graves By Grave Details</h1>
-    <form method="POST" target="./home"  [formGroup]="searchForm">
+    <form method="POST" target="./home" [formGroup]="searchForm">
       <div class="form-group form-row col-md-12">
-        <label class="col-md-2 col-form-label" for="grave reference code"
-          >Grave Reference Code:</label
-        >
+        <label class="col-md-2 col-form-label" for="grave reference code">Grave Reference Code:</label>
         <div class="col-md-4">
           <input class="form-control" id="grave-reference-code" type="text" formControlName="referenceCode" />
         </div>
 
-        <label class="col-md-1 col-form-label" for="grave size"
-          >Grave Size:</label
-        >
+        <label class="col-md-1 col-form-label" for="grave size">Grave Size:</label>
         <div class="col-md-4">
           <select class="custom-select" id="grave-size" formControlName="graveSize">
             <option selected>Select Grave Size</option>
-            <option
-                *ngFor="let gs of graveSize"
-                [ngValue]="gs"
-              >
-                {{ gs }}
-          </option>
+            <option *ngFor="let gs of graveSize" [ngValue]="gs">
+              {{ gs }}
+            </option>
           </select>
         </div>
-        <label class="col-md-2 col-form-label" for="grave owner name"
-          >Grave Owner Name:</label
-        >
+        <label class="col-md-2 col-form-label" for="grave owner name">Grave Owner Name:</label>
         <div class="col-md-4">
           <input class="form-control" id="grave-owner-name" type="text" formControlName="ownerName" />
         </div>
 
-        <label class="col-md-1 col-form-label" for="grave owner address"
-          >Grave Owner Address:</label
-        >
+        <label class="col-md-1 col-form-label" for="grave owner address">Grave Owner Address:</label>
         <div class="col-md-4">
           <input class="form-control" id="grave-owner-address" type="text" formControlName="ownerAddress" />
         </div>
       </div>
       <div class="form-row">
-        <button
-          (click)="toggleDisplay()"
-          type="submit"
-          id="person-submit"
-          class="btn btn-primary mr-3"
-        >
+        <button (click)="toggleDisplay()" type="submit" id="person-submit" class="btn btn-primary mr-3">
           Search Graves
         </button>
-        <button
-          (click)="toggleDivs('person-search', 'grave-search')"
-          id="grave-button"
-          style="display: block;"
-          class="btn btn-danger"
-        >
+        <button (click)="toggleDivs('person-search', 'grave-search')" id="grave-button" style="display: block;"
+          class="btn btn-danger">
           Search By People
         </button>
       </div>
@@ -235,9 +155,5 @@
   </div>
 </div>
 
-<app-search-result
-  *ngIf="display"
-  title="Search Results"
-  subtitle="Click a Grave for More Details"
-></app-search-result>
+<app-search-result *ngIf="display" title="Search Results" subtitle="Click a Grave for More Details"></app-search-result>
 <app-footer></app-footer>
