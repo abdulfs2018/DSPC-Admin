@@ -53,7 +53,11 @@
                     <a href="#" id="update-registrar-info-link" routerLink="../graveDetails" routerLinkActive="active">Please report any inaccurate information by clicking here</a>
                 </div>
 
-                <img class="img-fluid map-img" src="../../../assets/images/grave-location.png" alt="Grave Location"/>
+                <!--<img class="img-fluid map-img" src="../../../assets/images/grave-location.png" alt="Grave Location"/>-->
+                
+                <agm-map [latitude]="54.021166" [longitude]="-6.393735" [mapTypeId]="'satellite'" [zoom]="18">
+                  <agm-marker [latitude]="54.021166" [longitude]="-6.393735" [label]="{color: 'black', text: 'killians dead', fontWeight:'bold'}"></agm-marker>
+                </agm-map>
 
               </div>
             </div>

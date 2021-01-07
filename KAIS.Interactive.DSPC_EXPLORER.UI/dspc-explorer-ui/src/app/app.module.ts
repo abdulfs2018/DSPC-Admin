@@ -13,6 +13,7 @@ import { HomeModule } from "./screens/home/home.module";
 import { UserLoginModule } from "./screens/user-login/user.login.module";
 import { ReactiveFormsModule } from "@angular/forms";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AgmCoreModule } from '@agm/core';
 
 
 @NgModule({
@@ -32,7 +33,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HomeModule,
     UserLoginModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCA1fMEDhnNtkdYxiIAbHiJyNWiOhK_LwM'
+    })
   ],
   providers: [DSPCExplorerLocalStorageProvider],
   bootstrap: [AppComponent],
