@@ -37,7 +37,6 @@ export class GraveRegistrarsComponent implements OnInit {
       fontFamily: '',
       fontSize: '14px',
       fontWeight: 'bold',
-      text: this.graveOwnerLastName + ' Family Grave'
     }
     this.isAdmin = false;
   }
