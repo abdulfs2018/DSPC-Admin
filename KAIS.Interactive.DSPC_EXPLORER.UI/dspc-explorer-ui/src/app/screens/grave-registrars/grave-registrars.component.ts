@@ -13,11 +13,25 @@ export class GraveRegistrarsComponent implements OnInit {
 
   registrar : RegistrarDTO;
   private isAdmin: boolean;
+  private labelOptions: object;
+  private graveOwnerLastName: string;
   readonly REGISTRAR_KEY = "local_registrar";
 
   ngOnInit() {
     this.registrar = this.localStorageService.getFromLocalStorage(this.REGISTRAR_KEY);
+    this.graveOwnerLastName = this.registrar.graveOwner.graveOwnerName.split(" ")[1];
     this.isAdmin = false;
+
+    console.log(this.registrar);
+
+    this.labelOptions = {
+      color: 'black',
+      fontFamily: '',
+      fontSize: '14px',
+      fontWeight: 'bold',
+      text: this.graveOwnerLastName + ' Family Grave'
+    }
+
   }
 
   getIsAdmin(): boolean {
@@ -32,5 +46,6 @@ export class GraveRegistrarsComponent implements OnInit {
     var date : Date = new Date(this.registrar.deathDate);
     return date.getDate() + "/" + (date.getMonth()+1) + "/" + date.getFullYear();
   }
+
 
 }
