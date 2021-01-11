@@ -55,8 +55,9 @@
 
                 <!--<img class="img-fluid map-img" src="../../../assets/images/grave-location.png" alt="Grave Location"/>-->
                 
-                <agm-map [latitude]="54.021166" [longitude]="-6.393735" [mapTypeId]="'satellite'" [zoom]="18">
-                  <agm-marker [latitude]="54.021166" [longitude]="-6.393735" [label]="labelOptions"></agm-marker>
+                <agm-map [latitude]="54.021166" [longitude]="-6.393735" [mapTypeId]="'satellite'" [zoom]="19">
+                  <agm-marker [latitude]="54.021166" [longitude]="-6.393735" [iconUrl]="gravePinImage" [label]="labelOptions"></agm-marker>
+                  <agm-marker [latitude]="54.021039" [longitude]="-6.394452" [iconUrl]="entrancePinImage" [label]="{text: 'Graveyard Entrance', fontWeight: 'bold'}"></agm-marker>
                 </agm-map>
 
               </div>

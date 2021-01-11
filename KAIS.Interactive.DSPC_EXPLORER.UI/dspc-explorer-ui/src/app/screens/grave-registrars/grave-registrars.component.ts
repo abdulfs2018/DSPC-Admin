@@ -15,14 +15,22 @@ export class GraveRegistrarsComponent implements OnInit {
   private isAdmin: boolean;
   private labelOptions: object;
   private graveOwnerLastName: string;
+  private gravePinImage : object;
+  private entrancePinImage: object;
   readonly REGISTRAR_KEY = "local_registrar";
 
   ngOnInit() {
     this.registrar = this.localStorageService.getFromLocalStorage(this.REGISTRAR_KEY);
     this.graveOwnerLastName = this.registrar.graveOwner.graveOwnerName.split(" ")[1];
-    this.isAdmin = false;
+    this.gravePinImage = { 
+      url : 'http://maps.google.com/mapfiles/ms/icons/red-dot.png', 
+      labelOrigin:{x:22,y:-10}
+    }
 
-    console.log(this.registrar);
+    this.entrancePinImage = { 
+      url : 'http://maps.google.com/mapfiles/ms/icons/green-dot.png', 
+      labelOrigin:{x:22,y:-10}
+    }
 
     this.labelOptions = {
       color: 'black',
@@ -31,7 +39,7 @@ export class GraveRegistrarsComponent implements OnInit {
       fontWeight: 'bold',
       text: this.graveOwnerLastName + ' Family Grave'
     }
-
+    this.isAdmin = false;
   }
 
   getIsAdmin(): boolean {
