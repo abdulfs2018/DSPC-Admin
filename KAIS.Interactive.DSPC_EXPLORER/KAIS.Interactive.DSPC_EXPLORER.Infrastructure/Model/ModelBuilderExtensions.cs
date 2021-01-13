@@ -10,7 +10,6 @@ namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure.Model
 
         public static void SeedInitialSections(this ModelBuilder modelBuilder)
         {
-
             modelBuilder.Entity<Section>().HasData(
                     new Section
                     {
@@ -286,6 +285,5 @@ namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure.Model
                    }
                );
         }
-
     }
 }

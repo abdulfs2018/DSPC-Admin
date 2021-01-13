@@ -1,5 +1,6 @@
 ﻿using System;
 
+
 namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure.Model
 {
     public class Section
