@@ -53,7 +53,24 @@
                     <a href="#" id="update-registrar-info-link" routerLink="../graveDetails" routerLinkActive="active">Please report any inaccurate information by clicking here</a>
                 </div>
 
-                <img class="img-fluid map-img" src="../../../assets/images/grave-location.png" alt="Grave Location"/>
+                <!--<img class="img-fluid map-img" src="../../../assets/images/grave-location.png" alt="Grave Location"/>-->
+                
+                <agm-map [latitude]="54.021166" [longitude]="-6.393735" [mapTypeId]="'satellite'" [zoom]="19">
+                  <agm-marker [latitude]="54.021166" [longitude]="-6.393735" [iconUrl]="gravePinImage" [label]="labelOptions">
+                    <agm-info-window [disableAutoPan]="true" [isOpen]="true">
+                      <div>
+                          <span class="window-title"><b>{{this.graveOwnerLastName}} Family Grave</b></span>
+                      </div>
+                    </agm-info-window>
+                  </agm-marker>
+                  <agm-marker [latitude]="54.021039" [longitude]="-6.394452" [iconUrl]="entrancePinImage" [label]="labelOptions">
+                    <agm-info-window [disableAutoPan]="true" [isOpen]="true">
+                      <div>
+                          <span class="window-title"><b>Graveyard Entrance</b></span>
+                      </div>
+                    </agm-info-window>
+                  </agm-marker>
+                </agm-map>
 
               </div>
             </div>
