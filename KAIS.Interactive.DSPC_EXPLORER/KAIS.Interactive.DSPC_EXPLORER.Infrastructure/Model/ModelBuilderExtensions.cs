@@ -1,7 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using CsvHelper;
+using Microsoft.EntityFrameworkCore;
 using System;
-using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Reflection;
 using System.Text;
+
 
 namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure.Model
 {
@@ -285,5 +289,72 @@ namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure.Model
                    }
                );
         }
+
+        public static void SeedSectionCSV(this ModelBuilder modelBuilder)
+        {
+            Assembly assembly = Assembly.GetExecutingAssembly();
+            string resourceName = "KAIS.Interactive.DSPC_EXPLORER.Infrastructure.SeedData.section_table.csv";
+            using (Stream stream = assembly.GetManifestResourceStream(resourceName))
+            {
+                using (StreamReader reader = new StreamReader(stream, Encoding.UTF8))
+                {
+                    CsvReader csvReader = new CsvReader(reader, System.Globalization.CultureInfo.CurrentCulture);
+                    var sections = csvReader.GetRecords<Section>().ToArray();
+                    modelBuilder.Entity<Section>().HasData(sections);
+                }
+            }
+        }
+
+        public static void SeedGraveOwnerCSV(this ModelBuilder modelBuilder)
+        {
+            Assembly assembly = Assembly.GetExecutingAssembly();
+            string resourceName = "KAIS.Interactive.DSPC_EXPLORER.Infrastructure.SeedData.graveowner_table.csv";
+            using (Stream stream = assembly.GetManifestResourceStream(resourceName))
+            {
+                using (StreamReader reader = new StreamReader(stream, Encoding.UTF8))
+                {
+                    CsvReader csvReader = new CsvReader(reader, System.Globalization.CultureInfo.CurrentCulture);
+
+                    var anonymousTypeDefinition = new
+                    {
+
+                        Id = default(int),
+                        SubId = string.Empty,
+                        GraveReferenceCode = string.Empty,
+                        GraveRow = default(int),
+                        GraveDepth = default(int),
+                        GraveSize = string.Empty,
+                        GraveLocation = string.Empty,
+                        GraveHeadStone = true,
+                        GraveOwnerName = string.Empty,
+                        GraveOwnerAddress = string.Empty,
+                        Remarks = string.Empty,
+                        SectionId = default(int)
+
+                       
+                    };
+
+
+                    var graveOwners = csvReader.GetRecords<GraveOwner>().ToArray();
+                    modelBuilder.Entity<GraveOwner>().HasData(graveOwners);
+                }
+            }
+        }
+
+        public static void SeedRegistrarCSV(this ModelBuilder modelBuilder)
+        {
+            Assembly assembly = Assembly.GetExecutingAssembly();
+            string resourceName = "KAIS.Interactive.DSPC_EXPLORER.Infrastructure.SeedData.registrar_table.csv";
+            using (Stream stream = assembly.GetManifestResourceStream(resourceName))
+            {
+                using (StreamReader reader = new StreamReader(stream, Encoding.UTF8))
+                {
+                    CsvReader csvReader = new CsvReader(reader, System.Globalization.CultureInfo.CurrentCulture);
+                    var registrars = csvReader.GetRecords<Registrar>().ToArray();
+                    modelBuilder.Entity<Registrar>().HasData(registrars);
+                }
+            }
+        }
+
     }
 }
