@@ -37,7 +37,7 @@ namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure.Model
                 {
                     CsvReader csvReader = new CsvReader(reader, System.Globalization.CultureInfo.CurrentCulture);
                     var sections = csvReader.GetRecords<Section>().ToArray();
-                    Debugger.Launch();
+                    //Debugger.Launch();
                     modelBuilder.Entity<Section>().HasData(sections);
                     //Sections.AddOrUpdate(c => c.Code, sections);
 
