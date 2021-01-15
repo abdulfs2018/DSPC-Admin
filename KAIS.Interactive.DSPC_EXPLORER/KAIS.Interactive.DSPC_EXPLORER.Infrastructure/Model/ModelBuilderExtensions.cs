@@ -1,6 +1,7 @@
 ﻿using CsvHelper;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -32,6 +33,7 @@ namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure.Model
                     {
                         Id = 1,
                         SubId = "A1",
+                        JKIndex= "A01.01",
                         GraveReferenceCode = "A001",
                         GraveRow = 1,
                         GraveDepth = 1,
@@ -47,6 +49,7 @@ namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure.Model
                     {
                         Id = 2,
                         SubId = "A2",
+                        JKIndex = "A01.02",
                         GraveReferenceCode = "A002",
                         GraveRow = 1,
                         GraveDepth = 2,
@@ -62,6 +65,7 @@ namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure.Model
                     {
                         Id = 3,
                         SubId = "A3",
+                        JKIndex = "A01.03",
                         GraveReferenceCode = "A003",
                         GraveRow = 1,
                         GraveDepth = 3,
@@ -77,6 +81,7 @@ namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure.Model
                     {
                         Id = 4,
                         SubId = "A4",
+                        JKIndex = "A01.04",
                         GraveReferenceCode = "A004",
                         GraveRow = 1,
                         GraveDepth = 4,
@@ -296,6 +301,7 @@ namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure.Model
             string resourceName = "KAIS.Interactive.DSPC_EXPLORER.Infrastructure.SeedData.section_table.csv";
             using (Stream stream = assembly.GetManifestResourceStream(resourceName))
             {
+                
                 using (StreamReader reader = new StreamReader(stream, Encoding.UTF8))
                 {
                     CsvReader csvReader = new CsvReader(reader, System.Globalization.CultureInfo.CurrentCulture);
@@ -311,15 +317,16 @@ namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure.Model
             string resourceName = "KAIS.Interactive.DSPC_EXPLORER.Infrastructure.SeedData.graveowner_table.csv";
             using (Stream stream = assembly.GetManifestResourceStream(resourceName))
             {
+                Debugger.Launch();
                 using (StreamReader reader = new StreamReader(stream, Encoding.UTF8))
                 {
                     CsvReader csvReader = new CsvReader(reader, System.Globalization.CultureInfo.CurrentCulture);
 
                     var anonymousTypeDefinition = new
                     {
-
                         Id = default(int),
                         SubId = string.Empty,
+                        JKIndex = string.Empty,
                         GraveReferenceCode = string.Empty,
                         GraveRow = default(int),
                         GraveDepth = default(int),
@@ -331,11 +338,9 @@ namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure.Model
                         Remarks = string.Empty,
                         SectionId = default(int)
 
-                       
                     };
 
-
-                    var graveOwners = csvReader.GetRecords<GraveOwner>().ToArray();
+                    var graveOwners = csvReader.GetRecords(anonymousTypeDefinition);
                     modelBuilder.Entity<GraveOwner>().HasData(graveOwners);
                 }
             }
@@ -350,7 +355,35 @@ namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure.Model
                 using (StreamReader reader = new StreamReader(stream, Encoding.UTF8))
                 {
                     CsvReader csvReader = new CsvReader(reader, System.Globalization.CultureInfo.CurrentCulture);
-                    var registrars = csvReader.GetRecords<Registrar>().ToArray();
+
+                    var anonymousTypeDefinition = new
+                    {
+                        Id = default(int),
+                        BookPage = string.Empty,
+                        NumberInBook = string.Empty,
+                        FirstName = string.Empty,
+                        LastName = string.Empty,
+                        Sex = string.Empty,
+                        Age = default(int),
+                        AgeDetail = string.Empty,
+                        Religion = string.Empty,
+                        Occupation = string.Empty,
+                        DeathLocation = string.Empty,
+                        MarriageStatus = string.Empty,
+                        DeathDate = default(DateTime),
+                        BurialDate = default(DateTime),
+                        Public = string.Empty,
+                        Proprietary = string.Empty,
+                        SectionInfo = string.Empty,
+                        NumberInfo = string.Empty,
+                        InternmentSignature = string.Empty,
+                        AdditionalComments = string.Empty,
+                        RegistrarName = string.Empty,
+                        GraveOwnerGraveReferenceCode = default(int)
+                    };
+
+                    var registrars = csvReader.GetRecords(anonymousTypeDefinition).ToArray();
+                    //Debugger.Launch();
                     modelBuilder.Entity<Registrar>().HasData(registrars);
                 }
             }
