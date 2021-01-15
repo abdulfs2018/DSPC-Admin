@@ -9,10 +9,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="SeedData\graveowner_table.csv" />
+    <None Remove="SeedData\registrar_table.csv" />
     <None Remove="SeedData\section_table.csv" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="SeedData\graveowner_table.csv" />
+    <EmbeddedResource Include="SeedData\registrar_table.csv" />
     <EmbeddedResource Include="SeedData\section_table.csv" />
   </ItemGroup>
 

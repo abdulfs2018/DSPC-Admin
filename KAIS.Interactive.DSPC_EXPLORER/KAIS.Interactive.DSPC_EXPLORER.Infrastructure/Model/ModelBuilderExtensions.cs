@@ -317,7 +317,6 @@ namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure.Model
             string resourceName = "KAIS.Interactive.DSPC_EXPLORER.Infrastructure.SeedData.graveowner_table.csv";
             using (Stream stream = assembly.GetManifestResourceStream(resourceName))
             {
-                Debugger.Launch();
                 using (StreamReader reader = new StreamReader(stream, Encoding.UTF8))
                 {
                     CsvReader csvReader = new CsvReader(reader, System.Globalization.CultureInfo.CurrentCulture);
