@@ -1,7 +1,6 @@
 ﻿using CsvHelper;
 using Microsoft.EntityFrameworkCore;
 using System;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -359,7 +358,7 @@ namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure.Model
                     {
                         Id = default(int),
                         BookPage = string.Empty,
-                        NumberInBook = string.Empty,
+                        NumberInBook = default(int),
                         FirstName = string.Empty,
                         LastName = string.Empty,
                         Sex = string.Empty,
@@ -378,7 +377,7 @@ namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure.Model
                         InternmentSignature = string.Empty,
                         AdditionalComments = string.Empty,
                         RegistrarName = string.Empty,
-                        GraveOwnerGraveReferenceCode = default(int)
+                        GraveOwnerGraveReferenceCode = string.Empty
                     };
 
                     var registrars = csvReader.GetRecords(anonymousTypeDefinition).ToArray();

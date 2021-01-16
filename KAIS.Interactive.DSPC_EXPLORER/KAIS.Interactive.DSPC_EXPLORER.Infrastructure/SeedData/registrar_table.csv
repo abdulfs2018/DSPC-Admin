@@ -42,7 +42,7 @@ Id,BookPage,NumberInBook,FirstName,LastName,Sex,Age,AgeDetail,Religion,Occupatio
 45,Bk 1 Pg 6,66,Patrick ,Byrne,Male,43,Yrs,Roman Catholic,Labourer,Workhouse Dundalk,Married,1897-01-29,1897-01-30,D645,,,No3 R.C.,645,? Byrne,,P.R. Finnigan,D645
 46,Bk 1 Pg 6,67,Honora,Molony,Female,25,Yrs,Roman Catholic,Daughter of a Police Pensioner,"Chapel Lane, Dundalk",Single,1897-02-08,1897-02-10,D897,,,No1 R.C.,897,Maurice Moloney,,P.R. Finnigan,D897
 47,Bk 1 Pg 6,68,Felix,Wheatley,Male,60,Yrs,Roman Catholic,Laundry Proprietor,"Anne Street, Dundalk",Married,1897-02-12,1897-02-15,D898,,,No1 R.C.,898,William Wheatley,,P.R. Finnigan,D898
-49,Bk 1 Pg 6,71,Mary,Ryan,Female,1,Yr,Roman Catholic,Child of a Draper,"Clanbrassil St, Dundalk",Single,1897-02-27,0000-00-00,D900,,,No1 R.C.,900,Edward Ryan,,P.R. Finnigan,D900
+49,Bk 1 Pg 6,71,Mary,Ryan,Female,1,Yr,Roman Catholic,Child of a Draper,"Clanbrassil St, Dundalk",Single,1897-02-27,1897-02-27,D900,,,No1 R.C.,900,Edward Ryan,,P.R. Finnigan,D900
 50,Bk 1 Pg 6,73,Mary ,Rocheford,Female,4,Yrs,Roman Catholic,Child of a Cooper,"Hill Street, Dundalk",Single,1897-03-06,1897-03-07,D646,,,No3 R.C.,646,John Rocheford,,P.R. Finnigan,D646
 52,Bk 1 Pg 6,76,Patrick,Donnelly,Male,1,Yr,Roman Catholic,Child of a Labourer,"Church Lane, Dundalk",Single,1897-03-17,1897-02-19,D643,,,No3 R.C.,643,Josephine Wehrly,,P.R. Finnigan,D643
 54,Bk 1 Pg 7,78,Hugh,McCourt,Male,78,Yrs,Roman Catholic,Carter,"Fox's Lane, Dundalk",Widower,1897-03-22,1897-03-23,D647,,,Sec No3,647,Owen McCourt,,P.R. Finnigan,D647
@@ -132,7 +132,7 @@ Id,BookPage,NumberInBook,FirstName,LastName,Sex,Age,AgeDetail,Religion,Occupatio
 154,Bk 1  Pg 15,233,Mary ,Haynes,Female,70,Yrs,Roman Catholic,Lady,"Barrack Street, Dundalk",Widow,1899-04-02,1899-04-04,D908,,,Sec No 1 R.C.,908,Peter Martin,,P.R. Finnigan,D908
 155,Bk 1  Pg 15,234,Mary Lucy Isabella,Blackburn,Female,1,Yr,Roman Catholic,Child of a Shoemaker,"Market Street, Dundalk",Spinster,1899-04-29,1899-04-30,D541,,,Sec No 3 R.C.,541,William John Blackburn,,P.R. Finnigan,D541
 156,Bk 1  Pg 15,235,Patricia,Gibney,Female,1,Yr,Roman Catholic,Child of a Cattle Dealer,"Chapel Lane, Dundalk",Spinster,1899-05-03,1899-05-04,D406,,,Sec No 1 R.C.,406,Thomas Gibney,,P.R. Finnigan,D406
-157,Bk 1  Pg 15,236,James,Birmingham,Male,72,Yrs,Roman Catholic,Shoemaker,"Wrighton's Lane, Dundalk",Married,1899-05-04,0000-00-00,D483,,,Sec No 3 R.C.,483,Thomas Blake,,P.R. Finnigan,D483
+157,Bk 1  Pg 15,236,James,Birmingham,Male,72,Yrs,Roman Catholic,Shoemaker,"Wrighton's Lane, Dundalk",Married,1899-05-04,1899-05-04,D483,,,Sec No 3 R.C.,483,Thomas Blake,,P.R. Finnigan,D483
 158,Bk 1  Pg 15,237,Patrick ,Lee,Male,43,Yrs,Roman Catholic,Blacksmith,"Mill Street, Dundalk",Married,1899-05-01,1899-05-03,D748,,,Sec No 2 R.C.,748,James Lee,,P.R. Finnigan,D748
 159,Bk 1  Pg 15,239,Patrick ,Maguire,Male,67,Yrs,Roman Catholic,Mason,"Seatown, Dundalk",Married,1899-05-09,1899-05-10,D542,,,Sec No 3 R.C.,542,Thomas Maguire,,P.R. Finnigan,D542
 160,Bk 1  Pg 15,241,James,Meagher,Male,78,Yrs,Roman Catholic,Ex Sergt. R.I.C.,"Brunswick Row,Dlk",Widower,1899-06-02,1899-06-04,D626,,,Sec No 1 R.C.,626,James J Haughey,,P.R. Finnigan,D626
@@ -365,7 +365,7 @@ Id,BookPage,NumberInBook,FirstName,LastName,Sex,Age,AgeDetail,Religion,Occupatio
 443,Bk 1 Pg 38,677,Margaret,Carragher,Female,50,Yrs,Roman Catholic,Labourer's Wife,"Nicholas Street, Dlk",Married,31/12/1903,02/01/1904,D339,,,No 3 R.C.,339,James Carragher,,P.R.Finnigan,D339
 444,Bk 1 Pg 38,680,Thomas,Kehoe,Male,63,Yrs,Roman Catholic,Insurance Agent,"Brunswick Row,Dlk",Married,11/01/1904,13/01/1904,D518,,,No 2 R.C.,518,Thos Sholdis,,P.R.Finnigan,D518
 445,Bk 1 Pg 38,681,Winnifred Constance,Blackburn,Female,0,10 Wks,Roman Catholic,Shoemaker's Child,"Market Street, Dundalk",Spinster,20/01/1904,21/01/1904,D541,,,No 3 R.C.,541,Carroll,,P.R.Finnigan,D541
-446,Bk 1 Pg 39,681 X,Catherine,Gray,Female,68,Yrs,Roman Catholic,Labourer's Wife,"Browns Row, Dundalk",Widow,21/01/1904,22/01/1904,D340,,,No 3 R.C.,340,David Gray,,P.R.Finnigan,D340
+446,Bk 1 Pg 39,681,Catherine,Gray,Female,68,Yrs,Roman Catholic,Labourer's Wife,"Browns Row, Dundalk",Widow,21/01/1904,22/01/1904,D340,,,No 3 R.C.,340,David Gray,,P.R.Finnigan,D340
 447,Bk 1 Pg 39,682,James,Martin ,Male,30,Yrs,Roman Catholic,Labourer,"River Lane, Dundalk",Bachelor,30/01/1904,31/01/1904,D261,,,No 3 R.C.,261,Christopher McGarity,,P.R.Finnigan,D261
 448,Bk 1 Pg 39,683,Peter,Byrne,Male,56,Yrs,Roman Catholic,Labourer,"St Alphonsus Road, Dundalk",Married,30/01/1904,01/02/1904,D341,,,No 3 R.C.,341,? Byrne,,P.R.Finnigan,D341
 450,Bk 1 Pg 39,685,James,McCourt,Male,70,Yrs,Roman Catholic,Labourer,"Seatown, Dundalk",Married,05/02/1904,07/02/1904,D342,,,No 3 R.C.,342,Patrick McCourt,,P.R.Finnigan,D342
@@ -437,7 +437,7 @@ Id,BookPage,NumberInBook,FirstName,LastName,Sex,Age,AgeDetail,Religion,Occupatio
 521,Bk 1 Pg 43,776,Anastasia,Sheahan,Male,10,Yrs,Roman Catholic,"Child of Head Constable, R.I.C.","Anne Street, Dundalk",Spinster,26/01/1905,27/01/1905,D274,,,No 3 R.C.,274,J. McKitterick,"Re: Death Cert:Name, D.O.D. Age",P.R.Finnigan,D274
 522,Bk 1 Pg 43,777,Marianne,Darcy,Female,71,Yrs,Roman Catholic,Wife of a Dealer,"Bachelors Walk, Dlk",Married,28/01/1905,29/01/1905,D290,,,No 3 R.C.,290,Patrick Darcy,,P.R.Finnigan,D290
 523,Bk 1 Pg 43,778,Peter,Sandys,Male,80,Yrs,Roman Catholic,Whitesmith,"Wrighton's Lane, Dundalk",Bachelor,29/01/1905,31/01/1905,D324,,,No 3 R.C.,324,John Sandys,,P.R.Finnigan,D324
-524,Bk 1 Pg 43,778 (a),Susan ,Murphy,Female,15,Yrs,Roman Catholic,Of the Labouring Class,"Browns Row, Dundalk",Spinster,29/01/1905,31/01/1905,D292,,,No 3 R.C.,292?,,"Re: Death Cert: Name, Age",P.R.Finnigan,D292
+524,Bk 1 Pg 43,778,Susan ,Murphy,Female,15,Yrs,Roman Catholic,Of the Labouring Class,"Browns Row, Dundalk",Spinster,29/01/1905,31/01/1905,D292,,,No 3 R.C.,292?,,"Re: Death Cert: Name, Age",P.R.Finnigan,D292
 525,Bk 1 Pg 44,781,Thomas,Mahon ,Male,35,Yrs,Roman Catholic,Boiler Maker,"Richmond Asylum, Dublin ",Married,11/02/1905,14/02/1905,D714,,,No 2 R.C.,714 - ,John Bryne,,P.R.Finnigan,D714
 526,Bk 1 Pg 44,782,Alice,McArdle,Female,22,Yrs,Roman Catholic,Daughter of a Mechanic,"4 Dublin Street, Dundalk",Spinster,13/02/1905,15/02/1905,D772,,,No 2 R.C.,772-3,Dominick McArdle,,P.R.Finnigan,D772
 527,Bk 1 Pg 44,783,Margaret,Toner,Female,61,Yrs,Roman Catholic,Labouring Class,"Wrighton's Lane, Dundalk",Widow,14/02/1905,16/02/1905,D295,,,No 3 R.C.,295-6,Patrick ?,,P.R.Finnigan,D295
@@ -449,7 +449,7 @@ Id,BookPage,NumberInBook,FirstName,LastName,Sex,Age,AgeDetail,Religion,Occupatio
 534,Bk 1 Pg 44,790,Annie,Finegan,Female,4,Yrs,Roman Catholic,Labourer's Child,"Castletown Road, Dundalk ",Spinster,15/03/1905,16/03/1905,D318,,,No 3 R.C.,318,Peter Finegan,,P.R.Finnigan,D318
 535,Bk 1 Pg 44,791,Henry,Turner,Male,21,Yrs,Roman Catholic,Mechanic,"The Workhouse, Dundalk ",Spinster,19/03/1905,21/03/1905,D854,,,No 1 R.C.,854,Ben Turner,Re: D Cert: Re Surname,P.R.Finnigan,D854
 536,Bk 1 Pg 44,792,Peter,McMahon,Male,1,Yr,Roman Catholic,Labourer's Child,"Dowdallshill, Dundalk",Bachelor,24/03/1905,25/03/1905,C695,,,No 3 R.C.,695,Patrick McMahon,Re: D Cert: Re Age,P.R.Finnigan,C695
-537,Bk 1 Pg 44,792 (a),Mary ,Roddy,Female,51,Yrs,Roman Catholic,Labouring Class,"Casey's Row, Dundalk ",Widow,28/03/1905,29/03/1905,C693,,,No 3 R.C.,693,J.McDonald,,P.R.Finnigan,C693
+537,Bk 1 Pg 44,792,Mary ,Roddy,Female,51,Yrs,Roman Catholic,Labouring Class,"Casey's Row, Dundalk ",Widow,28/03/1905,29/03/1905,C693,,,No 3 R.C.,693,J.McDonald,,P.R.Finnigan,C693
 538,Bk 1 Pg 44,794,Alice,Rice,Female,70,Yrs,Roman Catholic,Servant,"James Street, Dundalk",Spinster,13/04/1905,14/04/1905,C692,,,No 3 R.C.,692,Frank Conlon,,P.R.Finnigan,C692
 539,Bk 1 Pg 44,795,Alice,Duffy,Female,55,Yrs,Roman Catholic,Labourer's Wife,"Chapel Lane, Dundalk",Married,10/04/1905,18/04/1905,C691,,,No 3 R.C.,691,Thomas Duffy,,P.R.Finnigan,C691
 540,Bk 1 Pg 44,796,Margaret,Hearty,Female,8,Yrs,Roman Catholic,Child of Grocer Porter,"St Patricks Terrace, Dundalk ",Spinster,19/04/1905,20/04/1905,D552,,,No 3 R.C.,552,Pat Hearty,Re: D Cert: Re Occupation,P.R.Finnigan,D552
@@ -475,7 +475,7 @@ Id,BookPage,NumberInBook,FirstName,LastName,Sex,Age,AgeDetail,Religion,Occupatio
 567,Bk 1 Pg 46,853,John ,Jennings,Male,0,8 Days,Roman Catholic,Child of Plumber,"Bachelors Walk, Dundalk ",Bachelor,14/09/1905,14/09/1905,C639,,,No 3 R.C.,639?,T.Jennings,Re: D Cert re: Date of Death ,P.R.Finnigan,C639
 568,Bk 1 Pg 46,856,Margaret,Campbell,Female,58,Yrs,Roman Catholic,Widow of a Coachman,"Brookfield, Dundalk",Widow,26/09/1905,27/09/1905,C685,,,No 3 R.C.,685,J.McKitterick,,P.R.Finnigan,C685
 569,Bk 1 Pg 46,857,Sarah,Roden ,Female,30,Yrs,Roman Catholic,Wife of Super Telegraph Dept,"McDermotts Tce, Dundalk ",Married,27/09/1905,28/09/1905,D582,,,No 3 R.C.,582,,,P.R.Finnigan,D582
-570,Bk 1 Pg 46,839 (a),Mary ,Duffy,Female,60,Yrs,Roman Catholic,Labouring Class,"The Workhouse, Dundalk ",Married,02/10/1905,03/10/1905,C684,,,No 3 R.C.,684,John Casey,,P.R.Finnigan,C684
+570,Bk 1 Pg 46,839,Mary ,Duffy,Female,60,Yrs,Roman Catholic,Labouring Class,"The Workhouse, Dundalk ",Married,02/10/1905,03/10/1905,C684,,,No 3 R.C.,684,John Casey,,P.R.Finnigan,C684
 571,Bk 1 Pg 47,840,William ,Collins,Male,68,Yrs,Roman Catholic,Boiler Maker,The Union Infirmary,Widower,10/10/1905,12/10/1905,D769,,,No 2 R.C.,769,Patrick Gallagher,,P.R.Finnigan,D769
 573,Bk 1 Pg 47,842,Francis Joseph,Gallagher,Male,4,Yrs,Roman Catholic,Child of RUY Fitter,"18 Ardee Terrace, Dundalk ",Bachelor,22/10/1905,23/10/1905,C637,,,No 3 R.C.,637,James Gallagher,,P.R.Finnigan,C637
 574,Bk 1 Pg 47,843,Bridget,Quigley,Female,22,Yrs,Roman Catholic,Servant,"Barrack Street, Dundalk ",Spinster,20/10/1905,22/10/1905,D487,,,No 3 R.C.,487,John Callan ,Re: D Cert re: Occupation,P.R.Finnigan,D487
@@ -542,7 +542,7 @@ Id,BookPage,NumberInBook,FirstName,LastName,Sex,Age,AgeDetail,Religion,Occupatio
 648,Bk 1 Pg 51,935,Brigid,Newett,Female,37,Yrs,Roman Catholic,Dressmaker,"St Mary's Road, Dundalk ",Spinster,28/07/1906,30/07/1906,DR17,,,Reserved R.C.,17 D,James O'Hare,"Re: D Cert re: Surname, Age",P.R.Finnigan,DR17
 649,Bk 1 Pg 51,936,Agatha Kathleen,Ward,Female,17,Yrs,Roman Catholic,Daughter of Bank Manager,"Clanbrassil Street, Dundalk",Spinster,27/07/1906,29/07/1906,DR4,,,No 4 Rsvd R.C.,4 D,Joseph Finegan,,P.R.Finnigan,DR4
 650,Bk 1 Pg 51,937,Teresa,Kelly,Female,17,Yrs,Roman Catholic,Daughter of Guard GNR,"North Marsh, Dundalk ",Spinster,22/07/1906,24/07/1906,C941,,,No 1 R.C.,941,James Kelly,,P.R.Finnigan,C941
-652,Bk1 Pg 52,940 x,Julia,Carragher,Female,0,11 Mths,Roman Catholic,Labourer's Child,"Wrighton's Lane, Dundalk ",Spinster,07/08/1906,08/08/1906,D339,,,No 3 R.C.,339,,,P.R.Finnigan,D339
+652,Bk1 Pg 52,940,Julia,Carragher,Female,0,11 Mths,Roman Catholic,Labourer's Child,"Wrighton's Lane, Dundalk ",Spinster,07/08/1906,08/08/1906,D339,,,No 3 R.C.,339,,,P.R.Finnigan,D339
 653,Bk1 Pg 52,943,William ,O'Keefe,Male,40,Yrs,Roman Catholic,House Painter,2 Ardee Terrace Dundalk ,Bachelor,22/08/1906,24/08/1906,D281,,,No 3 R.C.,281,Michael Curran,,P.R.Finnigan,D281
 654,Bk1 Pg 52,944,Anne,Callan ,Female,55,Yrs,Roman Catholic,Wife of Coach Painter,"Seatown Gardens, Dundalk ",Married,31/08/1906,02/09/1906,C622,,,No 3 R.C.,622,Mathew Flynn,,P.R.Finnigan,C622
 657,Bk1 Pg 52,947,Peter,McCusker,Male,0,10 Days,Roman Catholic,Child of Hairdresser,"Jocelyn Street, Dundalk ",Bachelor,08/09/1906,09/09/1906,D333,,,No 3 R.C.,333,Joseph Martin ,,P.R.Finnigan,D333
@@ -668,7 +668,7 @@ Id,BookPage,NumberInBook,FirstName,LastName,Sex,Age,AgeDetail,Religion,Occupatio
 818,Bk 1 Pg62,1158,Michael ,Green ,Male,67,Yrs,Roman Catholic,Pilot,"Stillorgan, Co Dublin ",Widower,09/05/1908,10/05/1908,D770,,,No 2 ,770,,,P.R.Finnigan,D770
 819,Bk 1 Pg62,1159,Patrick ,O'Rourke,Male,75,Yrs,Roman Catholic,Farmer & Miller,Inniskeen,Widower,10/05/1908,12/05/1908,C538,,,No 1 R.C.,538,Bernard O'Rourke,,P.R.Finnigan,C538
 820,Bk 1 Pg62,1160,Bridget,Dullaghan,Female,70,Yrs,Roman Catholic,Miller's Wife,"Brown's Row, Dundalk ",Married,12/05/1908,13/05/1908,C588,,,,588?,O.Dullaghan,,P.R.Finnigan,C588
-821,Bk 1 Pg63,1160 A,Baby,O'Neill,Male,0,10 Mins,Roman Catholic,Child of a Coal Merchant,"St Mary's Road, Dundalk ",Bachelor,02/06/1908,04/06/1908,CR4,,,Reserved No 4 C,,,,P.R.Finnigan,CR4
+821,Bk 1 Pg63,1160,Baby,O'Neill,Male,0,10 Mins,Roman Catholic,Child of a Coal Merchant,"St Mary's Road, Dundalk ",Bachelor,02/06/1908,04/06/1908,CR4,,,Reserved No 4 C,,,,P.R.Finnigan,CR4
 822,Bk 1 Pg63,1162,Joseph Patrick,Slevin ,Male,24,Hrs,Roman Catholic,Child of Dock Labourer,"Foxes Lane, Dundalk",Bachelor,30/05/1908,31/05/1908,D599,,,No 3 R.C. ,599,P.Sleven ,,P.R.Finnigan,D599
 825,Bk 1 Pg63,1167,John J,Walsh,Male,26,Yrs,Roman Catholic,Constable R.I.C.,"The Workhouse, Dundalk ",Bachelor,17/06/1908,19/06/1908,C474,,,No 2 R.C. ,474,McKitterick,,P.R.Finnigan,C474
 826,Bk 1 Pg63,1168,Margaret,McGuinness,Female,52,Yrs,Roman Catholic,Labourer,Ballybarrack,Spinster,21/06/1908,22/06/1908,C306,,,Sec 3 R.C.,306,Pat Mc,,P.R.Finnigan,C306
@@ -881,7 +881,7 @@ Id,BookPage,NumberInBook,FirstName,LastName,Sex,Age,AgeDetail,Religion,Occupatio
 1624,Bk2 Pg50,1839,Margaret,McLean,Female,60,Yrs,R Catholic,House Keeper,The Workhouse,Spinster,26/11/1920,27/11/1920,D806,,,,,Nicholas ??,,P. R. Finnigan,D806
 1625,Bk2 Pg50,1842,Andrew,McDonald,Male,40,Yrs,R Catholic,House Owner,Roden Place,Bachelor,30/11/1920,02/12/1920,DR7,,,,,T ORourke,,P. R. Finnigan,DR7
 1626,Bk2 Pg50,1843,Patrick,Downey,Male,16,Yrs,R Catholic,School Boy,Market St,Bachelor,05/12/1920,07/12/1920,B174,,,,,T Downey,,P. R. Finnigan,B174
-1627,Bk2 Pg50,1843 A,Brigid,Mathews,Female,72,Yrs,R Catholic,Wife of Shopkeeper,Williamson Place,Widow,30/10/1920,01/11/1921,D470,,,,,,,P. R. Finnigan,D470
+1627,Bk2 Pg50,1843,Brigid,Mathews,Female,72,Yrs,R Catholic,Wife of Shopkeeper,Williamson Place,Widow,30/10/1920,01/11/1921,D470,,,,,,,P. R. Finnigan,D470
 1628,Bk2 Pg51,1844,Margaret,Garvey,Female,36,Yrs,R Catholic,Wife of a Labourer,Louth Hospital,Married,10/12/1920,12/12/1920,B173,,,,,John Garvey,,P. R. Finnigan,B173
 1629,Bk2 Pg51,1845,Mary,Morgan,Female,50,Yrs,R Catholic,House Keeper,The Workhouse,Widow,08/12/1920,10/12/1920,Z118,,,,,Thomas Murphy,,P. R. Finnigan,Z118
 1630,Bk2 Pg51,1846,John Patrick ,Kearney,Male,0,3 Mths,R Catholic,Child of a Labourer,Albert Place,Bachelor,11/12/1920,11/12/1920,C570,,,,,Michael Kearney,,P. R. Finnigan,C570
@@ -1176,7 +1176,7 @@ Id,BookPage,NumberInBook,FirstName,LastName,Sex,Age,AgeDetail,Religion,Occupatio
 2226,Bk2 Pg42,1560,Thomas,Kelly,Male,38,Yrs,R Catholic,Sailor,Liverpool,Married,02/02/1919,24/02/1919,D923,,,,,Joseph McCoy,,P. R. Finnigan,D923
 2228,Bk2 Pg42,1562,Margaret ,Finnegan,Female,1,Yr,R Catholic,Child of a Fireman ,Carnbeg,Spinster,26/02/1919,27/02/1919,D318,,,,,Joseph ?,,P. R. Finnigan,D318
 2229,Bk2 Pg42,1563,John ,Logan,Male,59,Yrs,R Catholic,Pig Dealer,The Workhouse,Married,21/02/1919,23/02/1919,D872,,,,,James Logan,,P. R. Finnigan,D872
-2230,Bk2 Pg42,1563 A,alice ,Boyle,Female,75,Yrs,R Catholic,Labouring Class,Ladywell Tce,Widow,27/02/1919,28/03/1919,B262,,,,,James McGuill,,P. R. Finnigan,B262
+2230,Bk2 Pg42,1563,alice ,Boyle,Female,75,Yrs,R Catholic,Labouring Class,Ladywell Tce,Widow,27/02/1919,28/03/1919,B262,,,,,James McGuill,,P. R. Finnigan,B262
 2231,Bk2 Pg42,1564,Mary Anne ,Fitzsimons,Female,60,Yrs,R Catholic,Wife of a Car Driver,Bridge st,Married,02/03/1919,04/03/1919,D787,,,,,,,P. R. Finnigan,D787
 2232,Bk2 Pg42,1567,Brigid,Hoey,Female,61,Yrs,R Catholic,Wife of a Harbour Labourer,Point Rd,Married,05/03/1919,07/03/1919,C326,,,,,Maggie Hoey,,P. R. Finnigan,C326
 2233,Bk2 Pg42,1568,Patrick,Morris,Male,0,3 Wks,R Catholic,Child of a Fireman,St. Marys St,Bachelor,07/03/1919,08/03/1919,C786,,,,,Francis Morris,,P. R. Finnigan,C786
@@ -1249,7 +1249,7 @@ Id,BookPage,NumberInBook,FirstName,LastName,Sex,Age,AgeDetail,Religion,Occupatio
 2594,Bk2 Pg44,1649,James,Gallagher,Male,54,Yrs,R Catholic,Railway Boilermaker,Ardee Tce,Married,20/08/1919,22/08/1919,C636,,,,,Thomas Gallagher,,P. R. Finnigan,C636
 2595,Bk2 Pg44,1651,William,Wheeler,Male,24,Yrs,R Catholic,Writing Clerk,Chapel Lane,Bachelor,24/08/1919,26/08/1919,D324,,,,,John Sandys,,P. R. Finnigan,D324
 2596,Bk2 Pg44,1652,John,Taaffe,Male,70,Yrs,R Catholic,Waiter,Brunswick Row,Married,24/08/1919,26/08/1919,C147,,,,,B Taaffe,,P. R. Finnigan,C147
-2597,Bk2 Pg46,1653 A,John,Murphy,Male,28,Yrs,R Catholic,Farmer,Faughart,Bachelor,23/08/1919,25/08/1919,B184,,,,,James McGuill,,P. R. Finnigan,B184
+2597,Bk2 Pg46,1653,John,Murphy,Male,28,Yrs,R Catholic,Farmer,Faughart,Bachelor,23/08/1919,25/08/1919,B184,,,,,James McGuill,,P. R. Finnigan,B184
 2598,Bk2 Pg46,1654,John,Scanlon,Male,59,Yrs,R Catholic,ex Sergeant R I C,Fair Green,Widower,24/08/1919,26/08/1919,D835,,,,,James McGuill,,P. R. Finnigan,D835
 2599,Bk2 Pg46,1655,James,McDonnell,Male,60,Yrs,R Catholic,Electrical Engineer,Anne St.,Married,24/08/1919,26/08/1919,C830,,,,,John McGough,,P. R. Finnigan,C830
 2600,Bk2 Pg46,1656,Julia Elizabeth,Gosling,Female,1,Yr,R Catholic,Child of a Fitter,Hill St,Spinster,31/08/1919,02/09/1919,CR16,,,,,Thomas Gosling,,P. R. Finnigan,CR16
@@ -1294,7 +1294,7 @@ Id,BookPage,NumberInBook,FirstName,LastName,Sex,Age,AgeDetail,Religion,Occupatio
 2639,Bk2 Pg47,1726,Anne,McGill,Female,55,Yrs,R Catholic,Wife of a Labourer,11 York St,Married,19/02/1920,21/02/1920,B526,,,,,Michael McGill,,P. R. Finnigan,B526
 2640,Bk2 Pg47,1727,Catherine,Duffy,Female,2,Yrs,R Catholic,Child of a Baker,Crumlin Dundalk,Spinster,21/02/1920,21/02/1920,B273,,,,,John Duffy,,P. R. Finnigan,B273
 2641,Bk2 Pg47,1728,Margaret,Murtagh,Female,70,Yrs,R Catholic,Home Keeper,Seatown Garden,Widow,22/02/1920,23/02/1920,B182,,,,,Thomas ORourke,,P. R. Finnigan,B182
-2642,Bk2 Pg47,1728A,Mary,Martin,Female,0,1 Hr,R Catholic,Child of Cemetery Caretaker,Castletown Rd,Spinster,20/02/1920,20/02/1920,C669,,,,,N Martin,,P. R. Finnigan,C669
+2642,Bk2 Pg47,1728,Mary,Martin,Female,0,1 Hr,R Catholic,Child of Cemetery Caretaker,Castletown Rd,Spinster,20/02/1920,20/02/1920,C669,,,,,N Martin,,P. R. Finnigan,C669
 2643,Bk2 Pg48,1729,John,Ralph,Male,4,Yrs,R Catholic,Child of an ex Soldier,Linenhall St,Bachelor,24/02/1920,25/02/1920,C774,,,,,Edward Fegan,,P. R. Finnigan,C774
 2644,Bk2 Pg48,1730,John,McCarte,Male,55,Yrs,R Catholic,Sea Captain,Quay St,Married,04/03/1920,05/03/1920,D880,,,,,Thomas ORourke,,P. R. Finnigan,D880
 2645,Bk2 Pg48,1731,Annie,Hamill,Female,71,Yrs,R Catholic,Wife of a Fowl Merchant,Chapel St,Married,04/03/1920,06/03/1920,C106,,,,,Joseph Hamill,,P. R. Finnigan,C106
@@ -1339,7 +1339,7 @@ Id,BookPage,NumberInBook,FirstName,LastName,Sex,Age,AgeDetail,Religion,Occupatio
 2685,Bk2 Pg49,1780,Molly,Finegan,Female,18,Yrs,R Catholic,Child of a Fitter ,Fever Hospital,Spinster,02/07/1920,03/07/1920,C674,,,,,Mary Finegan,,P. R. Finnigan,C674
 2686,Bk2 Pg49,1781,Robert,Russell,Male,75,Yrs,R Catholic,retired Rly Porter,Dublin St,Married,04/07/1920,06/07/1920,B686,,,,,Robert Russell,,P. R. Finnigan,B686
 2687,Bk2 Pg49,1783,Mary Anne,Pepper,Female,14,Yrs,R Catholic,Domestic Servant,22 Hill St,Spinster,12/07/1920,13/07/1920,B176,,,,,,,P. R. Finnigan,B176
-2688,Bk2 Pg49,1784,Unknown,,Male,about 30 years,Yrs,,see D Record on same pg as M A Pepper,Body foung in Ballinlough 16th July ,Inquest,16/07/1920,17/07/1920,BZ115,,,,,Peter McArdle,,P. R. Finnigan,BZ115
+2688,Bk2 Pg49,1784,Unknown,,Male,30,Yrs,,see D Record on same pg as M A Pepper,Body foung in Ballinlough 16th July ,Inquest,16/07/1920,17/07/1920,BZ115,,,,,Peter McArdle,about 30 years old,P. R. Finnigan,BZ115
 2689,Bk2 Pg49,1786,James,Bellew,Male,40,Yrs,R Catholic,Labourer,The Workhouse ,Bachelor,20/07/1920,22/07/1920,BZ116,,,,,Thomas Murphy,,P. R. Finnigan,BZ116
 2690,Bk2 Pg49,1787,Nicholas,Bennett,Male,64,Yrs,R Catholic,Builder,Castletown Rd,Married,17/07/1920,19/07/1920,D115,,,,,Thomas ORourke,,P. R. Finnigan,D115
 2691,Bk2 Pg49,1788,Catherine,Bellew,Female,73,Yrs,R Catholic,Labouring Class,Quay St,Widow,18/07/1920,19/07/1920,B683,,,,,Thomas ORourke,,P. R. Finnigan,B683
@@ -1448,7 +1448,7 @@ Id,BookPage,NumberInBook,FirstName,LastName,Sex,Age,AgeDetail,Religion,Occupatio
 2927,Bk 2 Pg 27,961,Mary,McDonnell,Female,15,Yrs,R Catholic,Shool Girl,Louth Hospital,Spinster,06/03/1916,07/03/1916,C894,,,,,A McDonnell,,P. R. Finnigan,C894
 2930,Bk 2 Pg 27,965,John ,McMahon,Male,87,Yrs,R Catholic,Farmer,Newtownbabe,Bachelor,16/03/1916,18/03/1916,CR10,,,,,Thomas ORourke,,P. R. Finnigan,CR10
 2931,Bk 2 Pg 27,966,James,Rice,Male,52,Yrs,R Catholic,Coachbuilder,Jocelyn St,Married,18/03/1916,20/03/1916,C222,,,,,,,P. R. Finnigan,C222
-2932,Bk 2 Pg 27,966 A,John ,OKeeffe,Male,62,Yrs,R Catholic,ex Post Master,Chapel Lane,Married,13/03/1916,13/03/1916,C892,,,,,,,P. R. Finnigan,C892
+2932,Bk 2 Pg 27,966,John ,OKeeffe,Male,62,Yrs,R Catholic,ex Post Master,Chapel Lane,Married,13/03/1916,13/03/1916,C892,,,,,,,P. R. Finnigan,C892
 2934,Bk 2 Pg 27,968,Mary,McArdle,Female,60,Yrs,R Catholic,Labourer,Distillery Lane,Widower,19/03/1916,21/03/1916,B426,,,,,,,P. R. Finnigan,B426
 2935,Bk 2 Pg 27,969,Annie,OConnor,Female,32,Yrs,R Catholic,Milliner,Chapel St ,Spinster,25/03/1916,27/03/1916,D303,,,,,McKitterick,,P. R. Finnigan,D303
 2936,Bk 2 Pg 27,971,Mary,McArdle,Female,72,Yrs,R Catholic,Wife of a Blacksmith,Lisdoo,Married,27/03/1916,28/03/1916,B377,,,,,Michael Coburn,,P. R. Finnigan,B377
@@ -1727,7 +1727,7 @@ Id,BookPage,NumberInBook,FirstName,LastName,Sex,Age,AgeDetail,Religion,Occupatio
 3717,Bk 2 Pg24,879,Teresa,OCallaghan,Female,62,Yrs,R Catholic,Domestic Servant,John St,Spinster,19/05/1915,20/05/1915,D635,,,,,Michael Martin,,P. R. Finnigan,D635
 3718,Bk 2 Pg24,880,John,Maguire,Male,50,Yrs,R Catholic,Telegraph Wire Man,Chapel Lane,Married,22/05/1915,24/05/1915,B465,,,,,Kathleen Maguire,,P. R. Finnigan,B465
 3719,Bk 2 Pg24,881,Patrick ,Morris,Male,15,Yrs,R Catholic,Messenger,North Mary St,Batchelor,23/05/1915,24/05/1915,C331,,,,,Own Morris,,P. R. Finnigan,C331
-3721,Bk 2 Pg24,882 A,Patrick ,Campbell,Male,57,Yrs,R Catholic,Fireman on Railway,Browns Row,Married,04/06/1915,06/06/1915,B386,,,,,Thomas ORourke,,P. R. Finnigan,B386
+3721,Bk 2 Pg24,882,Patrick ,Campbell,Male,57,Yrs,R Catholic,Fireman on Railway,Browns Row,Married,04/06/1915,06/06/1915,B386,,,,,Thomas ORourke,,P. R. Finnigan,B386
 3722,Bk 2 Pg24,883,Edward,Ward,Male,60,Yrs,R Catholic,Bank Manager,Clanbrassil St,Married,02/06/1915,04/06/1915,DR4,,,,,Thomas ORourke,,P. R. Finnigan,DR4
 3723,Bk 2 Pg24,885,Laurence,McMahon,Male,61,Yrs,R Catholic,Labourer,Dublin St,Batchelor,07/06/1915,09/06/1915,B436,,,,,Thomas ORourke,,P. R. Finnigan,B436
 3724,Bk 2 Pg24,886,Patrick ,Lennon,Male,25,Yrs,R Catholic,Mason,Point,Batchelor,15/06/1915,17/06/1915,C851,,,,,John Lennon,,P. R. Finnigan,C851
@@ -2401,7 +2401,7 @@ Id,BookPage,NumberInBook,FirstName,LastName,Sex,Age,AgeDetail,Religion,Occupatio
 7135,Bk3 Pg8,330,Eliza,Doogan,Female,1,Yr,Roman Catholic,(Sandhole) Labourer's Child,Sandhole,Spinster,02/11/1922,03/11/1922,BZ126,,,Free R.C. ,126,Peter McArdle,,P.R. Finnigan,BZ126
 7136,Bk3 Pg8,331,Patrick,Roddy,Male,70,Yrs,Roman Catholic,(Union Workhouse) Labourer,"Union Workhouse, Dundalk",Married,26/10/1922,28/10/1922,C492,,,3 R.C. ,492,T.O'Rourke,,P.R. Finnigan,C492
 7137,Bk3 Pg8,363,Maria,Mulholland,Female,46,Yrs,Roman Catholic,Wife of Boilermaker/Dowdallshill,"Dowdallshill, Dundalk ",Married,12/11/1922,14/11/1922,C252,,,1,252,Edward Fegan,,P.R. Finnigan,C252
-7138,Bk3 Pg9,363 A,John ,Maguire,Male,34,Yrs,Roman Catholic,Carter,"Town Hall Yard, Accidental Death",Bachelor,22/10/1922,24/10/1922,C932,,,1 R.C.,932,John Maguire Snr,,P.R. Finnigan,C932
+7138,Bk3 Pg9,363,John ,Maguire,Male,34,Yrs,Roman Catholic,Carter,"Town Hall Yard, Accidental Death",Bachelor,22/10/1922,24/10/1922,C932,,,1 R.C.,932,John Maguire Snr,,P.R. Finnigan,C932
 7139,Bk3 Pg9,364,John,Healy,Male,0,2 Mths,Roman Catholic,Child of a Tradesman,"Barrack Street, Dundalk ",Bachelor,13/11/1922,14/11/1922,B707,,,2 R.C.,707,Thomas O'Rourke,,P.R. Finnigan,B707
 7140,Bk3 Pg9,365,Patrick,Duffy,Male,70,Yrs,Roman Catholic,Pig Dealer,"Dowdallshill, Dundalk ",Married,14/11/1922,16/11/1922,C929,,,1 R.C.,,Owen Duffy,,P.R. Finnigan,C929
 7141,Bk3 Pg9,367,Margaret,Gilmore,Female,56,Yrs,Roman Catholic,Wife of Bootmaker,"Castletown Road, Dundalk ",Married,17/11/1922,19/11/1922,D270,,,3 R.C. ,270,Mathew Fegan,,P.R. Finnigan,D270
@@ -2681,7 +2681,7 @@ Id,BookPage,NumberInBook,FirstName,LastName,Sex,Age,AgeDetail,Religion,Occupatio
 7415,Bk3 Pg17,665,Hugh Felix,McEvoy,Male,84,Yrs,Roman Catholic,Farmer,Bellurgan,Widower,16/10/1924,18/10/1924,C903,,,1,903,Edward Fegan,,P.R. Finnigan,C903
 7416,Bk3 Pg17,666,Bridget,Norton,Female,88,Yrs,Roman Catholic,Lady,"Dowdallshill, Dundalk ",Spinster,03/10/1924,05/10/1924,D65A,,,1,66,T.O'Rourke,,P.R. Finnigan,D65A
 7417,Bk3 Pg17,669,Patrick,Kieran,Male,58,Yrs,Roman Catholic,Egg Merchant,"Doyle's Forte Road, Dundalk",Married,11/10/1924,14/10/1924,BR23,,,Reserved,23,Michael Fegan ,,P.R. Finnigan,BR23
-7418,Bk3 Pg17,670,Sylvestor,Heaney,Male,19,Yrs,Roman Catholic,Farmer's Son,"Dillonstown, Dunleer, Military Barracks Dundalk",Bachelor,0000-00-00,30/10/1924,B830,,,1,830,F.McGuill,,P.R. Finnigan,B830
+7418,Bk3 Pg17,670,Sylvestor,Heaney,Male,19,Yrs,Roman Catholic,Farmer's Son,"Dillonstown, Dunleer, Military Barracks Dundalk",Bachelor,30/10/1924,30/10/1924,B830,,,1,830,F.McGuill,,P.R. Finnigan,B830
 7419,Bk3 Pg17,671,Thomas McKeown,McKeown,Male,25,Yrs,Roman Catholic,Farmer's Son,"Piedmount,Bellurgan / Military Barracks Dundalk",Bachelor,13/01/1923,30/10/1924,B830,,,1,830,F.McGuill,,P.R. Finnigan,B830
 7420,Bk3 Pg17,672,John McNulty,McNulty,Male,20,Yrs,Roman Catholic,Farmer's Son,"Carromannon,Co.  Armagh/ Military Barracks Dundalk",Bachelor,13/01/1923,30/10/1924,B830,,,1,830,F.McGuill,,P.R. Finnigan,B830
 7421,Bk3 Pg17,673,James Melia,Melia,Male,20,Yrs,Roman Catholic,Farmer's Son,"Bridge Street, Dundalk Military Barracks Dundalk",Bachelor,22/01/1923,30/10/1924,B829,,,1,829,F.McGuill,,P.R. Finnigan,B829
@@ -2774,8 +2774,8 @@ Id,BookPage,NumberInBook,FirstName,LastName,Sex,Age,AgeDetail,Religion,Occupatio
 7508,Bk3 Pg20,786,Anthony,Sheehy,Male,1,Yrs,Roman Catholic,Child of a Bread Server,"Moorland Road, Dundalk",Bachelor,18/05/1925,19/05/1925,D654,,,3,654,Edward Fegan,,P.R. Finnigan,D654
 7509,Bk3 Pg20,787,Michael,O'Rourke,Male,22,Yrs,Roman Catholic,Son of a Car Owner,"Lucan, Co Dublin ",Bachelor,18/05/1925,20/05/1925,D849,,,1,849,Thomas O'Rourke,,P.R. Finnigan,D849
 7510,Bk3 Pg20,790,Patrick Joseph,Clarke,Male,56,Yrs,Roman Catholic,Army Clerk,Portobello Barracks Dublin ,Bachelor,29/04/1925,29/04/1925,C757,,,2,757,Thomas O'Rourke,,P.R. Finnigan,C757
-7511,Bk3 Pg21,790 A,Mary,Reynolds,Female,85,Yrs,Roman Catholic,Labouring Class,"District Hospital, Dundalk",Spinster,06/05/1925,07/05/1925,BZ106,,,Free R.C.,106,Nicholas Connolly,,P.R. Finnigan,BZ106
-7512,Bk3 Pg21,790 B,Elizabeth M,McKenna,Female,60,Yrs,Roman Catholic,Wife of a Labourer,Haggardstown,Married,25/05/1925,27/05/1925,B781,,, R.C.,781-2,F.McKenna,,P.R. Finnigan,B781
+7511,Bk3 Pg21,790,Mary,Reynolds,Female,85,Yrs,Roman Catholic,Labouring Class,"District Hospital, Dundalk",Spinster,06/05/1925,07/05/1925,BZ106,,,Free R.C.,106,Nicholas Connolly,,P.R. Finnigan,BZ106
+7512,Bk3 Pg21,790,Elizabeth M,McKenna,Female,60,Yrs,Roman Catholic,Wife of a Labourer,Haggardstown,Married,25/05/1925,27/05/1925,B781,,, R.C.,781-2,F.McKenna,,P.R. Finnigan,B781
 7513,Bk3 Pg21,791,Mary,Hardy,Female,50,Yrs,Roman Catholic,Wife of a Labourer,"Ladywell Terrace, Dundalk",Married,26/05/1925,28/05/1925,A587,,,3 R.C. ,587-8,Thomas O'Rourke,,P.R. Finnigan,A587
 7514,Bk3 Pg21,792,Margaret,Sheehy,Female,3,Yrs,Roman Catholic,Child of a Bread Server,"Moorland, Dundalk",Spinster,26/05/1925,27/05/1925,D654,,,3 R.C. ,654,Edward Fegan,,P.R. Finnigan,D654
 7515,Bk3 Pg21,794,Mary,Healy,Female,0,Few Hrs,Roman Catholic,Child of a Bar Manager,"Barrack Street, Dundalk ",Spinster,02/06/1925,02/06/1925,B707,,,2 R.C.,707,E.P.Healy,,P.R. Finnigan,B707
@@ -2790,7 +2790,7 @@ Id,BookPage,NumberInBook,FirstName,LastName,Sex,Age,AgeDetail,Religion,Occupatio
 7524,Bk3 Pg21,804,Terry,Savage,Male,0,2 Mths,Roman Catholic,Labouring Class,"County Home, of Milltown Whiterath",Bachelor,13/06/1925,14/06/1925,BZ106,,,Free R.C.,106,Nicholas Connolly,,P.R. Finnigan,BZ106
 7525,Bk3 Pg21,806,Christina,Byrne,Female,75,Yrs,Roman Catholic,Widow of Grocer,"Park Street, Dundalk",Widow,23/06/1925,26/06/1925,C153,,,1 R.C.,153,Thomas Byrne,,P.R. Finnigan,C153
 7526,Bk3 Pg21,807,Patrick,Maguire,Male,17,Yrs,Roman Catholic,Labourer,"Mater Hospital, Dublin",Bachelor,23/06/1925,25/06/1925,A534,,,3 R.C. ,534,Frank McGuill,,P.R. Finnigan,A534
-7527,Bk3 Pg21,,Mary,Hanley,Female,0,7 Mths,Roman Catholic,Child of F.S. Soldier,"Quay Street, Dundalk ",Spinster,22/06/1925,23/06/1925,A698,,,3 R.C. ,,,,P.R. Finnigan,A698
+7527,Bk3 Pg21,807,Mary,Hanley,Female,0,7 Mths,Roman Catholic,Child of F.S. Soldier,"Quay Street, Dundalk ",Spinster,22/06/1925,23/06/1925,A698,,,3 R.C. ,,,,P.R. Finnigan,A698
 7528,Bk3 Pg21,808,Thomas,Rogan ,Male,63,Yrs,Roman Catholic,Labourer,"District Hospital, Dundalk",Bachelor,23/06/1925,25/06/1925,A647,,,2 R.C.,648,Michael Fegan ,,P.R. Finnigan,A647
 7529,Bk3 Pg21,809,Mary Margaret,Clarke,Female,23,Yrs,Roman Catholic,Child of Labourer,"Nicholas Street, Dundalk",Spinster,27/06/1925,29/06/1925,B388,,,3 R.C. ,388,Patrick Clarke,,P.R. Finnigan,B388
 7530,Bk3 Pg21,810,Margaret,White,Female,37,Yrs,Roman Catholic,Wife of a Labourer,"St Patrick's Terrace, Dundalk ",Widow,27/06/1925,29/06/1925,B217,,,3 R.C. ,217,Thomas O'Rourke,,P.R. Finnigan,B217
@@ -2964,8 +2964,8 @@ Id,BookPage,NumberInBook,FirstName,LastName,Sex,Age,AgeDetail,Religion,Occupatio
 7698,"Bk 3, Pg 26",1013,Kate,Callan,Female,26,Yrs,Roman Catholic,Housekeeper,"Peter Street, Dundalk",Spinster,12/09/1926,14/09/1926,D446,,,Three,448,Mrs Nora Rogers,,P. R. Finigan,D446
 7699,"Bk 3, Pg 26",1014,Nora Bridget,Taaffe,Female,15,Yrs,Roman Catholic,Daughter of a Postman,Wynnes Terrace,Spinster,14/09/1926,15/09/1926,A594,,,Two,594.5,James Joseph Taaffe,,P. R. Finigan,A594
 7700,"Bk 3, Pg 26",1015,Joseph,Watters,Male,45,Yrs,Roman Catholic,Labourer,Hospital Armagh,Married,13/09/1926,15/09/1926,B384,,,Three,384,John McGuill,,P. R. Finigan,B384
-7701,"Bk 3, Pg 26",1015A,Mary,Kieran  ,Female,0,10 Mths,Roman Catholic,Child of Servant,District Hospital,Spinster,08/09/1926,10/09/1926,BZ015,,,Public,15,Owen Trainor,,P. R. Finigan,BZ015
-7702,"Bk 3, Pg 27",1015B,Daniel,Neilon,Male,73,Yrs,Roman Catholic,Labourer,District Hospital,Married,12/09/1926,14/09/1926,BZ054,,,Public RC,54,Owen Trainor,,P. R. Finigan,BZ054
+7701,"Bk 3, Pg 26",1015,Mary,Kieran  ,Female,0,10 Mths,Roman Catholic,Child of Servant,District Hospital,Spinster,08/09/1926,10/09/1926,BZ015,,,Public,15,Owen Trainor,,P. R. Finigan,BZ015
+7702,"Bk 3, Pg 27",1015,Daniel,Neilon,Male,73,Yrs,Roman Catholic,Labourer,District Hospital,Married,12/09/1926,14/09/1926,BZ054,,,Public RC,54,Owen Trainor,,P. R. Finigan,BZ054
 7703,"Bk 3, Pg 27",1016,William,McCusker,Male,19,Yrs,Roman Catholic,Barbers Son,Carrickmacross (Co. Monaghan),Bachelor,26/09/1926,28/09/1926,D360,,,Two RC,360,E. Fegan,,P. R. Finigan,D360
 7704,"Bk 3, Pg 27",1017,Elizabeth,Walshe,Female,64,Yrs,Roman Catholic,Wife of a Solicitors Clerk,"Bella Vista, Lisnawilly",Married,28/09/1926,30/09/1926,AR23,,,Reserved,23,Michael Fegan,,P. R. Finigan,AR23
 7705,"Bk 3, Pg 27",1018,Josephine,O'Neill,Female,0,3 Mths,Roman Catholic,Child of Soldier I.F.S.,"Militarty Barracks, Dundalk",Spinster,01/10/1926,02/10/1926,A687,,,Three RC,687,Francis O'Neill,,P. R. Finigan,A687
@@ -2978,7 +2978,7 @@ Id,BookPage,NumberInBook,FirstName,LastName,Sex,Age,AgeDetail,Religion,Occupatio
 7712,"Bk 3, Pg 27",1026,Margaret,Curran,Female,27,Yrs,Roman Catholic,Wife of Coach Builder,"Thomas Street, Dundalk",Married,21/10/1926,23/10/1926,A591,,,Three,591,Patrick Curran,,P. R. Finigan,A591
 7713,"Bk 3, Pg 27",1028,Bridget,McCartney,Female,75,Yrs,Roman Catholic,Housekeeper,Kilcurry,Widow,24/10/1926,26/10/1926,C240,,,Two,240.241,Edward Fegan,,P. R. Finigan,C240
 7714,"Bk 3, Pg 27",1030,(Peter) Gerard Francis,McCoy,Male,0,2 Days,Roman Catholic,Child of Electrician,"7 Thomas Street, ",Bachelor,26/10/1926,27/10/1926,D614,,,Three,614.15,Peter McCoy,,P. R. Finigan,D614
-7715,"Bk 3, Pg 27",10131B,Patrick,O'Rourke,Male,65,Yrs,Roman Catholic,Labourer,District Hospital,Married,26/10/1926,28/10/1926,BZ024,,,Public,24,Owen Trainor,,P. R. Finigan,BZ024
+7715,"Bk 3, Pg 27",10131,Patrick,O'Rourke,Male,65,Yrs,Roman Catholic,Labourer,District Hospital,Married,26/10/1926,28/10/1926,BZ024,,,Public,24,Owen Trainor,,P. R. Finigan,BZ024
 7716,"Bk 3, Pg 27",1033,John,Carroll,Male,61,Yrs,Roman Catholic,Labourer,District Hospital,Bachelor,28/10/1926,29/10/1926,BZ023,,,Free,23,N. Carroll,,P. R. Finigan,BZ023
 7717,"Bk 3, Pg 27",1034,Mary Rose,Short,Female,23,Yrs,Roman Catholic,Housekeeper,Louth Hospital,Spinster,29/10/1926,30/10/1926,B172,,,Three,172,John Short,,P. R. Finigan,B172
 7718,"Bk 3, Pg 27",1035,John,Dunne,Male,45,Yrs,Roman Catholic,Foreman GNR,Anne Street,Married,06/11/1926,08/11/1926,B203,,,One,203,Thomas O'Rourke,,P. R. Finigan,B203
@@ -3031,7 +3031,7 @@ Id,BookPage,NumberInBook,FirstName,LastName,Sex,Age,AgeDetail,Religion,Occupatio
 7765,"Bk 3, Pg 28",1088,Thaddeus,Mullen,Male,63,Yrs,Roman Catholic,Labourer,Brunswick Row (Chapel Street),Bachelor,16/02/1927,18/02/1927,B792,,,Two RC,792,Thomas O'Rourke,,P. R. Finigan,B792
 7766,"Bk 3, Pg 28",1089,Alice,Fisher,Female,61,Yrs,Roman Catholic,Wife of Cattle Dealer,Wrightsons Lane,Married,18/02/1927,20/02/1927,A474,,,Three,474,Peter Doran,,P. R. Finigan,A474
 7767,"Bk 3, Pg 28",1091,Margaret,Nulty,Female,81,Yrs,Roman Catholic,Widow of Coachman,Williamsons Place,Widow,06/02/1927,07/02/1927,D271,,,Three RC,271,Thomas O'Rourke,,P. R. Finigan,D271
-7768,"Bk 3, Pg 29",1092A,Laurence,O'Neill,Male,74,Yrs,Roman Catholic,Sexton,St. Marys Road,Married,19/02/1927,20/02/1927,A630,,,Three  ,629.3,E. Fegan per E. Jones,,P. R. Finigan,A630
+7768,"Bk 3, Pg 29",1092,Laurence,O'Neill,Male,74,Yrs,Roman Catholic,Sexton,St. Marys Road,Married,19/02/1927,20/02/1927,A630,,,Three  ,629.3,E. Fegan per E. Jones,,P. R. Finigan,A630
 7769,"Bk 3, Pg 29",1093,Nicholas,Hardy,Male,34,Yrs,Roman Catholic,Railway Employee,Ladywell Terrace,Bachelor,20/02/1927,22/02/1927,A588,,,Three RC,588,Thomas O'Rourke,,P. R. Finigan,A588
 7770,"Bk 3, Pg 29",1094,Mary,Kane,Female,79,Yrs,Roman Catholic,Widow of a Stonecutter,Proleek,Widow,22/02/1927,24/02/1927,C681,,,Three RC,681,E. Fegan per E. Jones,,P. R. Finigan,C681
 7771,"Bk 3, Pg 29",1095,Annie,Dixon,Female,70,Yrs,Roman Catholic,Wife of a Labourer,Caseys Row,Widow,27/02/1927,01/03/1927,B670,,,Two RC,670.71,Owen Dixon,,P. R. Finigan,B670
@@ -3121,7 +3121,7 @@ Id,BookPage,NumberInBook,FirstName,LastName,Sex,Age,AgeDetail,Religion,Occupatio
 7855,Bk 3  Pg 31,1198,Philip John,Daly,Male,50,Yrs,Roman Catholic,Merchant,Bridge St,Bachelor,12/10/1927,14/10/1927,A655,,,1,638,James McGuill,,,A655
 7856,Bk 3  Pg 31,1200,James,Murphy,Male,2,Yrs,Roman Catholic,Child of a Labourer,Castletown Road,Bachelor,19/09/1927,20/09/1927,C191,,,2,191 / 2,Patrick Shearkey,,,C191
 7857,Bk 3  Pg 31,1201,Michael,Cunningham,Male,76,Yrs,Roman Catholic,Carter,Camp St,Married,25/10/1927,26/10/1927,C300,,,3,330,T O'Rourke,,,C300
-7858,Bk 3  Pg 31,1201 A,Norah H,Warren,Female,41,Yrs,Roman Catholic,Wife of Secretary,Blackrock & Jocelyn St.,Married,25/10/1927,27/10/1927,C58,,,1,58,T O'Rourke,,,C58
+7858,Bk 3  Pg 31,1201,Norah H,Warren,Female,41,Yrs,Roman Catholic,Wife of Secretary,Blackrock & Jocelyn St.,Married,25/10/1927,27/10/1927,C58,,,1,58,T O'Rourke,,,C58
 7859,Bk 3  Pg 31,1202,Mary Brigid,Kirk,Female,22,Yrs,Roman Catholic,Waitress,New Inn,Spinster,27/10/1927,29/10/1927,A538,,,2,538 / 9,Patrick Kirk,,,A538
 7860,Bk 3  Pg 31,1203,Thomas,Kirwan,Male,1,Yrs,Roman Catholic,Child of a Labourer,Chaple St,Bachelor,27/10/1927,29/10/1927,B497,,,3,497,Michael Watters,,,B497
 7861,Bk 3  Pg 32,1204,Kate,Johnston,Female,71,Yrs,Roman Catholic,Wife of a Labourer,Dublin Road,Widow,27/10/1927,30/10/1927,C242,,,2,242 / 3,James McGeough,,,C242
@@ -3167,7 +3167,7 @@ Id,BookPage,NumberInBook,FirstName,LastName,Sex,Age,AgeDetail,Religion,Occupatio
 7901,Bk 3  Pg 33,1250,Anthony,Kirk,Male,17,Yrs,Roman Catholic,Child of a Labourer,Dowdallshill,Bachelor,17/01/1928,19/01/1928,A597,,,1,497 / 8,Frank McGuill,,,A597
 7902,Bk 3  Pg 33,1251,Mary,Rowe,Female,47,Yrs,Roman Catholic,Wife of a Labourer,Barrack St,Widow,17/01/1928,19/01/1928,A535,,,3,535,Thomas Carroll,,,A535
 7903,Bk 3  Pg 33,1252,James Joseph,McArdle,Male,0,9 Wks,Roman Catholic,Child of a Baker,22 Clanbrassil St,Bachelor,19/01/1928,19/01/1928,A678,,,3,678,Patrick McArdle,,,A678
-7904,Bk 3  Pg 33,1253,Bernadette,Grimes,Female,0,1 Mths,Roman Catholic,Child of a Labourer,Hill St,Spinster,24/01/1928,0000-00-00,B391,,,3,391 / 2,Joseph Grimes,,,B391
+7904,Bk 3  Pg 33,1253,Bernadette,Grimes,Female,0,1 Mths,Roman Catholic,Child of a Labourer,Hill St,Spinster,24/01/1928,24/01/1928,B391,,,3,391 / 2,Joseph Grimes,,,B391
 7905,Bk 3  Pg 33,1254,Ita May,Hanratty,Female,1,Yrs,Roman Catholic,Child of a Publican,Clanbrassil St,Spinster,24/01/1928,25/01/1928,A653,,,1,553,Thomas Hanratty,,,A653
 7906,Bk 3  Pg 33,1256,Alice Pauline,o'Callaghan,Female,6,Yrs,Roman Catholic,Child of a Fireman G N R,33 Emer Tce,Spinster,26/01/1928,27/01/1928,A624,,,3,624,Bernard O'Callaghan,,,A624
 7907,Bk 3  Pg 33,1257,Daniel,Morgan,Male,70,Yrs,Roman Catholic,Labourer,Linnenhall St,Married,26/01/1928,28/01/1928,A677,,,3,477,James Morgan,,,A677
@@ -3218,7 +3218,7 @@ Id,BookPage,NumberInBook,FirstName,LastName,Sex,Age,AgeDetail,Religion,Occupatio
 7952,Bk 3  Pg 34,1316,Kathleen,Keating,Female,22,Yrs,Roman Catholic,Daughter of a G N R Fitter,Seatown,Spinster,29/05/1928,29/05/1928,D507,,,2,507,? Rogers,,,D507
 7953,Bk 3  Pg 34,1317,Mary A,Cassidy,Female,53,Yrs,Roman Catholic,Housekeeper,Bachelors Walk,Spinster,01/06/1928,03/06/1928,C810,,,2,810,Thomas O'Rourke,,,C810
 7954,Bk 3  Pg 34,1318,Kate,Tierney,Female,61,Yrs,Roman Catholic,Housekeeper,District Hospital / Tallanstown,Married,05/06/1928,06/06/1928,Z011,,,Public,11,Frank McGuill,,,Z011
-7955,Bk 3  Pg 35,1318a,Mary,Murphy,Female,60,Yrs,Roman Catholic,Wife of a Labourer,Williamsons Place,Married,04/06/1928,05/06/1928,A514,,,3,514,Thomas O'Rourke,,,A514
+7955,Bk 3  Pg 35,1318,Mary,Murphy,Female,60,Yrs,Roman Catholic,Wife of a Labourer,Williamsons Place,Married,04/06/1928,05/06/1928,A514,,,3,514,Thomas O'Rourke,,,A514
 7956,Bk 3  Pg 35,1319,Ignatius,Brennan,Male,5,Yrs,Roman Catholic,Child of a Labourer,Point Road,Bachelor,11/06/1928,12/06/1928,B344,,,3,344 / 5,Patrick Brennan,,,B344
 7957,Bk 3  Pg 35,1320,Catherine,Guest,Female,75,Yrs,Roman Catholic,Widow of Blacksmith,District Hospital,Widow,10/06/1928,12/06/1928,B183,,,3,183,Thomas O'Rourke,,,B183
 7958,Bk 3  Pg 35,1321,Dora,O'Hare,Female,58,Yrs,Roman Catholic,Housekeeper,"Mater Hospital, Dublin",Spinster,12/06/1928,14/06/1928,BR11,,,Reserved,11,Edward Fegan,,,BR11
@@ -3252,7 +3252,7 @@ Id,BookPage,NumberInBook,FirstName,LastName,Sex,Age,AgeDetail,Religion,Occupatio
 7986,Bk 3  Pg 35,1353,Annie,Sharkey,Female,66,Yrs,Roman Catholic,Housekeeper,Park St,Widow,27/09/1928,29/09/1928,C381,,,3,381,James McGeough,,,C381
 7987,Bk 3  Pg 35,1354,Teresa,Durnin,Female,6,Yrs,Roman Catholic,Child of Merchant,Broughton St,Bachelor,28/09/1928,30/09/1928,B227,,,3,227,Francis Carroll,,,B227
 7988,Bk 3  Pg 35,1355,Madge,Murray,Female,30,Yrs,Roman Catholic,Wife of a Fitter,"Ormeau Rd., Belfast",Married,04/10/1928,06/10/1928,CR14,,,Recerved,14,,,,CR14
-7989,Bk 3  Pg 35,1355a,Timothy,Robinson,Male,73,Yrs,Roman Catholic,Labourer,District Hospital,Bachelor,09/10/1928,11/10/1928,AZ012,,,Public,12,Frank McGuill,,,AZ012
+7989,Bk 3  Pg 35,1355,Timothy,Robinson,Male,73,Yrs,Roman Catholic,Labourer,District Hospital,Bachelor,09/10/1928,11/10/1928,AZ012,,,Public,12,Frank McGuill,,,AZ012
 7990,Bk 3  Pg 36,1356,Thomas,Morgan,Male,35,Yrs,Roman Catholic,Labourer,"Mill Road Hospital, Liverpool",Bachelor,06/10/1928,09/10/1928,A676,,,3,676 / 7,Edward Fegan,,,A676
 7991,Bk 3  Pg 36,1357,Michael,Grimes,Male,34,Yrs,Roman Catholic,Upholsterer,Louth Hospital,Married,14/10/1928,16/10/1928,B458,,,2,458,Francis Carroll,,,B458
 7992,Bk 3  Pg 36,1358,Alphonsus,Mathews,Male,0,9 Wks,Roman Catholic,Child of a Labourer,Mill St,Bachelor,15/10/1928,16/10/1928,B592,,,3,592,W Mathews,,,B592
@@ -3322,8 +3322,8 @@ Id,BookPage,NumberInBook,FirstName,LastName,Sex,Age,AgeDetail,Religion,Occupatio
 8057,Bk 3  Pg 38,1441,Patrick ,Duffy,Male,0,3 Mths,Roman Catholic,Child of a Baker,Crumlin,Bachelor,20/04/1929,21/04/1929,B273,,,3,273,John  Duffy,,,B273
 8058,Bk 3  Pg 38,1444,Edward,McKeown,Male,68,Yrs,Roman Catholic,Farmer,"Coolcreedan, Louth",Bachelor,22/04/1929,24/04/1929,BR7,,,Reserved,7,Nora Rogers (McGeough),,,BR7
 8059,Bk 3  Pg 38,1445,William,Blackburn,Male,58,Yrs,Roman Catholic,Shoe Maker,Market St,Widower,28/04/1929,30/04/1929,B419,,,3,419 / 20,Nora Rogers,,,B419
-8060,Bk 3  Pg 38,1448,Patrick,Duffy,Male,60,Yrs,Roman Catholic,Carpenter,17 St Brigids Tce,Married,29/04/1929,0000-00-00,C909,,,2,909 / 10,Thomas O'Rourke,,,C909
-8061,Bk 3  Pg 38,1449,Charles,Morgan,Male,57,Yrs,Roman Catholic,Employee of a Picture Company,Seatown,Married,29/04/1929,0000-00-00,B683,,,2,,Thomas O'Rourke,,,B683
+8060,Bk 3  Pg 38,1448,Patrick,Duffy,Male,60,Yrs,Roman Catholic,Carpenter,17 St Brigids Tce,Married,29/04/1929,29/04/1929,C909,,,2,909 / 10,Thomas O'Rourke,,,C909
+8061,Bk 3  Pg 38,1449,Charles,Morgan,Male,57,Yrs,Roman Catholic,Employee of a Picture Company,Seatown,Married,29/04/1929,29/04/1929,B683,,,2,,Thomas O'Rourke,,,B683
 8062,Bk 3  Pg 38,1450,Alice,Brickell,Male,35,Yrs,Roman Catholic,Wife of a Cattle Dealer,"Hospital, Dublin",Married,02/05/1929,04/05/1929,D710,,,1,710 / 11,Nora Rogers,,,D710
 8063,Bk 3  Pg 38,1451,Mary,Kieran,Female,60,Yrs,Roman Catholic,Wife of a labourer,Ladywell Tce,Married,03/05/1929,05/05/1929,A592,,,2,592 / 3,Thomas O'Rourke,,,A592
 8064,Bk 3  Pg 38,1452,Thomas,Quigley,Male,29,Yrs,Roman Catholic,Pork Butcher,Hill St,Married,02/05/1929,05/05/1929,B223,,,3,223 / 4,P Quigley,,,B223
@@ -3423,7 +3423,7 @@ Id,BookPage,NumberInBook,FirstName,LastName,Sex,Age,AgeDetail,Religion,Occupatio
 8158,"Bk 3, Pg 42",1547,Brigid,Carolan,Female,12,Yrs,Roman Catholic,Child of Labourer,"The Orphanage, Dundalk",Spinster,24/02/1930,25/02/1930,D608,,,Three,,Frank McGuill,,P R Finnigan,D608
 8159,"Bk 3, Pg 42",1549,Bridget,Duffy,Female,75,Yrs,Roman Catholic,Housekeeper,"District Hospital, Dundalk",Widow,24/02/1930,25/02/1930,AZ008,,,Free Space,8,Mat Fegan,,P R Finnigan,AZ008
 8160,"Bk 3, Pg 42",1550,Laurence Dermot,McEnteggart,Male,5,Yrs,Roman Catholic,Child of Bread Server,Dowdallshill,Bachelor,26/02/1930,27/02/1930,A419,,,Three,419,Laurence McEnteggart,,P R Finnigan,A419
-8161,"Bk 3, Pg 42",1551,Mary,McCarthy,Female,73,Yrs,Roman Catholic,Widow of Book keeper,Castle Road,Widow,27/02/1930,0000-00-00,D649,,,Three,649,Thos. McCarthy,,P R Finnigan,D649
+8161,"Bk 3, Pg 42",1551,Mary,McCarthy,Female,73,Yrs,Roman Catholic,Widow of Book keeper,Castle Road,Widow,27/02/1930,27/02/1930,D649,,,Three,649,Thos. McCarthy,,P R Finnigan,D649
 8162,"Bk 3, Pg 42",1552,Mary,O'Hare,Female,78,Yrs,Roman Catholic,Housekeeper,"District Hospital, Dundalk",Spinster,28/02/1930,01/03/1930,AZ007,,,Free RC,7,Peter  Hughes per Fegan,,P R Finnigan,AZ007
 8163,"Bk 3, Pg 42",1553,Baby,Rafferty,Female,0,12 Hrs,Roman Catholic,Child of Labourer,Legion Avenue,Spinster,02/03/1930,03/03/1930,C411,,,Three,411,Frank McGuill,,P R Finnigan,C411
 8164,"Bk 3, Pg 42",1554,Marianne,Mackin,Female,2,Yrs,Roman Catholic,Child of Labourer,Caseys Place,Spinster,03/03/1930,05/03/1930,B279,,,Three,279,Thomas Mackin,,P R Finnigan,B279
@@ -3687,7 +3687,7 @@ Id,BookPage,NumberInBook,FirstName,LastName,Sex,Age,AgeDetail,Religion,Occupatio
 8422,"Bk 3, Pg 50",1880,Michael U. A.,Murphy,Male,0,3 Mths,Roman Catholic,Child of a Farmer,"Brook Street, Dundalk",Bachelor,10/03/1932,11/03/1932,C864,,,One,864.65,M. Fegan per F.C.,,F. M. Finigan,C864
 8423,"Bk 3, Pg 50",1881,Frank,McGough,Male,86,Yrs,Roman Catholic,Boilermaker,"Parnell Park, Dundalk",Widower,11/03/1932,12/03/1932,B170,,,Three,170,Edward Kelly,,F. M. Finigan,B170
 8424,"Bk 3, Pg 51",1883,Baby A,Preston,Male,0,Few Mins,Roman Catholic,Child of a Labourer,Sandhole,Bachelor,11/03/1932,11/03/1932,AZ033,,,Free,33,R.Callan,,F. M. Finigan,AZ033
-8425,"Bk 3, Pg 51",1883A,Baby B,Preston,Male,0,Few Mins,Roman Catholic,Child of a Labourer,Sandhole,Bachelor,11/03/1932,11/03/1932,AZ033,,,Free,33,R. Callan,,F. M. Finigan,AZ033
+8425,"Bk 3, Pg 51",1883,Baby B,Preston,Male,0,Few Mins,Roman Catholic,Child of a Labourer,Sandhole,Bachelor,11/03/1932,11/03/1932,AZ033,,,Free,33,R. Callan,,F. M. Finigan,AZ033
 8426,"Bk 3, Pg 51",1884,Mary,Boyle,Female,54,Yrs,Roman Catholic,Housekeeper,"County Home, Dundalk",Bachelor,13/03/1932,15/03/1932,C354,,,Three,354.55,Annie Boyle,,F. M. Finigan,C354
 8427,"Bk 3, Pg 51",1885,Michael,Crilly,Male,78,Yrs,Roman Catholic,Mason,"Annaskea, Mountpleasant",Spinster,14/03/1932,15/03/1932,A189,,,Three,189,M. Fegan per F.C,,F. M. Finigan,A189
 8428,"Bk 3, Pg 51",1886,Mary,McCormack,Female,71,Yrs,Roman Catholic,Domestic Servant,"County Home, Dundalk",Married,15/03/1932,16/03/1932,A343,,,Three,343,M. Fegan per F.C,,F. M. Finigan,A343
@@ -3815,4 +3815,4 @@ Id,BookPage,NumberInBook,FirstName,LastName,Sex,Age,AgeDetail,Religion,Occupatio
 8591,"Bk 3, Pg4",124,Mary ,Lennon ,Female,62,Yrs,Roman Catholic,Housekeeper,"The Union Hospital, Dundalk",Spinster,12/11/1921,13/11/1921,Z151,,,Free,,Nicholas Connolly,,,Z151
 8592,"Bk 3, Pg 40",1495,James,Gilroy,Male,34,Yrs,Roman Catholic,Ex. Army Man,The District Hospital,Bachelor,12/11/1929,14/11/1929,Z152,,,Free,,E. Fegan,,P R Finnigan,Z152
 8593,"Bk 3, Pg 51",1882,Michael,Reilly,Male,50,Yrs,Roman Catholic,Labourer,District Hospital,Widower,05/04/1932,07/04/1932,Z153,,,Free,,,,F. M. Finigan,Z153
-8594,"Bk 3, Pg 51",1882A,Patrick,Duffy,Male,75,Yrs,Roman Catholic,Labourer,District Hospital,Bachelor,05/04/1932,07/04/1932,Z154,,,Free,,,,F. M. Finigan,Z154
+8594,"Bk 3, Pg 51",1882,Patrick,Duffy,Male,75,Yrs,Roman Catholic,Labourer,District Hospital,Bachelor,05/04/1932,07/04/1932,Z154,,,Free,,,,F. M. Finigan,Z154

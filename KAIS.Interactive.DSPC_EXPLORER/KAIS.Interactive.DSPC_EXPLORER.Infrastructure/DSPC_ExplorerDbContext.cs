@@ -28,7 +28,7 @@ namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure.Model
             //modelBuilder.SeedIntialRegistrars();
             modelBuilder.SeedSectionCSV();
             modelBuilder.SeedGraveOwnerCSV();
-            //modelBuilder.SeedRegistrarCSV();
+            modelBuilder.SeedRegistrarCSV();
 
         }
 
