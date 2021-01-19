@@ -1,4 +1,4 @@
-Id,BookPage,NumberInBook,FirstName,LastName,Sex,Age,AgeDetail,Religion,Occupation,DeathLocation,MarriageStatus,DeathDate,BurialDate,GraveReferenceCode,Public,Proprietary,SectionInfo,NumberInfo,InternmentSignature,AdditionalComments,RegistrarName,GraveOwnerGraveReferenceCode
+RegistrarId,BookPage,NumberInBook,FirstName,LastName,Sex,Age,AgeDetail,Religion,Occupation,DeathLocation,MarriageStatus,DeathDate,BurialDate,GraveReferenceCode,Public,Proprietary,SectionInfo,NumberInfo,InternmentSignature,AdditionalComments,RegistrarName,GraveOwnerGraveReferenceCode
 1,Bk 1 Pg 3,1,Michael,Callaghan,Male,50,Yrs,Roman Catholic,Labourer,Casey's Place Dundalk,Married,1895-04-04,1895-04-13,D635,,,No 3 (D),635,Elizabeth Callaghan,,P.R. Finnigan,D635
 2,Bk 1 Pg 3,2,Jane,Connell,Female,60,Yrs,Roman Catholic,Draper's Wife,Church Street Dundalk,Married,1895-04-12,1895-04-14,DR1,Reserved,Reserved RC,,1,Katie Connell,,P.R. Finnigan,DR1
 3,Bk 1 Pg 3,3,Elizabeth,McEnteggart,Female,49,Yrs,Roman Catholic,Labouring Class,Hill Street Dundalk,Widow,1895-05-23,1895-05-24,D636,,,No 3 (D),636,McKittrick,,P.R. Finnigan,D636

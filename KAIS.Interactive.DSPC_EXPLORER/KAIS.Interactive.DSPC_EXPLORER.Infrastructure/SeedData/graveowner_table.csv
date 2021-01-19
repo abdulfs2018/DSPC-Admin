@@ -1,4 +1,4 @@
-Id,SubId,JKIndex,GraveReferenceCode,SectionId,GraveRow,GraveDepth,GraveSize,GraveLocation,GraveHeadStone,GraveOwnerName,GraveOwnerAddress,Remarks
+GraveOwnerId,SubId,JKIndex,GraveReferenceCode,SectionId,GraveRow,GraveDepth,GraveSize,GraveLocation,GraveHeadStone,GraveOwnerName,GraveOwnerAddress,Remarks
 1,A8,A19.55,A050,1,19,55,S,"54.021534, -6.392483",TRUE,J Lennon,Hill St,
 2,A9,A19.54,A051,1,19,54,S,"54.021521, -6.392483",FALSE,Mrs Spencer,Bachellors Walk,
 3,A10,A19.53,A052,1,19,53,S,"54.021510, -6.392483",FALSE,Mary Connolly,Lisdoo,

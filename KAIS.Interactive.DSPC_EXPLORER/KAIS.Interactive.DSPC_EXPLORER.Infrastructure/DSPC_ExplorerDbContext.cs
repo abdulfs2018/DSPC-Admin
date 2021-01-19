@@ -4,6 +4,7 @@ using System.Text;
 using System.IO;
 using CsvHelper;
 using System.Linq;
+using System.Diagnostics;
 
 namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure.Model
 {
@@ -23,12 +24,12 @@ namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure.Model
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            //modelBuilder.SeedInitialSections();
-            //modelBuilder.SeedInitialGraveOwners();
-            //modelBuilder.SeedIntialRegistrars();
-            modelBuilder.SeedSectionCSV();
-            modelBuilder.SeedGraveOwnerCSV();
-            modelBuilder.SeedRegistrarCSV();
+            modelBuilder.SeedInitialSections();
+            modelBuilder.SeedInitialGraveOwners();
+            modelBuilder.SeedIntialRegistrars();
+            //modelBuilder.SeedSectionCSV();
+            //modelBuilder.SeedGraveOwnerCSV();
+            //modelBuilder.SeedRegistrarCSV();
 
         }
 
