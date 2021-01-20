@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Dynamic;
 
 namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure.Model
 {
@@ -28,6 +29,8 @@ namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure.Model
         public string InternmentSignature { get; set; }
         public string AdditionalComments { get; set; }
         public string RegistrarName { get; set; }
+
+        public string GraveReferenceCode { get; set; }
 
         [ForeignKey("GraveOwner")]
         public int GraveOwnerId { get; set; }

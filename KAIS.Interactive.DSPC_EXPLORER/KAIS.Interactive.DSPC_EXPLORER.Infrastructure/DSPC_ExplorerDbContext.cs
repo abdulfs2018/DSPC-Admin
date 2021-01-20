@@ -1,10 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System.Reflection;
-using System.Text;
-using System.IO;
-using CsvHelper;
-using System.Linq;
-using System.Diagnostics;
+using System.Collections.Generic;
 
 namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure.Model
 {
@@ -24,12 +19,12 @@ namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure.Model
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.SeedInitialSections();
-            modelBuilder.SeedInitialGraveOwners();
-            modelBuilder.SeedIntialRegistrars();
-            //modelBuilder.SeedSectionCSV();
-            //modelBuilder.SeedGraveOwnerCSV();
-            //modelBuilder.SeedRegistrarCSV();
+            //modelBuilder.SeedInitialSections();
+            //modelBuilder.SeedInitialGraveOwners();
+            //modelBuilder.SeedIntialRegistrars();
+            modelBuilder.SeedSectionCSV();
+            List<GraveOwner> graveOwners = modelBuilder.SeedGraveOwnerCSV();
+            modelBuilder.SeedRegistrarCSV(graveOwners);
 
         }
 
