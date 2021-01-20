@@ -25,12 +25,12 @@ namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure
                               where grave.GraveReferenceCode == registrar.GraveOwner.GraveReferenceCode
                               select new GraveOwner
                                   {
-                                      Id = grave.Id,
+                                      GraveOwnerId = grave.GraveOwnerId,
                                       GraveSize = grave.GraveSize,
                                       GraveReferenceCode = grave.GraveReferenceCode,
                                       Section = new Section
                                       {
-                                          Id = grave.Section.Id,
+                                          SectionId = grave.Section.SectionId,
                                       },
                                   }).FirstOrDefaultAsync();
 
@@ -90,7 +90,7 @@ namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure
             var query = _dbContext.Registrars
                         .Include(e => e.GraveOwner)
                         .Include(e => e.GraveOwner).ThenInclude(e => e.Section)
-                        .Where(e => e.Id == Id);
+                        .Where(e => e.RegistrarId == Id);
 
             return await query.FirstOrDefaultAsync();
         }
@@ -103,11 +103,11 @@ namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure
                               where grave.GraveReferenceCode == graveOwner.GraveReferenceCode && section.Code == graveOwner.Section.Code
                               select new GraveOwner
                               {
-                                  Id = grave.Id,
+                                  GraveOwnerId = grave.GraveOwnerId,
                                   GraveReferenceCode = grave.GraveReferenceCode,
                                   Section = new Section
                                   {
-                                      Id = section.Id
+                                      SectionId = section.SectionId
                                   }
                               }).FirstOrDefaultAsync();
 
@@ -142,7 +142,7 @@ namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure
                               where s.Code == section.Code
                               select new Section
                               {
-                                  Id = s.Id,
+                                  SectionId = s.SectionId,
                                   Code = s.Code,
                                   DateOpened = s.DateOpened,
                                   GraveCount = s.GraveCount
@@ -179,7 +179,7 @@ namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure
         public async Task<Section> GetSectionById(int id)
         {
             return await  _dbContext.Sections
-                          .Where(e => e.Id == id)
+                          .Where(e => e.SectionId == id)
                           .FirstOrDefaultAsync();
 
         }

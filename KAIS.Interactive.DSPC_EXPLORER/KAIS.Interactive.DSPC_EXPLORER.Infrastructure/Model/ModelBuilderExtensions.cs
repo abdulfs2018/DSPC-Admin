@@ -1,7 +1,14 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using CsvHelper;
+using CsvHelper.Configuration;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
+using System.Linq;
+using System.Reflection;
 using System.Text;
+
 
 namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure.Model
 {
@@ -10,11 +17,10 @@ namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure.Model
 
         public static void SeedInitialSections(this ModelBuilder modelBuilder)
         {
-
             modelBuilder.Entity<Section>().HasData(
                     new Section
                     {
-                        Id = 1,
+                        SectionId = 1,
                         Code = "A",
                         DateOpened = new DateTime(1930, 1, 1),
                         GraveCount = 2000
@@ -25,10 +31,11 @@ namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure.Model
         public static void SeedInitialGraveOwners(this ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<GraveOwner>().HasData(
-                    new
+                    new GraveOwner
                     {
-                        Id = 1,
+                        GraveOwnerId = 1,
                         SubId = "A1",
+                        JKIndex= "A01.01",
                         GraveReferenceCode = "A001",
                         GraveRow = 1,
                         GraveDepth = 1,
@@ -38,12 +45,13 @@ namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure.Model
                         GraveOwnerName = "John Logan",
                         GraveOwnerAddress = "4 Longwalk, Dundalk, Co. Louth",
                         Remarks = "Died before Sister buried in Ref C023",
-                        SectionId = 1
+                        SectionId = 1    
                     },
-                    new
+                    new GraveOwner
                     {
-                        Id = 2,
+                        GraveOwnerId = 2,
                         SubId = "A2",
+                        JKIndex = "A01.02",
                         GraveReferenceCode = "A002",
                         GraveRow = 1,
                         GraveDepth = 2,
@@ -55,10 +63,11 @@ namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure.Model
                         Remarks = "Survived by Son Jeremy Colman",
                         SectionId = 1
                     },
-                    new
+                    new GraveOwner
                     {
-                        Id = 3,
+                        GraveOwnerId = 3,
                         SubId = "A3",
+                        JKIndex = "A01.03",
                         GraveReferenceCode = "A003",
                         GraveRow = 1,
                         GraveDepth = 3,
@@ -70,10 +79,11 @@ namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure.Model
                         Remarks = "Owner lives in Washington D.C. , USA",
                         SectionId = 1
                     },
-                    new
+                    new GraveOwner
                     {
-                        Id = 4,
+                        GraveOwnerId = 4,
                         SubId = "A4",
+                        JKIndex = "A01.04",
                         GraveReferenceCode = "A004",
                         GraveRow = 1,
                         GraveDepth = 4,
@@ -92,9 +102,9 @@ namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure.Model
         public static void SeedIntialRegistrars(this ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Registrar>().HasData(
-                   new
+                   new Registrar
                    {
-                       Id = 1,
+                       RegistrarId = 1,
                        BookPage = "bk1 pg1",
                        NumberInBook = 1,
                        FirstName = "John",
@@ -116,9 +126,9 @@ namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure.Model
                        RegistrarName = "P. R. Finnegan",
                        GraveOwnerId = 1
                    },
-                   new
+                   new Registrar
                    {
-                       Id = 2,
+                       RegistrarId = 2,
                        BookPage = "bk1 pg1",
                        NumberInBook = 2,
                        FirstName = "Mark",
@@ -140,9 +150,9 @@ namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure.Model
                        RegistrarName = "P. R. Finnegan",
                        GraveOwnerId = 1
                    },
-                   new
+                   new Registrar
                    {
-                       Id = 3,
+                       RegistrarId = 3,
                        BookPage = "bk1 pg1",
                        NumberInBook = 3,
                        FirstName = "Gerry",
@@ -164,9 +174,9 @@ namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure.Model
                        RegistrarName = "P. R. Finnegan",
                        GraveOwnerId = 2
                    },
-                   new
+                   new Registrar
                    {
-                       Id = 4,
+                       RegistrarId = 4,
                        BookPage = "bk1 pg1",
                        NumberInBook = 4,
                        FirstName = "Martin",
@@ -188,9 +198,9 @@ namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure.Model
                        RegistrarName = "P. R. Finnegan",
                        GraveOwnerId = 2
                    },
-                   new
+                   new Registrar
                    {
-                       Id = 5,
+                       RegistrarId = 5,
                        BookPage = "bk1 pg1",
                        NumberInBook = 5,
                        FirstName = "Killian",
@@ -212,9 +222,9 @@ namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure.Model
                        RegistrarName = "P. R. Finnegan",
                        GraveOwnerId = 3
                    },
-                   new
+                   new Registrar
                    {
-                       Id = 6,
+                       RegistrarId = 6,
                        BookPage = "bk1 pg1",
                        NumberInBook = 6,
                        FirstName = "Jeremy",
@@ -236,9 +246,9 @@ namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure.Model
                        RegistrarName = "P. R. Finnegan",
                        GraveOwnerId = 3
                    },
-                   new
+                   new Registrar
                    {
-                       Id = 7,
+                       RegistrarId = 7,
                        BookPage = "bk1 pg1",
                        NumberInBook = 7,
                        FirstName = "Ronan",
@@ -260,9 +270,9 @@ namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure.Model
                        RegistrarName = "P. R. Finnegan",
                        GraveOwnerId = 4
                    },
-                   new
+                   new Registrar
                    {
-                       Id = 8,
+                       RegistrarId = 8,
                        BookPage = "bk1 pg1",
                        NumberInBook = 8,
                        FirstName = "Mal",
@@ -285,6 +295,119 @@ namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure.Model
                        GraveOwnerId = 4
                    }
                );
+        }
+
+        public static void SeedSectionCSV(this ModelBuilder modelBuilder)
+        {
+            Assembly assembly = Assembly.GetExecutingAssembly();
+            string resourceName = "KAIS.Interactive.DSPC_EXPLORER.Infrastructure.SeedData.section_table.csv";
+            using (Stream stream = assembly.GetManifestResourceStream(resourceName))
+            {
+                
+                using (StreamReader reader = new StreamReader(stream, Encoding.UTF8))
+                {
+                    CsvReader csvReader = new CsvReader(reader, System.Globalization.CultureInfo.CurrentCulture);
+                    var sections = csvReader.GetRecords<Section>().ToArray();
+                    modelBuilder.Entity<Section>().HasData(sections);
+                }
+            }
+        }
+
+        public static List<GraveOwner> SeedGraveOwnerCSV(this ModelBuilder modelBuilder)
+        {
+            Assembly assembly = Assembly.GetExecutingAssembly();
+            string resourceName = "KAIS.Interactive.DSPC_EXPLORER.Infrastructure.SeedData.graveowner_table.csv";
+            
+            var config = new CsvConfiguration(System.Globalization.CultureInfo.CurrentCulture)
+            {
+                IgnoreReferences = true
+            };
+
+            using (Stream stream = assembly.GetManifestResourceStream(resourceName))
+            {
+                using (StreamReader reader = new StreamReader(stream, Encoding.UTF8))
+                {
+                    CsvReader csvReader = new CsvReader(reader, config);
+                    var graveOwners = csvReader.GetRecords<GraveOwner>().ToArray();
+                    modelBuilder.Entity<GraveOwner>().HasData(graveOwners);
+                    return graveOwners.ToList();
+                }
+            } 
+        }
+
+        public static void SeedRegistrarCSV(this ModelBuilder modelBuilder, List<GraveOwner> graveOwners)
+        {
+            Assembly assembly = Assembly.GetExecutingAssembly();
+            string resourceName = "KAIS.Interactive.DSPC_EXPLORER.Infrastructure.SeedData.registrar_table.csv";
+
+            var config = new CsvConfiguration(System.Globalization.CultureInfo.CurrentCulture)
+            {
+                HeaderValidated = null,
+                MissingFieldFound = null,
+                IgnoreReferences = true
+            };
+
+            Registrar[] registrars = null;
+
+            using (Stream stream = assembly.GetManifestResourceStream(resourceName))
+            {
+                using (StreamReader reader = new StreamReader(stream, Encoding.UTF8))
+                {
+                    CsvReader csvReader = new CsvReader(reader, config);
+                    registrars = csvReader.GetRecords<Registrar>().ToArray();
+                }
+            }
+            
+            var pos = 0;
+            foreach (Registrar registrar in registrars)
+            {      
+                GraveOwner graveOwner = graveOwners.Find(x => x.GraveReferenceCode == registrar.GraveReferenceCode);
+                registrar.GraveOwnerId = graveOwner.GraveOwnerId; 
+                registrars[pos] = registrar;
+                pos++;
+            }
+            modelBuilder.Entity<Registrar>().HasData(registrars);
+        }
+
+        public static void SeedRegistrarCSV2(this ModelBuilder modelBuilder)
+        {
+            Assembly assembly = Assembly.GetExecutingAssembly();
+            string resourceName = "KAIS.Interactive.DSPC_EXPLORER.Infrastructure.SeedData.registrar_table.csv";
+            using (Stream stream = assembly.GetManifestResourceStream(resourceName))
+            {
+                using (StreamReader reader = new StreamReader(stream, Encoding.UTF8))
+                {
+                    CsvReader csvReader = new CsvReader(reader, System.Globalization.CultureInfo.CurrentCulture);
+
+                    var anonymousTypeDefinition = new
+                    {
+                        RegistrarId = default(int),
+                        BookPage = string.Empty,
+                        NumberInBook = default(int),
+                        FirstName = string.Empty,
+                        LastName = string.Empty,
+                        Sex = string.Empty,
+                        Age = default(int),
+                        AgeDetail = string.Empty,
+                        Religion = string.Empty,
+                        Occupation = string.Empty,
+                        DeathLocation = string.Empty,
+                        MarriageStatus = string.Empty,
+                        DeathDate = default(DateTime),
+                        BurialDate = default(DateTime),
+                        Public = string.Empty,
+                        Proprietary = string.Empty,
+                        SectionInfo = string.Empty,
+                        NumberInfo = string.Empty,
+                        InternmentSignature = string.Empty,
+                        AdditionalComments = string.Empty,
+                        RegistrarName = string.Empty,
+                        GraveOwnerGraveReferenceCode = string.Empty
+                    };
+                    var registrars = csvReader.GetRecords(anonymousTypeDefinition).ToArray();
+                    modelBuilder.Entity<Registrar>().HasData(registrars);
+                }
+            }
         }
 
     }

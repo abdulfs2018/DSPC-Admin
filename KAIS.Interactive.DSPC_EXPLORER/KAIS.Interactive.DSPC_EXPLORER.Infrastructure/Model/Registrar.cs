@@ -1,10 +1,14 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Dynamic;
 
 namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure.Model
 {
     public class Registrar
     {
-        public int Id { get; set; }
+        [Key]
+        public int RegistrarId { get; set; }
         public string BookPage { get; set; }
         public int NumberInBook { get; set; }
         public string FirstName { get; set; }
@@ -25,6 +29,11 @@ namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure.Model
         public string InternmentSignature { get; set; }
         public string AdditionalComments { get; set; }
         public string RegistrarName { get; set; }
+
+        public string GraveReferenceCode { get; set; }
+
+        [ForeignKey("GraveOwner")]
+        public int GraveOwnerId { get; set; }
         public GraveOwner GraveOwner { get; set; }
     }
 }
