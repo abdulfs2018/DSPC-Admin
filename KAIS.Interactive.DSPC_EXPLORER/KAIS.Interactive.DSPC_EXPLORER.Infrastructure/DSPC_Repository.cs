@@ -47,7 +47,7 @@ namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure
                         {
 
                             var dataGrave = GetGraveByReferenceCode(registrar.GraveOwner.GraveReferenceCode).Result;
-                        var dataSection = dataGrave.Section;
+                            var dataSection = dataGrave.Section;
 
                             if (dataSection.Code != null && dataGrave != null)
                             {
@@ -73,6 +73,22 @@ namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure
 
             return await query;
         }
+
+        public async Task<List<Registrar>> GetListSimpleSearchRegistrar(string FirstName, string LastName)
+        {
+            var query = _dbContext.Registrars
+                       .Include(e => e.GraveOwner)
+                       .Include(e => e.GraveOwner).ThenInclude(e => e.Section).AsQueryable();
+
+            if (!string.IsNullOrEmpty(FirstName))
+                query = query.Where(e => e.FirstName.Equals(FirstName));
+
+            if (!string.IsNullOrEmpty(LastName))
+                query = query.Where(e => e.LastName.Equals(LastName));
+
+            return await query.ToListAsync();
+        }
+
 
         public async Task<Registrar> GetRegistrarByName(string name)
         {

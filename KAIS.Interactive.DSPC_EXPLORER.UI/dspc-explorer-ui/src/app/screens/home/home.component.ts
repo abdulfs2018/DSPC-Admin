@@ -37,6 +37,10 @@ export class HomeComponent implements OnInit {
     ownerAddress: [""],
   });
 
+  FirstName:string = "";
+  LastName:string = "Crilly";
+
+
   constructor(
     private dspcDataProvider: DSPCExplorerDataProvider,
     private localStorageService: DSPCExplorerLocalStorageProvider,
@@ -49,13 +53,12 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.dspcDataProvider.getRegistrar().subscribe((data) => {
-      this.filterAndPopulateSearchResult(data);
-    });
+ 
   }
 
   filterAndPopulateSearchResult(registrarArray: Array<RegistrarDTO>): void {
     var graveRefences: Array<string> = [];
+    this.graveFilteredResults = new Array<SearchResultViewModel>();
     registrarArray.forEach((e) => {
       if (graveRefences.indexOf(e.graveOwner.graveReferenceCode) == -1) {
         graveRefences.push(e.graveOwner.graveReferenceCode);
@@ -67,7 +70,7 @@ export class HomeComponent implements OnInit {
           graveSize: e.graveOwner.graveSize,
           imageSource: "grave-headstone-sample.jpg",
         };
-
+        
         this.graveFilteredResults.push(searchData);
       }
     });
@@ -83,12 +86,19 @@ export class HomeComponent implements OnInit {
   }
 
   public displaySearchResults(): void {
+    
+    this.localStorageService.deleteFromLocalStorage(this.SEARCH_KEY);
+    this.dspcDataProvider.getSimpleSearchRegistrar(this.FirstName, this.LastName).subscribe((data) => {
+      this.filterAndPopulateSearchResult(data);
+    });
+  
     this.display = true;
 
     this.localStorageService.storeOnLocalStorage(
       this.SEARCH_KEY,
       this.graveFilteredResults
     );
+
   }
 
   counter(i: number) {
@@ -107,4 +117,5 @@ export class HomeComponent implements OnInit {
       containerB.setAttribute(this.style, "display: none;");
     }
   }
+
 }
