@@ -5,6 +5,7 @@ import { DSPCExplorerDataProvider } from "src/app/core/services/dspc-explorer-pr
 import { DSPCExplorerLocalStorageProvider } from "src/app/core/services/dspc-explorer-provider/dspc-explorer-storage-provider";
 import { SearchResultViewModel } from "src/app/core/models/search-results.model";
 import { FormBuilder } from "@angular/forms";
+import { SearchFilterDTO } from 'src/app/core/dtos/searchfilter.model';
 
 @Component({
   selector: "app-home",
@@ -53,7 +54,29 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
- 
+
+  }
+
+  searchGraveRecords(): void {
+    let requestBody: SearchFilterDTO = {
+      FirstName: this.searchForm.get("firstName").value,
+      LastName: this.searchForm.get("lastName").value,
+      Sex: "",
+      Age: 0,
+      AgeDetail: "",
+      Religion: "",
+      Occupation: this.searchForm.get("occupation").value,
+      DeathLocation: "",
+      MarriageStatus: "",
+      GraveOwnerName: this.searchForm.get("ownerName").value,
+      GraveOwnerAddress: this.searchForm.get("ownerAddress").value,
+      GraveSize: ""
+    }
+
+    this.dspcDataProvider.SearchRecords(requestBody).subscribe(data => {
+      this.filterAndPopulateSearchResult(data);
+    })
+
   }
 
   filterAndPopulateSearchResult(registrarArray: Array<RegistrarDTO>): void {
@@ -88,10 +111,6 @@ export class HomeComponent implements OnInit {
   public displaySearchResults(): void {
     
     this.localStorageService.deleteFromLocalStorage(this.SEARCH_KEY);
-    this.dspcDataProvider.getSimpleSearchRegistrar(this.FirstName, this.LastName).subscribe((data) => {
-      this.filterAndPopulateSearchResult(data);
-    });
-  
     this.display = true;
 
     this.localStorageService.storeOnLocalStorage(

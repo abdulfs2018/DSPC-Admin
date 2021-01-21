@@ -16,10 +16,6 @@ export class DSPCExplorerDataProvider {
     return this.apiWrapperService.getRegistrars().pipe();
   }
 
-  public getSimpleSearchRegistrar(FirstName : string, LastName: string): Observable<Array<RegistrarDTO>> {
-    return this.apiWrapperService.getSimpleSearchRegistrars(FirstName, LastName).pipe();
-  }
-
   public getRegistrarDetailsById(Id: number): Observable<RegistrarDTO> {
     return this.apiWrapperService.getRegistrarDetailsById(Id).pipe();
   }

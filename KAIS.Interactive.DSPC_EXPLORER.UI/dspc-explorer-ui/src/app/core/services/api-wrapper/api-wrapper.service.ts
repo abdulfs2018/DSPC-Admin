@@ -22,10 +22,6 @@ export class ApiWrapperService {
     return this.httpClient.get<Array<RegistrarDTO>>(`${this.configuration.baseApiURL}/Registrar/getallregistrar`);
   }
 
-  public getSimpleSearchRegistrars(FirstName : string, LastName: string): Observable<Array<RegistrarDTO>> {
-    return this.httpClient.get<Array<RegistrarDTO>>(`${this.configuration.baseApiURL}/Registrar/getSimpleSearchRegistrar?FirstName=${FirstName}&LastName=${LastName}`);
-  }
-
   public getRegistrarDetailsById(Id: number): Observable<RegistrarDTO> {
     return this.httpClient.get<RegistrarDTO>(`${this.configuration.baseApiURL}/Registrar/getregistrardetailsbyId?Id=${Id}`);
   }

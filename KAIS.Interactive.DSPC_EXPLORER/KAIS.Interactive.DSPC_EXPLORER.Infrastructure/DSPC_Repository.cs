@@ -73,23 +73,6 @@ namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure
 
             return await query;
         }
-
-        public async Task<List<Registrar>> GetListSimpleSearchRegistrar(string FirstName, string LastName)
-        {
-            var query = _dbContext.Registrars
-                       .Include(e => e.GraveOwner)
-                       .Include(e => e.GraveOwner).ThenInclude(e => e.Section).AsQueryable();
-
-            if (!string.IsNullOrEmpty(FirstName))
-                query = query.Where(e => e.FirstName.Equals(FirstName));
-
-            if (!string.IsNullOrEmpty(LastName))
-                query = query.Where(e => e.LastName.Equals(LastName));
-
-            return await query.ToListAsync();
-        }
-
-
         public async Task<Registrar> GetRegistrarByName(string name)
         {
             return await (from r in _dbContext.Registrars
@@ -197,7 +180,6 @@ namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure
             return await  _dbContext.Sections
                           .Where(e => e.SectionId == id)
                           .FirstOrDefaultAsync();
-
         }
 
         public async Task<GraveOwner> GetGraveByReferenceCode(string code)
@@ -222,7 +204,6 @@ namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure
                         .Include(e => e.GraveOwner).ThenInclude(e => e.Section)
                         .Where(e => e.GraveOwner.GraveReferenceCode == refCode)
                         .ToListAsync();
-                    
 
         }
 
@@ -287,7 +268,6 @@ namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure
             {
                 query = query.Where(e => e.MarriageStatus.Equals(filter.MarriageStatus));
             }
-
 
             if (!string.IsNullOrEmpty(filter.Occupation))
             {

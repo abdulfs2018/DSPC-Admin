@@ -34,25 +34,6 @@ namespace KAIS.Interactive.DSPC_EXPLORER.API.Controllers
             }
         }
 
-        [HttpGet("getsimplesearchregistrar")]
-        public async Task<IActionResult> GetSimpleSearchRegistrars(string FirstName, string LastName)
-        {
-            try
-            {
-                var data = await _repository.GetListSimpleSearchRegistrar(FirstName, LastName);
-
-                if (data != null) return Ok(data);
-                return Ok(false);
-
-            }
-            catch (Exception e)
-            {
-                return BadRequest(e.Message);
-            }
-        }
-
-
-
         [HttpGet("getregistrardetailsbyId")]
         public async Task<IActionResult> GetRegistrarDetailsById(int Id)
         {

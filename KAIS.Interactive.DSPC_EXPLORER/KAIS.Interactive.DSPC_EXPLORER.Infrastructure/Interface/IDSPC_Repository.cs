@@ -8,8 +8,6 @@ namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure.Interface
     {
         Task<bool> AddNewRegistrar(Registrar registrar);
         Task<List<Registrar>> GetListRegistrar();
-
-        Task<List<Registrar>> GetListSimpleSearchRegistrar(string FirstName, string LastName);
         Task<Registrar> GetRegistrarByName(string name);
         Task<Registrar> GetRegistrarById(int Id); 
         Task<Registrar> GetRegistrarByReferenceCode(string name);
