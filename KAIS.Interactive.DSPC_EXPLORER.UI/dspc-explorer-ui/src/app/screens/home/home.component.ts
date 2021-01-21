@@ -57,28 +57,6 @@ export class HomeComponent implements OnInit {
 
   }
 
-  searchGraveRecords(): void {
-    let requestBody: SearchFilterDTO = {
-      FirstName: this.searchForm.get("firstName").value,
-      LastName: this.searchForm.get("lastName").value,
-      Sex: "",
-      Age: 0,
-      AgeDetail: "",
-      Religion: "",
-      Occupation: this.searchForm.get("occupation").value,
-      DeathLocation: "",
-      MarriageStatus: "",
-      GraveOwnerName: this.searchForm.get("ownerName").value,
-      GraveOwnerAddress: this.searchForm.get("ownerAddress").value,
-      GraveSize: ""
-    }
-
-    this.dspcDataProvider.SearchRecords(requestBody).subscribe(data => {
-      this.filterAndPopulateSearchResult(data);
-    })
-
-  }
-
   filterAndPopulateSearchResult(registrarArray: Array<RegistrarDTO>): void {
     var graveRefences: Array<string> = [];
     this.graveFilteredResults = new Array<SearchResultViewModel>();
@@ -97,6 +75,14 @@ export class HomeComponent implements OnInit {
         this.graveFilteredResults.push(searchData);
       }
     });
+
+    this.localStorageService.storeOnLocalStorage(
+      this.SEARCH_KEY,
+      this.graveFilteredResults
+    );
+
+    console.log(this.localStorageService.getFromLocalStorage(this.SEARCH_KEY));
+
   }
 
   public advanceSearchToggle(): void {
@@ -113,10 +99,24 @@ export class HomeComponent implements OnInit {
     this.localStorageService.deleteFromLocalStorage(this.SEARCH_KEY);
     this.display = true;
 
-    this.localStorageService.storeOnLocalStorage(
-      this.SEARCH_KEY,
-      this.graveFilteredResults
-    );
+    let requestBody: SearchFilterDTO = {
+      FirstName: this.searchForm.get("firstName").value,
+      LastName: this.searchForm.get("lastName").value,
+      Sex: "",
+      Age: 0,
+      AgeDetail: "",
+      Religion: "",
+      Occupation: this.searchForm.get("occupation").value,
+      DeathLocation: "",
+      MarriageStatus: "",
+      GraveOwnerName: this.searchForm.get("ownerName").value,
+      GraveOwnerAddress: this.searchForm.get("ownerAddress").value,
+      GraveSize: ""
+    }
+    
+    this.dspcDataProvider.SearchRecords(requestBody).subscribe(data => {
+      this.filterAndPopulateSearchResult(data);
+    })
 
   }
 
