@@ -6,6 +6,7 @@ import { DSPCExplorerLocalStorageProvider } from "src/app/core/services/dspc-exp
 import { SearchResultViewModel } from "src/app/core/models/search-results.model";
 import { FormBuilder } from "@angular/forms";
 import { SearchFilterDTO } from 'src/app/core/dtos/searchfilter.model';
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-home",
@@ -41,36 +42,40 @@ export class HomeComponent implements OnInit {
   constructor(
     private dspcDataProvider: DSPCExplorerDataProvider,
     private localStorageService: DSPCExplorerLocalStorageProvider,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private router: Router
   ) {
     this.display =
       this.localStorageService.getFromLocalStorage(this.SEARCH_KEY) !==
       undefined;
+    
     this.graveFilteredResults = new Array<SearchResultViewModel>();
   }
 
   ngOnInit() {
-    // this.dspcDataProvider.getRegistrar().subscribe((data) => {
-    //   this.filterAndPopulateSearchResult(data);
-    // });
+    this.router.routeReuseStrategy.shouldReuseRoute = function () {
+      return false;
+    };
   }
 
   searchGraveRecords(): void {
+    this.graveFilteredResults = new Array<SearchResultViewModel>();
+
     let requestBody: SearchFilterDTO = {
-      FirstName: this.searchForm.get("firstName").value,
-      LastName: this.searchForm.get("lastName").value,
-      Sex: "",
-      Age: 0,
+      FirstName: (<HTMLInputElement>document.getElementById("firstName")).value != null ? (<HTMLInputElement>document.getElementById("firstName")).value : "",
+      LastName: (<HTMLInputElement>document.getElementById("lastName")).value != null ? (<HTMLInputElement>document.getElementById("lastName")).value : "",
+      Sex: (<HTMLInputElement>document.getElementById("gender")).value != null ? (<HTMLInputElement>document.getElementById("gender")).value : "",
+      Age: (<HTMLInputElement>document.getElementById("age")).value != "Select Age" ? Number.parseInt((<HTMLInputElement>document.getElementById("age")).value) : 0,
       AgeDetail: "",
-      Religion: "",
-      Occupation: this.searchForm.get("occupation").value,
+      Religion: (<HTMLInputElement>document.getElementById("religion")).value != null ? (<HTMLInputElement>document.getElementById("religion")).value : "",
+      Occupation: (<HTMLInputElement>document.getElementById("occupation")).value != null ? (<HTMLInputElement>document.getElementById("occupation")).value : "",
       DeathLocation: "",
       MarriageStatus: "",
-      GraveOwnerName: this.searchForm.get("ownerName").value,
-      GraveOwnerAddress: this.searchForm.get("ownerAddress").value,
-      GraveSize: ""
+      GraveOwnerName: "",
+      GraveOwnerAddress: "",
+      GraveSize: "",
     }
-
+    
     this.dspcDataProvider.SearchRecords(requestBody).subscribe(data => {
       this.filterAndPopulateSearchResult(data);
     })
@@ -78,6 +83,7 @@ export class HomeComponent implements OnInit {
 
   filterAndPopulateSearchResult(registrarArray: Array<RegistrarDTO>): void {
     var graveRefences: Array<string> = [];
+
     registrarArray.forEach((e) => {
       if (graveRefences.indexOf(e.graveOwner.graveReferenceCode) == -1) {
         graveRefences.push(e.graveOwner.graveReferenceCode);
@@ -89,10 +95,16 @@ export class HomeComponent implements OnInit {
           graveSize: e.graveOwner.graveSize,
           imageSource: "grave-headstone-sample.jpg",
         };
-
         this.graveFilteredResults.push(searchData);
+        
       }
     });
+
+    this.localStorageService.storeOnLocalStorage(
+      this.SEARCH_KEY,
+      this.graveFilteredResults
+    );
+    this.router.navigate(["."]);
   }
 
   public advanceSearchToggle(): void {
@@ -106,11 +118,6 @@ export class HomeComponent implements OnInit {
 
   public displaySearchResults(): void {
     this.display = true;
-
-    this.localStorageService.storeOnLocalStorage(
-      this.SEARCH_KEY,
-      this.graveFilteredResults
-    );
   }
 
   counter(i: number) {
