@@ -5,4 +5,6 @@ export class SearchResultViewModel {
     graveSize: string;
     buttonText: string;
     imageSource: string;
+    graveCoordinates: string;
+    graveSection: string;
 }

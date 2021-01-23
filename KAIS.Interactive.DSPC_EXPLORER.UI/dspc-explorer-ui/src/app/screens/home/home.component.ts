@@ -94,6 +94,8 @@ export class HomeComponent implements OnInit {
           buttonText: "View Selected Grave Details",
           graveSize: e.graveOwner.graveSize,
           imageSource: "grave-headstone-sample.jpg",
+          graveCoordinates: e.graveOwner.graveLocation,
+          graveSection: e.graveOwner.section.code
         };
         this.graveFilteredResults.push(searchData);
         

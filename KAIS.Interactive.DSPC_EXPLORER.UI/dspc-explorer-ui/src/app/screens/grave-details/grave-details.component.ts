@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DSPCExplorerDataProvider } from 'src/app/core/services/dspc-explorer-provider/dspc-explorer-data-provider.service';
+import { DSPCExplorerCommonFunctionProvider } from 'src/app/core/services/dspc-explorer-provider/dspc-explorer-common-function-provider.service';
 import { DSPCExplorerLocalStorageProvider } from 'src/app/core/services/dspc-explorer-provider/dspc-explorer-storage-provider';
 import { SearchResultViewModel } from "src/app/core/models/search-results.model";
 import { GraveOwnerRegistrarsDTO } from 'src/app/core/dtos/graveownerRegistrars.model';
@@ -11,7 +12,7 @@ import { GraveOwnerRegistrarsDTO } from 'src/app/core/dtos/graveownerRegistrars.
 })
 export class GraveDetailsComponent implements OnInit {
 
-  constructor(private dspcExplorerDataProvider : DSPCExplorerDataProvider,  private localStorageService: DSPCExplorerLocalStorageProvider) { }
+  constructor(private dspcExplorerDataProvider : DSPCExplorerDataProvider,  private localStorageService: DSPCExplorerLocalStorageProvider, private commonFunctionService: DSPCExplorerCommonFunctionProvider) { }
 
   private graveInfo: SearchResultViewModel;
   private results: GraveOwnerRegistrarsDTO;
@@ -22,7 +23,6 @@ export class GraveDetailsComponent implements OnInit {
   ngOnInit() {
     this.graveInfo = this.localStorageService.getFromLocalStorage(this.GRAVE_KEY);
     this.isAdmin = false;
-  
     this.dspcExplorerDataProvider.getGraveRegistrars(this.graveInfo.graveRefCode).subscribe((data) => {
       this.results = data;
     });
@@ -74,6 +74,5 @@ export class GraveDetailsComponent implements OnInit {
   setResults(results: any): void {
     this.results = results;
   }
-  
 
 }
