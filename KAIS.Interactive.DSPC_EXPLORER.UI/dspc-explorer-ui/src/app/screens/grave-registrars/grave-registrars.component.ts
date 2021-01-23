@@ -21,6 +21,7 @@ export class GraveRegistrarsComponent implements OnInit {
 
   ngOnInit() {
     this.registrar = this.localStorageService.getFromLocalStorage(this.REGISTRAR_KEY);
+
     this.graveOwnerLastName = this.registrar.graveOwner.graveOwnerName.split(" ")[1];
     this.gravePinImage = { 
       url : 'http://maps.google.com/mapfiles/ms/icons/red-dot.png', 
@@ -37,6 +38,7 @@ export class GraveRegistrarsComponent implements OnInit {
       fontFamily: '',
       fontSize: '14px',
       fontWeight: 'bold',
+      text: 'empty'
     }
     this.isAdmin = false;
   }
