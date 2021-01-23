@@ -8,7 +8,7 @@
 
 <div class="folder card mb-3 border-primary">
     <div class="card-header text-center">
-        <h1>Record #{{registrar.id}}</h1>
+        <h1>Record #{{registrar.registrarId}}</h1>
     </div>
     <div class="card-body">
 
@@ -25,7 +25,6 @@
 
                 <div class="reg-details">
                     <h1>Registrar Details:</h1>
-
                     <table>
                         <tr>
                             <th>Religion:</th>
@@ -43,18 +42,42 @@
                             <th>Marital Status:</th>
                             <th>{{registrar.marriageStatus}}</th>
                         </tr>
+                        <tr>
+                          <th>Death Location:</th>
+                          <th>{{registrar.deathLocation}}</th>
+                        </tr>
+                        <tr>
+                          <th>Death Date:</th>
+                          <th>{{registrar.deathDate | slice:0:10}}</th>
+                        </tr>
+                        <tr>
+                          <th>Burial Date:</th>
+                          <th>{{registrar.burialDate | slice:0:10}}</th>
+                        </tr>
+                        <tr>
+                          <th>Sex:</th>
+                          <th>{{registrar.sex}}</th>
+                        </tr>
+                        <tr>
+                          <th>Internment Signature:</th>
+                          <th>{{registrar.internmentSignature}}</th>
+                        </tr>
+                        <tr>
+                          <th>Registrar Name:</th>
+                          <th>{{registrar.registrarName}}</th>
+                        </tr>
+                        
+
                     </table>
                 </div>
               </div>
 
               <div class="col-sm">
-                <div class="top">
-                    <a href="#" *ngIf="!getIsAdmin()" id="edit-registrar-button" routerLink="../graveDetails" class="nav-link btn btn-primary btn-lg" routerLinkActive="active">Edit Registrar Record</a><br />
-                    <a href="#" id="update-registrar-info-link" routerLink="../graveDetails" routerLinkActive="active">Please report any inaccurate information by clicking here</a>
+                <div>
+                    <a href="#" *ngIf="getIsAdmin()" id="edit-registrar-button" routerLink="../graveDetails" class="nav-link btn btn-primary btn-lg" routerLinkActive="active">Edit Registrar Record</a><br />
+                    <a href="#" style="display:none;" id="update-registrar-info-link" routerLink="../graveDetails" routerLinkActive="active">Please report any inaccurate information by clicking here</a>
                 </div>
-
-                <!--<img class="img-fluid map-img" src="../../../assets/images/grave-location.png" alt="Grave Location"/>-->
-                
+         
                 <agm-map [latitude]="54.021166" [longitude]="-6.393735" [mapTypeId]="'satellite'" [zoom]="19">
                   <agm-marker [latitude]="54.021166" [longitude]="-6.393735" [iconUrl]="gravePinImage" [label]="labelOptions">
                     <agm-info-window [disableAutoPan]="true" [isOpen]="true">
