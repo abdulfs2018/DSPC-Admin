@@ -10,29 +10,29 @@
           <label class="col-md-1 col-form-label pt-3" for="firstName">First Name:
           </label>
           <div class="col-md-5">
-            <input type="text" class="form-control" formControlName="firstName" />
+            <input type="text" class="form-control" formControlName="firstName" id="firstName" />
           </div>
 
-          <label class="col-md-1 col-form-label pt-3" for="firstName">Last Name:
+          <label class="col-md-1 col-form-label pt-3" for="lastName">Last Name:
           </label>
           <div class="col-md-5">
-            <input type="text" class="form-control" formControlName="lastName" />
+            <input type="text" class="form-control" formControlName="lastName" id="lastName" />
           </div>
         </div>
       </div>
 
       <div id="advanceSearch" style="display: none;">
         <div class="form-group form-row col-md-12 justify-content-center">
-          <label class="col-md-1 col-form-label pt-3" for="firstName">Occupation:
+          <label class="col-md-1 col-form-label pt-3" for="occupation">Occupation:
           </label>
           <div class="col-md-5">
-            <input type="text" class="form-control" formControlName="occupation" />
+            <input type="text" class="form-control" formControlName="occupation" id="occupation" />
           </div>
 
-          <label class="col-md-1 col-form-label pt-3" for="firstName">Registrar Name:
+          <label class="col-md-1 col-form-label pt-3" for="registrarName">Registrar Name:
           </label>
           <div class="col-md-5">
-            <input type="text" class="form-control" formControlName="registrarName" />
+            <input type="text" class="form-control" formControlName="registrarName" id="registrarName" />
           </div>
         </div>
 
@@ -40,17 +40,17 @@
           <label class="col-md-1 col-form-label p-3" for="gender">Gender:</label>
 
           <div class="col-md-3">
-            <select class="custom-select" formControlName="gender">
+            <select class="custom-select" formControlName="gender" id="gender">
               <option selected>Select Gender</option>
-              <option *ngFor="let g of gender" [ngValue]="g">
+              <option *ngFor="let g of gender" value="{{g}}">
                 {{ g }}
               </option>
             </select>
           </div>
 
-          <label class="col-md-1 col-form-label p-3" for="Age">Age:</label>
+          <label class="col-md-1 col-form-label p-3" for="age">Age:</label>
           <div class="col-md-3">
-            <select class="custom-select">
+            <select class="custom-select" id="age">
               <option selected>Select Age</option>
               <option *ngFor="let in of counter(151); let i = index" value="{{i}}">{{ i }}</option>
             </select>
@@ -58,11 +58,10 @@
 
           <label class="col-md-1 col-form-label p-3" for="Religion">Religion:</label>
           <div class="col-md-3">
-            <select class="custom-select" formControlName="religion">
+            <select class="custom-select" formControlName="religion" id="religion">
               <option selected>Select Religion</option>
-              <option *ngFor="let r of religion" [ngValue]="r">
+              <option *ngFor="let r of religion" value="{{r}}">
                 {{ r}}
-              </option>
             </select>
           </div>
         </div>
@@ -70,19 +69,19 @@
         <div class="form-group form-row col-md-12 justify-content-center">
           <label class="col-md-1 col-form-label pt-3" for="death date">Death Date</label>
           <div class="col-md-5">
-            <input class="form-control" id="person-death-date" type="date" formControlName="deathDate" />
+            <input class="form-control" id="person-death-date" type="date" formControlName="deathDate" id="deathDate" />
           </div>
 
           <label class="col-md-1 col-form-label pt-3" for="burial date">Burial Date</label>
           <div class="col-md-5">
-            <input class="form-control" id="person-burial-date" type="date" formControlName="burialDate" />
+            <input class="form-control" id="person-burial-date" type="date" formControlName="burialDate" id="burialDate" />
           </div>
         </div>
       </div>
 
       <div class="form-row">
         <button
-          (click)="displaySearchResults()"
+          (click)="searchGraveRecords()"
           type="submit"
           id="person-submit"
           class="btn btn-primary mr-3"
@@ -111,12 +110,12 @@
       <div class="form-group form-row col-md-12">
         <label class="col-md-2 col-form-label" for="grave reference code">Grave Reference Code:</label>
         <div class="col-md-4">
-          <input class="form-control" id="grave-reference-code" type="text" formControlName="referenceCode" />
+          <input class="form-control" id="grave-reference-code" type="text" formControlName="referenceCode" id="referenceCode" />
         </div>
 
         <label class="col-md-1 col-form-label" for="grave size">Grave Size:</label>
         <div class="col-md-4">
-          <select class="custom-select" id="grave-size" formControlName="graveSize">
+          <select class="custom-select" id="grave-size" formControlName="graveSize" id="graveSize">
             <option selected>Select Grave Size</option>
             <option *ngFor="let gs of graveSize" [ngValue]="gs">
               {{ gs }}
@@ -125,12 +124,12 @@
         </div>
         <label class="col-md-2 col-form-label" for="grave owner name">Grave Owner Name:</label>
         <div class="col-md-4">
-          <input class="form-control" id="grave-owner-name" type="text" formControlName="ownerName" />
+          <input class="form-control" id="grave-owner-name" type="text" formControlName="ownerName" id="ownerName" />
         </div>
 
         <label class="col-md-1 col-form-label" for="grave owner address">Grave Owner Address:</label>
         <div class="col-md-4">
-          <input class="form-control" id="grave-owner-address" type="text" formControlName="ownerAddress" />
+          <input class="form-control" id="grave-owner-address" type="text" formControlName="ownerAddress" id="ownerName" />
         </div>
       </div>
       <div class="form-row">

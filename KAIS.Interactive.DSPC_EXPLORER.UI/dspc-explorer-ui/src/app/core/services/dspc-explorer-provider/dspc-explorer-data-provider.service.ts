@@ -21,6 +21,7 @@ export class DSPCExplorerDataProvider {
   }
 
   public SearchRecords(searchFilter: SearchFilterDTO): Observable<Array<RegistrarDTO>> {
+
     return this.apiWrapperService.SearchRecords(searchFilter);
   }
 
