@@ -25,6 +25,7 @@
     "@angular/platform-browser-dynamic": "~8.2.8",
     "@angular/router": "~8.2.8",
     "@ng-bootstrap/ng-bootstrap": "^5.3.1",
+    "@types/scriptjs": "0.0.2",
     "@types/underscore": "^1.10.24",
     "angular-bootstrap-lightbox": "^0.12.0",
     "bootstrap": "^4.5.3",
@@ -32,6 +33,7 @@
     "ngx-webstorage-service": "^4.1.0",
     "rxjs": "~6.4.0",
     "rxjs-compat": "^6.6.0",
+    "scriptjs": "^2.5.9",
     "tslib": "^1.14.1",
     "underscore": "^1.12.0",
     "zone.js": "~0.9.1"

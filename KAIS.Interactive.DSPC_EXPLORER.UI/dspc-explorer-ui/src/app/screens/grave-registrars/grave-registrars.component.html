@@ -78,7 +78,7 @@
                     <a href="#" style="display:none;" id="update-registrar-info-link" routerLink="../graveDetails" routerLinkActive="active">Please report any inaccurate information by clicking here</a>
                 </div>
          
-                <agm-map [latitude]="54.021166" [longitude]="-6.393735" [mapTypeId]="'satellite'" [zoom]="19">
+                <agm-map [latitude]="54.021166" [longitude]="-6.393735" [mapTypeId]="'satellite'" [zoom]="19" (mapReady)="mapLoad($event)">
                   <agm-marker [latitude]="54.021166" [longitude]="-6.393735" [iconUrl]="gravePinImage" [label]="labelOptions">
                     <agm-info-window [disableAutoPan]="true" [isOpen]="true">
                       <div>
