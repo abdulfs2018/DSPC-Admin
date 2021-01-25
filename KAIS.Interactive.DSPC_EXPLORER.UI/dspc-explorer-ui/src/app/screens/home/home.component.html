@@ -4,8 +4,8 @@
   <div class="container">
     <h1>Searching Graves By Person Details</h1>
     <form method="POST" target="./home" [formGroup]="searchForm">
-      <div class="form-row">
-
+      
+      <div id="simpleSearch">
         <div class="form-group form-row col-md-12 justify-content-center">
           <label class="col-md-1 col-form-label pt-3" for="firstName">First Name:
           </label>
@@ -37,29 +37,26 @@
         </div>
 
         <div class="form-group form-row col-md-12 justify-content-center">
-          <label class="col-md-1 col-form-label p-3" for="gender">Gender:</label>
+          <label class="col-md-1 col-form-label pt-3" for="gender">Gender:</label>
 
           <div class="col-md-3">
             <select class="custom-select" formControlName="gender" id="gender">
-              <option selected>Select Gender</option>
               <option *ngFor="let g of gender" value="{{g}}">
                 {{ g }}
               </option>
             </select>
           </div>
 
-          <label class="col-md-1 col-form-label p-3" for="age">Age:</label>
+          <label class="col-md-1 col-form-label pt-3" for="age">Age:</label>
           <div class="col-md-3">
             <select class="custom-select" id="age">
-              <option selected>Select Age</option>
               <option *ngFor="let in of counter(151); let i = index" value="{{i}}">{{ i }}</option>
             </select>
           </div>
 
-          <label class="col-md-1 col-form-label p-3" for="Religion">Religion:</label>
+          <label class="col-md-1 col-form-label pt-3" for="Religion">Religion:</label>
           <div class="col-md-3">
             <select class="custom-select" formControlName="religion" id="religion">
-              <option selected>Select Religion</option>
               <option *ngFor="let r of religion" value="{{r}}">
                 {{ r}}
             </select>
