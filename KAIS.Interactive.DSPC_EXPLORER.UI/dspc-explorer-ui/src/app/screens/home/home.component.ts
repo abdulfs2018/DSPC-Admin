@@ -93,7 +93,7 @@ export class HomeComponent implements OnInit {
           graveRefCode: e.graveOwner.graveReferenceCode,
           buttonText: "View Selected Grave Details",
           graveSize: e.graveOwner.graveSize,
-          imageSource: "grave-headstone-sample.jpg",
+          imageSource: "grave-headstone-sample.png",
           graveCoordinates: e.graveOwner.graveLocation,
           graveSection: e.graveOwner.section.code
         };
