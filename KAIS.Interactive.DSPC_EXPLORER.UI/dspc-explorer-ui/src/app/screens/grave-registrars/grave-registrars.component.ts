@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { DSPCExplorerLocalStorageProvider } from 'src/app/core/services/dspc-explorer-provider/dspc-explorer-storage-provider';
 import { RegistrarDTO } from 'src/app/core/dtos/registrar.model';
+import { get } from "scriptjs";
+declare var klokantech;
 
 @Component({
   selector: 'app-grave-registrars',
@@ -41,6 +43,16 @@ export class GraveRegistrarsComponent implements OnInit {
       text: 'empty'
     }
     this.isAdmin = false;
+  }
+
+  public mapLoad(map) {
+    this.renderGeolocationControl(map);
+  }
+
+  public renderGeolocationControl(map) {
+    get('https://cdn.klokantech.com/maptilerlayer/v1/index.js', () => {
+      const geoloccontrol = new klokantech.GeolocationControl(map, 19);
+    });
   }
 
   getIsAdmin(): boolean {
