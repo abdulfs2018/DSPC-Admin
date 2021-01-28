@@ -1,0 +1,117 @@
+.login-form {
+  background-image: url("../../../assets/images/LoginbackgroundImage.jpg");
+  padding-bottom: 8%;
+  padding-top: 2%;
+  color: black;
+}
+
+.form-group i {
+  position: absolute;
+}
+
+.input-icons {
+  width: 100%;
+  margin-bottom: 10px;
+}
+.fa-user,
+.fa-lock {
+  padding: 10px;
+  color: black;
+  min-width: 50px;
+  text-align: center;
+}
+.form-control {
+  width: 100%;
+  padding-left: 45px;
+  padding-bottom: 10px;
+  text-align: left;
+}
+.login-btn-block {
+  width: 75%;
+}
+.form-border {
+  border: 3px solid black;
+  border-radius: 10px;
+  margin: 0 17%;
+  padding: 6% 10%;
+  background-color: white;
+  // background-color: #1976d2;
+  // box-shadow: 0 0 15px 12px red;
+}
+::placeholder {
+  color: black;
+}
+
+input[type="email"] {
+  border: 1px solid black;
+  border-radius: 15px;
+  background-color: transparent;
+  color: black;
+}
+
+input[type="email"]:focus,
+input[type="password"]:focus {
+  background-color: transparent;
+  color: black;
+}
+
+input[type="password"] {
+  border: 1px solid black;
+  border-radius: 15px;
+  background-color: transparent;
+}
+
+.social-sign-up {
+  text-align: center;
+  margin: 5%;
+}
+
+.fa {
+  padding: 5px;
+  font-size: 20px;
+  width: 40px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px;
+}
+
+.fa-facebook,
+.fa-twitter,
+.fa-google {
+  font-size: 24px;
+  color: white;
+  border-radius: 40px;
+}
+
+.fa-facebook {
+  background: blue;
+  border: 1px blue solid;
+  padding-right: 30px;
+  padding-top: 11px;
+  padding-left: 16px;
+  padding-bottom: 12px;
+}
+
+.fa-twitter {
+  background: lightskyblue;
+  border: 1px lightskyblue solid;
+  padding-right: 33px;
+  padding-top: 11px;
+  padding-left: 14px;
+  padding-bottom: 11px;
+}
+.fa-google {
+  background: red;
+  border: 1px red solid;
+  padding-right: 34px;
+  padding-top: 10px;
+  padding-left: 13px;
+  padding-bottom: 10px;
+}
+
+.fa-arrow-left {
+  color: white;
+}
+.homeButton {
+  margin-bottom: 3%;
+}

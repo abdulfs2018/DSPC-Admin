@@ -1,0 +1,103 @@
+<div id="home-button-div">
+    <a href="#"
+      routerLink="/home"
+      routerLinkActive="active">
+      <i class="fa fa-arrow-left"></i>Return Home
+    </a>
+  </div>
+
+<div class="folder card mb-3 border-primary">
+    <div class="card-header text-center">
+        <h1>Record #{{registrar.registrarId}}</h1>
+    </div>
+    <div class="card-body">
+
+        <div class="container-xl">
+            <div class="row">
+              <div class="col-sm">
+                
+                <div class="top">
+                    <img class="img-fluid user-img" src="../../../assets/images/anon-user.png" alt="Anonymous User"/>
+                </div>
+                   
+                <h1>{{registrar.firstName}} {{registrar.lastName}}</h1>
+                <h2>Date of Death: {{getDate()}}</h2>
+
+                <div class="reg-details">
+                    <h1>Registrar Details:</h1>
+                    <table>
+                        <tr>
+                            <th>Religion:</th>
+                            <th>{{registrar.religion}}</th>
+                        </tr>
+                        <tr>
+                            <th>Age:</th>
+                            <th>{{registrar.age}} {{registrar.ageDetail}}</th>
+                        </tr>
+                        <tr>
+                            <th>Occupation:</th>
+                            <th>{{registrar.occupation}}</th>
+                        </tr>
+                        <tr>
+                            <th>Marital Status:</th>
+                            <th>{{registrar.marriageStatus}}</th>
+                        </tr>
+                        <tr>
+                          <th>Death Location:</th>
+                          <th>{{registrar.deathLocation}}</th>
+                        </tr>
+                        <tr>
+                          <th>Death Date:</th>
+                          <th>{{registrar.deathDate | slice:0:10}}</th>
+                        </tr>
+                        <tr>
+                          <th>Burial Date:</th>
+                          <th>{{registrar.burialDate | slice:0:10}}</th>
+                        </tr>
+                        <tr>
+                          <th>Sex:</th>
+                          <th>{{registrar.sex}}</th>
+                        </tr>
+                        <tr>
+                          <th>Internment Signature:</th>
+                          <th>{{registrar.internmentSignature}}</th>
+                        </tr>
+                        <tr>
+                          <th>Registrar Name:</th>
+                          <th>{{registrar.registrarName}}</th>
+                        </tr>
+                        
+
+                    </table>
+                </div>
+              </div>
+
+              <div class="col-sm">
+                <div>
+                    <a href="#" *ngIf="getIsAdmin()" id="edit-registrar-button" routerLink="../graveDetails" class="nav-link btn btn-primary btn-lg" routerLinkActive="active">Edit Registrar Record</a><br />
+                    <a href="#" style="display:none;" id="update-registrar-info-link" routerLink="../graveDetails" routerLinkActive="active">Please report any inaccurate information by clicking here</a>
+                </div>
+         
+                <agm-map [latitude]="54.021166" [longitude]="-6.393735" [mapTypeId]="'satellite'" [zoom]="19" (mapReady)="mapLoad($event)">
+                  <agm-marker [latitude]="54.021166" [longitude]="-6.393735" [iconUrl]="gravePinImage" [label]="labelOptions">
+                    <agm-info-window [disableAutoPan]="true" [isOpen]="true">
+                      <div>
+                          <span class="window-title"><b>{{this.graveOwnerLastName}} Family Grave</b></span>
+                      </div>
+                    </agm-info-window>
+                  </agm-marker>
+                  <agm-marker [latitude]="54.021039" [longitude]="-6.394452" [iconUrl]="entrancePinImage" [label]="labelOptions">
+                    <agm-info-window [disableAutoPan]="true" [isOpen]="true">
+                      <div>
+                          <span class="window-title"><b>Graveyard Entrance</b></span>
+                      </div>
+                    </agm-info-window>
+                  </agm-marker>
+                </agm-map>
+
+              </div>
+            </div>
+          </div>
+      
+    </div>
+  </div>

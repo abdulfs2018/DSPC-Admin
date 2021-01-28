@@ -1,0 +1,36 @@
+/*.edit-registrar-button {
+    position: absolute;
+    top: 25%;
+    right: 10%;
+}
+
+.view-registrar-button {
+    position: absolute;
+    top: 25%;
+    right: 20%;
+}
+
+a {
+    margin:auto;
+    padding: 10px 20px;
+    background-color: #f44336;
+    border: 1px solid #ddd;
+    color: white !important;
+    cursor: pointer;
+
+    &:hover {
+        background-color:#941f16;
+    }
+}*/
+
+@media (max-width: 991px) {
+    
+    h4 {
+        text-align: center;
+    }
+    
+    .btn {
+        margin-top: 5%;
+        font-family: Avenir Next;
+    }
+}

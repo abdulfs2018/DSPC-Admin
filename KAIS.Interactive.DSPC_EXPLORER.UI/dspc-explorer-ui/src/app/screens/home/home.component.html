@@ -1,0 +1,149 @@
+<app-header></app-header>
+
+<div id="person-search" style="display: block;">
+  <div class="container">
+    <h1>Searching Graves By Person Details</h1>
+    <form method="POST" target="./home" [formGroup]="searchForm">
+      
+      <div id="simpleSearch">
+        <div class="form-group form-row col-md-12 justify-content-center">
+          <label class="col-md-1 col-form-label pt-3" for="firstName">First Name:
+          </label>
+          <div class="col-md-5">
+            <input type="text" class="form-control" formControlName="firstName" id="firstName" />
+          </div>
+
+          <label class="col-md-1 col-form-label pt-3" for="lastName">Last Name:
+          </label>
+          <div class="col-md-5">
+            <input type="text" class="form-control" formControlName="lastName" id="lastName" />
+          </div>
+        </div>
+      </div>
+
+      <div id="advanceSearch" style="display: none;">
+        <div class="form-group form-row col-md-12 justify-content-center">
+          <label class="col-md-1 col-form-label pt-3" for="occupation">Occupation:
+          </label>
+          <div class="col-md-5">
+            <input type="text" class="form-control" formControlName="occupation" id="occupation" />
+          </div>
+
+          <label class="col-md-1 col-form-label pt-3" for="registrarName">Registrar Name:
+          </label>
+          <div class="col-md-5">
+            <input type="text" class="form-control" formControlName="registrarName" id="registrarName" />
+          </div>
+        </div>
+
+        <div class="form-group form-row col-md-12 justify-content-center">
+          <label class="col-md-1 col-form-label pt-3" for="gender">Gender:</label>
+
+          <div class="col-md-3">
+            <select class="custom-select" formControlName="gender" id="gender">
+              <option *ngFor="let g of gender" value="{{g}}">
+                {{ g }}
+              </option>
+            </select>
+          </div>
+
+          <label class="col-md-1 col-form-label pt-3" for="age">Age:</label>
+          <div class="col-md-3">
+            <select class="custom-select" id="age">
+              <option *ngFor="let in of counter(151); let i = index" value="{{i}}">{{ i }}</option>
+            </select>
+          </div>
+
+          <label class="col-md-1 col-form-label pt-3" for="Religion">Religion:</label>
+          <div class="col-md-3">
+            <select class="custom-select" formControlName="religion" id="religion">
+              <option *ngFor="let r of religion" value="{{r}}">
+                {{ r}}
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group form-row col-md-12 justify-content-center">
+          <label class="col-md-1 col-form-label pt-3" for="death date">Death Date</label>
+          <div class="col-md-5">
+            <input class="form-control" id="person-death-date" type="date" formControlName="deathDate" id="deathDate" />
+          </div>
+
+          <label class="col-md-1 col-form-label pt-3" for="burial date">Burial Date</label>
+          <div class="col-md-5">
+            <input class="form-control" id="person-burial-date" type="date" formControlName="burialDate" id="burialDate" />
+          </div>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <button
+          (click)="searchGraveRecords()"
+          type="submit"
+          id="person-submit"
+          class="btn btn-primary mr-3"
+        >
+          Search Graves
+        </button>
+        <button (click)="toggleDivs('person-search', 'grave-search')" id="grave-button" style="display: none;"
+          class="btn btn-danger">
+          Search By Graves
+        </button>
+      </div>
+      <div class="form-group">
+        <div class="custom-control custom-switch">
+          <input (click)="advanceSearchToggle()" type="checkbox" class="custom-control-input" id="customSwitch1" />
+          <label class="custom-control-label" for="customSwitch1">Advance Search</label>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div id="grave-search" style="display: none;">
+  <div class="container">
+    <h1>Searching Graves By Grave Details</h1>
+    <form method="POST" target="./home" [formGroup]="searchForm">
+      <div class="form-group form-row col-md-12">
+        <label class="col-md-2 col-form-label" for="grave reference code">Grave Reference Code:</label>
+        <div class="col-md-4">
+          <input class="form-control" id="grave-reference-code" type="text" formControlName="referenceCode" id="referenceCode" />
+        </div>
+
+        <label class="col-md-1 col-form-label" for="grave size">Grave Size:</label>
+        <div class="col-md-4">
+          <select class="custom-select" id="grave-size" formControlName="graveSize" id="graveSize">
+            <option selected>Select Grave Size</option>
+            <option *ngFor="let gs of graveSize" [ngValue]="gs">
+              {{ gs }}
+            </option>
+          </select>
+        </div>
+        <label class="col-md-2 col-form-label" for="grave owner name">Grave Owner Name:</label>
+        <div class="col-md-4">
+          <input class="form-control" id="grave-owner-name" type="text" formControlName="ownerName" id="ownerName" />
+        </div>
+
+        <label class="col-md-1 col-form-label" for="grave owner address">Grave Owner Address:</label>
+        <div class="col-md-4">
+          <input class="form-control" id="grave-owner-address" type="text" formControlName="ownerAddress" id="ownerName" />
+        </div>
+      </div>
+      <div class="form-row">
+        <button (click)="toggleDisplay()" type="submit" id="person-submit" class="btn btn-primary mr-3">
+          Search Graves
+        </button>
+        <button (click)="toggleDivs('person-search', 'grave-search')" id="grave-button" style="display: block;"
+          class="btn btn-danger">
+          Search By People
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+<app-search-result
+  *ngIf="display"
+  title="Search Results"
+  subtitle="Click a Grave for More Details"
+></app-search-result>
+<app-footer></app-footer>

@@ -1,0 +1,42 @@
+div {
+  background-color: #f2f2f2;
+  padding-bottom: 10px;
+}
+.form-group i {
+  position: absolute;
+}
+
+.input-icons {
+  width: 100%;
+  margin-bottom: 10px;
+}
+.form-control-lg {
+  width: 100%;
+  padding-left: 45px;
+  padding-bottom: 10px;
+  text-align: left;
+}
+.fa-search {
+  padding: 10px;
+  color: gray;
+  min-width: 50px;
+  text-align: center;
+}
+
+#grave-submit {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
+
+#person-search,
+#grave-search {
+  position: relative;
+  padding: 4%;
+  padding-bottom: 8%;
+}
+
+// #grave-button,
+// #person-button {
+//   margin-left: 0px;
+// }

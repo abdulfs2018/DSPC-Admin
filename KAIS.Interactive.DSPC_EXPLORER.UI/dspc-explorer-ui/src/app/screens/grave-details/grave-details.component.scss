@@ -1,0 +1,36 @@
+.folder {
+    border: 3px solid;
+}
+
+.registrar-list {
+    margin: 0 15px;
+}
+
+.folder, .registrar-list {
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+.grave-overview-key {
+    font-size: 20px;
+    font-family: Avenir Next;
+}
+
+.container-xl {
+    max-width: 2400px;
+    width:90%;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.card {
+    border: 3px solid;
+}
+
+#home-button-div {
+    margin: 5vh 0 0 5vh;
+    a {
+        font-size: 30px;
+    }
+}

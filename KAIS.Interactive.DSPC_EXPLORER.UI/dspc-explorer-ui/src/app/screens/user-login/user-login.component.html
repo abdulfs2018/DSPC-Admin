@@ -1,0 +1,75 @@
+<div class="login-form">
+  <div class="container">
+    <div class="homeButton">
+      <a href="#"
+        routerLink="/home"
+        routerLinkActive="active"
+        style="font-size: 30px; color: white;">
+        <i class="fa fa-arrow-left" style="font-size: 30px;"></i>Return Home
+      </a>
+    </div>
+    <!-- form box -->
+    <div class="form-border">
+      <div class="row">
+        <div class="col-sm-8 offset-sm-2">
+          <h2 class="mb-5">Login</h2>
+
+          <form>
+            <div class="form-group">
+              <div class="input-icons" style="font-size: 24px;">
+                <i class="fa fa-user"></i>
+                <input
+                  [(ngModel)]="contact.name"
+                  type="email"
+                  name="email"
+                  class="form-control"
+                  id="name"
+                  aria-describedby="nameHelp"
+                  placeholder="Enter email address"
+                />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <i class="fa fa-lock" style="font-size: 24px;"></i>
+              <input
+                [(ngModel)]="contact.pass"
+                type="password"
+                name="password"
+                class="form-control"
+                id="password"
+                aria-describedby="emailHelp"
+                placeholder="Enter password"
+              />
+            </div>
+          </form>
+          <div class="form-check mb-5 mr-sm-2">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              id="inlineFormCheck"
+            />
+            <label class="form-check-label" for="inlineFormCheck">
+              Remember me
+            </label>
+          </div>
+
+          <button
+            class="btn btn-lg btn-danger btn-block"
+            (click)="createContact()"
+          >
+            Login
+          </button>
+
+          <div class="social-sign-up">
+            <p class="mb-4 mt-5">Or Sign up using</p>
+            <i class="fa fa-facebook"></i>
+            <i class="fa fa-twitter"></i>
+            <i class="fa fa-google"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end of form box-->
+  </div>
+</div>

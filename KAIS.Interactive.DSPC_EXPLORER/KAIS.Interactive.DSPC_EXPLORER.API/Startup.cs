@@ -1,5 +1,4 @@
-﻿
-using KAIS.Interactive.DSPC_EXPLORER.API.Utilities;
+﻿using KAIS.Interactive.DSPC_EXPLORER.API.Utilities;
 using KAIS.Interactive.DSPC_EXPLORER.Infrastructure;
 using KAIS.Interactive.DSPC_EXPLORER.Infrastructure.Interface;
 using KAIS.Interactive.DSPC_EXPLORER.Infrastructure.Model;
@@ -10,6 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 
 namespace KAIS.Interactive.DSPC_EXPLOERER.API
@@ -30,11 +30,15 @@ namespace KAIS.Interactive.DSPC_EXPLOERER.API
             services.AddDbContext<DSPC_ExplorerDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddDefaultIdentity<IdentityUser>()
-                .AddEntityFrameworkStores<DSPC_ExplorerDbContext>();
+            services.AddIdentityCore<IdentityUser>();
+            services.AddDbContext<DSPC_ExplorerDbContext>();
+
+            services.AddControllersWithViews().AddNewtonsoftJson(options =>
+                options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
+
             services.AddScoped<IDSPC_Repository, DSPC_Repository>();
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
 
             services.AddSwaggerGen(sgen =>
             {
@@ -42,10 +46,11 @@ namespace KAIS.Interactive.DSPC_EXPLOERER.API
             });
 
             services.AddCors();
+            services.AddMvc(option => option.EnableEndpointRouting = false);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
@@ -80,6 +85,7 @@ namespace KAIS.Interactive.DSPC_EXPLOERER.API
                         .AllowAnyHeader();
 
             });
+            
             app.UseMvc();
         }
     }

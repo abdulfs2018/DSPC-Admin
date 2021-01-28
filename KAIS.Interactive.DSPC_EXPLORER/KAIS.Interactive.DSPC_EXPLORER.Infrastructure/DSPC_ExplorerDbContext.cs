@@ -1,7 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure.Model
 {
@@ -18,6 +16,23 @@ namespace KAIS.Interactive.DSPC_EXPLORER.Infrastructure.Model
         public DbSet<Section> Sections { get; set; }
         public DbSet<GraveOwner> GraveOwners { get; set; }
         public DbSet<Registrar> Registrars { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            //modelBuilder.SeedInitialSections();
+            //modelBuilder.SeedInitialGraveOwners();
+            //modelBuilder.SeedIntialRegistrars();
+            modelBuilder.SeedSectionCSV();
+            List<GraveOwner> graveOwners = modelBuilder.SeedGraveOwnerCSV();
+            modelBuilder.SeedRegistrarCSV(graveOwners);
+
+        }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            // more detailed debugging when running update-database or dotnet ef database update commands
+            optionsBuilder.EnableSensitiveDataLogging();
+        }
 
     }
 }
